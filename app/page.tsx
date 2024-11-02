@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Header } from "@/components/header";
 import { MenuSidebar } from "@/components/menu-sidebar";
+
+import AIInput_01 from "@/components/custom/ai-input-01";
 import AIInput_02 from "@/components/custom/ai-input-02";
 import AIInput_04 from "@/components/custom/ai-input-04";
 import AIInput_05 from "@/components/custom/ai-input-05";
@@ -17,7 +19,6 @@ import AIInput_13 from "@/components/custom/ai-input-13";
 import AIInput_14 from "@/components/custom/ai-input-14";
 import AIInput_15 from "@/components/custom/ai-input-15";
 import AIInput_16 from "@/components/custom/ai-input-16";
-import AIInput_01 from "@/components/custom/ai-input-01";
 import AIInput_03 from "@/components/custom/ai-input-03";
 import AIInput_17 from "@/components/custom/ai-input-17";
 import AIInput_19 from "@/components/custom/ai-input-19";

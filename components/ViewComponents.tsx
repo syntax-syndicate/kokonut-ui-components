@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ComponentItem } from "./ComponentItem";
 
 interface Component {
@@ -14,10 +15,12 @@ interface ViewComponentsProps {
 
 export function ViewComponents({ components }: ViewComponentsProps) {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 w-full">
-            {components.map((item) => (
-                <ComponentItem key={item.id} item={item} />
-            ))}
-        </div>
+        <Suspense fallback={null}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 w-full">
+                {components.map((item) => (
+                    <ComponentItem key={item.id} item={item} />
+                ))}
+            </div>
+        </Suspense>
     );
 }

@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { CopyOverlay } from "./copy-overlay";
 import { AnimatePresence } from "framer-motion";
 import { CopyButton } from "./copy-button";
@@ -10,30 +8,19 @@ interface CopyWrapperProps {
 }
 
 export function CopyWrapper({ text }: CopyWrapperProps) {
-    const [isLoading, startTransition] = useTransition();
+    const [showOverlay, setShowOverlay] = useState(false);
 
-    const handleCopy = async () => {
-        try {
-            startTransition(async () => {
-                const res = await fetch(`/api/components?fileName=${text}`, {
-                    cache: "force-cache",
-                });
-                const data = await res.json();
-                if (data.text) {
-                    await navigator.clipboard.writeText(data.text);
-                    await new Promise((resolve) => setTimeout(resolve, 1000));
-                }
-            });
-        } catch (err) {
-            console.error("Failed to copy:", err);
-        }
+    const handleCopy = () => {
+        setShowOverlay(true);
+        navigator.clipboard.writeText(text);
+        setTimeout(() => setShowOverlay(false), 1000);
     };
 
     return (
         <>
-            <CopyButton onClick={handleCopy} isCopied={isLoading} />
+            <CopyButton onClick={handleCopy} />
             <AnimatePresence>
-                <CopyOverlay show={isLoading} />
+                <CopyOverlay show={showOverlay} />
             </AnimatePresence>
         </>
     );
