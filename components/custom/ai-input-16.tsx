@@ -144,7 +144,7 @@ export default function AIInput_16() {
                     />
 
                     {inputState.suggestions.length > 0 && (
-                        <div className="absolute left-0 right-0 bottom-full mb-2 bg-black/5 dark:bg-white/5 rounded-lg border border-black/10 dark:border-white/10 p-2">
+                        <div className="absolute left-0 right-0 bottom-full mb-2 bg-black dark:bg-black rounded-lg shadow-lg border border-white/10 overflow-hidden z-50">
                             {inputState.suggestions.map((suggestion) => (
                                 <button
                                     type="button"
@@ -152,10 +152,12 @@ export default function AIInput_16() {
                                     onClick={() =>
                                         handleSuggestionClick(suggestion)
                                     }
-                                    className="w-full text-left p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-md text-sm flex items-center gap-2 dark:text-white"
+                                    className="w-full text-left px-3 py-2.5 hover:bg-white/10 text-sm flex items-center gap-2"
                                 >
-                                    <Sparkles className="w-3 h-3 text-yellow-500" />
-                                    {suggestion}
+                                    <Sparkles className="w-4 h-4 text-white/50" />
+                                    <span className="font-medium text-white/70">
+                                        {suggestion}
+                                    </span>
                                 </button>
                             ))}
                         </div>
