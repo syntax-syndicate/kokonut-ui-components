@@ -1,0 +1,2 @@
+Kokonut
+A collection of modern, interactive AI prompt input fields. Each component showcases different features and interaction patterns for AI chat interfaces.
