@@ -33,4 +33,4 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Developed by @dorian_baffier.
+Developed by [@dorian](https://x.com/dorian_baffier)
