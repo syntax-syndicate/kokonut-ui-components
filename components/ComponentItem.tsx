@@ -21,13 +21,18 @@ export function ComponentItem({ item }: ComponentItemProps) {
         >
             <div className="mb-4 sm:mb-6 space-y-2">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center justify-between sm:justify-start gap-2">
                         <h3 className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
                             Component {item.id + 1}
                         </h3>
+                        <div className="block sm:hidden">
+                            <CopyWrapper text={item.fileName} />
+                        </div>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                        <CopyWrapper text={item.fileName} />
+                        <div className="hidden sm:block">
+                            <CopyWrapper text={item.fileName} />
+                        </div>
                         {item.dependencies && (
                             <div className="flex flex-wrap gap-1">
                                 {item.dependencies.map((dep, index) => (
