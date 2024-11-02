@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <a href="https://kokonut.dev" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: light)" srcset="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/logo-text-black-5nhu7g0JeNUhIuSzJyMXc11GATRT5V.png">
+      <source media="(prefers-color-scheme: dark)" srcset="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/logo-text-white-ny4myAjOAftDwH1fsmwyA265oUcecd.png">
+      <img alt="Tailwind CSS" src="https://raw.githubusercontent.com/kokonut-labs/kokonutui/refs/heads/main/public/logo-black.svg" width="250" height="80" style="max-width: 100%;">
+    </picture>
+  </a>
+</p>
+
+## Overview
+
+Access a collection of free-to-use, standalone components with KokonutUI. Each component is designed with TailwindCSS, ShadCN, and optional animations powered by Framer Motion.
 
 ## Getting Started
 
-First, run the development server:
+KokonutUI components are meant to be use with Next.js projects that use TailwindCSS and ShadCN. However they are also compatible with any React Project.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Browse the components.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Copy and paste the component you want to use.
+Some components require additional libraries, like Framer Motion. If required, these libraries are listed right after the copy-paste button.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+They are no way to contribute for now.
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+This project is licensed under the MIT License.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Developed by @dorian_baffier.
