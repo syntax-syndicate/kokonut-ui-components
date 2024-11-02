@@ -12,14 +12,16 @@
 
 Access a collection of free-to-use, standalone components with KokonutUI. Each component is designed with TailwindCSS, ShadCN, and optional animations powered by Framer Motion.
 
+![KokonutUI](https://ferf1mheo22r9ira.public.blob.vercel-storage.com/intro-7o9ffrw4AtH1YC39yYZp3cdZmpAFys.png)
+
 ## Getting Started
 
-KokonutUI components are meant to be use with Next.js projects that use TailwindCSS and ShadCN. However they are also compatible with any React Project.
+KokonutUI components are meant to be use with Next.js projects that use TailwindCSS and shadcn. However they are also compatible with any React Project.
 
-## Browse the components.
+-   **Copy and Paste**: Select and copy the component code you want to use.
 
-Copy and paste the component you want to use.
-Some components require additional libraries, like Framer Motion. If required, these libraries are listed right after the copy-paste button.
+-   **Check Requirements**: Some components need additional libraries (e.g., Framer Motion). Required libraries are listed at the top-right corner of each component.
+-   **Customize as Needed**: Modify styles and animations to match your project’s look and feel or simply use the default one.
 
 ## Contributing
 
