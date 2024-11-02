@@ -167,7 +167,7 @@ export function Header({
                                 whileTap={{ scale: 1.0 }}
                             >
                                 <Link
-                                    href="https://github.com/yourusername/yourrepo"
+                                    href="https://github.com/kokonut-labs/kokonutui"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`
