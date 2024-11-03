@@ -10,7 +10,7 @@ import {
     Sparkles,
 } from "lucide-react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const MODES = {
     command: {
@@ -118,7 +118,7 @@ export default function AIInput_16() {
                                     activeMode: mode as any,
                                 }))
                             }
-                            className={clsx(
+                            className={cn(
                                 "p-2 rounded-lg transition-all flex items-center gap-2",
                                 {
                                     "bg-black/5 dark:bg-white/5 text-black dark:text-white":
@@ -193,7 +193,7 @@ export default function AIInput_16() {
                         </div>
                         <button
                             type="button"
-                            className={clsx(
+                            className={cn(
                                 "p-2 rounded-lg transition-all",
                                 inputState.value.trim().length > 0 ||
                                     inputState.activeCommand

@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 export default function AIInput_13() {
     const [value, setValue] = useState("");
@@ -41,7 +41,7 @@ export default function AIInput_13() {
                             className="absolute right-3 top-1/2 -translate-y-1/2 rounded-xl bg-black/5 dark:bg-white/5 p-1"
                         >
                             <ArrowRight
-                                className={clsx(
+                                className={cn(
                                     "w-4 h-4 dark:text-white",
                                     value ? "opacity-100" : "opacity-30"
                                 )}

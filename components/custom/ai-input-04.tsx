@@ -3,8 +3,8 @@
 import { Globe, Paperclip, Send } from "lucide-react";
 import { useRef, useState } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function AIInput_4() {
     const [value, setValue] = useState("");
@@ -50,7 +50,7 @@ export default function AIInput_4() {
                         onClick={() => {
                             setShowSearch(!showSearch);
                         }}
-                        className={clsx(
+                        className={cn(
                             "rounded-full transition-all flex items-center gap-2 px-1.5 py-1 border h-8",
                             showSearch
                                 ? "bg-sky-500/15 border-sky-400 text-sky-500"
@@ -79,7 +79,7 @@ export default function AIInput_4() {
                                 }}
                             >
                                 <Globe
-                                    className={clsx(
+                                    className={cn(
                                         "w-4 h-4",
                                         showSearch
                                             ? "text-sky-500"
@@ -106,7 +106,7 @@ export default function AIInput_4() {
                 <div className="absolute right-3 bottom-3">
                     <button
                         type="submit"
-                        className={clsx(
+                        className={cn(
                             "rounded-lg p-2 transition-colors",
                             value
                                 ? "bg-sky-500/15 text-sky-500"

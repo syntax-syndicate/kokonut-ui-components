@@ -3,7 +3,7 @@
 import { CornerRightUp, Mic } from "lucide-react";
 import { useState, useRef } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 export default function AIInput_01() {
     const [inputValue, setInputValue] = useState("");
@@ -29,7 +29,7 @@ export default function AIInput_01() {
                 />
 
                 <div
-                    className={clsx(
+                    className={cn(
                         "absolute top-1/2 -translate-y-1/2 rounded-xl bg-black/5 dark:bg-white/5 py-1 px-1 transition-all duration-200",
                         inputValue ? "right-10" : "right-3"
                     )}
@@ -38,7 +38,7 @@ export default function AIInput_01() {
                 </div>
                 <button
                     type="button"
-                    className={clsx(
+                    className={cn(
                         "absolute top-1/2 -translate-y-1/2 rounded-xl bg-black/5 dark:bg-white/5 py-1 px-1 transition-all duration-700",
                         inputValue
                             ? "block right-3 animate-slide-in cursor-pointer"

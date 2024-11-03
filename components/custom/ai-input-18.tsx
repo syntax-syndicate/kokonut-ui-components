@@ -3,7 +3,7 @@
 import { Send } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 export default function AIInput_18() {
     const [inputValue, setInputValue] = useState("");
@@ -47,7 +47,7 @@ export default function AIInput_18() {
 
                 <button
                     type="button"
-                    className={clsx(
+                    className={cn(
                         "flex items-center justify-center rounded-full bg-black/50 dark:bg-white/50 p-3 transition-opacity duration-300",
                         inputValue
                             ? "opacity-100 bg-black/80 dark:bg-white/80 cursor-pointer"

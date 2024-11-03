@@ -3,7 +3,7 @@
 import { ArrowRight, Brain, Mic, Paperclip, TriangleAlert } from "lucide-react";
 import { useRef, useState } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 export default function AIInput_15() {
     const [value, setValue] = useState("");
@@ -35,26 +35,28 @@ export default function AIInput_15() {
                         className="flex items-center gap-2 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
                     >
                         <Brain
-                            className={clsx(
+                            className={cn(
                                 "w-4 h-4",
-                                useMemory 
-                                    ? "text-blue-500 dark:text-blue-400" 
+                                useMemory
+                                    ? "text-blue-500 dark:text-blue-400"
                                     : "text-black/40 dark:text-white/40"
                             )}
                         />
                         <span>Memory</span>
                         <div
-                            className={clsx(
+                            className={cn(
                                 "relative inline-flex h-5 w-9 items-center rounded-full transition-colors",
-                                useMemory 
-                                    ? "bg-blue-500 dark:bg-blue-400" 
+                                useMemory
+                                    ? "bg-blue-500 dark:bg-blue-400"
                                     : "bg-black/20 dark:bg-white/20"
                             )}
                         >
                             <div
-                                className={clsx(
+                                className={cn(
                                     "absolute h-4 w-4 transform rounded-full bg-white transition-transform shadow-sm",
-                                    useMemory ? "translate-x-4" : "translate-x-1"
+                                    useMemory
+                                        ? "translate-x-4"
+                                        : "translate-x-1"
                                 )}
                             />
                         </div>
@@ -86,7 +88,7 @@ export default function AIInput_15() {
                         <button
                             type="button"
                             onClick={() => setIsRecording(!isRecording)}
-                            className={clsx(
+                            className={cn(
                                 "rounded-lg p-2 transition-all",
                                 isRecording
                                     ? "bg-red-500 text-white"
@@ -105,10 +107,12 @@ export default function AIInput_15() {
                         type="button"
                         className="absolute right-3 bottom-3 rounded-lg p-2 bg-black/5 dark:bg-white/5"
                     >
-                        <ArrowRight className={clsx(
-                            "w-4 h-4 dark:text-white",
-                            value ? "opacity-100" : "opacity-30"
-                        )} />
+                        <ArrowRight
+                            className={cn(
+                                "w-4 h-4 dark:text-white",
+                                value ? "opacity-100" : "opacity-30"
+                            )}
+                        />
                     </button>
                 </div>
 

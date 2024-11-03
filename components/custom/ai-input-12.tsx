@@ -9,7 +9,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "../ui/tooltip";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const AVATARS = Array.from({ length: 4 }, (_, i) => ({
     src: `/av${String(i + 1).padStart(2, "0")}.png`,
@@ -30,7 +30,6 @@ export default function AIInput_12() {
     return (
         <div className="w-full py-4">
             <div className="flex flex-col">
-                {/* Avatar Section with Shared Text */}
                 <div className="flex items-center bg-white/50 dark:bg-transparent backdrop-blur-sm px-2 justify-between">
                     <div className="text-xs text-black/50 dark:text-white/50">
                         Shared with 4 peoples
@@ -65,7 +64,6 @@ export default function AIInput_12() {
                     </div>
                 </div>
 
-                {/* Input Section */}
                 <div className="bg-black/5 dark:bg-white/5 rounded-xl">
                     <div className="relative px-2 py-2">
                         <Textarea
@@ -90,7 +88,7 @@ export default function AIInput_12() {
                             className="absolute right-3 top-1/2 -translate-y-1/2 rounded-xl bg-black/5 dark:bg-white/5 p-1"
                         >
                             <ArrowRight
-                                className={clsx(
+                                className={cn(
                                     "w-4 h-4 dark:text-white",
                                     value ? "opacity-100" : "opacity-30"
                                 )}
@@ -99,7 +97,6 @@ export default function AIInput_12() {
                     </div>
                 </div>
 
-                {/* Writing indicator */}
                 <div className="text-xs text-black/50 dark:text-white/50 px-2 py-1">
                     {`${AVATARS[0].nickname}, ${AVATARS[2].nickname}${
                         value ? ` and ${AVATARS[3].nickname}` : ""

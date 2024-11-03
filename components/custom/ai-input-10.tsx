@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const AI_MODELS = [
     { name: "GPT-4", description: "The popular kid" },
@@ -86,10 +86,8 @@ export default function AIInput_10() {
     return (
         <div className="w-full py-4">
             <div className="rounded-xl bg-black/5 dark:bg-white/5">
-                {/* Header */}
                 <div className="border-b border-black/10 dark:border-white/10">
                     <div className="flex justify-between items-center px-4 py-2 text-sm text-zinc-600 dark:text-zinc-400">
-                        {/* Model Selector */}
                         <div className="relative" data-model-menu>
                             <button
                                 type="button"
@@ -134,7 +132,6 @@ export default function AIInput_10() {
                             )}
                         </div>
 
-                        {/* Privacy Toggle */}
                         <button
                             type="button"
                             onClick={() =>
@@ -142,7 +139,7 @@ export default function AIInput_10() {
                                     isPrivacyMode: !state.isPrivacyMode,
                                 })
                             }
-                            className={clsx(
+                            className={cn(
                                 "flex items-center gap-2 p-1.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5",
                                 state.isPrivacyMode
                                     ? "text-green-600"
@@ -236,7 +233,7 @@ export default function AIInput_10() {
                         className="absolute right-3 top-1/2 -translate-y-1/2 rounded-xl bg-black/5 dark:bg-white/5 p-1"
                     >
                         <ArrowRight
-                            className={clsx(
+                            className={cn(
                                 "w-4 h-4 dark:text-white",
                                 state.value ? "opacity-100" : "opacity-30"
                             )}

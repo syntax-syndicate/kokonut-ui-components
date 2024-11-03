@@ -4,7 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Sparkles, Lightbulb, Bug, Zap, Paperclip, Send } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const QUICK_ACTIONS = [
     { label: "Summarize", icon: Sparkles },
@@ -66,7 +66,7 @@ export default function AIInput_19() {
         <div className="w-full py-4 min-h-[244px]">
             <div className="relative">
                 <div
-                    className={clsx(
+                    className={cn(
                         "relative bg-black/5 dark:bg-white/5 rounded-lg transition-all duration-300 ease-in-out",
                         "min-h-[56px]",
                         isFocused && "rounded-b-none"
@@ -76,7 +76,7 @@ export default function AIInput_19() {
                         <Textarea
                             value={value}
                             placeholder="Click to open dropdown..."
-                            className={clsx(
+                            className={cn(
                                 "w-full rounded-lg px-3 pr-16 text-sm border-none dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60 resize-none focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent min-h-[40px] py-4",
                                 !value && "overflow-hidden"
                             )}
@@ -89,7 +89,7 @@ export default function AIInput_19() {
                         />
 
                         <div
-                            className={clsx(
+                            className={cn(
                                 "absolute right-2 flex items-center gap-1 transition-all duration-300",
                                 "top-1/2 -translate-y-1/2"
                             )}
@@ -101,7 +101,7 @@ export default function AIInput_19() {
                             <button
                                 type="submit"
                                 onClick={handleSubmit}
-                                className={clsx(
+                                className={cn(
                                     "rounded-md p-1.5 transition-colors flex items-center justify-center",
                                     value
                                         ? "bg-sky-500/15 text-sky-500"
@@ -147,7 +147,7 @@ export default function AIInput_19() {
                                     ease: [0.4, 0, 0.2, 1],
                                 },
                             }}
-                            className={clsx(
+                            className={cn(
                                 "relative bg-black/5 dark:bg-white/5 rounded-lg overflow-hidden",
                                 "min-h-[56px]",
                                 "rounded-t-none"

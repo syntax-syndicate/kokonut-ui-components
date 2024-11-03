@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { useState, useRef } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const ITEMS = [
     {
@@ -87,7 +87,7 @@ export default function AIInput_03() {
                         onKeyDown={handleKeyDown}
                     />
                     <CornerRightDown
-                        className={clsx(
+                        className={cn(
                             "absolute right-3 top-3 w-4 h-4 transition-all duration-200 dark:text-white",
                             inputValue
                                 ? "opacity-100 scale-100"
@@ -99,7 +99,7 @@ export default function AIInput_03() {
                             <button
                                 type="button"
                                 onClick={() => setSelectedItem(null)}
-                                className={clsx(
+                                className={cn(
                                     "inline-flex items-center gap-1.5",
                                     "border shadow-sm rounded-md px-2 py-0.5 text-xs font-medium",
                                     "animate-fadeIn hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-200",
@@ -124,7 +124,7 @@ export default function AIInput_03() {
                         <button
                             type="button"
                             key={text}
-                            className={clsx(
+                            className={cn(
                                 "px-3 py-1.5 text-xs font-medium rounded-full",
                                 "border transition-all duration-200",
                                 "border-black/10 dark:border-white/10 bg-white dark:bg-gray-900 hover:bg-black/5 dark:hover:bg-white/5"
@@ -133,7 +133,7 @@ export default function AIInput_03() {
                         >
                             <div className="flex items-center gap-1.5 w-fit">
                                 <Icon
-                                    className={clsx("h-4 w-fit", colors.icon)}
+                                    className={cn("h-4 w-fit", colors.icon)}
                                 />
                                 <span className="text-black/70 dark:text-white/70 w-fit whitespace-nowrap">
                                     {text}

@@ -3,7 +3,7 @@
 import { ArrowRight, Brain } from "lucide-react";
 import { useRef, useState } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 export default function AIInput_14() {
     const [value, setValue] = useState("");
@@ -44,7 +44,7 @@ export default function AIInput_14() {
                             className="absolute right-3 top-1/2 -translate-y-1/2 rounded-xl bg-black/5 dark:bg-white/5 p-1"
                         >
                             <ArrowRight
-                                className={clsx(
+                                className={cn(
                                     "w-4 h-4 dark:text-white",
                                     value ? "opacity-100" : "opacity-30"
                                 )}
@@ -53,7 +53,6 @@ export default function AIInput_14() {
                     </div>
                 </div>
 
-                {/* Memory Toggle - moved outside and below */}
                 <div className="flex justify-end">
                     <button
                         type="button"
@@ -61,24 +60,24 @@ export default function AIInput_14() {
                         className="flex items-center gap-2 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
                     >
                         <Brain
-                            className={clsx(
+                            className={cn(
                                 "w-4 h-4",
-                                useMemory 
-                                    ? "text-blue-500 dark:text-blue-400" 
+                                useMemory
+                                    ? "text-blue-500 dark:text-blue-400"
                                     : "text-black/40 dark:text-white/40"
                             )}
                         />
                         <span>Memory</span>
                         <div
-                            className={clsx(
+                            className={cn(
                                 "relative inline-flex h-5 w-9 items-center rounded-full transition-colors",
-                                useMemory 
-                                    ? "bg-blue-500 dark:bg-blue-400" 
+                                useMemory
+                                    ? "bg-blue-500 dark:bg-blue-400"
                                     : "bg-black/20 dark:bg-white/20"
                             )}
                         >
                             <div
-                                className={clsx(
+                                className={cn(
                                     "absolute h-4 w-4 transform rounded-full transition-transform shadow-sm",
                                     useMemory
                                         ? "translate-x-4 bg-white dark:bg-white"

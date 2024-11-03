@@ -3,7 +3,7 @@
 import { ArrowRight, Bot } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const AI_AGENTS = [
     { name: "Copywriter Agent", description: "Write anything you want" },
@@ -52,7 +52,6 @@ export default function AIInput_11() {
             <div className="rounded-xl bg-black/5 dark:bg-white/5">
                 <div className="relative">
                     <div className="px-2 pt-2 pb-2 flex items-center">
-                        {/* Agent Selector Button */}
                         <button
                             type="button"
                             onClick={() =>
@@ -65,7 +64,6 @@ export default function AIInput_11() {
                             <Bot className="w-4 h-4 dark:text-white" />
                         </button>
 
-                        {/* Small Vertical Divider */}
                         <div className="h-6 w-[1px] bg-black/10 dark:bg-white/10 mx-2" />
 
                         <Textarea
@@ -85,14 +83,13 @@ export default function AIInput_11() {
                             onKeyDown={handleKeyDown}
                         />
 
-                        {/* Send Button */}
                         <div className="absolute right-3 top-1/2 -translate-y-1/2">
                             <button
                                 type="button"
                                 className="rounded-xl bg-black/5 dark:bg-white/5 p-1"
                             >
                                 <ArrowRight
-                                    className={clsx(
+                                    className={cn(
                                         "w-4 h-4 dark:text-white",
                                         state.value
                                             ? "opacity-100"
@@ -103,7 +100,6 @@ export default function AIInput_11() {
                         </div>
                     </div>
 
-                    {/* Model Indicator below textarea */}
                     <div className="absolute -bottom-5 left-1 flex items-center gap-1.5 text-[10px] text-muted-foreground dark:text-white/50">
                         <span>{state.selectedModel}</span>
                     </div>
@@ -126,7 +122,6 @@ export default function AIInput_11() {
                                     }}
                                     className="w-full px-3 py-1.5 text-left hover:bg-black/5 dark:hover:bg-white/5 flex items-center gap-2"
                                 >
-                                    {/* {model.icon} */}
                                     <div>
                                         <div className="text-sm dark:text-white">
                                             {model.name}

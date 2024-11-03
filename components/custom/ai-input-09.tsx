@@ -3,7 +3,7 @@
 import { Plus, Mic, File, Camera, X, ArrowRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 interface FileDisplayProps {
     fileName: string;
@@ -99,7 +99,6 @@ export default function AIInput_09() {
                 )}
 
                 <div className="relative">
-                    {/* Plus button and menu */}
                     <div className="absolute left-3 top-1/2 -translate-y-1/2 action-menu-container">
                         <button
                             type="button"
@@ -109,7 +108,6 @@ export default function AIInput_09() {
                             <Plus className="w-4 h-4 dark:text-white" />
                         </button>
 
-                        {/* Action Menu */}
                         {isMenuOpen && (
                             <div className="absolute left-0 top-full mt-1 bg-white dark:bg-zinc-800 rounded-lg shadow-lg py-1 min-w-[140px] z-50 border border-black/10 dark:border-white/10">
                                 <button
@@ -169,7 +167,7 @@ export default function AIInput_09() {
                         type="button"
                     >
                         <ArrowRight
-                            className={clsx(
+                            className={cn(
                                 "w-4 h-4 transition-opacity dark:text-white",
                                 inputValue ? "opacity-100" : "opacity-30"
                             )}

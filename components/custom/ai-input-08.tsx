@@ -2,7 +2,7 @@
 
 import { Mic } from "lucide-react";
 import { useState, useEffect } from "react";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 export default function AIInput_08() {
     const [submitted, setSubmitted] = useState(false);
@@ -71,7 +71,7 @@ export default function AIInput_08() {
         <div className="w-full py-4">
             <div className="relative max-w-xl w-full mx-auto flex items-center flex-col gap-2">
                 <button
-                    className={clsx(
+                    className={cn(
                         "group w-16 h-16 rounded-xl flex items-center justify-center transition-colors",
                         submitted
                             ? "bg-none"
@@ -91,7 +91,7 @@ export default function AIInput_08() {
                 </button>
 
                 <span
-                    className={clsx(
+                    className={cn(
                         "font-mono text-sm transition-opacity duration-300",
                         submitted
                             ? "text-black/70 dark:text-white/70"
@@ -105,7 +105,7 @@ export default function AIInput_08() {
                     {[...Array(48)].map((_, i) => (
                         <div
                             key={i}
-                            className={clsx(
+                            className={cn(
                                 "w-0.5 rounded-full transition-all duration-300",
                                 submitted
                                     ? "bg-black/50 dark:bg-white/50 animate-pulse"

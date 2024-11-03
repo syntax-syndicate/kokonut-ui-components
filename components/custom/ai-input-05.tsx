@@ -3,8 +3,7 @@
 import { CornerRightUp } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
-
+import { cn } from "@/lib/utils";
 const TEXT = "What can i do for you?";
 const SPEED = 30;
 
@@ -80,7 +79,7 @@ export default function AIInput_05() {
                     type="button"
                 >
                     <CornerRightUp
-                        className={clsx(
+                        className={cn(
                             "w-4 h-4 transition-opacity dark:text-white",
                             {
                                 "opacity-100": inputValue,

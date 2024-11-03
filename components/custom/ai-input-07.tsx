@@ -3,7 +3,7 @@
 import { CornerRightUp } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Textarea } from "../ui/textarea";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 export default function AIInput_07() {
     const [inputValue, setInputValue] = useState("");
@@ -52,7 +52,7 @@ export default function AIInput_07() {
                         disabled={submitted}
                     />
                     <button
-                        className={clsx(
+                        className={cn(
                             "absolute right-3 top-1/2 -translate-y-1/2 rounded-xl py-1 px-1",
                             submitted ? "bg-none" : "bg-black/5 dark:bg-white/5"
                         )}
@@ -65,7 +65,7 @@ export default function AIInput_07() {
                             />
                         ) : (
                             <CornerRightUp
-                                className={clsx(
+                                className={cn(
                                     "w-4 h-4 transition-opacity dark:text-white",
                                     inputValue ? "opacity-100" : "opacity-30"
                                 )}

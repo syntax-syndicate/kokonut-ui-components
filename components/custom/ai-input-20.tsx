@@ -4,7 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { Command } from "cmdk";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageSquare, Wand2, Search, SendHorizontal } from "lucide-react";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const COMMANDS = [
     {
@@ -135,8 +135,9 @@ export default function AIInput_20() {
                             className="flex-1 bg-transparent border-none outline-none text-sm text-black dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60 ml-2"
                         />
                         <button
+                            type="button"
                             onClick={handleSubmit}
-                            className={clsx(
+                            className={cn(
                                 "p-1.5 rounded-md transition-colors",
                                 inputValue || activeCommand
                                     ? "bg-sky-500/15 text-sky-500"
