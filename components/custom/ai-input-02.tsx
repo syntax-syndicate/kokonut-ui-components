@@ -82,7 +82,7 @@ export default function AIInput_02() {
 
                     <Textarea
                         id="input-01"
-                        placeholder="Upload a file or chat with me!"
+                        placeholder="File Upload and Chat!"
                         className="max-w-xl bg-black/5 dark:bg-white/5 w-full rounded-3xl pl-14 pr-16 placeholder:text-black/70 dark:placeholder:text-white/70 border-none ring-black/30 dark:ring-white/30 text-black dark:text-white text-wrap py-4 max-h-[200px] overflow-y-auto resize-none min-h-[40px]"
                         rows={1}
                         ref={textareaRef}

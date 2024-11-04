@@ -118,7 +118,7 @@ export default function AIInput_03() {
                     )}
                 </div>
             </div>
-            <div className="flex gap-1.5 mt-2 max-w-sm mx-auto justify-center">
+            <div className="flex flex-wrap gap-1.5 mt-2 max-w-xl mx-auto justify-start px-4">
                 {ITEMS.filter((item) => item.text !== selectedItem).map(
                     ({ text, icon: Icon, colors }) => (
                         <button
@@ -127,15 +127,16 @@ export default function AIInput_03() {
                             className={cn(
                                 "px-3 py-1.5 text-xs font-medium rounded-full",
                                 "border transition-all duration-200",
-                                "border-black/10 dark:border-white/10 bg-white dark:bg-gray-900 hover:bg-black/5 dark:hover:bg-white/5"
+                                "border-black/10 dark:border-white/10 bg-white dark:bg-gray-900 hover:bg-black/5 dark:hover:bg-white/5",
+                                "flex-shrink-0"
                             )}
                             onClick={() => toggleItem(text)}
                         >
-                            <div className="flex items-center gap-1.5 w-fit">
+                            <div className="flex items-center gap-1.5">
                                 <Icon
-                                    className={cn("h-4 w-fit", colors.icon)}
+                                    className={cn("h-4 w-4", colors.icon)}
                                 />
-                                <span className="text-black/70 dark:text-white/70 w-fit whitespace-nowrap">
+                                <span className="text-black/70 dark:text-white/70 whitespace-nowrap">
                                     {text}
                                 </span>
                             </div>
