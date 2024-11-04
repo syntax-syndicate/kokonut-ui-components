@@ -77,7 +77,7 @@ export default function AIInput_19() {
                             value={value}
                             placeholder="Click to open dropdown..."
                             className={cn(
-                                "w-full rounded-lg px-3 pr-16 text-sm border-none dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60 resize-none focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent min-h-[40px] py-4",
+                                "w-full rounded-lg px-3 pr-16 border-none dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60 resize-none focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent min-h-[40px] py-4",
                                 !value && "overflow-hidden"
                             )}
                             rows={1}

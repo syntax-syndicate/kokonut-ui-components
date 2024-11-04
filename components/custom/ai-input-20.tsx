@@ -132,7 +132,7 @@ export default function AIInput_20() {
                                     ? "Type your message..."
                                     : "Type / for commands..."
                             }
-                            className="flex-1 bg-transparent border-none outline-none text-sm text-black dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60 ml-2"
+                            className="flex-1 bg-transparent border-none outline-none text-md text-black dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60 ml-2"
                         />
                         <button
                             type="button"
