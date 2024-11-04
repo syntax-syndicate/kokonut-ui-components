@@ -18,17 +18,6 @@ Access a collection of free-to-use, standalone components with KokonutUI. Each c
 
 KokonutUI components are meant to be use with Next.js projects that use TailwindCSS and shadcn. However they are also compatible with any React Project.
 
--   **Prerequisites**: add the following code in lib/utils.ts
-
-```ts
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
-}
-```
-
 -   **Copy and Paste**: Select and copy the component code you want to use.
 
 -   **Check Requirements**: Some components need additional libraries (e.g., Framer Motion, Lucide React). Required libraries are listed at the top-right corner of each component.
