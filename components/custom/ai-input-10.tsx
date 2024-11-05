@@ -216,7 +216,7 @@ export default function AIInput_10() {
                         ref={textareaRef}
                         value={state.value}
                         placeholder="Type your message..."
-                        className="w-full rounded-xl pl-14 pr-10 border-none resize-none bg-transparent dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70 min-h-[40px]"
+                        className="w-full rounded-xl pl-14 pr-10 border-none resize-none bg-transparent dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70 min-h-[40px] focus-visible:ring-0 focus-visible:ring-offset-0"
                         rows={1}
                         onKeyDown={handleKeyDown}
                         onChange={(e) => {

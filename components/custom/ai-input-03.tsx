@@ -71,7 +71,7 @@ export default function AIInput_03() {
                         ref={textareaRef}
                         id="input-03"
                         placeholder="Enter your text here..."
-                        className="max-w-xl w-full rounded-2xl pr-10 pt-3 pb-16 placeholder:text-black/70 dark:placeholder:text-white/70 border-none focus:ring text-black dark:text-white resize-none text-wrap bg-transparent"
+                        className="max-w-xl w-full rounded-2xl pr-10 pt-3 pb-16 placeholder:text-black/70 dark:placeholder:text-white/70 border-none focus:ring text-black dark:text-white resize-none text-wrap bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                         value={inputValue}
                         rows={1}
                         onChange={(e) => {
@@ -133,9 +133,7 @@ export default function AIInput_03() {
                             onClick={() => toggleItem(text)}
                         >
                             <div className="flex items-center gap-1.5">
-                                <Icon
-                                    className={cn("h-4 w-4", colors.icon)}
-                                />
+                                <Icon className={cn("h-4 w-4", colors.icon)} />
                                 <span className="text-black/70 dark:text-white/70 whitespace-nowrap">
                                     {text}
                                 </span>
