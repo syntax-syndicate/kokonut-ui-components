@@ -69,7 +69,7 @@ export default function AIInput_11() {
                         <Textarea
                             id="input-01"
                             placeholder="Ask me anything!"
-                            className="max-w-xl w-full rounded-3xl pl-2 pr-10 placeholder:text-black/70 dark:placeholder:text-white/70 border-none ring-black/30 dark:ring-white/30 text-black dark:text-white resize-none text-wrap py-2 bg-transparent min-h-[36px]"
+                            className="max-w-xl w-full rounded-3xl pl-2 pr-10 placeholder:text-black/70 dark:placeholder:text-white/70 border-none ring-black/30 dark:ring-white/30 text-black dark:text-white resize-none text-wrap py-2 bg-transparent min-h-[36px] focus-visible:ring-0 focus-visible:ring-offset-0"
                             rows={1}
                             ref={textareaRef}
                             value={state.value}
