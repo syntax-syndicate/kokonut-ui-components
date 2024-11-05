@@ -27,7 +27,6 @@ export function ComponentItem({ item }: ComponentItemProps) {
                 /**
                  * Simulate for animation.
                  */
-                await new Promise((resolve) => setTimeout(resolve, 1000));
             });
         } catch (err) {
             console.error("Failed to copy:", err);
