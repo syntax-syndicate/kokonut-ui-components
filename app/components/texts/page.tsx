@@ -63,18 +63,6 @@ export default function Texts() {
                 folder="texts"
                 containerClassName="grid-cols-1 lg:grid-cols-3 gap-2"
             />
-
-            <div className="text-sm text-center text-zinc-600 dark:text-zinc-400">
-                Built by{" "}
-                <a
-                    href="https://x.com/dorian_baffier"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-900 dark:text-white hover:underline"
-                >
-                    @Dorian
-                </a>
-            </div>
         </div>
     );
 }

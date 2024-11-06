@@ -150,17 +150,6 @@ export default function AIInput() {
     return (
         <div className="grid grid-rows-[auto_1fr_20px] min-h-screen p-1 lg:p-4 gap-12 sm:p-16 pb-16">
             <ViewComponents components={components} folder="inputs" />
-            <div className="text-sm text-center text-zinc-600 dark:text-zinc-400">
-                Built by{" "}
-                <a
-                    href="https://x.com/dorian_baffier"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-900 dark:text-white hover:underline"
-                >
-                    @Dorian
-                </a>
-            </div>
         </div>
     );
 }
