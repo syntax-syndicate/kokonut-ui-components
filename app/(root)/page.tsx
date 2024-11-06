@@ -89,7 +89,7 @@ export default function Home() {
                     <div className="space-y-8">
                         <div className="text-center">
                             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
-                                Ecplore all components.
+                                Explore all components.
                             </h2>
                             <p className="mt-2 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
                                 From buttons to AI inputs, find the perfect
