@@ -34,15 +34,13 @@ async function writeFileRecursive(filePath: string, data: string) {
     }
 }
 
-const getComponentFiles = async (files: File[]) => {
+const getComponentFiles = async (files: File[], componentType: string) => {
     const filesArrayPromises = (files ?? []).map(async (file) => {
         if (typeof file === "string") {
             const filePath = `${REGISTRY_BASE_PATH}/${file}`;
             const fileContent = await fs.readFile(filePath, "utf-8");
             return {
-                type: FolderToComponentTypeMap[
-                    file.split("/")[0] as keyof typeof FolderToComponentTypeMap
-                ],
+                type: componentType,
                 content: fileContent,
                 path: file,
                 target: `${COMPONENT_FOLDER_PATH}/${file}`,
@@ -60,7 +58,7 @@ const main = async () => {
         const files = component.files;
         if (!files) throw new Error("No files found for component");
 
-        const filesArray = await getComponentFiles(files);
+        const filesArray = await getComponentFiles(files, component.type);
 
         const json = JSON.stringify(
             {
