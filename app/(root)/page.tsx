@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Btn03 } from "@/components/buttons/btn-03";
 import Text_01 from "@/components/texts/text-01";
 import AIInput_04 from "@/components/inputs/ai-input-04";
+import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
     const categories = [
@@ -87,11 +88,12 @@ export default function Home() {
 
                     <div className="space-y-8">
                         <div className="text-center">
-                            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-200">
-                                Component Categories
+                            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
+                                Ecplore all components.
                             </h2>
-                            <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-                                Browse our collection by category
+                            <p className="mt-2 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+                                From buttons to AI inputs, find the perfect
+                                component for your next project.
                             </p>
                         </div>
 
@@ -122,17 +124,6 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="text-sm text-center text-zinc-600 dark:text-zinc-400">
-                        Built by{" "}
-                        <a
-                            href="https://x.com/dorian_baffier"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-zinc-900 dark:text-white hover:underline"
-                        >
-                            @Dorian
-                        </a>
-                    </div>
                 </div>
             </div>
         </main>

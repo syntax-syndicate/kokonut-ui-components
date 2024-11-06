@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
 import { cn } from "@/lib/utils";
+import { Footer } from "@/components/layout/footer";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -62,6 +63,7 @@ export default function RootLayout({
                 <ThemeProvider attribute="class" disableTransitionOnChange>
                     <Header />
                     {children}
+                    <Footer />
                 </ThemeProvider>
                 <Analytics />
             </body>

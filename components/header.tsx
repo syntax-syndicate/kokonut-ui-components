@@ -41,20 +41,22 @@ export function Header() {
                     <div className="relative z-10 flex items-center justify-around w-full gap-2">
                         <div className="flex items-center gap-3">
                             <div className="flex items-center gap-2">
-                                <Image
-                                    src="/logo.svg"
-                                    alt="logo"
-                                    width={32}
-                                    height={32}
-                                    className="hidden dark:block"
-                                />
-                                <Image
-                                    src="/logo-black.svg"
-                                    alt="logo"
-                                    width={32}
-                                    height={32}
-                                    className="block dark:hidden"
-                                />
+                                <Link href="/">
+                                    <Image
+                                        src="/logo.svg"
+                                        alt="logo"
+                                        width={32}
+                                        height={32}
+                                        className="hidden dark:block"
+                                    />
+                                    <Image
+                                        src="/logo-black.svg"
+                                        alt="logo"
+                                        width={32}
+                                        height={32}
+                                        className="block dark:hidden"
+                                    />
+                                </Link>
                                 <span className="text-xs font-medium px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-200">
                                     Beta
                                 </span>

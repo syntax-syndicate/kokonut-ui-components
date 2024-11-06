@@ -1,5 +1,5 @@
 import ComponentNav from "@/components/component-nav";
-
+import { Footer } from "@/components/layout/footer";
 
 const categories = [
     {
@@ -35,9 +35,7 @@ export default function ComponentsLayout({
             <div className="z-40 flex-none">
                 <ComponentNav categories={categories} />
             </div>
-            <main className="flex-1 pt-32 md:pl-[260px]">
-                {children}
-            </main>
+            <main className="flex-1 pt-32 md:pl-[260px]">{children}</main>
         </div>
     );
 }
