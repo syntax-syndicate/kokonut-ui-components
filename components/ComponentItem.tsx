@@ -11,32 +11,15 @@ interface ComponentItemProps {
         fileName: string;
         dependencies?: string[];
     };
+    folder: string;
 }
 
-export function ComponentItem({ item }: ComponentItemProps) {
-    const [isLoading, startTransition] = useTransition();
-    const [rawText, setRawText] = useState("");
-    useEffect(() => {
-        try {
-            startTransition(async () => {
-                /**
-                 * Call server action
-                 */
-                const component = await getComponent(item.fileName);
-                setRawText(component);
-                /**
-                 * Simulate for animation.
-                 */
-            });
-        } catch (err) {
-            console.error("Failed to copy:", err);
-        }
-    }, [item]);
+export function ComponentItem({ item, folder }: ComponentItemProps) {
 
     return (
         <div
             id={`component-${item.id}`}
-            className="group relative w-full p-4 sm:p-6 lg:p-8 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 
+            className="group relative w-full p-4 my-2 sm:p-6 lg:p-8 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 
             backdrop-blur-sm shadow-xs transition-all duration-500
             hover:border-zinc-300 dark:hover:border-zinc-700"
         >
@@ -44,17 +27,20 @@ export function ComponentItem({ item }: ComponentItemProps) {
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <div className="flex items-center justify-between sm:justify-start gap-2">
                         <h3 className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                            Component {item.id + 1}
+                            Component {item.id}
                         </h3>
                         <div className="block sm:hidden">
-                            <CopyWrapper text={rawText} fileName={item.fileName} />
+                            <CopyWrapper
+                                fileName={item.fileName}
+                                folder={folder}
+                            />
                         </div>
                     </div>
                     <div className="flex flex-wrap gap-2">
                         <div className="hidden sm:block">
                             <CopyWrapper
-                                text={rawText}
                                 fileName={item.fileName}
+                                folder={folder}
                             />
                         </div>
                         {item.dependencies && (
@@ -84,7 +70,9 @@ export function ComponentItem({ item }: ComponentItemProps) {
                     dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-800 opacity-50"
                 />
             </div>
-            <div className="relative">{item.component}</div>
+            <div className="relative my-12 flex items-center justify-center">
+                {item.component}
+            </div>
         </div>
     );
 }
