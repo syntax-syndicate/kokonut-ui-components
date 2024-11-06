@@ -1,5 +1,3 @@
-"use client";
-
 import Text_01 from "@/components/texts/text-01";
 import Text_02 from "@/components/texts/text-02";
 import Text_03 from "@/components/texts/text-03";

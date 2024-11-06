@@ -1,5 +1,3 @@
-"use client";
-
 import Btn_01 from "@/components/buttons/btn-01";
 import { Btn02 } from "@/components/buttons/btn-02";
 import { Btn03 } from "@/components/buttons/btn-03";
@@ -53,13 +51,13 @@ export default function Buttons_View() {
             title: "Share Hover",
             component: (
                 <Btn07
-                    onProcess={async () => {
-                        await new Promise((resolve) =>
-                            setTimeout(resolve, 2000)
-                        );
-                        return Math.random() > 0.5;
-                    }}
-                    processDuration={2000}
+                // onProcess={async () => {
+                //     await new Promise((resolve) =>
+                //         setTimeout(resolve, 2000)
+                //     );
+                //     return Math.random() > 0.5;
+                // }}
+                // processDuration={2000}
                 />
             ),
             fileName: "btn-07.tsx",

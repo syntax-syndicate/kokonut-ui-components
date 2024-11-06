@@ -86,6 +86,11 @@ export function Header() {
                                         shadow-[0_2px_8px_-2px_rgba(0,0,0,0.12),inset_0_1px_0.5px_0.5px_rgba(255,255,255,0.15)]
                                         dark:shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08),inset_0_1px_0.5px_0.5px_rgba(255,255,255,0.6)]
                                         hover:shadow-[0_2px_12px_-2px_rgba(0,0,0,0.2),inset_0_1px_0.5px_0.5px_rgba(255,255,255,0.15)]
+                                        ${
+                                            !isScrolled
+                                                ? "opacity-0 pointer-events-none"
+                                                : "opacity-100"
+                                        }
                                     `}
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}

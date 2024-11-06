@@ -1,7 +1,6 @@
 import { getComponent } from "@/lib/action";
 import { CopyWrapper } from "@/lib/copy-wrapper";
-import { Package, Terminal } from "lucide-react";
-import { useEffect, useState, useTransition } from "react";
+import { Package } from "lucide-react";
 
 interface ComponentItemProps {
     item: {
@@ -14,7 +13,8 @@ interface ComponentItemProps {
     folder: string;
 }
 
-export function ComponentItem({ item, folder }: ComponentItemProps) {
+export async function ComponentItem({ item, folder }: ComponentItemProps) {
+    const text = await getComponent(item.fileName, folder);
 
     return (
         <div
@@ -30,18 +30,12 @@ export function ComponentItem({ item, folder }: ComponentItemProps) {
                             Component {item.id}
                         </h3>
                         <div className="block sm:hidden">
-                            <CopyWrapper
-                                fileName={item.fileName}
-                                folder={folder}
-                            />
+                            <CopyWrapper fileName={item.fileName} text={text} />
                         </div>
                     </div>
                     <div className="flex flex-wrap gap-2">
                         <div className="hidden sm:block">
-                            <CopyWrapper
-                                fileName={item.fileName}
-                                folder={folder}
-                            />
+                            <CopyWrapper fileName={item.fileName} text={text} />
                         </div>
                         {item.dependencies && (
                             <div className="flex flex-wrap gap-1">

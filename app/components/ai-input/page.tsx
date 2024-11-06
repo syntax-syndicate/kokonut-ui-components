@@ -1,5 +1,3 @@
-"use client";
-
 import AIInput_01 from "@/components/inputs/ai-input-01";
 import AIInput_02 from "@/components/inputs/ai-input-02";
 import AIInput_03 from "@/components/inputs/ai-input-03";
@@ -21,10 +19,9 @@ import AIInput_18 from "@/components/inputs/ai-input-18";
 import AIInput_19 from "@/components/inputs/ai-input-19";
 import AIInput_20 from "@/components/inputs/ai-input-20";
 import { ViewComponents } from "@/components/ViewComponents";
-import { useState } from "react";
 
 export default function AIInput() {
-    const [components, setComponents] = useState([
+    const components = [
         {
             id: 1,
             title: "Slide-in",
@@ -148,7 +145,7 @@ export default function AIInput() {
             fileName: "ai-input-20.tsx",
             dependencies: ["Framer Motion", "CMDK"],
         },
-    ]);
+    ];
 
     return (
         <div className="grid grid-rows-[auto_1fr_20px] min-h-screen p-1 lg:p-4 gap-12 sm:p-16 pb-16">
