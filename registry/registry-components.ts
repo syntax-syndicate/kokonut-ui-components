@@ -1,6 +1,6 @@
 import type { Registry } from "./schema";
 
-export const components: Registry = [
+export const component: Registry = [
     {
         name: "ai-input-01",
         type: "registry:component",
@@ -142,56 +142,56 @@ export const components: Registry = [
         files: ["components/ai-input-20.tsx"],
     },
     {
-        name: "button-01",
+        name: "btn-01",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
         files: ["components/btn-01.tsx"],
     },
     {
-        name: "button-02",
+        name: "btn-02",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
         files: ["components/btn-02.tsx"],
     },
     {
-        name: "button-03",
+        name: "btn-03",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
         files: ["components/btn-03.tsx"],
     },
     {
-        name: "button-04",
+        name: "btn-04",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
         files: ["components/btn-04.tsx"],
     },
     {
-        name: "button-05",
+        name: "btn-05",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
         files: ["components/btn-05.tsx"],
     },
     {
-        name: "button-06",
+        name: "btn-06",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
         files: ["components/btn-06.tsx"],
     },
     {
-        name: "button-07",
+        name: "btn-07",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
         files: ["components/btn-07.tsx"],
     },
     {
-        name: "button-08",
+        name: "btn-08",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],

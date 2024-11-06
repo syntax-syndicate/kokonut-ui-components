@@ -1,3 +1,4 @@
-import { components } from "./registry-components";
+import { component } from "./registry-components";
 
-export const registryComponents = [...components];
+export const registryComponents = [...component];
+
