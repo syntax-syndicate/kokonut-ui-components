@@ -12,8 +12,8 @@ export default function Text_01() {
             </div>
             <style>{`
                 .shimmer-text {
-                    --shimmer-color-start: #000;
-                    --shimmer-color-mid: #666;
+                    --shimmer-color-start: #334155;
+                    --shimmer-color-mid: #94a3b8;
                     background: linear-gradient(
                         90deg,
                         var(--shimmer-color-start) 0%,
@@ -31,7 +31,7 @@ export default function Text_01() {
 
                 @media (prefers-color-scheme: dark) {
                     .shimmer-text {
-                        --shimmer-color-start: #fff;
+                        --shimmer-color-start: #f1f5f9;
                         --shimmer-color-mid: #9333EA;
                     }
                 }

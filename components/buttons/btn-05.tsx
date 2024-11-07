@@ -64,10 +64,10 @@ export function Btn05({
         <Button
             className={cn(
                 "min-w-40 relative overflow-hidden",
-                "bg-cyan-50 dark:bg-cyan-950",
-                "hover:bg-cyan-100 dark:hover:bg-cyan-900",
-                "text-cyan-600 dark:text-cyan-300",
-                "border border-cyan-200 dark:border-cyan-800",
+                "bg-slate-50 dark:bg-cyan-950",
+                "hover:bg-slate-100 dark:hover:bg-cyan-900",
+                "text-slate-600 dark:text-cyan-300",
+                "border border-slate-200 dark:border-cyan-800",
                 "transition-colors duration-300",
                 isGlitching && "animate-pulse",
                 className
@@ -82,10 +82,10 @@ export function Btn05({
                     animate={[redLayerControls, greenLayerControls, blueLayerControls][index]}
                     className={cn(
                         "absolute inset-0 flex items-center justify-center gap-2",
-                        "mix-blend-screen",
-                        color === "red" && "text-red-500",
-                        color === "green" && "text-green-500",
-                        color === "blue" && "text-blue-500"
+                        "mix-blend-multiply dark:mix-blend-screen",
+                        color === "red" && "text-red-600 dark:text-red-500",
+                        color === "green" && "text-green-600 dark:text-green-500",
+                        color === "blue" && "text-blue-600 dark:text-blue-500"
                     )}
                 >
                     <Zap className="w-4 h-4" />

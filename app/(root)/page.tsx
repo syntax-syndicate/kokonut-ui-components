@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Btn03 } from "@/components/buttons/btn-03";
-import Text_01 from "@/components/texts/text-01";
 import AIInput_04 from "@/components/inputs/ai-input-04";
-import { Footer } from "@/components/layout/footer";
+import Text_02 from "@/components/texts/text-02";
 
 export default function Home() {
     const categories = [
@@ -11,7 +10,7 @@ export default function Home() {
             id: 1,
             title: "Text Components",
             href: "/components/texts",
-            component: <Text_01 />,
+            component: <Text_02 text="Sliced" />,
             count: 6,
         },
         {
@@ -123,7 +122,6 @@ export default function Home() {
                             ))}
                         </div>
                     </div>
-
                 </div>
             </div>
         </main>
