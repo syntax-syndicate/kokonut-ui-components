@@ -38,14 +38,18 @@ export function Btn08({
                 mass: 1,
             },
         }),
-        exit: {
+        exit: (custom: number) => ({
             width: smallButtonWidth,
-            x: buttonWidth / 2,
+            x: 0,
             opacity: 0,
             transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 25,
+                mass: 1,
                 duration: 0.2,
             },
-        },
+        }),
     };
 
     return (

@@ -13,7 +13,10 @@ interface Btn07Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Btn07({
     className,
-    onProcess,
+    onProcess = async () => {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        return Math.random() > 0.5;
+    },
     processDuration = 2000,
     ...props
 }: Btn07Props) {

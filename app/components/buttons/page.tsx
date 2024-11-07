@@ -15,30 +15,35 @@ export default function Buttons_View() {
             title: "Hold to Action",
             component: <Btn_01 />,
             fileName: "btn-01.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 2,
             title: "Power Up",
             component: <Btn02 />,
             fileName: "btn-02.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 3,
             title: "Attract",
             component: <Btn03 />,
             fileName: "btn-03.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 4,
             title: "Cursor Blob",
             component: <Btn04 />,
             fileName: "btn-04.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 5,
             title: "Glitch",
             component: <Btn05 />,
             fileName: "btn-05.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 6,
@@ -48,25 +53,17 @@ export default function Buttons_View() {
         },
         {
             id: 7,
-            title: "Share Hover",
-            component: (
-                <Btn07
-                // onProcess={async () => {
-                //     await new Promise((resolve) =>
-                //         setTimeout(resolve, 2000)
-                //     );
-                //     return Math.random() > 0.5;
-                // }}
-                // processDuration={2000}
-                />
-            ),
+            title: "Processing",
+            component: <Btn07 />,
             fileName: "btn-07.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 8,
             title: "Share",
             component: <Btn08 />,
             fileName: "btn-08.tsx",
+            dependencies: ["Framer Motion"],
         },
     ];
 

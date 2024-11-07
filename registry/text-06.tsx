@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 
 interface SwooshTextProps {
     text?: string;
@@ -22,7 +21,7 @@ export function Text_06({ text = "HONGDAE", className = "" }: SwooshTextProps) {
                 </defs>
             </svg>
 
-            <motion.div
+            <div
                 className={cn(
                     "relative text-3xl font-bold text-black dark:text-white",
                     className
@@ -67,7 +66,7 @@ export function Text_06({ text = "HONGDAE", className = "" }: SwooshTextProps) {
 
                 {/* Main text */}
                 <span className="relative italic text-emerald-400">{text}</span>
-            </motion.div>
+            </div>
         </div>
     );
 }

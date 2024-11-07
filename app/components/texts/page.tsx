@@ -13,38 +13,40 @@ export default function Texts() {
             title: "Shimmer",
             component: <Text_01 />,
             fileName: "text-01.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 2,
             title: "Sliced",
             component: <Text_02 text="Payout fees" />,
             fileName: "text-02.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 3,
             title: "Wave",
             component: <Text_03 text="Wave" />,
             fileName: "text-03.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 4,
             title: "Enhanced",
             component: <Text_04 text="NIKE" />,
-
             fileName: "text-04.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 5,
             title: "Bounce and Hover",
             component: <Text_05 />,
-
             fileName: "text-05.tsx",
+            dependencies: ["Framer Motion"],
         },
         {
             id: 6,
             title: "Swoosh",
             component: <Text_06 />,
-
             fileName: "text-06.tsx",
         },
         // {
