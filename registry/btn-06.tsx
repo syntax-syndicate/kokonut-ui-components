@@ -11,7 +11,7 @@ interface Btn06Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     successDuration?: number;
 }
 
-export function Btn06({
+export default function Btn06({
     className,
     textToCopy,
     successDuration = 1000,
@@ -76,8 +76,6 @@ export function Btn06({
                     </>
                 )}
             </motion.div>
-
-            {/* Success indicator ring */}
             {isCopied && (
                 <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}

@@ -1,5 +1,4 @@
 import ComponentNav from "@/components/component-nav";
-import { Footer } from "@/components/layout/footer";
 
 const categories = [
     {
@@ -28,7 +27,21 @@ const categories = [
         title: "Card",
         href: "/components/cards",
         description: "Versatile card components and layouts",
-        count: 0,
+        count: 4,
+    },
+    {
+        id: 5,
+        title: "Pricing",
+        href: "/components/pricing",
+        description: "Pricing components and layouts",
+        count: 4,
+    },
+    {
+        id: 6,
+        title: "Modal",
+        href: "/components/modal",
+        description: "Modal components and layouts",
+        count: "?",
         isComingSoon: true,
     },
 ];
@@ -39,11 +52,13 @@ export default function ComponentsLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="relative min-h-screen flex">
-            <div className="z-40 flex-none">
+        <div className="relative flex flex-col min-h-screen">
+            <div className="z-40">
                 <ComponentNav categories={categories} />
             </div>
-            <main className="flex-1 pt-32 md:pl-[260px]">{children}</main>
+            <main className="flex-1 w-full pt-32 pb-24 md:pl-[260px] md:pb-0">
+                {children}
+            </main>
         </div>
     );
 }

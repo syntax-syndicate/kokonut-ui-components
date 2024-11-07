@@ -3,100 +3,72 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, useAnimation } from "framer-motion";
-import { Zap } from "lucide-react";
+import { Trash2Icon } from "lucide-react";
 import { useState } from "react";
 
-interface Btn05Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    glitchIntensity?: number;
-    glitchDuration?: number;
+interface Btn_05Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    onHoldComplete?: () => void;
+    holdDuration?: number;
 }
 
-export function Btn05({
+export default function Btn_05({
     className,
-    glitchIntensity = 10,
-    glitchDuration = 1500,
+    onHoldComplete,
+    holdDuration = 3000,
     ...props
-}: Btn05Props) {
-    const [isGlitching, setIsGlitching] = useState(false);
-    const redLayerControls = useAnimation();
-    const blueLayerControls = useAnimation();
-    const greenLayerControls = useAnimation();
+}: Btn_05Props) {
+    const [isHolding, setIsHolding] = useState(false);
+    const controls = useAnimation();
 
-    async function triggerGlitch() {
-        if (isGlitching) return;
-        setIsGlitching(true);
-
-        // Generate random offsets for RGB layers
-        const generateOffset = () => ({
-            x: (Math.random() - 0.5) * glitchIntensity,
-            y: (Math.random() - 0.5) * glitchIntensity,
+    async function handleMouseDown() {
+        setIsHolding(true);
+        controls.set({ width: "0%" });
+        await controls.start({
+            width: "100%",
+            transition: {
+                duration: holdDuration / 1000,
+                ease: "linear",
+            },
         });
+        onHoldComplete?.();
+    }
 
-        // Animate RGB layers with random positions
-        for (let i = 0; i < 3; i++) {
-            await Promise.all([
-                redLayerControls.start({
-                    ...generateOffset(),
-                    transition: { duration: 0.1 }
-                }),
-                blueLayerControls.start({
-                    ...generateOffset(),
-                    transition: { duration: 0.1 }
-                }),
-                greenLayerControls.start({
-                    ...generateOffset(),
-                    transition: { duration: 0.1 }
-                })
-            ]);
-        }
-
-        // Reset positions
-        await Promise.all([
-            redLayerControls.start({ x: 0, y: 0 }),
-            blueLayerControls.start({ x: 0, y: 0 }),
-            greenLayerControls.start({ x: 0, y: 0 })
-        ]);
-
-        setTimeout(() => setIsGlitching(false), glitchDuration);
+    function handleMouseUp() {
+        setIsHolding(false);
+        controls.stop();
+        controls.start({
+            width: "0%",
+            transition: { duration: 0.1 },
+        });
     }
 
     return (
         <Button
             className={cn(
                 "min-w-40 relative overflow-hidden",
-                "bg-slate-50 dark:bg-cyan-950",
-                "hover:bg-slate-100 dark:hover:bg-cyan-900",
-                "text-slate-600 dark:text-cyan-300",
-                "border border-slate-200 dark:border-cyan-800",
-                "transition-colors duration-300",
-                isGlitching && "animate-pulse",
+                "bg-red-100 dark:bg-red-200",
+                "hover:bg-red-100 dark:hover:bg-red-200",
+                "text-red-500 dark:text-red-600",
+                "border border-red-200 dark:border-red-300",
                 className
             )}
-            onClick={triggerGlitch}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
             {...props}
         >
-            {/* RGB Text Layers */}
-            {["red", "green", "blue"].map((color, index) => (
-                <motion.span
-                    key={color}
-                    animate={[redLayerControls, greenLayerControls, blueLayerControls][index]}
-                    className={cn(
-                        "absolute inset-0 flex items-center justify-center gap-2",
-                        "mix-blend-multiply dark:mix-blend-screen",
-                        color === "red" && "text-red-600 dark:text-red-500",
-                        color === "green" && "text-green-600 dark:text-green-500",
-                        color === "blue" && "text-blue-600 dark:text-blue-500"
-                    )}
-                >
-                    <Zap className="w-4 h-4" />
-                    {isGlitching ? "Panic!!!" : "Panic"}
-                </motion.span>
-            ))}
-            
-            {/* Base Text Layer */}
-            <span className="relative z-10 w-full flex items-center justify-center gap-2 opacity-0">
-                <Zap className="w-4 h-4" />
-                {isGlitching ? "ERR0R" : "Click me"}
+            <motion.div
+                initial={{ width: "0%" }}
+                animate={controls}
+                className={cn(
+                    "absolute left-0 top-0 h-full",
+                    "bg-red-200/30",
+                    "dark:bg-red-300/30"
+                )}
+            />
+            <span className="relative z-10 w-full flex items-center justify-center gap-2">
+                <Trash2Icon className="w-4 h-4" />
+                {!isHolding ? "Hold me" : "Release"}
             </span>
         </Button>
     );

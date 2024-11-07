@@ -12,7 +12,7 @@ interface Category {
     title: string;
     href: string;
     description: string;
-    count: number;
+    count: number | string;
     isComingSoon?: boolean;
 }
 
@@ -113,6 +113,10 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                             exit={{ opacity: 0 }}
                             className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm"
                             onClick={() => setIsExpanded(false)}
+                            style={{ 
+                                pointerEvents: isExpanded ? 'auto' : 'none',
+                                touchAction: 'pan-y' 
+                            }}
                         />
                     )}
                 </AnimatePresence>
@@ -122,7 +126,7 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                     layout
                     animate={{
                         width: isExpanded ? "100%" : "192px",
-                        height: isExpanded ? "100dvh" : "48px",
+                        height: isExpanded ? "80vh" : "48px",
                         bottom: isExpanded ? "0" : "24px",
                         left: isExpanded ? "0" : "50%",
                         x: isExpanded ? "0" : "-50%",

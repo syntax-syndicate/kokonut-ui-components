@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Twitter, Facebook, Linkedin, Link } from "lucide-react";
 
-export function Btn08({
+export default function Btn08({
     className,
     ...props
 }: React.ButtonHTMLAttributes<HTMLButtonElement>) {

@@ -1,21 +1,23 @@
-import Btn_01 from "@/components/buttons/btn-01";
+import { Btn01 } from "@/components/buttons/btn-01";
 import { Btn02 } from "@/components/buttons/btn-02";
 import { Btn03 } from "@/components/buttons/btn-03";
 import { Btn04 } from "@/components/buttons/btn-04";
-import { Btn05 } from "@/components/buttons/btn-05";
+import Btn_05 from "@/components/buttons/btn-05";
 import { Btn06 } from "@/components/buttons/btn-06";
 import { Btn07 } from "@/components/buttons/btn-07";
 import { Btn08 } from "@/components/buttons/btn-08";
+import { Btn09 } from "@/components/buttons/btn-09";
+import { Btn10 } from "@/components/buttons/btn-10";
+
 import { ViewComponents } from "@/components/ViewComponents";
 
 export default function Buttons_View() {
     const components = [
         {
             id: 1,
-            title: "Hold to Action",
-            component: <Btn_01 />,
+            title: "Basic",
+            component: <Btn01 />,
             fileName: "btn-01.tsx",
-            dependencies: ["Framer Motion"],
         },
         {
             id: 2,
@@ -40,8 +42,8 @@ export default function Buttons_View() {
         },
         {
             id: 5,
-            title: "Glitch",
-            component: <Btn05 />,
+            title: "Hold to Action",
+            component: <Btn_05 />,
             fileName: "btn-05.tsx",
             dependencies: ["Framer Motion"],
         },
@@ -64,6 +66,18 @@ export default function Buttons_View() {
             component: <Btn08 />,
             fileName: "btn-08.tsx",
             dependencies: ["Framer Motion"],
+        },
+        {
+            id: 9,
+            title: "Action",
+            component: <Btn09 />,
+            fileName: "btn-09.tsx",
+        },
+        {
+            id: 10,
+            title: "Shadow",
+            component: <Btn10 />,
+            fileName: "btn-10.tsx",
         },
     ];
 

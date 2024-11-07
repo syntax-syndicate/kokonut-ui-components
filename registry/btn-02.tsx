@@ -11,7 +11,7 @@ interface Btn02Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     chargeDuration?: number;
 }
 
-export function Btn02({
+export default function Btn02({
     className,
     onPowerUp,
     chargeDuration = 2000,
@@ -21,7 +21,7 @@ export function Btn02({
     const particleControls = useAnimation();
     const chargeControls = useAnimation();
 
-    async function handleMouseDown() {
+    async function handleStart() {
         setIsCharging(true);
         chargeControls.set({ height: "100%", y: "100%" });
         await chargeControls.start({
@@ -31,18 +31,17 @@ export function Btn02({
                 ease: "easeOut",
             },
         });
-        
-        // Burst animation
+
         await particleControls.start({
             scale: [1, 1.5],
             opacity: [1, 0],
-            transition: { duration: 0.3 }
+            transition: { duration: 0.3 },
         });
-        
+
         onPowerUp?.();
     }
 
-    function handleMouseUp() {
+    function handleEnd() {
         setIsCharging(false);
         chargeControls.stop();
         chargeControls.start({
@@ -54,17 +53,21 @@ export function Btn02({
     return (
         <Button
             className={cn(
-                "min-w-40 relative overflow-hidden",
+                "min-w-[120px] sm:min-w-40 relative overflow-hidden",
                 "bg-indigo-100 dark:bg-indigo-900",
                 "hover:bg-indigo-200 dark:hover:bg-indigo-800",
-                "text-indigo-600 dark:text-indigo-300",
+                "text-indigo-100 dark:text-indigo-300",
                 "border border-indigo-300 dark:border-indigo-700",
                 "transition-colors duration-300",
+                "touch-none",
                 className
             )}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
+            onMouseDown={handleStart}
+            onMouseUp={handleEnd}
+            onMouseLeave={handleEnd}
+            onTouchStart={handleStart}
+            onTouchEnd={handleEnd}
+            onTouchCancel={handleEnd}
             {...props}
         >
             <motion.div
@@ -87,10 +90,12 @@ export function Btn02({
                 )}
             />
             <span className="relative z-10 w-full flex items-center justify-center gap-2">
-                <Zap className={cn(
-                    "w-4 h-4 transition-transform",
-                    isCharging && "animate-bounce"
-                )} />
+                <Zap
+                    className={cn(
+                        "w-4 h-4 transition-transform",
+                        isCharging && "animate-bounce"
+                    )}
+                />
                 {!isCharging ? "Power Up!" : "Charging..."}
             </span>
         </Button>

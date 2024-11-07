@@ -11,7 +11,7 @@ interface Btn04Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     blobColor?: string;
 }
 
-export function Btn04({
+export default function Btn04({
     className,
     blobSize = 80,
     blobColor = "rgba(147, 51, 234, 0.3)", // Purple
@@ -59,7 +59,6 @@ export function Btn04({
         });
     }
 
-    // Initialize blob position in center
     useEffect(() => {
         if (buttonRef.current) {
             const rect = buttonRef.current.getBoundingClientRect();

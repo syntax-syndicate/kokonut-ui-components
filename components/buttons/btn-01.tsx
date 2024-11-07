@@ -2,74 +2,59 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { motion, useAnimation } from "framer-motion";
-import { Trash2Icon } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
-interface Btn_01Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    onHoldComplete?: () => void;
-    holdDuration?: number;
+interface Btn01Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    children?: React.ReactNode;
 }
 
-export default function Btn_01({
+export default function Btn01({
     className,
-    onHoldComplete,
-    holdDuration = 3000,
+    children = "Continue",
     ...props
-}: Btn_01Props) {
-    const [isHolding, setIsHolding] = useState(false);
-    const controls = useAnimation();
-
-    async function handleMouseDown() {
-        setIsHolding(true);
-        controls.set({ width: "0%" });
-        await controls.start({
-            width: "100%",
-            transition: {
-                duration: holdDuration / 1000,
-                ease: "linear",
-            },
-        });
-        onHoldComplete?.();
-    }
-
-    function handleMouseUp() {
-        setIsHolding(false);
-        controls.stop();
-        controls.start({
-            width: "0%",
-            transition: { duration: 0.1 },
-        });
-    }
-
+}: Btn01Props) {
     return (
         <Button
             className={cn(
-                "min-w-40 relative overflow-hidden",
-                "bg-red-100 dark:bg-red-200",
-                "hover:bg-red-100 dark:hover:bg-red-200",
-                "text-red-500 dark:text-red-600",
-                "border border-red-200 dark:border-red-300",
+                "relative h-11 px-6",
+                "bg-zinc-900 dark:bg-zinc-50",
+                "text-zinc-50 dark:text-zinc-900",
+                "hover:bg-zinc-800 dark:hover:bg-zinc-100",
+                "rounded-xl",
+                "transition-all duration-300",
+                "overflow-hidden",
+                "group",
                 className
             )}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
             {...props}
         >
-            <motion.div
-                initial={{ width: "0%" }}
-                animate={controls}
+            <div
                 className={cn(
-                    "absolute left-0 top-0 h-full",
-                    "bg-red-200/30",
-                    "dark:bg-red-300/30"
+                    "flex items-center gap-2",
+                    "transition-all duration-300"
+                )}
+            >
+                <span>{children}</span>
+                <ArrowRight
+                    className={cn(
+                        "w-4 h-4",
+                        "transition-transform duration-300",
+                        "group-hover:translate-x-1"
+                    )}
+                />
+            </div>
+
+            {/* Hover gradient effect */}
+            <div
+                className={cn(
+                    "absolute inset-0",
+                    "bg-gradient-to-r from-white/0 via-white/10 to-white/0",
+                    "-translate-x-full",
+                    "group-hover:translate-x-full",
+                    "transition-transform duration-500",
+                    "ease-out"
                 )}
             />
-            <span className="relative z-10 w-full flex items-center justify-center gap-2">
-                <Trash2Icon className="w-4 h-4" />
-                {!isHolding ? "Hold me" : "Release"}
-            </span>
         </Button>
     );
 }

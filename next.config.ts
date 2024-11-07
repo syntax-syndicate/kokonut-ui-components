@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
             "components/buttons/**/*",
         ],
     },
+    images: {
+        remotePatterns: [
+            {
+                hostname: "*",
+            },
+        ],
+    },
 };
 
 export default nextConfig;

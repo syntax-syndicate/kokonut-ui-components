@@ -3,22 +3,25 @@ import { ArrowRight } from "lucide-react";
 import { Btn03 } from "@/components/buttons/btn-03";
 import AIInput_04 from "@/components/inputs/ai-input-04";
 import Text_02 from "@/components/texts/text-02";
+import Card_01 from "@/components/cards/card-01";
+import Pricing_01 from "@/components/pricing/pricing-01";
+import { CommandRotator } from "@/components/command-rotator";
 
 export default function Home() {
     const categories = [
         {
             id: 1,
+            title: "Button Components",
+            href: "/components/buttons",
+            component: <Btn03 attractRadius={30} />,
+            count: 10,
+        },
+        {
+            id: 2,
             title: "Text Components",
             href: "/components/texts",
             component: <Text_02 text="Sliced" />,
             count: 6,
-        },
-        {
-            id: 2,
-            title: "Button Components",
-            href: "/components/buttons",
-            component: <Btn03 attractRadius={30} />,
-            count: 8,
         },
         {
             id: 3,
@@ -27,10 +30,29 @@ export default function Home() {
             component: <AIInput_04 />,
             count: 20,
         },
+        {
+            id: 4,
+            title: "Card Components",
+            href: "/components/cards",
+            component: <Card_01 />,
+            count: 4,
+        },
+        {
+            id: 5,
+            title: "Pricing Components",
+            href: "/components/pricing",
+            component: (
+                <Pricing_01
+                    price="42"
+                    description="Ready for your space adventure?"
+                />
+            ),
+            count: 4,
+        },
     ];
 
-    const installCommand =
-        "bunx shadcn@latest add https://kokonut.dev/registry/my-component.json";
+    const baseCommand =
+        "shadcn@latest add https://kokonut.dev/registry/my-component.json";
 
     return (
         <main className="bg-white dark:bg-black/5">
@@ -61,9 +83,7 @@ export default function Home() {
                         <div className="flex items-center justify-center gap-2 mt-8">
                             <div className="relative group">
                                 <div className="flex items-center gap-2">
-                                    <div className="px-4 py-2 text-sm font-medium rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100">
-                                        {installCommand}
-                                    </div>
+                                    <CommandRotator baseCommand={baseCommand} />
                                 </div>
                                 <div className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
                             </div>
@@ -97,17 +117,43 @@ export default function Home() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
-                            {categories.map((category) => (
+                            {categories.slice(0, 3).map((category) => (
                                 <div
                                     key={category.id}
-                                    className="group relative p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm hover:shadow-md transition-all duration-200"
+                                    className="group relative p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col h-full"
                                 >
-                                    <div className="aspect-video flex items-center justify-center mb-4 rounded-lg">
-                                        <div className="pointer-events-auto w-full h-full flex items-center justify-center">
+                                    <div className="flex-1 aspect-video flex items-center justify-center mb-4 rounded-lg overflow-hidden">
+                                        <div className="pointer-events-auto w-full h-full flex items-center justify-center max-h-[200px]">
                                             {category.component}
                                         </div>
                                     </div>
-                                    <div className="flex items-center justify-between">
+                                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-zinc-200 dark:border-zinc-800">
+                                        <div>
+                                            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                                                {category.title}
+                                            </h3>
+                                            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+                                                {category.count} components
+                                            </p>
+                                        </div>
+                                        <ArrowRight className="w-5 h-5 text-zinc-400 dark:text-zinc-600 transition-transform group-hover:translate-x-1" />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto px-2 sm:px-4 mt-6">
+                            {categories.slice(3).map((category) => (
+                                <div
+                                    key={category.id}
+                                    className="group relative p-3 sm:p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col h-full"
+                                >
+                                    <div className="flex-1 flex items-center justify-center mb-4 rounded-lg overflow-hidden min-h-[250px] sm:min-h-[300px]">
+                                        <div className="pointer-events-auto w-full h-full flex items-center justify-center scale-[0.90]">
+                                            {category.component}
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-zinc-200 dark:border-zinc-800">
                                         <div>
                                             <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                                                 {category.title}

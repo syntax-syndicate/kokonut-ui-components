@@ -11,8 +11,11 @@ interface Btn07Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     processDuration?: number;
 }
 
-export function Btn07({
+export default function Btn07({
     className,
+    /**
+     * To remove....
+     */
     onProcess = async () => {
         await new Promise((resolve) => setTimeout(resolve, 2000));
         return Math.random() > 0.5;
@@ -31,7 +34,6 @@ export function Btn07({
         setIsProcessing(true);
         setIsSuccess(null);
 
-        // Start the ring animation
         await ringControls.start({
             strokeDashoffset: 0,
             transition: {
@@ -39,19 +41,15 @@ export function Btn07({
                 ease: "linear",
             },
         });
-
-        // Process action if provided
         const success = onProcess ? await onProcess() : true;
         setIsSuccess(success);
         setIsProcessing(false);
 
-        // Success/failure animation
         await scaleControls.start({
             scale: [1, 1.1, 1],
             transition: { duration: 0.3 },
         });
 
-        // Reset after delay
         setTimeout(() => {
             setIsSuccess(null);
             ringControls.set({ strokeDashoffset: 157 }); // 2πr where r = 25

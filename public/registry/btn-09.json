@@ -1,0 +1,18 @@
+{
+  "name": "btn-09",
+  "type": "registry:component",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\nimport { Command } from \"lucide-react\";\nimport { useState } from \"react\";\n\nexport default function Btn09() {\n    const [isHovered, setIsHovered] = useState(false);\n\n    return (\n        <Button\n            className={cn(\n                \"relative h-9 w-9 p-0\",\n                \"rounded-lg overflow-hidden\",\n                \"bg-gradient-to-b from-zinc-50 to-zinc-100\",\n                \"dark:from-zinc-800 dark:to-zinc-900\",\n                \"border border-zinc-200 dark:border-zinc-800\",\n                \"hover:border-zinc-300 dark:hover:border-zinc-700\",\n                \"transition-all duration-300 ease-out\",\n                \"group\"\n            )}\n            onMouseEnter={() => setIsHovered(true)}\n            onMouseLeave={() => setIsHovered(false)}\n        >\n            <Command\n                className={cn(\n                    \"w-4 h-4\",\n                    \"text-zinc-600 dark:text-zinc-400\",\n                    \"transition-all duration-300\",\n                    \"group-hover:scale-110\",\n                    \"group-hover:rotate-[-4deg]\",\n                    \"group-active:scale-95\"\n                )}\n            />\n            <span\n                className={cn(\n                    \"absolute inset-0\",\n                    \"bg-gradient-to-r from-indigo-500/0 via-indigo-500/10 to-indigo-500/0\",\n                    \"translate-x-[-100%]\",\n                    \"group-hover:translate-x-[100%]\",\n                    \"transition-transform duration-500\",\n                    \"ease-out\"\n                )}\n            />\n        </Button>\n    );\n}\n",
+      "path": "btn-09.tsx",
+      "target": "components/btn-09.tsx"
+    }
+  ]
+}

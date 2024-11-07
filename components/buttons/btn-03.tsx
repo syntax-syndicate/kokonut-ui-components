@@ -17,7 +17,7 @@ interface Particle {
     y: number;
 }
 
-export function Btn03({
+export default function Btn03({
     className,
     particleCount = 12,
     attractRadius = 100,
@@ -31,7 +31,7 @@ export function Btn03({
     useEffect(() => {
         const newParticles = Array.from({ length: particleCount }, (_, i) => ({
             id: i,
-            x: Math.random() * 360 - 180, // Random position between -180 and 180
+            x: Math.random() * 360 - 180,
             y: Math.random() * 360 - 180,
         }));
         setParticles(newParticles);
