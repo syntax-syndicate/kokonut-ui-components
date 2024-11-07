@@ -13,6 +13,7 @@ interface Category {
     href: string;
     description: string;
     count: number;
+    isComingSoon?: boolean;
 }
 
 interface ComponentNavProps {
@@ -55,29 +56,44 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                             return (
                                 <Link
                                     key={category.id}
-                                    href={category.href}
+                                    href={
+                                        category.isComingSoon
+                                            ? "#"
+                                            : category.href
+                                    }
                                     className={cn(
                                         "group flex items-center justify-between px-2.5 py-1.5 rounded-md",
                                         "transition-all duration-200",
-                                        isActive
+                                        category.isComingSoon
+                                            ? "opacity-70 cursor-not-allowed bg-transparent"
+                                            : isActive
                                             ? "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900"
                                             : "hover:bg-black/5 dark:hover:bg-white/5"
                                     )}
                                 >
-                                    <span className={cn(
-                                        "text-sm font-medium",
-                                        isActive
-                                            ? "text-white dark:text-zinc-900"
-                                            : "text-zinc-600 dark:text-zinc-400"
-                                    )}>
+                                    <span
+                                        className={cn(
+                                            "text-sm font-medium flex items-center gap-2",
+                                            isActive
+                                                ? "text-white dark:text-zinc-900"
+                                                : "text-zinc-600 dark:text-zinc-400"
+                                        )}
+                                    >
                                         {category.title}
+                                        {category.isComingSoon && (
+                                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-gradient-to-r from-zinc-200/80 to-zinc-300/80 dark:from-zinc-700/80 dark:to-zinc-600/80 text-zinc-600 dark:text-zinc-300 border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
+                                                Coming Soon
+                                            </span>
+                                        )}
                                     </span>
-                                    <span className={cn(
-                                        "text-xs",
-                                        isActive
-                                            ? "text-white/70 dark:text-zinc-900/70"
-                                            : "text-zinc-400 dark:text-zinc-500"
-                                    )}>
+                                    <span
+                                        className={cn(
+                                            "text-xs",
+                                            isActive
+                                                ? "text-white/70 dark:text-zinc-900/70"
+                                                : "text-zinc-400 dark:text-zinc-500"
+                                        )}
+                                    >
                                         {category.count}
                                     </span>
                                 </Link>
@@ -172,28 +188,41 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                                             return (
                                                 <Link
                                                     key={category.id}
-                                                    href={category.href}
-                                                    onClick={() =>
-                                                        setIsExpanded(false)
-                                                    }
+                                                    href={category.isComingSoon ? "#" : category.href}
+                                                    onClick={(e) => {
+                                                        if (category.isComingSoon) {
+                                                            e.preventDefault();
+                                                            return;
+                                                        }
+                                                        setIsExpanded(false);
+                                                    }}
                                                     className={cn(
                                                         "flex items-center justify-between px-4 py-3 rounded-lg",
                                                         "transition-all duration-200",
-                                                        isActive
+                                                        category.isComingSoon
+                                                            ? "opacity-70 cursor-not-allowed "
+                                                            : isActive
                                                             ? "bg-zinc-900 dark:bg-white"
                                                             : "hover:bg-black/5 dark:hover:bg-white/5"
                                                     )}
                                                 >
-                                                    <span
-                                                        className={cn(
-                                                            "text-sm font-medium",
-                                                            isActive
-                                                                ? "text-white dark:text-zinc-900"
-                                                                : "text-zinc-600 dark:text-zinc-400"
+                                                    <div className="flex items-center gap-2">
+                                                        <span
+                                                            className={cn(
+                                                                "text-sm font-medium",
+                                                                isActive
+                                                                    ? "text-white dark:text-zinc-900"
+                                                                    : "text-zinc-600 dark:text-zinc-400"
+                                                            )}
+                                                        >
+                                                            {category.title}
+                                                        </span>
+                                                        {category.isComingSoon && (
+                                                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-gradient-to-r from-zinc-200/80 to-zinc-300/80 dark:from-zinc-700/80 dark:to-zinc-600/80 text-zinc-600 dark:text-zinc-300 border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
+                                                                Coming Soon
+                                                            </span>
                                                         )}
-                                                    >
-                                                        {category.title}
-                                                    </span>
+                                                    </div>
                                                     <span
                                                         className={cn(
                                                             "text-xs",

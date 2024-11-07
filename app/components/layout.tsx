@@ -23,6 +23,14 @@ const categories = [
         description: "Modern AI chat interface components",
         count: 20,
     },
+    {
+        id: 4,
+        title: "Card",
+        href: "/components/cards",
+        description: "Versatile card components and layouts",
+        count: 0,
+        isComingSoon: true,
+    },
 ];
 
 export default function ComponentsLayout({
