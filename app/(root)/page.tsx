@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Btn03 } from "@/components/buttons/btn-03";
 import AIInput_04 from "@/components/inputs/ai-input-04";
 import Text_02 from "@/components/texts/text-02";
 import Card_01 from "@/components/cards/card-01";
 import Pricing_01 from "@/components/pricing/pricing-01";
 import { CommandRotator } from "@/components/command-rotator";
+import Btn03 from "@/components/buttons/btn-03";
 
 export default function Home() {
     const categories = [
