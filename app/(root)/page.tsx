@@ -62,7 +62,7 @@ export default function Home() {
                     <div className="space-y-6 text-center pt-4 my-12">
                         <div className="inline-block">
                             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
-                                UI Components for free.
+                                Copy, Paste, Customize.
                             </h1>
                             <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
                         </div>
@@ -71,7 +71,7 @@ export default function Home() {
                             <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
                                 A collection of modern, interactive,
                                 customizable UI components built with shadcn &
-                                TailwindCSS. Easy to install
+                                TailwindCSS. Quick and easy to use.
                                 <Arrow25 className="inline-block ml-1 w-6 h-6 align-middle mt-1" />
                             </p>
                         </div>
