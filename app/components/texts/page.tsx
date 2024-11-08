@@ -5,6 +5,13 @@ import { Text_04 } from "@/components/texts/text-04";
 import { Text_05 } from "@/components/texts/text-05";
 import { Text_06 } from "@/components/texts/text-06";
 import { ViewComponents } from "@/components/ViewComponents";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Text",
+    description:
+        "A collection of text components to use and customize. Built with Tailwind CSS and Shadcn.",
+};
 
 export default function Texts() {
     const components = [

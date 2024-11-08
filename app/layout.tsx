@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
@@ -6,43 +6,39 @@ import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/layout/footer";
+import { META_THEME_COLORS, siteConfig } from "@/app/config/site";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
     variable: "--font-geist-sans",
     weight: "100 900",
 });
-const geistMono = localFont({
-    src: "./fonts/GeistMonoVF.woff",
-    variable: "--font-geist-mono",
-    weight: "100 900",
-});
 
 export const metadata: Metadata = {
-    title: "Kokonut - Free UI Components",
-    description:
-        "Kokonut is a free UI components library for Next.js and React.",
-    metadataBase: new URL("https://kokonut.dev"),
-    applicationName: "Kokonut",
-    category: "development",
-    keywords: ["ui", "components", "library", "next.js", "react", "ai"],
+    title: `${siteConfig.name} - ${siteConfig.description}`,
+    description: siteConfig.description,
+    metadataBase: new URL(siteConfig.url),
+    applicationName: siteConfig.name,
+    keywords: ["ui", "components", "Tailwind CSS", "Next.js", "shadcn"],
     robots: "index, follow",
     authors: [{ name: "Dorian Baffier", url: "https://x.com/dorian_baffier" }],
+    creator: "Dorian Baffier",
     openGraph: {
-        title: "Kokonut - Free UI Components",
-        description:
-            "Kokonut is a free UI components library for Next.js and React.",
-        url: "https://kokonut.dev",
-        siteName: "Kokonut",
+        title: siteConfig.name,
+        description: siteConfig.description,
+        url: siteConfig.url,
+        siteName: siteConfig.name,
     },
     twitter: {
         card: "summary_large_image",
-        site: "@kokonutdev",
         creator: "@dorian_baffier",
-        title: "Kokonut - Free UI Components",
-        description:
-            "Kokonut is a free UI components library for Next.js and React.",
+        title: siteConfig.name,
+        description: siteConfig.description,
     },
+};
+
+export const viewport: Viewport = {
+    themeColor: META_THEME_COLORS.light,
 };
 
 export default function RootLayout({
@@ -55,7 +51,6 @@ export default function RootLayout({
             <body
                 className={cn(
                     geistSans.variable,
-                    geistMono.variable,
                     geistSans.className,
                     "antialiased"
                 )}

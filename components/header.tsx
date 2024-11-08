@@ -18,7 +18,7 @@ export function Header() {
                     backdrop-blur-md
                     border-x border-b 
                     border-[rgba(230,230,230,0.7)] dark:border-[rgba(70,70,70,0.7)]
-                    w-[380px]
+                    min-w-[380px]
                     rounded-b-[28px]
                     px-4 py-2.5
                     relative
@@ -28,7 +28,10 @@ export function Header() {
                     <div className="relative z-10 flex items-center justify-around w-full gap-2">
                         <div className="flex items-center gap-3">
                             <div className="flex items-center gap-2">
-                                <Link href="/">
+                                <Link
+                                    href="/"
+                                    className="flex items-center gap-2"
+                                >
                                     <Image
                                         src="/logo.svg"
                                         alt="logo"
@@ -43,6 +46,9 @@ export function Header() {
                                         height={32}
                                         className="block dark:hidden"
                                     />
+                                    <span className="hidden sm:block font-semibold">
+                                        kokonut
+                                    </span>
                                 </Link>
                                 <span className="text-xs font-medium px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-200">
                                     Beta

@@ -3,6 +3,13 @@ import { Pricing_02 } from "@/components/pricing/pricing-02";
 import { Pricing_03 } from "@/components/pricing/pricing-03";
 import { Pricing_04 } from "@/components/pricing/pricing-04";
 import { ViewComponents } from "@/components/ViewComponents";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Pricing",
+    description:
+        "A collection of pricing components to use and customize. Built with Tailwind CSS and Shadcn.",
+};
 
 export default function Pricing_View() {
     const components = [

@@ -1,4 +1,13 @@
 import ComponentNav from "@/components/component-nav";
+import type { Metadata } from "next";
+import { siteConfig } from "../config/site";
+
+export const metadata: Metadata = {
+    title: {
+        default: `${siteConfig.name} - Components`,
+        template: `%s | ${siteConfig.name}`,
+    },
+};
 
 const categories = [
     {

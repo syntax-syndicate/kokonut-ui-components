@@ -9,6 +9,13 @@ import Btn08 from "@/components/buttons/btn-08";
 import Btn09 from "@/components/buttons/btn-09";
 import Btn10 from "@/components/buttons/btn-10";
 import { ViewComponents } from "@/components/ViewComponents";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Button",
+    description:
+        "A collection of button components to use and customize. Built with Tailwind CSS and Shadcn.",
+};
 
 export default function Buttons_View() {
     const components = [

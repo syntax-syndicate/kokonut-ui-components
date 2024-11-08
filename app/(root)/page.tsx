@@ -6,6 +6,7 @@ import Card_01 from "@/components/cards/card-01";
 import Pricing_01 from "@/components/pricing/pricing-01";
 import { CommandRotator } from "@/components/command-rotator";
 import Btn03 from "@/components/buttons/btn-03";
+import Arrow25 from "@/components/icons/arrow6";
 
 export default function Home() {
     const categories = [
@@ -66,20 +67,15 @@ export default function Home() {
                             <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
                         </div>
 
-                        <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-                            A collection of modern, interactive, customizable UI
-                            components built with shadcn & TailwindCSS. Thanks
-                            to{" "}
-                            <Link
-                                href="https://ui.shadcn.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-zinc-900 dark:text-white hover:underline"
-                            >
-                                @shadcn CLI
-                            </Link>
-                            , installation is easy.
-                        </p>
+                        <div className="relative">
+                            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+                                A collection of modern, interactive,
+                                customizable UI components built with shadcn &
+                                TailwindCSS. Easy to install
+                                <Arrow25 className="inline-block ml-1 w-6 h-6 align-middle mt-1" />
+                            </p>
+                        </div>
+
                         <div className="flex items-center justify-center gap-2 mt-8">
                             <div className="relative group">
                                 <div className="flex items-center gap-2">

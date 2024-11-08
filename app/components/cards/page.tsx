@@ -4,6 +4,14 @@ import Card_03 from "@/components/cards/card-03";
 import Card_04 from "@/components/cards/card-04";
 import { ViewComponents } from "@/components/ViewComponents";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Card",
+    description:
+        "A collection of card components to use and customize. Built with Tailwind CSS and Shadcn.",
+};
+
 export default function Cards_View() {
     const components = [
         {

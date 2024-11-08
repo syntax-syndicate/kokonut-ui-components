@@ -19,6 +19,13 @@ import AIInput_18 from "@/components/inputs/ai-input-18";
 import AIInput_19 from "@/components/inputs/ai-input-19";
 import AIInput_20 from "@/components/inputs/ai-input-20";
 import { ViewComponents } from "@/components/ViewComponents";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "AI Input",
+    description:
+        "A collection of AI input components to use and customize. Built with Tailwind CSS and Shadcn.",
+};
 
 export default function AIInput() {
     const components = [
