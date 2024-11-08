@@ -47,7 +47,7 @@ export function Header() {
                                         className="block dark:hidden"
                                     />
                                     <span className="hidden sm:block font-semibold">
-                                        kokonut
+                                        kokonutUI
                                     </span>
                                 </Link>
                                 <span className="text-xs font-medium px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-200">
