@@ -68,7 +68,7 @@ export default function Home() {
                         </div>
 
                         <div className="relative">
-                            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+                            <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
                                 A collection of modern, interactive,
                                 customizable UI components built with shadcn &
                                 TailwindCSS. Easy to install

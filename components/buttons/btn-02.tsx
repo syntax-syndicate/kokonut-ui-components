@@ -56,7 +56,7 @@ export default function Btn02({
                 "min-w-[120px] sm:min-w-40 relative overflow-hidden",
                 "bg-indigo-100 dark:bg-indigo-900",
                 "hover:bg-indigo-200 dark:hover:bg-indigo-800",
-                "text-indigo-100 dark:text-indigo-300",
+                "text-indigo-900 dark:text-indigo-300",
                 "border border-indigo-300 dark:border-indigo-700",
                 "transition-colors duration-300",
                 "touch-none",
