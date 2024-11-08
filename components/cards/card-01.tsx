@@ -80,7 +80,7 @@ export default function Card_01({
                                     className="pl-10 h-11 bg-white dark:bg-zinc-800/50 
                                         border-indigo-100 dark:border-indigo-500/20
                                         focus:border-indigo-500 dark:focus:border-indigo-400
-                                        focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-400/20"
+                                        focus-visible:ring-0 focus-visible:ring-offset-0"
                                 />
                             </div>
                         </div>
@@ -100,7 +100,7 @@ export default function Card_01({
                                         className="pl-10 h-11 bg-white dark:bg-zinc-800/50 
                                             border-indigo-100 dark:border-indigo-500/20
                                             focus:border-indigo-500 dark:focus:border-indigo-400
-                                            focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-400/20"
+                                            focus-visible:ring-0 focus-visible:ring-offset-0"
                                     >
                                         <SelectValue placeholder="Select framework" />
                                     </SelectTrigger>

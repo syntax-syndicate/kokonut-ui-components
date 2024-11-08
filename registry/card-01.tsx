@@ -18,14 +18,7 @@ import {
     CardFooter,
 } from "@/components/ui/card";
 
-interface Card01Props {
-    onSubmit?: (data: { name: string; framework: string }) => void;
-}
-
-export default function Card_01({
-    onSubmit = (data: { name: string; framework: string }) =>
-        console.log("Form submitted:", data),
-}: Card01Props) {
+export default function Card_01() {
     return (
         <div className="relative w-full max-w-md mx-auto">
             <div className="absolute -top-8 -right-8 w-64 h-64 bg-indigo-500/10 dark:bg-indigo-400/5 rounded-full blur-3xl" />
@@ -76,7 +69,7 @@ export default function Card_01({
                                     className="pl-10 h-11 bg-white dark:bg-zinc-800/50 
                                         border-indigo-100 dark:border-indigo-500/20
                                         focus:border-indigo-500 dark:focus:border-indigo-400
-                                        focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-400/20"
+                                        focus-visible:ring-0 focus-visible:ring-offset-0"
                                 />
                             </div>
                         </div>
