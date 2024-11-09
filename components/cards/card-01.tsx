@@ -21,17 +21,17 @@ export default function Card_01({
         console.log("Form submitted:", data),
 }: Card01Props) {
     return (
-        <div className="relative w-full max-w-md mx-auto">
-            <div className="absolute -top-8 -right-8 w-64 h-64 bg-indigo-500/10 dark:bg-indigo-400/5 rounded-full blur-3xl" />
-            <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-violet-500/10 dark:bg-violet-400/5 rounded-full blur-3xl" />
+        <div className="relative w-full max-w-md mx-auto px-4 sm:px-0 mt-12 sm:mt-0">
+            <div className="absolute -top-4 sm:-top-8 -right-4 sm:-right-8 w-48 sm:w-64 h-48 sm:h-64 bg-indigo-500/10 dark:bg-indigo-400/5 rounded-full blur-2xl sm:blur-3xl" />
+            <div className="absolute -bottom-4 sm:-bottom-8 -left-4 sm:-left-8 w-48 sm:w-64 h-48 sm:h-64 bg-violet-500/10 dark:bg-violet-400/5 rounded-full blur-2xl sm:blur-3xl" />
 
             <div
-                className="relative overflow-hidden rounded-2xl border border-indigo-100/80 dark:border-indigo-500/20 
+                className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-indigo-100/80 dark:border-indigo-500/20 
                 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl"
             >
                 <div
-                    className="absolute inset-0 bg-gradient-to-t from-indigo-50/50 via-white/20 to-white/0 
-                    dark:from-indigo-950/50 dark:via-zinc-900/20 dark:to-zinc-900/0"
+                    className="absolute inset-0 bg-gradient-to-t from-indigo-50/30 via-white/10 to-white/0 
+                    dark:from-indigo-950/30 dark:via-zinc-900/10 dark:to-zinc-900/0"
                 />
 
                 <div className="relative p-8 pb-0">
