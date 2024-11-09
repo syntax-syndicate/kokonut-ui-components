@@ -21,39 +21,29 @@ export default function Card_01({
         console.log("Form submitted:", data),
 }: Card01Props) {
     return (
-        <div className="relative w-full max-w-md mx-auto px-4 sm:px-0 mt-12 sm:mt-0">
-            <div className="absolute -top-4 sm:-top-8 -right-4 sm:-right-8 w-48 sm:w-64 h-48 sm:h-64 bg-indigo-500/10 dark:bg-indigo-400/5 rounded-full blur-2xl sm:blur-3xl" />
-            <div className="absolute -bottom-4 sm:-bottom-8 -left-4 sm:-left-8 w-48 sm:w-64 h-48 sm:h-64 bg-violet-500/10 dark:bg-violet-400/5 rounded-full blur-2xl sm:blur-3xl" />
-
-            <div
-                className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-indigo-100/80 dark:border-indigo-500/20 
-                bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl"
-            >
-                <div
-                    className="absolute inset-0 bg-gradient-to-t from-indigo-50/30 via-white/10 to-white/0 
-                    dark:from-indigo-950/30 dark:via-zinc-900/10 dark:to-zinc-900/0"
-                />
-
-                <div className="relative p-8 pb-0">
-                    <div className="flex items-center gap-2 mb-2">
-                        <div className="p-2 rounded-lg bg-indigo-100 dark:bg-indigo-950/60">
-                            <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                        </div>
+        <div className="relative w-full max-w-md mx-auto">
+            <div className="relative overflow-hidden rounded-xl border border-indigo-100/80 dark:border-indigo-500/20 
+                bg-gradient-to-br from-white/80 to-white/50 dark:from-zinc-900/80 dark:to-zinc-900/50 backdrop-blur-md">
+                {/* Header Section */}
+                <div className="p-6 pb-0">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r 
+                        from-indigo-50 to-indigo-100/50 dark:from-indigo-950/60 dark:to-indigo-900/30">
+                        <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                         <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                             New Project
                         </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-zinc-800 dark:text-zinc-100">
+                    
+                    <h3 className="mt-4 text-xl font-semibold text-zinc-800 dark:text-zinc-100">
                         Create Project
                     </h3>
                     <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                        Set up your new project with just a few clicks. We'll
-                        handle the deployment.
+                        Set up your new project with just a few clicks. We'll handle the deployment.
                     </p>
                 </div>
 
-                <form
-                    className="relative p-8"
+                {/* Form Section */}
+                <form className="p-6 space-y-5"
                     onSubmit={(e) => {
                         e.preventDefault();
                         const formData = new FormData(e.currentTarget);
@@ -63,77 +53,75 @@ export default function Card_01({
                         });
                     }}
                 >
-                    <div className="space-y-6">
-                        <div className="space-y-2">
-                            <Label
-                                htmlFor="name"
-                                className="text-sm font-medium text-zinc-800 dark:text-zinc-200"
-                            >
-                                Project Name
-                            </Label>
-                            <div className="relative">
-                                <Boxes className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500 dark:text-zinc-400" />
-                                <Input
-                                    id="name"
-                                    name="name"
-                                    placeholder="Enter project name"
-                                    className="pl-10 h-11 bg-white dark:bg-zinc-800/50 
+                    {/* Project Name Input */}
+                    <div className="space-y-2.5">
+                        <Label htmlFor="name" className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                            Project Name
+                        </Label>
+                        <div className="relative">
+                            <div className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center">
+                                <Boxes className="w-4 h-4 text-zinc-500/80 dark:text-zinc-400/80" />
+                            </div>
+                            <Input
+                                id="name"
+                                name="name"
+                                placeholder="Enter project name"
+                                className="pl-10 h-11 bg-white/50 dark:bg-zinc-800/30 
+                                    border-indigo-100 dark:border-indigo-500/20
+                                    focus:border-indigo-500 dark:focus:border-indigo-400
+                                    focus-visible:ring-1 focus-visible:ring-indigo-500 dark:focus-visible:ring-indigo-400
+                                    placeholder:text-zinc-600"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Framework Select */}
+                    <div className="space-y-2.5">
+                        <Label htmlFor="framework" className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                            Framework
+                        </Label>
+                        <div className="relative">
+                            <div className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center">
+                                <Code2 className="w-4 h-4 text-zinc-500/80 dark:text-zinc-400/80" />
+                            </div>
+                            <Select name="framework">
+                                <SelectTrigger
+                                    className="pl-10 h-11 bg-white/50 dark:bg-zinc-800/30 
                                         border-indigo-100 dark:border-indigo-500/20
                                         focus:border-indigo-500 dark:focus:border-indigo-400
-                                        focus-visible:ring-0 focus-visible:ring-offset-0"
-                                />
-                            </div>
+                                        focus-visible:ring-1 focus-visible:ring-indigo-500 dark:focus-visible:ring-indigo-400"
+                                >
+                                    <SelectValue placeholder="Select framework" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-white dark:bg-zinc-800 border-indigo-100 dark:border-indigo-500/20">
+                                    <SelectItem value="next">
+                                        Next.js
+                                    </SelectItem>
+                                    <SelectItem value="sveltekit">
+                                        SvelteKit
+                                    </SelectItem>
+                                    <SelectItem value="astro">
+                                        Astro
+                                    </SelectItem>
+                                    <SelectItem value="nuxt">
+                                        Nuxt.js
+                                    </SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
+                    </div>
 
-                        <div className="space-y-2">
-                            <Label
-                                htmlFor="framework"
-                                className="text-sm font-medium text-zinc-800 dark:text-zinc-200"
-                            >
-                                Framework
-                            </Label>
-                            <div className="relative">
-                                <Code2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500 dark:text-zinc-400 z-10" />
-                                <Select name="framework">
-                                    <SelectTrigger
-                                        id="framework"
-                                        className="pl-10 h-11 bg-white dark:bg-zinc-800/50 
-                                            border-indigo-100 dark:border-indigo-500/20
-                                            focus:border-indigo-500 dark:focus:border-indigo-400
-                                            focus-visible:ring-0 focus-visible:ring-offset-0"
-                                    >
-                                        <SelectValue placeholder="Select framework" />
-                                    </SelectTrigger>
-                                    <SelectContent className="bg-white dark:bg-zinc-800 border-indigo-100 dark:border-indigo-500/20">
-                                        <SelectItem value="next">
-                                            Next.js
-                                        </SelectItem>
-                                        <SelectItem value="sveltekit">
-                                            SvelteKit
-                                        </SelectItem>
-                                        <SelectItem value="astro">
-                                            Astro
-                                        </SelectItem>
-                                        <SelectItem value="nuxt">
-                                            Nuxt.js
-                                        </SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center justify-end pt-4">
-                            <Button
-                                type="submit"
-                                className="bg-gradient-to-r from-indigo-200 to-indigo-300 
-                                    hover:from-indigo-300 hover:to-indigo-400 
-                                    text-white shadow-md shadow-indigo-500/10 
-                                    dark:shadow-indigo-500/5"
-                            >
-                                Create Project
-                                <ArrowRight className="w-4 h-4 ml-2" />
-                            </Button>
-                        </div>
+                    <div className="flex items-center justify-end pt-4">
+                        <Button
+                            type="submit"
+                            className="bg-gradient-to-r from-indigo-200 to-indigo-300 
+                                hover:from-indigo-300 hover:to-indigo-400 
+                                text-white shadow-md shadow-indigo-500/10 
+                                dark:shadow-indigo-500/5"
+                        >
+                            Create Project
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
                     </div>
                 </form>
             </div>
