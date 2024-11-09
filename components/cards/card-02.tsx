@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, Mail, MessageSquare, Phone, Clock } from "lucide-react";
+import { Calendar, Mail, Clock } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -29,7 +29,6 @@ export default function Card_02({
     image = "/av01.png",
     availability = "Available in 2 weeks",
     rating = 4.9,
-    completedProjects = 145,
     skills = [
         { name: "UI Design", level: 5 },
         { name: "UX Research", level: 4 },
@@ -95,10 +94,6 @@ export default function Card_02({
                                     <Calendar className="w-4 h-4" />
                                     <span>{availability}</span>
                                 </div>
-                                <div className="flex items-center gap-1.5 text-zinc-600 dark:text-zinc-400">
-                                    <MessageSquare className="w-4 h-4" />
-                                    <span>{completedProjects} projects</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,25 +138,7 @@ export default function Card_02({
                                 text-zinc-900 dark:text-zinc-100"
                         >
                             <Mail className="w-4 h-4" />
-                            Email
-                        </Button>
-                        <Button
-                            onClick={() => onContact("phone")}
-                            className="flex-1 flex items-center justify-center gap-2
-                                bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700
-                                text-zinc-900 dark:text-zinc-100"
-                        >
-                            <Phone className="w-4 h-4" />
-                            Call
-                        </Button>
-                        <Button
-                            onClick={() => onContact("message")}
-                            className="flex-1 flex items-center justify-center gap-2
-                                bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700
-                                text-zinc-900 dark:text-zinc-100"
-                        >
-                            <MessageSquare className="w-4 h-4" />
-                            Message
+                            Details
                         </Button>
                     </div>
                 </div>

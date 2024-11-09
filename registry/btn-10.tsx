@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Sun, Moon, Laptop } from "lucide-react";
+import { Sun, Moon, Laptop, Check, Power } from "lucide-react";
 import { useState } from "react";
 
 type ThemeMode = "light" | "dark" | "system";

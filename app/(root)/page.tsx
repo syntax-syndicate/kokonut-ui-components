@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, PartyPopper } from "lucide-react";
 import AIInput_04 from "@/components/inputs/ai-input-04";
-import Text_02 from "@/components/texts/text-02";
 import Pricing_01 from "@/components/pricing/pricing-01";
 import { CommandRotator } from "@/components/command-rotator";
 import Btn03 from "@/components/buttons/btn-03";
 import Arrow25 from "@/components/icons/arrow6";
 import Card_01 from "@/components/cards/card-01";
+import Alert02 from "@/components/alerts/alert-02";
 
 export default function Home() {
     const categories = [
@@ -19,14 +19,14 @@ export default function Home() {
         },
         {
             id: 2,
-            title: "Text Components",
-            href: "/components/texts",
-            component: <Text_02 text="Sliced" />,
-            count: 6,
+            title: "Alert Components",
+            href: "/components/alerts",
+            component: <Alert02 />,
+            count: 7,
         },
         {
             id: 3,
-            title: "AI Input Components",
+            title: "AI Components",
             href: "/components/ai-input",
             component: <AIInput_04 />,
             count: 20,
@@ -57,7 +57,11 @@ export default function Home() {
 
     return (
         <main className="bg-white dark:bg-black/5">
-            <div className="pt-16">
+            <p className="pt-16 text-sm text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-2 opacity-80">
+                <PartyPopper className="w-4 h-4" />
+                New components added weekly
+            </p>
+            <div className="pt-4">
                 <div className="grid grid-rows-[auto_1fr_auto] min-h-screen p-1 lg:p-4 pb-20 gap-12 sm:p-16">
                     <div className="space-y-6 text-center pt-4 my-12">
                         <div className="inline-block">
@@ -84,9 +88,9 @@ export default function Home() {
                                 <div className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
                             </div>
                         </div>
-                        <div className="flex justify-center">
+                        <div className="flex flex-col items-center justify-center gap-2">
                             <Link
-                                href="/components/buttons"
+                                href="/components/cards"
                                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg 
                                     bg-zinc-900 dark:bg-zinc-100 
                                     text-white dark:text-zinc-900 
@@ -104,16 +108,16 @@ export default function Home() {
                     <div className="space-y-8">
                         <div className="text-center">
                             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
-                                Explore all components.
+                                Explore all 50+ components.
                             </h2>
                             <p className="mt-2 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-                                From buttons to AI inputs, find the perfect
-                                component for your next project.
+                                Ready to use. Fully customizable. Built for
+                                making apps faster.
                             </p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
-                            {categories.slice(0, 3).map((category) => (
+                            {categories.slice(0, 3).map((category, index) => (
                                 <div
                                     key={category.id}
                                     className="group relative p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col h-full"
@@ -142,7 +146,7 @@ export default function Home() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto px-2 sm:px-4 mt-6">
-                            {categories.slice(3).map((category) => (
+                            {categories.slice(3).map((category, index) => (
                                 <div
                                     key={category.id}
                                     className="group relative p-3 sm:p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col h-full"
@@ -168,6 +172,48 @@ export default function Home() {
                                     </Link>
                                 </div>
                             ))}
+                        </div>
+
+                        <div className="text-center my-24 py-24">
+                            <div className="max-w-2xl mx-auto px-4">
+                                <div className="relative">
+                                    <div className="absolute inset-0 flex items-center">
+                                        <div className="w-full border-t border-zinc-200 dark:border-zinc-800" />
+                                    </div>
+                                    <div className="relative flex justify-center text-sm uppercase">
+                                        <span className="px-4 text-zinc-500 dark:text-zinc-400 bg-white dark:bg-black/5">
+                                            Discover More
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <h3 className="mt-8 text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                                    50+ Components
+                                </h3>
+                                <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-lg">
+                                    Ready to use. Fully customizable. Built for
+                                    making apps faster.
+                                </p>
+
+                                <div className="mt-10">
+                                    <Link
+                                        href="/components/alerts"
+                                        className="group inline-flex items-center gap-2 px-8 py-4 rounded-full
+                                            border border-zinc-200 dark:border-zinc-800
+                                            hover:border-zinc-300 dark:hover:border-zinc-700
+                                            transition-all duration-200"
+                                    >
+                                        <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                                            View All Components
+                                        </span>
+                                        <ArrowRight
+                                            className="w-4 h-4 text-zinc-600 dark:text-zinc-400 
+                                            transition-transform duration-200 
+                                            group-hover:translate-x-1"
+                                        />
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

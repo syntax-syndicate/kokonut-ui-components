@@ -57,7 +57,7 @@ export default function Pricing_01({
             whileHover={{ translateY: -5, rotate: 1 }}
             transition={{ duration: 0.2 }}
         >
-            <div className="rounded-2xl bg-white dark:bg-zinc-900 shadow-lg border border-zinc-200/50 dark:border-zinc-700/50 hover:border-emerald-200/50 dark:hover:border-emerald-700/50 transition-colors">
+            <div className="rounded-2xl bg-white dark:bg-zinc-900 shadow-md border border-zinc-200/50 dark:border-zinc-700/50 hover:border-emerald-200/50 dark:hover:border-emerald-700/50 transition-colors">
                 <div className="p-6 space-y-4">
                     {/* Header */}
                     <div className="text-left space-y-2">

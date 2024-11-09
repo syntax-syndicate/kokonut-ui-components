@@ -5,11 +5,12 @@ REGISTRY_DIR="registry"
 
 # Default component folders if no argument is provided
 COMPONENT_FOLDERS=(
-    "ai-input"
+    "alerts"
+    "inputs"
     "buttons"
     "cards"
-    "forms"
     "pricing"
+    "texts"
 )
 
 mkdir -p "$REGISTRY_DIR"

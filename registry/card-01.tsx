@@ -11,21 +11,22 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import {
-    Card,
-    CardHeader,
-    CardContent,
-    CardFooter,
-} from "@/components/ui/card";
 
-export default function Card_01() {
+interface Card01Props {
+    onSubmit?: (data: { name: string; framework: string }) => void;
+}
+
+export default function Card_01({
+    onSubmit = (data: { name: string; framework: string }) =>
+        console.log("Form submitted:", data),
+}: Card01Props) {
     return (
         <div className="relative w-full max-w-md mx-auto">
             <div className="absolute -top-8 -right-8 w-64 h-64 bg-indigo-500/10 dark:bg-indigo-400/5 rounded-full blur-3xl" />
             <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-violet-500/10 dark:bg-violet-400/5 rounded-full blur-3xl" />
 
-            <Card
-                className="relative overflow-hidden border-indigo-100/80 dark:border-indigo-500/20 
+            <div
+                className="relative overflow-hidden rounded-2xl border border-indigo-100/80 dark:border-indigo-500/20 
                 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl"
             >
                 <div
@@ -33,7 +34,7 @@ export default function Card_01() {
                     dark:from-indigo-950/50 dark:via-zinc-900/20 dark:to-zinc-900/0"
                 />
 
-                <CardHeader className="relative pb-0">
+                <div className="relative p-8 pb-0">
                     <div className="flex items-center gap-2 mb-2">
                         <div className="p-2 rounded-lg bg-indigo-100 dark:bg-indigo-950/60">
                             <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
@@ -49,10 +50,20 @@ export default function Card_01() {
                         Set up your new project with just a few clicks. We'll
                         handle the deployment.
                     </p>
-                </CardHeader>
+                </div>
 
-                <form>
-                    <CardContent className="space-y-6">
+                <form
+                    className="relative p-8"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        const formData = new FormData(e.currentTarget);
+                        onSubmit({
+                            name: formData.get("name") as string,
+                            framework: formData.get("framework") as string,
+                        });
+                    }}
+                >
+                    <div className="space-y-6">
                         <div className="space-y-2">
                             <Label
                                 htmlFor="name"
@@ -89,7 +100,7 @@ export default function Card_01() {
                                         className="pl-10 h-11 bg-white dark:bg-zinc-800/50 
                                             border-indigo-100 dark:border-indigo-500/20
                                             focus:border-indigo-500 dark:focus:border-indigo-400
-                                            focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-400/20"
+                                            focus-visible:ring-0 focus-visible:ring-offset-0"
                                     >
                                         <SelectValue placeholder="Select framework" />
                                     </SelectTrigger>
@@ -110,22 +121,22 @@ export default function Card_01() {
                                 </Select>
                             </div>
                         </div>
-                    </CardContent>
 
-                    <CardFooter className="flex items-center justify-end">
-                        <Button
-                            type="submit"
-                            className="bg-gradient-to-r from-indigo-200 to-indigo-300 
-                                hover:from-indigo-300 hover:to-indigo-400 
-                                text-white shadow-md shadow-indigo-500/10 
-                                dark:shadow-indigo-500/5"
-                        >
-                            Create Project
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                    </CardFooter>
+                        <div className="flex items-center justify-end pt-4">
+                            <Button
+                                type="submit"
+                                className="bg-gradient-to-r from-indigo-200 to-indigo-300 
+                                    hover:from-indigo-300 hover:to-indigo-400 
+                                    text-white shadow-md shadow-indigo-500/10 
+                                    dark:shadow-indigo-500/5"
+                            >
+                                Create Project
+                                <ArrowRight className="w-4 h-4 ml-2" />
+                            </Button>
+                        </div>
+                    </div>
                 </form>
-            </Card>
+            </div>
         </div>
     );
 }

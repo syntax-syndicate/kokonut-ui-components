@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Twitter } from "lucide-react";
+import { Github } from "lucide-react";
 
 interface SocialLink {
     href: string;
@@ -13,11 +13,6 @@ export function Footer() {
             href: "https://github.com/kokonut-labs/kokonutui",
             icon: <Github className="h-5 w-5" />,
             label: "GitHub",
-        },
-        {
-            href: "https://x.com/dorian_baffier",
-            icon: <Twitter className="h-5 w-5" />,
-            label: "Twitter",
         },
     ];
 

@@ -24,7 +24,7 @@ All components can be installed using [shadcn CLI](https://ui.shadcn.com/docs/cl
 
 ```bash
 # npx, bunx...
-bunx shadcn@latest add https://kokonut.dev/registry/ai-input-01.json
+bunx shadcn@latest add https://kokonut.dev/registry/alert-01.json
 ```
 
 ```jsx

@@ -14,6 +14,7 @@ interface Category {
     description: string;
     count: number | string;
     isComingSoon?: boolean;
+    isNew?: boolean;
 }
 
 interface ComponentNavProps {
@@ -79,10 +80,23 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                                                 : "text-zinc-600 dark:text-zinc-400"
                                         )}
                                     >
+                                        {isActive && (
+                                            <span className="text-[10px] opacity-70">
+                                                →
+                                            </span>
+                                        )}
                                         {category.title}
-                                        {category.isComingSoon && (
-                                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-gradient-to-r from-zinc-200/80 to-zinc-300/80 dark:from-zinc-700/80 dark:to-zinc-600/80 text-zinc-600 dark:text-zinc-300 border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
-                                                Coming Soon
+                                        {category.isNew && !isActive && (
+                                            <span
+                                                className={cn(
+                                                    "inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase transition-all duration-200",
+                                                    "rounded-[28px]",
+                                                    "bg-gradient-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-emerald-500/20 dark:ring-emerald-400/20",
+                                                    "ring-1",
+                                                    "shadow-[0_0_10px_-3px_rgba(16,185,129,0.15)] dark:shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)]"
+                                                )}
+                                            >
+                                                new
                                             </span>
                                         )}
                                     </span>
@@ -113,9 +127,9 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                             exit={{ opacity: 0 }}
                             className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm"
                             onClick={() => setIsExpanded(false)}
-                            style={{ 
-                                pointerEvents: isExpanded ? 'auto' : 'none',
-                                touchAction: 'pan-y' 
+                            style={{
+                                pointerEvents: isExpanded ? "auto" : "none",
+                                touchAction: "pan-y",
                             }}
                         />
                     )}
@@ -192,9 +206,15 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                                             return (
                                                 <Link
                                                     key={category.id}
-                                                    href={category.isComingSoon ? "#" : category.href}
+                                                    href={
+                                                        category.isComingSoon
+                                                            ? "#"
+                                                            : category.href
+                                                    }
                                                     onClick={(e) => {
-                                                        if (category.isComingSoon) {
+                                                        if (
+                                                            category.isComingSoon
+                                                        ) {
                                                             e.preventDefault();
                                                             return;
                                                         }
@@ -224,6 +244,18 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                                                         {category.isComingSoon && (
                                                             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-gradient-to-r from-zinc-200/80 to-zinc-300/80 dark:from-zinc-700/80 dark:to-zinc-600/80 text-zinc-600 dark:text-zinc-300 border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
                                                                 Coming Soon
+                                                            </span>
+                                                        )}
+                                                        {category.isNew && (
+                                                            <span
+                                                                className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-semibold 
+                                                                bg-gradient-to-r from-emerald-400/20 via-emerald-500/20 to-teal-500/20 
+                                                                text-emerald-700 dark:text-emerald-300
+                                                                border border-emerald-500/30 dark:border-emerald-400/30
+                                                                shadow-[0_0_8px_-1px_rgba(16,185,129,0.2)]
+                                                                dark:shadow-[0_0_8px_-1px_rgba(16,185,129,0.25)]"
+                                                            >
+                                                                new
                                                             </span>
                                                         )}
                                                     </div>

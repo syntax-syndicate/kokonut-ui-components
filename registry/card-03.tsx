@@ -1,6 +1,5 @@
 "use client";
 
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Rocket, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
@@ -70,12 +69,12 @@ export default function Card_03({
 
     return (
         <div className="group relative w-full max-w-2xl mx-auto">
-            <Card
-                className="relative overflow-hidden border-zinc-200 dark:border-zinc-800
+            <div
+                className="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800
                 bg-gradient-to-b from-white to-zinc-50/50
-                dark:from-zinc-900 dark:to-zinc-900/50 backdrop-blur-xl"
+                dark:from-zinc-900 dark:to-zinc-900/50 backdrop-blur-xl pb-8"
             >
-                <CardHeader>
+                <div className="p-8 pb-6">
                     <div className="flex items-start justify-between">
                         <div className="flex-1">
                             <div className="flex items-center gap-2 mb-3">
@@ -94,86 +93,84 @@ export default function Card_03({
                             </p>
                         </div>
                     </div>
-                </CardHeader>
+                </div>
 
-                <CardContent>
-                    <div className="grid grid-cols-5 gap-6">
-                        <div className="col-span-2 space-y-4">
-                            <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                Team
-                            </h3>
-                            <div className="space-y-3">
-                                {teamMembers.map((member) => (
-                                    <div
-                                        key={member.name}
-                                        className="flex items-center gap-3 p-2 rounded-xl
-                                            hover:bg-zinc-100 dark:hover:bg-zinc-800/50
-                                            transition-colors duration-150"
-                                    >
-                                        <div className="relative">
-                                            <Image
-                                                src={member.avatar}
-                                                alt={member.name}
-                                                width={36}
-                                                height={36}
-                                                className="rounded-full"
-                                            />
-                                            <div
-                                                className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full
-                                                ring-2 ring-white dark:ring-zinc-900 ${getStatusColor(
-                                                    member.status
-                                                )}`}
-                                            />
+                <div className="px-8 grid grid-cols-5 gap-6">
+                    <div className="col-span-2 space-y-4">
+                        <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                            Team
+                        </h3>
+                        <div className="space-y-3">
+                            {teamMembers.map((member) => (
+                                <div
+                                    key={member.name}
+                                    className="flex items-center gap-3 p-2 rounded-xl
+                                        hover:bg-zinc-100 dark:hover:bg-zinc-800/50
+                                        transition-colors duration-150"
+                                >
+                                    <div className="relative">
+                                        <Image
+                                            src={member.avatar}
+                                            alt={member.name}
+                                            width={36}
+                                            height={36}
+                                            className="rounded-full"
+                                        />
+                                        <div
+                                            className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full
+                                            ring-2 ring-white dark:ring-zinc-900 ${getStatusColor(
+                                                member.status
+                                            )}`}
+                                        />
+                                    </div>
+                                    <div>
+                                        <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                            {member.name}
+                                        </div>
+                                        <div className="text-xs text-zinc-600 dark:text-zinc-400">
+                                            {member.role}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="col-span-3 space-y-4">
+                        <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                            Milestones
+                        </h3>
+                        <div className="space-y-3">
+                            {milestones.map((milestone) => (
+                                <div
+                                    key={milestone.title}
+                                    className="flex items-center justify-between p-3 rounded-xl
+                                        bg-zinc-50 dark:bg-zinc-800/50"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div
+                                            className={`p-2 rounded-lg ${
+                                                milestone.completed
+                                                    ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                                                    : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
+                                            }`}
+                                        >
+                                            <CheckCircle2 className="w-4 h-4" />
                                         </div>
                                         <div>
                                             <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                                {member.name}
+                                                {milestone.title}
                                             </div>
                                             <div className="text-xs text-zinc-600 dark:text-zinc-400">
-                                                {member.role}
+                                                Due {milestone.dueDate}
                                             </div>
                                         </div>
                                     </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="col-span-3 space-y-4">
-                            <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                Milestones
-                            </h3>
-                            <div className="space-y-3">
-                                {milestones.map((milestone) => (
-                                    <div
-                                        key={milestone.title}
-                                        className="flex items-center justify-between p-3 rounded-xl
-                                            bg-zinc-50 dark:bg-zinc-800/50"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <div
-                                                className={`p-2 rounded-lg ${
-                                                    milestone.completed
-                                                        ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                                                        : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
-                                                }`}
-                                            >
-                                                <CheckCircle2 className="w-4 h-4" />
-                                            </div>
-                                            <div>
-                                                <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                                    {milestone.title}
-                                                </div>
-                                                <div className="text-xs text-zinc-600 dark:text-zinc-400">
-                                                    Due {milestone.dueDate}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                </CardContent>
+                </div>
 
                 <div
                     className="absolute inset-0 rounded-2xl duration-300
@@ -190,7 +187,7 @@ export default function Card_03({
                         from-blue-900/20 via-zinc-900/0 to-zinc-900/0"
                     />
                 </div>
-            </Card>
+            </div>
         </div>
     );
 }
