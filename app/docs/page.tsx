@@ -77,7 +77,7 @@ export default function DocsPage() {
                         </h2>
                     </div>
 
-                    <div className="space-y-2 md:space-y-3 ml-12 md:ml-24">
+                    <div className="space-y-2 md:space-y-3 ml-12">
                         <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
                             Choose the style and color you want to use, and
                             configure components.json.
@@ -137,7 +137,7 @@ export default function DocsPage() {
                         </h2>
                     </div>
 
-                    <div className="space-y-2 md:space-y-3 ml-12 md:ml-24">
+                    <div className="space-y-2 md:space-y-3 ml-12">
                         <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
                             Now, you can copy, paste and customize kokonutUI
                             components to your project using shadcn cli.
