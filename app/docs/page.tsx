@@ -38,7 +38,7 @@ export default function DocsPage() {
                         </h2>
                     </div>
 
-                    <div className="space-y-2 md:space-y-3 ml-12 md:ml-24">
+                    <div className="space-y-2 md:space-y-3 ml-12">
                         <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
                             <Link
                                 href="https://ui.shadcn.com/"
