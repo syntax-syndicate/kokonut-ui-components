@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/layout/footer";
-import { META_THEME_COLORS, siteConfig } from "@/app/config/site";
+import { META_THEME_COLORS, siteConfig } from "@/config/site";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -56,9 +56,15 @@ export default function RootLayout({
                 )}
             >
                 <ThemeProvider attribute="class" disableTransitionOnChange>
-                    <Header />
-                    {children}
-                    <Footer />
+                    <div className="flex flex-col min-h-screen">
+                        <Header />
+                        <div className="flex-1">
+                            {children}
+                        </div>
+                        <div className="md:block hidden">
+                            <Footer />
+                        </div>
+                    </div>
                 </ThemeProvider>
                 <Analytics />
             </body>

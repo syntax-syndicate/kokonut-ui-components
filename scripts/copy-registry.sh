@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMPONENTS_DIR="components"
+COMPONENTS_DIR="docs/components"
 REGISTRY_DIR="registry"
 
 # Default component folders if no argument is provided

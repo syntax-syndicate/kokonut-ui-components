@@ -13,35 +13,35 @@ export default function Home() {
         {
             id: 1,
             title: "Button Components",
-            href: "/components/buttons",
+            href: "/docs/components/buttons",
             component: <Btn03 attractRadius={30} />,
             count: 10,
         },
         {
             id: 2,
             title: "Alert Components",
-            href: "/components/alerts",
+            href: "/docs/components/alerts",
             component: <Alert02 />,
             count: 7,
         },
         {
             id: 3,
             title: "AI Components",
-            href: "/components/ai-input",
+            href: "/docs/components/ai-input",
             component: <AIInput_04 />,
             count: 20,
         },
         {
             id: 4,
             title: "Card Components",
-            href: "/components/cards",
+            href: "/docs/components/cards",
             component: <Card_01 />,
             count: 6,
         },
         {
             id: 5,
             title: "Pricing Components",
-            href: "/components/pricing",
+            href: "/docs/components/pricing",
             component: (
                 <Pricing_01
                     price="42"
@@ -90,7 +90,7 @@ export default function Home() {
                         </div>
                         <div className="flex flex-col items-center justify-center gap-2">
                             <Link
-                                href="/components/cards"
+                                href="/docs"
                                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg 
                                     bg-zinc-900 dark:bg-zinc-100 
                                     text-white dark:text-zinc-900 
@@ -197,7 +197,7 @@ export default function Home() {
 
                                 <div className="mt-10">
                                     <Link
-                                        href="/components/alerts"
+                                        href="/docs"
                                         className="group inline-flex items-center gap-2 px-8 py-4 rounded-full
                                             border border-zinc-200 dark:border-zinc-800
                                             hover:border-zinc-300 dark:hover:border-zinc-700

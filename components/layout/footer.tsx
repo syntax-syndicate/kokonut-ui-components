@@ -4,6 +4,7 @@ import { Github } from "lucide-react";
 interface SocialLink {
     href: string;
     icon: React.ReactNode;
+    text: string;
     label: string;
 }
 
@@ -12,6 +13,7 @@ export function Footer() {
         {
             href: "https://github.com/kokonut-labs/kokonutui",
             icon: <Github className="h-5 w-5" />,
+            text: "Source Code",
             label: "GitHub",
         },
     ];
@@ -38,9 +40,10 @@ export function Footer() {
                                 href={link.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
+                                className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors flex items-center gap-1 text-sm underline"
                             >
                                 <span className="sr-only">{link.label}</span>
+                                {link.text}
                                 {link.icon}
                             </Link>
                         ))}

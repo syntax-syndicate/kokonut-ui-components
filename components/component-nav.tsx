@@ -6,126 +6,120 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 import { useState } from "react";
+import type { NavSection } from "@/config/navigation";
 
-interface Category {
-    id: number;
-    title: string;
-    href: string;
-    description: string;
-    count: number | string;
-    isComingSoon?: boolean;
-    isNew?: boolean;
-}
-
-interface ComponentNavProps {
-    categories: Category[];
-}
-
-export default function ComponentNav({ categories }: ComponentNavProps) {
+export default function ComponentNav({ sections }: { sections: NavSection[] }) {
     const pathname = usePathname();
     const [isExpanded, setIsExpanded] = useState(false);
-    const currentCategory = categories.find((cat) =>
-        pathname.startsWith(cat.href)
+
+    const totalItems = sections.reduce(
+        (acc, section) => acc + section.items.length,
+        0
     );
+
+    const currentPage = sections
+        .flatMap((section) => section.items)
+        .find((item) => item.href === pathname);
 
     return (
         <>
-            {/* Desktop Navigation - Always visible sidebar */}
-            <div className="hidden md:block fixed left-6 top-1/2 -translate-y-1/2 w-[200px] z-40">
-                <motion.div
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    className="bg-gradient-to-b from-white/90 via-gray-50/90 to-white/90
+            {/* Desktop Navigation */}
+            <div className="hidden md:block fixed left-6 top-1/2 -translate-y-1/2 w-[200px] z-40 space-y-4">
+                <div
+                    key="desktop-nav"
+                    className="bg-gradient-to-b from-white/95 via-gray-50/95 to-white/95
                         dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90
-                        shadow-[0_2px_20px_-2px_rgba(0,0,0,0.1)]
+                        shadow-[0_2px_20px_-2px_rgba(0,0,0,0.15)]
                         backdrop-blur-md
-                        border border-[rgba(230,230,230,0.7)] dark:border-[rgba(70,70,70,0.7)]
+                        border border-[rgba(200,200,200,0.8)] dark:border-[rgba(70,70,70,0.7)]
                         rounded-[28px] p-3"
                 >
-                    <div className="flex items-center justify-between mb-2">
-                        <h2 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                            Components
-                        </h2>
-                        <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                            {categories.length}
-                        </span>
-                    </div>
+                    {sections.map((section, index) => (
+                        <div
+                            key={section.title}
+                            className={cn(index > 0 && "mt-6")}
+                        >
+                            <div className="flex items-center justify-between mb-2">
+                                <h2 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                    {section.title}
+                                </h2>
+                            </div>
 
-                    <nav className="space-y-0.5">
-                        {categories.map((category) => {
-                            const isActive = pathname.startsWith(category.href);
-                            return (
-                                <Link
-                                    key={category.id}
-                                    href={
-                                        category.isComingSoon
-                                            ? "#"
-                                            : category.href
-                                    }
-                                    className={cn(
-                                        "group flex items-center justify-between px-2.5 py-1.5 rounded-md",
-                                        "transition-all duration-200",
-                                        category.isComingSoon
-                                            ? "opacity-70 cursor-not-allowed bg-transparent"
-                                            : isActive
-                                            ? "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900"
-                                            : "hover:bg-black/5 dark:hover:bg-white/5"
-                                    )}
-                                >
-                                    <span
-                                        className={cn(
-                                            "text-sm font-medium flex items-center gap-2",
-                                            isActive
-                                                ? "text-white dark:text-zinc-900"
-                                                : "text-zinc-600 dark:text-zinc-400"
-                                        )}
-                                    >
-                                        {isActive && (
-                                            <span className="text-[10px] opacity-70">
-                                                →
-                                            </span>
-                                        )}
-                                        {category.title}
-                                        {category.isNew && !isActive && (
+                            <nav className="space-y-0.5">
+                                {section.items.map((item) => {
+                                    const isActive =
+                                        item.href === "/docs"
+                                            ? pathname === "/docs" ||
+                                              pathname === "/docs/introduction"
+                                            : pathname === item.href;
+                                    return (
+                                        <Link
+                                            key={item.id}
+                                            href={
+                                                item.isComingSoon
+                                                    ? "#"
+                                                    : item.href
+                                            }
+                                            className={cn(
+                                                "group flex items-center justify-between px-2.5 py-1.5 rounded-md",
+                                                "transition-all duration-200",
+                                                item.isComingSoon
+                                                    ? "opacity-70 cursor-not-allowed bg-transparent"
+                                                    : isActive
+                                                    ? "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900"
+                                                    : "hover:bg-black/5 dark:hover:bg-white/5"
+                                            )}
+                                        >
                                             <span
                                                 className={cn(
-                                                    "inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase transition-all duration-200",
-                                                    "rounded-[28px]",
-                                                    "bg-gradient-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-emerald-500/20 dark:ring-emerald-400/20",
-                                                    "ring-1",
-                                                    "shadow-[0_0_10px_-3px_rgba(16,185,129,0.15)] dark:shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)]"
+                                                    "text-sm font-medium flex items-center gap-2",
+                                                    isActive
+                                                        ? "text-white dark:text-zinc-900"
+                                                        : "text-zinc-600 dark:text-zinc-400"
                                                 )}
                                             >
-                                                new
+                                                {isActive && (
+                                                    <span className="text-[10px] opacity-70">
+                                                        →
+                                                    </span>
+                                                )}
+                                                {item.title}
+                                                {item.isNew && !isActive && (
+                                                    <span className="inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase rounded-[28px] bg-gradient-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20 shadow-[0_0_10px_-3px_rgba(16,185,129,0.15)] dark:shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)]">
+                                                        new
+                                                    </span>
+                                                )}
                                             </span>
-                                        )}
-                                    </span>
-                                    <span
-                                        className={cn(
-                                            "text-xs",
-                                            isActive
-                                                ? "text-white/70 dark:text-zinc-900/70"
-                                                : "text-zinc-400 dark:text-zinc-500"
-                                        )}
-                                    >
-                                        {category.count}
-                                    </span>
-                                </Link>
-                            );
-                        })}
-                    </nav>
-                </motion.div>
+                                            {item.count && (
+                                                <span
+                                                    className={cn(
+                                                        "text-xs",
+                                                        isActive
+                                                            ? "text-white/70 dark:text-zinc-900/70"
+                                                            : "text-zinc-400 dark:text-zinc-500"
+                                                    )}
+                                                >
+                                                    {item.count}
+                                                </span>
+                                            )}
+                                        </Link>
+                                    );
+                                })}
+                            </nav>
+                        </div>
+                    ))}
+                </div>
             </div>
 
-            {/* Mobile Navigation - Keep the existing expandable bottom bar */}
-            <div className="md:hidden">
+            {/* Mobile Navigation */}
+            <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
                 <AnimatePresence>
                     {isExpanded && (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm"
+                            className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm z-40"
                             onClick={() => setIsExpanded(false)}
                             style={{
                                 pointerEvents: isExpanded ? "auto" : "none",
@@ -135,7 +129,6 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                     )}
                 </AnimatePresence>
 
-                {/* Navigation Container */}
                 <motion.div
                     layout
                     animate={{
@@ -169,17 +162,16 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                         },
                     }}
                     className={cn(
-                        "bg-gradient-to-b from-white/90 via-gray-50/90 to-white/90",
+                        "bg-gradient-to-b from-white/95 via-gray-50/95 to-white/95",
                         "dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90",
-                        "shadow-[0_2px_20px_-2px_rgba(0,0,0,0.1)]",
+                        "shadow-[0_2px_20px_-2px_rgba(0,0,0,0.15)]",
                         "backdrop-blur-md",
-                        "border border-[rgba(230,230,230,0.7)] dark:border-[rgba(70,70,70,0.7)]",
-                        "overflow-hidden"
+                        "border border-[rgba(200,200,200,0.8)] dark:border-[rgba(70,70,70,0.7)]",
+                        "overflow-hidden z-50"
                     )}
                     onClick={() => !isExpanded && setIsExpanded(true)}
                 >
                     {isExpanded ? (
-                        // Expanded View
                         <motion.div
                             className="h-[100dvh] flex flex-col"
                             initial={{ opacity: 0 }}
@@ -189,48 +181,41 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                             {/* Header */}
                             <div className="p-4 border-b border-zinc-200 dark:border-zinc-800">
                                 <h2 className="text-base font-medium text-zinc-900 dark:text-zinc-100">
-                                    Components
+                                    {currentPage?.title}
                                 </h2>
                             </div>
 
-                            {/* Navigation Items - Centered vertically */}
-                            <div className="flex-1 flex items-center justify-center">
-                                <nav className="w-full max-w-sm px-4">
-                                    <div className="space-y-2">
-                                        {categories.map((category) => {
-                                            const isActive =
-                                                pathname.startsWith(
-                                                    category.href
-                                                );
-
-                                            return (
-                                                <Link
-                                                    key={category.id}
-                                                    href={
-                                                        category.isComingSoon
-                                                            ? "#"
-                                                            : category.href
-                                                    }
-                                                    onClick={(e) => {
-                                                        if (
-                                                            category.isComingSoon
-                                                        ) {
-                                                            e.preventDefault();
-                                                            return;
+                            {/* Navigation Items */}
+                            <div className="flex-1 overflow-y-auto px-4 py-2">
+                                {sections.map((section) => (
+                                    <div key={section.title} className="mb-6">
+                                        <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+                                            {section.title}
+                                        </h3>
+                                        <div className="space-y-1">
+                                            {section.items.map((item) => {
+                                                const isActive =
+                                                    pathname === item.href;
+                                                return (
+                                                    <Link
+                                                        key={item.id}
+                                                        href={
+                                                            item.isComingSoon
+                                                                ? "#"
+                                                                : item.href
                                                         }
-                                                        setIsExpanded(false);
-                                                    }}
-                                                    className={cn(
-                                                        "flex items-center justify-between px-4 py-3 rounded-lg",
-                                                        "transition-all duration-200",
-                                                        category.isComingSoon
-                                                            ? "opacity-70 cursor-not-allowed "
-                                                            : isActive
-                                                            ? "bg-zinc-900 dark:bg-white"
-                                                            : "hover:bg-black/5 dark:hover:bg-white/5"
-                                                    )}
-                                                >
-                                                    <div className="flex items-center gap-2">
+                                                        onClick={() =>
+                                                            setIsExpanded(false)
+                                                        }
+                                                        className={cn(
+                                                            "flex items-center justify-between px-3 py-2 rounded-md",
+                                                            item.isComingSoon
+                                                                ? "opacity-70 cursor-not-allowed"
+                                                                : isActive
+                                                                ? "bg-zinc-900 dark:bg-white"
+                                                                : "hover:bg-black/5 dark:hover:bg-white/5"
+                                                        )}
+                                                    >
                                                         <span
                                                             className={cn(
                                                                 "text-sm font-medium",
@@ -239,44 +224,22 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                                                                     : "text-zinc-600 dark:text-zinc-400"
                                                             )}
                                                         >
-                                                            {category.title}
+                                                            {item.title}
                                                         </span>
-                                                        {category.isComingSoon && (
-                                                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-gradient-to-r from-zinc-200/80 to-zinc-300/80 dark:from-zinc-700/80 dark:to-zinc-600/80 text-zinc-600 dark:text-zinc-300 border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
-                                                                Coming Soon
+                                                        {item.count && (
+                                                            <span className="text-xs text-zinc-400">
+                                                                {item.count}
                                                             </span>
                                                         )}
-                                                        {category.isNew && (
-                                                            <span
-                                                                className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-semibold 
-                                                                bg-gradient-to-r from-emerald-400/20 via-emerald-500/20 to-teal-500/20 
-                                                                text-emerald-700 dark:text-emerald-300
-                                                                border border-emerald-500/30 dark:border-emerald-400/30
-                                                                shadow-[0_0_8px_-1px_rgba(16,185,129,0.2)]
-                                                                dark:shadow-[0_0_8px_-1px_rgba(16,185,129,0.25)]"
-                                                            >
-                                                                new
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                    <span
-                                                        className={cn(
-                                                            "text-xs",
-                                                            isActive
-                                                                ? "text-white/70 dark:text-zinc-900/70"
-                                                                : "text-zinc-400 dark:text-zinc-500"
-                                                        )}
-                                                    >
-                                                        {category.count}
-                                                    </span>
-                                                </Link>
-                                            );
-                                        })}
+                                                    </Link>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
-                                </nav>
+                                ))}
                             </div>
 
-                            {/* Close Button at Bottom */}
+                            {/* Close Button */}
                             <div className="p-4 border-t border-zinc-200 dark:border-zinc-800">
                                 <button
                                     type="button"
@@ -294,10 +257,10 @@ export default function ComponentNav({ categories }: ComponentNavProps) {
                         // Collapsed View
                         <div className="flex items-center justify-between p-3">
                             <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate">
-                                {currentCategory?.title || "Components"}
+                                {currentPage?.title}
                             </span>
                             <span className="text-xs text-zinc-500 dark:text-zinc-400 ml-2">
-                                {currentCategory?.count || categories.length}
+                                {totalItems}
                             </span>
                         </div>
                     )}
