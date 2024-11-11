@@ -1,5 +1,6 @@
 import { getHook } from "@/lib/action";
 import CodeBlockWithPreview from "./CodeBlockWithPreview";
+import { CodeBlock } from "./code-block";
 
 interface HookItemProps {
     item: {
@@ -31,8 +32,16 @@ export async function HookItem({ item }: HookItemProps) {
                     </p>
                 </div>
             </div>
-
             <div className="space-y-2 md:space-y-3 ml-14">
+                <CodeBlock
+                    code={[
+                        `bunx shadcn@latest add https://kokonut.dev/registry/${item.fileName.replace(
+                            ".ts",
+                            ""
+                        )}.json`,
+                    ]}
+                    language="bash"
+                />
                 <CodeBlockWithPreview code={text} language="typescript" />
                 {item.preview && (
                     <div className="mt-4 p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900">

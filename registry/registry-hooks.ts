@@ -22,11 +22,21 @@ export const hooks: Registry = [
         ],
     },
     {
-        name: "use-file-input",
+        name: "use-copy-to-clipboard",
         type: "registry:hook",
         files: [
             {
-                path: "hooks/use-file-input.ts",
+                path: "hooks/use-copy-to-clipboard.ts",
+                type: "registry:hook",
+            },
+        ],
+    },
+    {
+        name: "use-mobile",
+        type: "registry:hook",
+        files: [
+            {
+                path: "hooks/use-mobile.ts",
                 type: "registry:hook",
             },
         ],
