@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { motion, useAnimation } from "framer-motion";
 import { Magnet } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 
 interface Btn03Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -37,9 +37,9 @@ export default function Btn03({
         setParticles(newParticles);
     }, [particleCount]);
 
-    async function handleMouseEnter() {
+    // Combined handler for both mouse and touch events
+    const handleInteractionStart = useCallback(async () => {
         setIsAttracting(true);
-        // Attract particles
         await particlesControl.start({
             x: 0,
             y: 0,
@@ -49,11 +49,10 @@ export default function Btn03({
                 damping: 10,
             },
         });
-    }
+    }, [particlesControl]);
 
-    async function handleMouseLeave() {
+    const handleInteractionEnd = useCallback(async () => {
         setIsAttracting(false);
-        // Repel particles
         await particlesControl.start((i) => ({
             x: particles[i].x,
             y: particles[i].y,
@@ -63,12 +62,12 @@ export default function Btn03({
                 damping: 15,
             },
         }));
-    }
+    }, [particlesControl, particles]);
 
     return (
         <Button
             className={cn(
-                "min-w-40 relative",
+                "min-w-40 relative touch-none",
                 "bg-violet-100 dark:bg-violet-900",
                 "hover:bg-violet-200 dark:hover:bg-violet-800",
                 "text-violet-600 dark:text-violet-300",
@@ -76,8 +75,10 @@ export default function Btn03({
                 "transition-all duration-300",
                 className
             )}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleInteractionStart}
+            onMouseLeave={handleInteractionEnd}
+            onTouchStart={handleInteractionStart}
+            onTouchEnd={handleInteractionEnd}
             {...props}
         >
             {particles.map((_, index) => (
