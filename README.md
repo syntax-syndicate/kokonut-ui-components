@@ -10,6 +10,8 @@
 
 ## Overview
 
+##### Work in progress, not intented for use as of today"
+
 Access a collection of free-to-use, standalone components with KokonutUI. Each component is designed with TailwindCSS, shadcn, and optional animations powered by Framer Motion.
 
 This is not a library, it's a collection of components / hooks that you can copy paste and customize to your preference.
