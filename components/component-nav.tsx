@@ -19,7 +19,20 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
 
     const currentPage = sections
         .flatMap((section) => section.items)
-        .find((item) => item.href === pathname);
+        .find((item) => {
+            if (item.href === "/docs") {
+                return (
+                    pathname === "/docs" || pathname === "/docs/introduction"
+                );
+            }
+            if (item.href === "/docs/components/block/") {
+                return pathname.startsWith("/docs/components/block");
+            }
+            if (item.href.includes("/docs/components/")) {
+                return pathname === item.href;
+            }
+            return pathname === item.href;
+        });
 
     return (
         <>

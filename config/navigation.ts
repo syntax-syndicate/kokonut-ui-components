@@ -96,8 +96,8 @@ export const navigationSections: NavSection[] = [
         items: [
             {
                 id: 1,
-                title: "block-01",
-                href: "/docs/components/block/",
+                title: "Block - 01",
+                href: "/docs/components/block",
                 isLab: true,
             },
         ],

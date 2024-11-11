@@ -2,6 +2,7 @@ import { Package } from "lucide-react";
 import React from "react";
 import { PreviewButton } from "./PreviewButton";
 import { CodeBlock } from "./code-block";
+import { getBlockExample } from "@/lib/action";
 
 interface BlockItemProps {
     item: {
@@ -9,6 +10,7 @@ interface BlockItemProps {
         title: string;
         component: React.ReactElement;
         fileName: string;
+        fileExample: string;
         dependencies?: string[];
     };
 }
@@ -18,22 +20,21 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
 
 export async function BlockItem({ item }: BlockItemProps) {
+    const text = await getBlockExample(item.fileExample);
+
     const previewComponent = React.cloneElement(item.component, {
-        preview: true,
+        preview: "true",
     });
 
     return (
         <div
             className="group relative rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 
             backdrop-blur-sm shadow-xs transition-all duration-500
-            hover:border-zinc-300 dark:hover:border-zinc-700 w-11/12"
+            hover:border-zinc-300 dark:hover:border-zinc-700 w-11/12 mx-auto"
         >
-            {/* Single Column Layout */}
             <div className="flex flex-col">
-                {/* Header Section */}
                 <div className="p-4 md:p-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
                     <div className="flex flex-col gap-3">
-                        {/* Block ID and Preview Button */}
                         <div className="flex items-center justify-between gap-2">
                             <h3 className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
                                 Block {item.id}
@@ -43,7 +44,6 @@ export async function BlockItem({ item }: BlockItemProps) {
                             </PreviewButton>
                         </div>
 
-                        {/* Title */}
                         <h2 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200">
                             {item.title}
                         </h2>
@@ -71,7 +71,6 @@ export async function BlockItem({ item }: BlockItemProps) {
                     </div>
                 </div>
 
-                {/* Preview Section - Now Larger */}
                 <div className="relative w-full bg-gradient-to-b from-zinc-50/50 to-white dark:from-zinc-900/50 dark:to-black p-4 md:p-8">
                     <div className="relative w-full aspect-[16/9] max-w-4xl overflow-hidden rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 mx-auto bg-white dark:bg-black shadow-sm">
                         <div className="absolute top-0 left-0 right-0 bottom-0">
@@ -88,7 +87,6 @@ export async function BlockItem({ item }: BlockItemProps) {
                     </div>
                 </div>
 
-                {/* New Installation Section */}
                 <div className="p-4 md:p-6 ">
                     <div className="">
                         <h2 className="text-xl font-medium text-zinc-800 dark:text-zinc-200 mb-4">
@@ -108,23 +106,7 @@ export async function BlockItem({ item }: BlockItemProps) {
                         <h2 className="text-xl font-medium text-zinc-800 dark:text-zinc-200 mb-4">
                             Usage
                         </h2>
-                        <CodeBlock
-                            code={[
-                                'import Block01 from "@/components/block/block-01/block-01"',
-                                'import Block01Navigation from "@/components/block/block-01/block-01-nav"',
-                                'import Block01Content from "@/components/block/block-01/block-01-content"',
-                                "",
-                                "export default function Page() {",
-                                "  return (",
-                                "    <Block01>",
-                                "      <Block01Navigation />",
-                                "      <Block01Content />",
-                                "    </Block01>",
-                                "  )",
-                                "}",
-                            ]}
-                            language="tsx"
-                        />
+                        <CodeBlock code={text} language="tsx" />
                     </div>
                 </div>
             </div>

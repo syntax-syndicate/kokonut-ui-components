@@ -1,5 +1,5 @@
 import { ViewHooks } from "@/components/ViewHooks";
-
+import type { Metadata } from "next";
 const hookExamples = [
     {
         id: 1,
@@ -28,6 +28,12 @@ const hookExamples = [
         fileName: "use-click-outside.ts",
     },
 ];
+
+export const metadata: Metadata = {
+    title: "Custom Hooks",
+    description:
+        "A collection of custom hooks to use and customize. Built with Tailwind CSS and Shadcn.",
+};
 
 export default function HooksPage() {
     return (

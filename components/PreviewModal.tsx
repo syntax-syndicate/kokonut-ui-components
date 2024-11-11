@@ -1,11 +1,4 @@
-// "use client";
-
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X, Copy, Check } from "lucide-react";
 import { CodeBlock } from "./code-block";
@@ -35,7 +28,7 @@ export function PreviewModal({
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="max-w-full h-screen m-0 p-0 overflow-hidden">
+            <DialogContent className="max-w-full h-[90vh] m-0 p-0 overflow-hidden">
                 <div className="h-full flex flex-col">
                     <div className="flex-none p-4 sm:p-6 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -74,7 +67,9 @@ export function PreviewModal({
                         </div>
                     </div>
 
-                    <div className="flex-1 overflow-y-auto">{children}</div>
+                    <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+                        <div className="max-w-6xl mx-auto">{children}</div>
+                    </div>
                 </div>
             </DialogContent>
         </Dialog>

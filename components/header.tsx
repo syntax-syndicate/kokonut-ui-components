@@ -3,9 +3,7 @@ import { Github } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-// export const revalidate = 3600;
-
-export async function Header() {
+export function Header() {
     return (
         <div className="fixed top-0 left-0 right-0 z-50">
             <div className="flex items-center justify-center w-full flex-col">

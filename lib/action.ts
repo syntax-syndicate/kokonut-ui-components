@@ -16,3 +16,11 @@ export async function getHook(fileName: string) {
 
     return file;
 }
+
+export async function getBlockExample(fileName: string) {
+    const prePath = path.join(process.cwd(), "components", "ui");
+
+    const file = await fs.readFile(path.join(prePath, fileName), "utf-8");
+
+    return file;
+}

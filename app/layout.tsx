@@ -55,12 +55,15 @@ export default function RootLayout({
                     "antialiased"
                 )}
             >
-                <ThemeProvider attribute="class" disableTransitionOnChange>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
                     <div className="flex flex-col min-h-screen">
                         <Header />
-                        <div className="flex-1">
-                            {children}
-                        </div>
+                        <div className="flex-1">{children}</div>
                         <div className="md:block hidden">
                             <Footer />
                         </div>

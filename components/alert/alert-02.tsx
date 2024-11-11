@@ -11,6 +11,7 @@ export default function Alert02() {
                         <Image
                             src="/av02.png"
                             alt="Sarah Chen"
+                            sizes="40px"
                             fill
                             className="rounded-full object-cover"
                         />

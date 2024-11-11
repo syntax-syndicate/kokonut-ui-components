@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: "https://kokonut.dev/docs/components/button",
             lastModified: currentDate,
             changeFrequency: "monthly",
-            priority: 0.6,
+            priority: 0.5,
         },
         {
             url: "https://kokonut.dev/docs/components/card",
@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: "https://kokonut.dev/docs/components/pricing",
             lastModified: currentDate,
             changeFrequency: "monthly",
-            priority: 0.6,
+            priority: 0.5,
         },
         {
             url: "https://kokonut.dev/docs/components/text",
@@ -50,7 +50,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: "https://kokonut.dev/docs/components/alert",
             lastModified: currentDate,
             changeFrequency: "monthly",
-            priority: 0.6,
+            priority: 0.5,
+        },
+        {
+            url: "https://kokonut.dev/docs/components/block",
+            lastModified: currentDate,
+            changeFrequency: "monthly",
+            priority: 0.5,
+        },
+        {
+            url: "https://kokonut.dev/docs/components/input",
+            lastModified: currentDate,
+            changeFrequency: "monthly",
+            priority: 0.5,
+        },
+        {
+            url: "https://kokonut.dev/docs/hooks/",
+            lastModified: currentDate,
+            changeFrequency: "monthly",
+            priority: 0.5,
         },
         {
             url: "https://kokonut.dev/docs/components/block",

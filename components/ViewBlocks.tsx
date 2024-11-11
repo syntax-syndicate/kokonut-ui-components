@@ -1,26 +1,18 @@
-import { Suspense } from "react";
 import { BlockItem } from "./BlockItem";
+import type { BlockComponent } from "@/app/docs/components/block/page";
+import { BlockNavigation } from "./BlockNavigation";
 
-interface BlockComponent {
-    id: number;
-    title: string;
-    component: React.ReactElement;
-    fileName: string;
-    dependencies?: string[];
-}
-
-interface ViewBlocksProps {
-    blocks: BlockComponent[];
-}
-
-export function ViewBlocks({ blocks }: ViewBlocksProps) {
+export function ViewBlocks({ blocks }: { blocks: BlockComponent[] }) {
     return (
-        <Suspense fallback={null}>
+        <div className="relative ">
             <div className="flex flex-col gap-12">
                 {blocks.map((block) => (
-                    <BlockItem key={block.id} item={block} />
+                    <div key={block.id} id={`block-${block.id}`}>
+                        <BlockItem item={block} />
+                    </div>
                 ))}
             </div>
-        </Suspense>
+            <BlockNavigation blocks={blocks} />
+        </div>
     );
 }

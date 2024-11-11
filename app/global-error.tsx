@@ -13,7 +13,9 @@ export default function GlobalError({
             <body className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
                 <div className="text-center space-y-6 max-w-md mx-auto p-8 bg-white/10 rounded-xl backdrop-blur-sm shadow-xl">
                     <div className="space-y-2">
-                        <h2 className="text-3xl font-bold text-white">Oops! Something went wrong</h2>
+                        <h2 className="text-3xl font-bold text-white">
+                            Oops! Something went wrong
+                        </h2>
                         <p className="text-gray-300">{error.message}</p>
                     </div>
                     <button

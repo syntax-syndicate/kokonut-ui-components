@@ -48,11 +48,6 @@ export default function AIInput_16() {
                 e.preventDefault();
                 if (!inputValue.trim() && !activeCommand) return;
 
-                console.log({
-                    command: activeCommand,
-                    input: inputValue,
-                });
-
                 setInputValue("");
                 setActiveCommand(null);
             }
