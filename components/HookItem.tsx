@@ -12,6 +12,10 @@ interface HookItemProps {
     };
 }
 
+const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
+
 export async function HookItem({ item }: HookItemProps) {
     const text = await getHook(item.fileName);
 
@@ -35,7 +39,7 @@ export async function HookItem({ item }: HookItemProps) {
             <div className="space-y-2 md:space-y-3 ml-14">
                 <CodeBlock
                     code={[
-                        `bunx shadcn@latest add https://kokonut.dev/registry/${item.fileName.replace(
+                        `bunx shadcn@latest add ${prePath}/registry/${item.fileName.replace(
                             ".ts",
                             ""
                         )}.json`,

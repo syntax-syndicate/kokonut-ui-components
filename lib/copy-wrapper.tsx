@@ -10,13 +10,18 @@ import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 interface CopyWrapperProps {
     fileName: string;
     text: string;
+    showTerminalOnly?: boolean;
 }
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
 
-export function CopyWrapper({ fileName, text }: CopyWrapperProps) {
+export function CopyWrapper({
+    fileName,
+    text,
+    showTerminalOnly = false,
+}: CopyWrapperProps) {
     const [showOverlay, setShowOverlay] = useState(false);
     const { copyToClipboard } = useCopyToClipboard({
         timeout: 1000,
@@ -51,7 +56,7 @@ export function CopyWrapper({ fileName, text }: CopyWrapperProps) {
                 >
                     <Terminal className="w-4 h-4" />
                 </button>
-                <CopyButton onClick={handleCopy} />
+                {!showTerminalOnly && <CopyButton onClick={handleCopy} />}
             </div>
             <AnimatePresence>
                 <CopyOverlay show={showOverlay} />

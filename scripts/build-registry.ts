@@ -7,12 +7,11 @@ import path from "path";
 const REGISTRY_BASE_PATH = process.cwd();
 const PUBLIC_FOLDER_BASE_PATH = "public/registry";
 
-// Map registry types to their target folders
 const REGISTRY_TYPE_FOLDERS: Record<string, string> = {
     "registry:component": "components",
     "registry:hook": "hooks",
     "registry:lib": "lib",
-    // Add other registry types and their folders as needed
+    "registry:block": "blocks",
 };
 
 /**
@@ -30,7 +29,7 @@ async function writeFileRecursive(filePath: string, data: string) {
         await fs.writeFile(filePath, data, "utf-8");
         console.log(`File written to ${filePath}`);
     } catch (error) {
-        console.error(`Error writing file`);
+        console.error(`Error writing file ${filePath}`);
         console.error(error);
     }
 }
@@ -43,7 +42,10 @@ const getComponentFiles = async (files: File[], registryType: string) => {
             const normalizedPath = file.startsWith("/") ? file : `/${file}`;
             const filePath = path.join(REGISTRY_BASE_PATH, normalizedPath);
             const fileContent = await fs.readFile(filePath, "utf-8");
-            const targetPath = normalizedPath.replace(/^\/components\//, "/");
+            const targetPath = normalizedPath.replace(
+                /^\/(components|block)\//,
+                "/"
+            );
             return {
                 type: registryType,
                 content: fileContent,
@@ -58,7 +60,7 @@ const getComponentFiles = async (files: File[], registryType: string) => {
         const fileContent = await fs.readFile(filePath, "utf-8");
         const targetFolder = REGISTRY_TYPE_FOLDERS[file.type] || baseFolder;
         const targetPath = normalizedPath.replace(
-            /^\/(components|hooks|lib)\//,
+            /^\/(components|hooks|lib|block)\//,
             "/"
         );
         return {

@@ -2,6 +2,10 @@ import { CodeBlock } from "@/components/code-block";
 import { Undo } from "lucide-react";
 import Link from "next/link";
 
+const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
+
 export default function DocsPage() {
     return (
         <div className="flex flex-col px-4 md:px-16 mt-4 md:mt-12 gap-4 md:gap-10 max-w-4xl relative">
@@ -49,11 +53,11 @@ export default function DocsPage() {
                         </p>
                         <div className="flex flex-col gap-2">
                             <CodeBlock
-                                code="shadcn@latest add https://kokonut.dev/registry/utils.json"
+                                code={`shadcn@latest add ${prePath}/registry/utils.json`}
                                 initial={
                                     <div className="text-[13px] font-mono text-zinc-400">
                                         shadcn@latest add
-                                        https://kokonut.dev/registry/utils.json
+                                        {prePath}/registry/utils.json
                                     </div>
                                 }
                                 showPackageManager
@@ -97,7 +101,7 @@ export default function DocsPage() {
                         <CodeBlock
                             language="bash"
                             showPackageManager
-                            code="shadcn@latest add https://kokonut.dev/registry/alert-01.json"
+                            code={`shadcn@latest add ${prePath}/registry/alert-01.json`}
                         />
                         <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
                             The component will be added to the components folder

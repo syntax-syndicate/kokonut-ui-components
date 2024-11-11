@@ -51,6 +51,11 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                         item.href === "/docs"
                                             ? pathname === "/docs" ||
                                               pathname === "/docs/introduction"
+                                            : item.href ===
+                                              "/docs/components/block/"
+                                            ? pathname.startsWith(
+                                                  "/docs/components/block"
+                                              )
                                             : pathname === item.href;
                                     return (
                                         <Link
@@ -66,7 +71,9 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                 item.isComingSoon
                                                     ? "opacity-70 cursor-not-allowed bg-transparent"
                                                     : isActive
-                                                    ? "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900"
+                                                    ? item.isLab
+                                                        ? "bg-purple-500/10 text-purple-700 dark:text-purple-300"
+                                                        : "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900"
                                                     : "hover:bg-black/5 dark:hover:bg-white/5"
                                             )}
                                         >
@@ -74,7 +81,9 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                 className={cn(
                                                     "text-sm font-medium flex items-center gap-2",
                                                     isActive
-                                                        ? "text-white dark:text-zinc-900"
+                                                        ? item.isLab
+                                                            ? "text-purple-700 dark:text-purple-300"
+                                                            : "text-white dark:text-zinc-900"
                                                         : "text-zinc-600 dark:text-zinc-400"
                                                 )}
                                             >
@@ -87,6 +96,11 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                 {item.isNew && !isActive && (
                                                     <span className="inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase rounded-[28px] bg-gradient-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20 shadow-[0_0_10px_-3px_rgba(16,185,129,0.15)] dark:shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)]">
                                                         new
+                                                    </span>
+                                                )}
+                                                {item.isLab && !isActive && (
+                                                    <span className="inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase rounded-[28px] bg-gradient-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20 dark:ring-purple-400/20 shadow-[0_0_10px_-3px_rgba(147,51,234,0.15)] dark:shadow-[0_0_10px_-3px_rgba(147,51,234,0.2)]">
+                                                        lab
                                                     </span>
                                                 )}
                                             </span>
@@ -195,7 +209,18 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                         <div className="space-y-1">
                                             {section.items.map((item) => {
                                                 const isActive =
-                                                    pathname === item.href;
+                                                    item.href === "/docs"
+                                                        ? pathname ===
+                                                              "/docs" ||
+                                                          pathname ===
+                                                              "/docs/introduction"
+                                                        : item.href ===
+                                                          "/docs/components/block/"
+                                                        ? pathname.startsWith(
+                                                              "/docs/components/block"
+                                                          )
+                                                        : pathname ===
+                                                          item.href;
                                                 return (
                                                     <Link
                                                         key={item.id}
@@ -212,7 +237,9 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                             item.isComingSoon
                                                                 ? "opacity-70 cursor-not-allowed"
                                                                 : isActive
-                                                                ? "bg-zinc-900 dark:bg-white"
+                                                                ? item.isLab
+                                                                    ? "bg-purple-500/10 text-purple-700 dark:text-purple-300"
+                                                                    : "bg-zinc-900 dark:bg-white"
                                                                 : "hover:bg-black/5 dark:hover:bg-white/5"
                                                         )}
                                                     >
@@ -220,11 +247,25 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                             className={cn(
                                                                 "text-sm font-medium",
                                                                 isActive
-                                                                    ? "text-white dark:text-zinc-900"
+                                                                    ? item.isLab
+                                                                        ? "text-purple-700 dark:text-purple-300"
+                                                                        : "text-white dark:text-zinc-900"
                                                                     : "text-zinc-600 dark:text-zinc-400"
                                                             )}
                                                         >
                                                             {item.title}
+                                                            {item.isNew &&
+                                                                !isActive && (
+                                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase rounded-[28px] bg-gradient-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20">
+                                                                        new
+                                                                    </span>
+                                                                )}
+                                                            {item.isLab &&
+                                                                !isActive && (
+                                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase rounded-[28px] bg-gradient-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20 dark:ring-purple-400/20">
+                                                                        lab
+                                                                    </span>
+                                                                )}
                                                         </span>
                                                         {item.count && (
                                                             <span className="text-xs text-zinc-400">

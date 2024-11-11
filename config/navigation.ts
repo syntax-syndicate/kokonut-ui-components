@@ -6,6 +6,7 @@ export interface NavItem {
     count?: number | string;
     isComingSoon?: boolean;
     isNew?: boolean;
+    isLab?: boolean;
 }
 
 export interface NavSection {
@@ -41,7 +42,6 @@ export const navigationSections: NavSection[] = [
                 href: "/docs/components/alert",
                 description: "Alert components and layouts",
                 count: 6,
-                isNew: true,
             },
             {
                 id: 3,
@@ -63,6 +63,7 @@ export const navigationSections: NavSection[] = [
                 href: "/docs/components/input",
                 description: "More components coming soon",
                 count: "10",
+                isNew: true,
             },
             {
                 id: 6,
@@ -87,6 +88,17 @@ export const navigationSections: NavSection[] = [
                 id: 1,
                 title: "Custom Hooks",
                 href: "/docs/hooks",
+            },
+        ],
+    },
+    {
+        title: "Blocks",
+        items: [
+            {
+                id: 1,
+                title: "block-01",
+                href: "/docs/components/block/",
+                isLab: true,
             },
         ],
     },

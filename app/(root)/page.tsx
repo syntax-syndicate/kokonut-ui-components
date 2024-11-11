@@ -8,6 +8,10 @@ import Arrow25 from "@/components/icons/arrow6";
 import Card_01 from "@/components/card/card-01";
 import Alert02 from "@/components/alert/alert-02";
 
+const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
+
 export default function Home() {
     const categories = [
         {
@@ -52,8 +56,7 @@ export default function Home() {
         },
     ];
 
-    const baseCommand =
-        "shadcn@latest add https://kokonut.dev/registry/my-component.json";
+    const baseCommand = `shadcn@latest add ${prePath}/registry/my-component.json`;
 
     return (
         <main className="bg-white dark:bg-black/5">
