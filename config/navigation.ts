@@ -33,14 +33,14 @@ export const navigationSections: NavSection[] = [
                 title: "AI-Input",
                 href: "/docs/components/ai-input",
                 description: "Modern AI chat interface components",
-                count: 20,
+                count: 16,
             },
             {
                 id: 2,
                 title: "Alerts",
                 href: "/docs/components/alert",
                 description: "Alert components and layouts",
-                count: 7,
+                count: 6,
                 isNew: true,
             },
             {
