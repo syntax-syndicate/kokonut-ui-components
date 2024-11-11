@@ -18,7 +18,7 @@ This is not a library, it's a collection of components / hooks that you can copy
 
 KokonutUI components are meant to be use with Next.js projects that use TailwindCSS and shadcn. However they are also compatible with any React Project.
 
-### Import Components
+### Import Components, Hooks...
 
 All components are standalone and can be installed using [shadcn CLI](https://ui.shadcn.com/docs/cli), which make it very easy.
 
@@ -36,7 +36,7 @@ export function AIInput01Demo() {
 }
 ```
 
-#### A hook
+#### A file
 
 ```bash
 bunx shadcn@latest add https://kokonut.dev/registry/utils.json
