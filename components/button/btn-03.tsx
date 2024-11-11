@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, useAnimation } from "framer-motion";
 import { Magnet } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface Btn03Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     particleCount?: number;
@@ -94,7 +94,7 @@ export default function Btn03({
                     )}
                 />
             ))}
-            <span className="relative z-10 w-full flex items-center justify-center gap-2">
+            <span className="relative w-full flex items-center justify-center gap-2">
                 <Magnet
                     className={cn(
                         "w-4 h-4 transition-transform duration-300",

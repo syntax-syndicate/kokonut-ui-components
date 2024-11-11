@@ -1,5 +1,3 @@
-import { Alert } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check, X } from "lucide-react";
 import Image from "next/image";
@@ -7,7 +5,7 @@ import Image from "next/image";
 export default function Alert02() {
     return (
         <div className="w-full max-w-xl mx-auto">
-            <Alert className="relative bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 shadow-[0_1px_6px_0_rgba(0,0,0,0.02)] rounded-xl p-4">
+            <div className="relative bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-[0_1px_6px_0_rgba(0,0,0,0.02)] rounded-xl p-4">
                 <div className="flex items-center gap-4">
                     <div className="relative h-10 w-10 flex-shrink-0">
                         <Image
@@ -34,20 +32,17 @@ export default function Alert02() {
                             </div>
                         </div>
                     </div>
-
                     <div className="flex items-center gap-2">
-                        <Button
-                            size="sm"
-                            variant="ghost"
-                            className="h-8 w-8 p-0 hover:bg-red-50 dark:hover:bg-red-950/50 text-zinc-400 hover:text-red-600 dark:text-zinc-500 dark:hover:text-red-400 transition-colors"
+                        <button
+                            type="button"
+                            className="rounded-lg flex items-center justify-center h-8 w-8 p-0 hover:bg-red-50 dark:hover:bg-red-950/50 text-zinc-400 hover:text-red-600 dark:text-zinc-500 dark:hover:text-red-400 transition-colors"
                         >
                             <X className="h-4 w-4" />
-                        </Button>
-                        <Button
-                            size="sm"
-                            variant="ghost"
+                        </button>
+                        <button
+                            type="button"
                             className={cn(
-                                "h-8 w-8 p-0",
+                                "rounded-lg flex items-center justify-center h-8 w-8 p-0",
                                 "hover:bg-emerald-50 dark:hover:bg-emerald-950/50",
                                 "text-zinc-400 hover:text-emerald-600",
                                 "dark:text-zinc-500 dark:hover:text-emerald-400",
@@ -55,7 +50,7 @@ export default function Alert02() {
                             )}
                         >
                             <Check className="h-4 w-4" />
-                        </Button>
+                        </button>
                     </div>
                 </div>
 
@@ -64,7 +59,7 @@ export default function Alert02() {
                         Invited 5 minutes ago
                     </p>
                 </div>
-            </Alert>
+            </div>
         </div>
     );
 }

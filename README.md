@@ -10,9 +10,7 @@
 
 ## Overview
 
-##### Work in progress, not intented for use as of today"
-
-Access a collection of free-to-use, standalone components with KokonutUI. Each component is designed with TailwindCSS, shadcn, and optional animations powered by Framer Motion.
+Access a collection of free-to-use, standalone components with KokonutUI. Each component is designed with TailwindCSS, and optionally with shadcn.
 
 This is not a library, it's a collection of components / hooks that you can copy paste and customize to your preference.
 
@@ -53,12 +51,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 ```
 
-### Manual installation
+### Installation
 
--   **Copy and Paste**: Select and copy the component code you want to use.
-
--   **Check Requirements**: Some components need additional libraries (e.g., Framer Motion, Lucide React). Required libraries are listed at the top-right corner of each component.
--   **Customize as Needed**: Modify styles and animations to match your project’s look and feel or simply use the default one.
+[Docs](https://kokonut.dev/docs)
 
 ## Contributing
 

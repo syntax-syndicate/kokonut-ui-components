@@ -64,7 +64,7 @@ export async function ComponentItem({ item, folder }: ComponentItemProps) {
                         dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-800 opacity-50"
                     />
                 </div>
-                <div className="relative my-12 flex items-center justify-center">
+                <div className="my-12 flex items-center justify-center">
                     {item.component}
                 </div>
             </div>

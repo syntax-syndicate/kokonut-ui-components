@@ -1,6 +1,5 @@
 "use client";
 
-import { Alert } from "@/components/ui/alert";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { PartyPopper } from "lucide-react";
@@ -16,7 +15,7 @@ export default function Alert04({ className }: Alert04Props) {
             animate={{ opacity: 1, y: 0 }}
             className={cn("w-full max-w-xl mx-auto", className)}
         >
-            <Alert
+            <div
                 className={cn(
                     "relative overflow-hidden",
                     "bg-gradient-to-b from-violet-50 to-white",
@@ -104,7 +103,7 @@ export default function Alert04({ className }: Alert04Props) {
                         Milestone
                     </motion.div>
                 </div>
-            </Alert>
+            </div>
         </motion.div>
     );
 }

@@ -31,7 +31,7 @@ const FileDisplay = ({ fileName, onClear }: FileDisplayProps) => (
 export default function AIInput_02() {
     const [inputValue, setInputValue] = useState<string>("");
     const { fileName, fileInputRef, handleFileSelect, clearFile } =
-        useFileInput();
+        useFileInput({ accept: "image/*", maxSize: 5 });
 
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
         minHeight: MIN_HEIGHT,

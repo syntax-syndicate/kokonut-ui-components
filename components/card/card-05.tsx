@@ -1,4 +1,5 @@
-import { Circle, ArrowUpRight, TrendingUp } from "lucide-react";
+import { ArrowUpRight, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 interface Card05Props {
     category?: string;
@@ -23,22 +24,17 @@ export default function Card_05({
         { label: "Revenue", value: "$2.4M", trend: 3.2 },
     ],
     accentColor = "#8B5CF6",
+    href = "#",
 }: Card05Props) {
     return (
         <div
             className="group relative h-auto min-h-[400px] rounded-2xl p-4 sm:p-8
             bg-white dark:bg-zinc-900
             border border-zinc-200 dark:border-zinc-800
+            hover:border-zinc-300 dark:hover:border-zinc-700
+            transition-all duration-200
             overflow-hidden"
         >
-            <div className="absolute right-0 top-0 -mr-16 -mt-16">
-                <Circle
-                    size={200}
-                    style={{ color: accentColor }}
-                    className="opacity-10"
-                />
-            </div>
-
             <div className="relative h-full flex flex-col">
                 <div className="flex items-start justify-between">
                     <div className="space-y-4">
@@ -71,7 +67,7 @@ export default function Card_05({
 
                 <div className="my-6 h-px w-full bg-gradient-to-r from-transparent via-zinc-200 dark:via-zinc-700 to-transparent" />
 
-                <div className="mt-auto">
+                <div className="mt-auto space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
                         {metrics.map((metric) => (
                             <div key={metric.label} className="relative">
@@ -99,20 +95,22 @@ export default function Card_05({
                             </div>
                         ))}
                     </div>
-                </div>
-            </div>
 
-            <div className="absolute inset-0 rounded-2xl">
-                <div
-                    className="absolute inset-0 dark:opacity-0
-                    bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))]
-                    from-zinc-100/50 via-white/0 to-white/0"
-                />
-                <div
-                    className="absolute inset-0 opacity-0 dark:opacity-100
-                    bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))]
-                    from-zinc-800/30 via-zinc-900/0 to-zinc-900/0"
-                />
+                    {href && (
+                        <div className="pt-4">
+                            <Link
+                                href={href}
+                                className="inline-flex items-center gap-2 text-sm font-medium
+                                transition-colors duration-200
+                                text-zinc-600 hover:text-zinc-900
+                                dark:text-zinc-400 dark:hover:text-zinc-100 hover:underline"
+                            >
+                                Learn more
+                                <ArrowUpRight className="w-4 h-4" />
+                            </Link>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

@@ -8,3 +8,11 @@ export async function getComponent(fileName: string, folder: string) {
 
     return file;
 }
+
+export async function getHook(fileName: string) {
+    const prePath = path.join(process.cwd(), "hooks");
+
+    const file = await fs.readFile(path.join(prePath, fileName), "utf-8");
+
+    return file;
+}

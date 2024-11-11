@@ -466,7 +466,7 @@ export const component: Registry = [
         name: "card-01",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
-        registryDependencies: ["select", "input", "button", "card", "label"],
+        registryDependencies: ["select", "button"],
         files: [
             {
                 path: "components/card/card-01.tsx",
@@ -478,7 +478,7 @@ export const component: Registry = [
         name: "card-02",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button", "card"],
+        registryDependencies: ["button"],
         files: [
             {
                 path: "components/card/card-02.tsx",
@@ -490,7 +490,7 @@ export const component: Registry = [
         name: "card-03",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["card"],
+        registryDependencies: [],
         files: [
             {
                 path: "components/card/card-03.tsx",
@@ -502,7 +502,7 @@ export const component: Registry = [
         name: "card-04",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button", "input", "card"],
+        registryDependencies: ["button"],
         files: [
             {
                 path: "components/card/card-04.tsx",
@@ -526,7 +526,7 @@ export const component: Registry = [
         name: "card-06",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button", "card"],
+        registryDependencies: ["button"],
         files: [
             {
                 path: "components/card/card-06.tsx",
@@ -550,7 +550,7 @@ export const component: Registry = [
         name: "pricing-02",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button", "card"],
+        registryDependencies: ["button"],
         files: [
             {
                 path: "components/pricing/pricing-02.tsx",
@@ -586,7 +586,7 @@ export const component: Registry = [
         name: "alert-01",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["alert"],
+        registryDependencies: [],
         files: [
             {
                 path: "components/alert/alert-01.tsx",
@@ -598,7 +598,7 @@ export const component: Registry = [
         name: "alert-02",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["alert", "button"],
+        registryDependencies: ["alert"],
         files: [
             {
                 path: "components/alert/alert-02.tsx",
@@ -610,7 +610,7 @@ export const component: Registry = [
         name: "alert-03",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
-        registryDependencies: ["alert"],
+        registryDependencies: [],
         files: [
             {
                 path: "components/alert/alert-03.tsx",
@@ -622,7 +622,7 @@ export const component: Registry = [
         name: "alert-04",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
-        registryDependencies: ["alert"],
+        registryDependencies: [],
         files: [
             {
                 path: "components/alert/alert-04.tsx",
@@ -634,7 +634,7 @@ export const component: Registry = [
         name: "alert-05",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["alert"],
+        registryDependencies: [],
         files: [
             {
                 path: "components/alert/alert-05.tsx",
@@ -655,13 +655,132 @@ export const component: Registry = [
         ],
     },
     {
-        name: "alert-07",
+        name: "input-01",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
-        registryDependencies: ["button"],
+        dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/alert/alert-07.tsx",
+                path: "components/input/input-01.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "input-02",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/input/input-02.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-tags.ts",
+                type: "registry:hook",
+            },
+            {
+                path: "hooks/use-click-outside.ts",
+                type: "registry:hook",
+            },
+        ],
+    },
+    {
+        name: "input-03",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/input/input-03.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-file-input.ts",
+                type: "registry:hook",
+            },
+        ],
+    },
+    {
+        name: "input-04",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/input/input-04.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "input-05",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/input/input-05.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "input-06",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/input/input-06.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "input-07",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/input/input-07.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-click-outside.ts",
+                type: "registry:hook",
+            },
+        ],
+    },
+    {
+        name: "input-08",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/input/input-08.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-copy-to-clipboard.ts",
+                type: "registry:hook",
+            },
+        ],
+    },
+    {
+        name: "input-09",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["popover"],
+        files: [
+            {
+                path: "components/input/input-09.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "input-10",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/input/input-10.tsx",
                 type: "registry:component",
             },
         ],

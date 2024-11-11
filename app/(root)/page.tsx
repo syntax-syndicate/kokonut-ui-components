@@ -22,14 +22,14 @@ export default function Home() {
             title: "Alert Components",
             href: "/docs/components/alert",
             component: <Alert02 />,
-            count: 7,
+            count: 6,
         },
         {
             id: 3,
             title: "AI Components",
             href: "/docs/components/ai-input",
             component: <AIInput_04 />,
-            count: 20,
+            count: 16,
         },
         {
             id: 4,

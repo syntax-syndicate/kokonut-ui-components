@@ -1,10 +1,4 @@
 import Image from "next/image";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Code2, MessageSquare } from "lucide-react";
 
@@ -23,7 +17,7 @@ interface Card06Props {
     progress?: number;
 }
 
-export default function Card_06({
+export default function Card06({
     title = "Mobile App Redesign",
     subtitle = "Design System & Component Library",
     teamMembers = [
@@ -39,12 +33,11 @@ export default function Card_06({
 }: Card06Props) {
     return (
         <div className="transform transition-all duration-300 hover:translate-y-[-4px]">
-            <Card
-                className="group relative overflow-hidden cursor-pointer
-                bg-white dark:bg-zinc-900
-                hover:shadow-md transition-all duration-300"
+            <div
+                className="group relative overflow-hidden cursor-pointer bg-white dark:bg-zinc-900 
+                          hover:shadow-md transition-all duration-300 rounded-lg"
             >
-                <CardHeader className="p-8 pb-0">
+                <div className="p-8 pb-0">
                     <div className="flex items-start justify-between">
                         <div className="space-y-1.5">
                             <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
@@ -65,10 +58,9 @@ export default function Card_06({
                             <span>{dueDate}</span>
                         </div>
                     </div>
-                </CardHeader>
+                </div>
 
-                <CardContent className="p-8 space-y-6">
-                    {/* Team Members */}
+                <div className="p-8 space-y-6">
                     <div className="flex items-center gap-2">
                         <div className="flex -space-x-2">
                             {teamMembers.map((member, index) => (
@@ -108,7 +100,6 @@ export default function Card_06({
                         </Button>
                     </div>
 
-                    {/* Activity Stats */}
                     <div className="grid grid-cols-2 gap-4">
                         <div
                             className="flex items-center gap-2 p-3 rounded-xl
@@ -130,7 +121,6 @@ export default function Card_06({
                         </div>
                     </div>
 
-                    {/* Progress Bar */}
                     <div className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
                             <span className="font-medium text-zinc-700 dark:text-zinc-300">
@@ -148,11 +138,11 @@ export default function Card_06({
                             />
                         </div>
                     </div>
-                </CardContent>
+                </div>
 
-                <CardFooter className="px-8 pb-8">
+                <div className="px-8 pb-8">
                     <div className="flex items-center justify-between w-full">
-                        <div className="text-xs text-zinc-500 dark:text-zinc-400">
+                        <div className="text-xs text-zinc-500 dark:text-zinc-400 hover:underline">
                             View project details →
                         </div>
                         <div
@@ -164,24 +154,8 @@ export default function Card_06({
                             <ArrowRight className="w-5 h-5" />
                         </div>
                     </div>
-                </CardFooter>
-
-                <div
-                    className="absolute inset-0 rounded-2xl duration-300
-                    opacity-0 group-hover:opacity-100 pointer-events-none"
-                >
-                    <div
-                        className="absolute inset-0 dark:opacity-0
-                        bg-gradient-to-b from-indigo-100/50 via-white/0 to-white/0
-                        "
-                    />
-                    <div
-                        className="absolute inset-0 opacity-0 dark:opacity-100
-                        bg-gradient-to-b from-indigo-900/20 via-zinc-900/0 to-zinc-900/0
-                        "
-                    />
                 </div>
-            </Card>
+            </div>
         </div>
     );
 }

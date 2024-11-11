@@ -2,12 +2,6 @@
 
 import { Check, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-} from "@/components/ui/card";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -17,13 +11,13 @@ interface Feature {
 }
 
 interface Pricing02Props {
-    tier: "Starter" | "Pro" | "Enterprise";
-    price: {
-        monthly: number;
-        yearly: number;
+    tier?: "Starter" | "Pro" | "Enterprise";
+    price?: {
+        monthly?: number;
+        yearly?: number;
     };
-    description: string;
-    features: Feature[];
+    description?: string;
+    features?: Feature[];
     popular?: boolean;
 }
 
@@ -49,7 +43,9 @@ export default function Pricing_02({
 }: Pricing02Props) {
     const [isYearly, setIsYearly] = useState(false);
     const currentPrice = isYearly ? price.yearly : price.monthly;
-    const savings = Math.round((1 - price.yearly / 12 / price.monthly) * 100);
+    const savings = Math.round(
+        (1 - (price.yearly ?? 0) / 12 / (price.monthly ?? 0)) * 100
+    );
 
     return (
         <div className="relative w-full max-w-sm mx-auto">
@@ -68,7 +64,7 @@ export default function Pricing_02({
                 </div>
             )}
 
-            <Card
+            <div
                 className={cn(
                     "relative overflow-hidden transition-colors duration-300 bg-white dark:bg-zinc-900 shadow-md border border-zinc-200/50 dark:border-zinc-800/50",
                     popular
@@ -76,7 +72,7 @@ export default function Pricing_02({
                         : "border-zinc-200 dark:border-zinc-800"
                 )}
             >
-                <CardHeader className="p-8">
+                <div className="p-8">
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                             {tier}
@@ -124,9 +120,9 @@ export default function Pricing_02({
                     <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
                         {description}
                     </p>
-                </CardHeader>
+                </div>
 
-                <CardContent className="p-8 pt-4">
+                <div className="p-8 pt-4">
                     <div className="space-y-4">
                         {features.map((feature) => (
                             <div
@@ -156,9 +152,9 @@ export default function Pricing_02({
                             </div>
                         ))}
                     </div>
-                </CardContent>
+                </div>
 
-                <CardFooter className="p-8 pt-4">
+                <div className="p-8 pt-4">
                     <Button
                         type="button"
                         className={cn(
@@ -171,7 +167,7 @@ export default function Pricing_02({
                         Get started
                         <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
                     </Button>
-                </CardFooter>
+                </div>
 
                 <div className="absolute inset-0 pointer-events-none">
                     <div
@@ -187,7 +183,7 @@ export default function Pricing_02({
                         )}
                     />
                 </div>
-            </Card>
+            </div>
         </div>
     );
 }

@@ -63,7 +63,8 @@ export default function AIInput_10() {
         maxHeight: 200,
     });
     const { fileName, fileInputRef, handleFileSelect, clearFile } =
-        useFileInput();
+        useFileInput({ accept: "image/*", maxSize: 5 });
+
 
     const updateState = useCallback(
         (updates: Partial<typeof state>) =>

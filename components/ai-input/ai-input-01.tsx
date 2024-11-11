@@ -27,7 +27,7 @@ export default function AIInput_01() {
                     id="ai-input-01"
                     placeholder="Type your message..."
                     className={cn(
-                        "max-w-xl bg-black/5 dark:bg-white/5 w-full rounded-3xl pl-6 pr-16",
+                        "max-w-xl bg-black/5 dark:bg-white/5 rounded-3xl pl-6 pr-16",
                         "placeholder:text-black/50 dark:placeholder:text-white/50",
                         "border-none ring-black/20 dark:ring-white/20",
                         "text-black dark:text-white text-wrap",

@@ -1,6 +1,5 @@
 import { Rocket, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
 
 interface TeamMember {
     name: string;
@@ -68,12 +67,12 @@ export default function Card03({
 
     return (
         <div className="group relative w-full max-w-2xl mx-auto">
-            <Card
-                className="relative overflow-hidden border-zinc-200 dark:border-zinc-800
+            <div
+                className="relative overflow-hidden border border-zinc-200 dark:border-zinc-800
                 bg-gradient-to-b from-white to-zinc-50/50
-                dark:from-zinc-900 dark:to-zinc-900/50 backdrop-blur-xl pb-8"
+                dark:from-zinc-900 dark:to-zinc-900/50 backdrop-blur-xl pb-8 rounded-xl"
             >
-                <CardHeader className="p-8 pb-6">
+                <div className="p-8 pb-6">
                     <div className="flex items-start justify-between">
                         <div className="flex-1">
                             <div className="flex items-center gap-2 mb-3">
@@ -92,9 +91,9 @@ export default function Card03({
                             </p>
                         </div>
                     </div>
-                </CardHeader>
+                </div>
 
-                <CardContent className="px-8 grid grid-cols-5 gap-6">
+                <div className="px-8 grid grid-cols-5 gap-6">
                     <div className="col-span-2 space-y-4">
                         <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
                             Team
@@ -169,7 +168,7 @@ export default function Card03({
                             ))}
                         </div>
                     </div>
-                </CardContent>
+                </div>
 
                 <div
                     className="absolute inset-0 rounded-2xl duration-300
@@ -186,7 +185,7 @@ export default function Card03({
                         from-blue-900/20 via-zinc-900/0 to-zinc-900/0"
                     />
                 </div>
-            </Card>
+            </div>
         </div>
     );
 }

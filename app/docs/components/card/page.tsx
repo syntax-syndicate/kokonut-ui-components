@@ -1,11 +1,11 @@
 import { ViewComponents } from "@/components/ViewComponents";
 import type { Metadata } from "next";
 import Card_01 from "@/components/card/card-01";
-import Card_02 from "@/components/card/card-02";
 import Card_03 from "@/components/card/card-03";
 import Card_04 from "@/components/card/card-04";
 import Card_05 from "@/components/card/card-05";
 import Card_06 from "@/components/card/card-06";
+import Card_02 from "@/components/card/card-02";
 
 export const metadata: Metadata = {
     title: "Card",

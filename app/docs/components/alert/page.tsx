@@ -2,15 +2,15 @@ import Alert01 from "@/components/alert/alert-01";
 import Alert02 from "@/components/alert/alert-02";
 import Alert03 from "@/components/alert/alert-03";
 import Alert04 from "@/components/alert/alert-04";
+import Alert05 from "@/components/alert/alert-05";
 import Alert06 from "@/components/alert/alert-06";
-import Alert07 from "@/components/alert/alert-07";
 import { ViewComponents } from "@/components/ViewComponents";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Alert",
     description:
-        "A collection of alert components to use and customize. Built with Tailwind CSS and Shadcn.",
+        "A collection of alert components to use and customize. Built with Tailwind CSS.",
 };
 
 const FOLDER = "alert";
@@ -44,16 +44,16 @@ export default function Alerts_View() {
             fileName: "alert-04.tsx",
         },
         {
-            id: 6,
+            id: 5,
             title: "Congratz",
-            component: <Alert06 />,
-            fileName: "alert-06.tsx",
+            component: <Alert05 />,
+            fileName: "alert-05.tsx",
         },
         {
-            id: 7,
+            id: 6,
             title: "Glass",
-            component: <Alert07 />,
-            fileName: "alert-07.tsx",
+            component: <Alert06 />,
+            fileName: "alert-06.tsx",
         },
     ];
 

@@ -37,7 +37,7 @@ export default function AIInput_09() {
         maxHeight: 200,
     });
     const { fileName, fileInputRef, handleFileSelect, clearFile } =
-        useFileInput();
+        useFileInput({ accept: "image/*", maxSize: 5 });
 
     const menuRef = useRef<HTMLDivElement>(null);
 

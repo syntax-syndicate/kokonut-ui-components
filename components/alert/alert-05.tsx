@@ -1,71 +1,72 @@
-import { Alert } from "@/components/ui/alert";
-import Image from "next/image";
-import { Heart } from "lucide-react";
+"use client";
+
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { CircleDollarSign } from "lucide-react";
 
 export default function Alert05() {
     return (
-        <div className="w-full max-w-md mx-auto">
-            <Alert className="relative bg-white dark:bg-zinc-900 border-none shadow-[0_2px_8px_0_rgba(0,0,0,0.04)] dark:shadow-[0_2px_8px_0_rgba(0,0,0,0.2)] p-3 rounded-xl">
-                <div className="flex items-center gap-3">
-                    <div className="flex-shrink-0 relative h-12">
-                        <div className="relative z-20 h-12 w-12">
-                            <Image
-                                src="/av02.png"
-                                alt="Sarah Chen"
-                                fill
-                                className="rounded-full object-cover ring-2 ring-white dark:ring-zinc-900"
-                            />
+        <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="w-full max-w-md mx-auto"
+        >
+            <div
+                className={cn(
+                    "relative overflow-hidden",
+                    "bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-950/50 dark:to-violet-950/50",
+                    "border border-indigo-200 dark:border-indigo-800/50",
+                    "shadow-lg",
+                    "p-6 rounded-2xl"
+                )}
+            >
+                <div className="flex items-start gap-4">
+                    <motion.div
+                        initial={{ scale: 0.5 }}
+                        animate={{ scale: 1 }}
+                        className="flex-shrink-0"
+                    >
+                        <div
+                            className={cn(
+                                "w-12 h-12 rounded-2xl rotate-3",
+                                "bg-gradient-to-br from-indigo-500 to-violet-500",
+                                "flex items-center justify-center",
+                                "shadow-lg shadow-indigo-500/20"
+                            )}
+                        >
+                            <CircleDollarSign className="h-6 w-6 text-white" />
                         </div>
-                        <div className="absolute z-10 top-0 -right-2 h-12 w-12">
-                            <Image
-                                src="/av03.png"
-                                alt="Mike Wilson"
-                                fill
-                                className="rounded-full object-cover ring-2 ring-white dark:ring-zinc-900"
-                            />
-                        </div>
-                    </div>
+                    </motion.div>
 
                     <div className="flex-1 min-w-0">
-                        <div className="space-y-1">
-                            <p className="text-sm text-zinc-900 dark:text-zinc-100">
-                                <span className="font-semibold">
-                                    Sarah Chen
-                                </span>
-                                <span className="text-zinc-500 dark:text-zinc-400">
-                                    {" "}
-                                    and{" "}
-                                </span>
-                                <span className="font-semibold">
-                                    Mike Wilson
-                                </span>
-                                <span className="text-zinc-500 dark:text-zinc-400">
-                                    {" "}
-                                    liked your post
-                                </span>
-                            </p>
-                            <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                                2m ago
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex-shrink-0">
-                        <div className="p-2 rounded-full bg-rose-50 dark:bg-rose-950">
-                            <Heart className="h-4 w-4 text-rose-500 dark:text-rose-400 fill-rose-500 dark:fill-rose-400" />
-                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="space-y-2"
+                        >
+                            <div className="flex flex-col gap-1">
+                                <div className="flex items-center justify-between">
+                                    <h3 className="text-lg font-semibold text-indigo-950 dark:text-indigo-100">
+                                        Payment Received
+                                    </h3>
+                                    <span className="px-2.5 py-1 rounded-full text-sm font-semibold bg-white/80 dark:bg-white/10 text-indigo-600 dark:text-indigo-300 backdrop-blur-sm">
+                                        $2,400.00
+                                    </span>
+                                </div>
+                                <p className="text-sm text-indigo-700 dark:text-indigo-300">
+                                    The payment has been processed and added to
+                                    your account
+                                </p>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
 
-                <div className="mt-3 ml-[3.75rem]">
-                    <div className="rounded-md p-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                        <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-1">
-                            Just launched our new feature! 🚀 Check out the
-                            latest updates and let me know what you think!
-                        </p>
-                    </div>
+                <div className="absolute inset-0 pointer-events-none">
+                    <div className="absolute -left-8 -top-8 w-32 h-32 rounded-full bg-indigo-400/20 dark:bg-indigo-600/10 blur-3xl" />
+                    <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-violet-400/20 dark:bg-violet-600/10 blur-3xl" />
                 </div>
-            </Alert>
-        </div>
+            </div>
+        </motion.div>
     );
 }

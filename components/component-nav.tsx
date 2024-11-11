@@ -61,7 +61,7 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                     : item.href
                                             }
                                             className={cn(
-                                                "group flex items-center justify-between px-2.5 py-1.5 rounded-md",
+                                                "group flex items-center justify-between px-2.5 py-1.5 rounded-xl",
                                                 "transition-all duration-200",
                                                 item.isComingSoon
                                                     ? "opacity-70 cursor-not-allowed bg-transparent"

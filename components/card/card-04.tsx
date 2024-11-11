@@ -7,13 +7,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-    Card,
-    CardHeader,
-    CardContent,
-    CardFooter,
-} from "@/components/ui/card";
 
 interface Message {
     id: string;
@@ -70,11 +63,11 @@ export default function Card04({
 }: Card04Props) {
     return (
         <div className="group relative w-full max-w-md mx-auto">
-            <Card
-                className="relative overflow-hidden border-zinc-200/80 dark:border-zinc-800/80 
+            <div
+                className="rounded-lg border relative overflow-hidden border-zinc-200/80 dark:border-zinc-800/80 
                 bg-gradient-to-br from-white/80 to-white/50 dark:from-zinc-900/80 dark:to-zinc-900/50 backdrop-blur-md"
             >
-                <CardHeader className="border-b border-zinc-200 dark:border-zinc-800 p-4">
+                <div className="border-b border-zinc-200 dark:border-zinc-800 p-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             <div className="relative">
@@ -98,17 +91,16 @@ export default function Card04({
                                 </p>
                             </div>
                         </div>
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            className="rounded-full"
+                        <button
+                            type="button"
+                            className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800"
                         >
                             <MoreHorizontal className="w-5 h-5 text-zinc-500" />
-                        </Button>
+                        </button>
                     </div>
-                </CardHeader>
+                </div>
 
-                <CardContent className="h-[400px] overflow-y-auto p-4 space-y-4">
+                <div className="h-[400px] overflow-y-auto p-4 space-y-4">
                     {messages.map((message) => (
                         <div
                             key={message.id}
@@ -153,7 +145,7 @@ export default function Card04({
                                     </div>
                                 )}
                             </div>
-                            <div className="opacity-0 group-hover/message:opacity-100 transition-opacity">
+                            <div className="flex items-center gap-1">
                                 {message.status === "read" && (
                                     <CheckCheck className="w-4 h-4 text-blue-500" />
                                 )}
@@ -163,46 +155,42 @@ export default function Card04({
                             </div>
                         </div>
                     ))}
-                </CardContent>
+                </div>
 
-                {/* Input Area */}
-                <CardFooter className="p-4 border-t border-zinc-200/10 dark:border-zinc-800/50">
+                <div className="p-4 border-t border-zinc-200/10 dark:border-zinc-800/50">
                     <div className="relative flex w-full items-center gap-2">
                         <div className="relative flex-1">
-                            <Input
+                            <input
+                                type="text"
                                 placeholder="Write a message..."
-                                className="bg-zinc-50 dark:bg-zinc-800/50 
-                                        border-zinc-200 dark:border-zinc-700/50
-                                        focus-visible:ring-1 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600
-                                        placeholder:text-zinc-400 dark:placeholder:text-zinc-500
-                                        pr-10"
+                                className="w-full px-4 py-2 rounded-lg
+                                    bg-zinc-50 dark:bg-zinc-800/50 
+                                    border border-zinc-200 dark:border-zinc-700/50
+                                    focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600
+                                    placeholder:text-zinc-400 dark:placeholder:text-zinc-500
+                                    pr-10"
                             />
-                            <div className="absolute right-2 top-1/2 -translate-y-1/2">
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="h-7 w-7 rounded-full 
-                                            hover:bg-zinc-200/50 dark:hover:bg-zinc-700/50"
-                                >
-                                    <SmilePlus className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
-                                </Button>
-                            </div>
+                            <button
+                                type="button"
+                                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full 
+                                hover:bg-zinc-200/50 dark:hover:bg-zinc-700/50"
+                            >
+                                <SmilePlus className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
+                            </button>
                         </div>
                         <Button
                             type="button"
-                            size="icon"
-                            className="h-10 w-10 rounded-full 
+                            className=" 
                                     bg-zinc-800 hover:bg-zinc-700 
                                     dark:bg-zinc-700 dark:hover:bg-zinc-600 
                                     text-zinc-100 dark:text-zinc-200 
-                                    transition-colors shadow-sm
-                                    flex-shrink-0"
+                                    transition-colors shadow-sm rounded-xl"
                         >
                             <Send className="w-4 h-4" />
                         </Button>
                     </div>
-                </CardFooter>
-            </Card>
+                </div>
+            </div>
         </div>
     );
 }
