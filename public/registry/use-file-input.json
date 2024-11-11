@@ -1,0 +1,12 @@
+{
+  "name": "use-file-input",
+  "type": "registry:hook",
+  "files": [
+    {
+      "type": "registry:hook",
+      "content": "import { useState, useRef } from \"react\";\n\nexport function useFileInput() {\n    const [fileName, setFileName] = useState<string>(\"\");\n    const fileInputRef = useRef<HTMLInputElement>(null);\n\n    const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {\n        const file = e.target.files?.[0];\n        if (file) {\n            setFileName(file.name);\n        }\n    };\n\n    const clearFile = () => {\n        setFileName(\"\");\n        if (fileInputRef.current) {\n            fileInputRef.current.value = \"\";\n        }\n    };\n\n    return {\n        fileName,\n        fileInputRef,\n        handleFileSelect,\n        clearFile,\n    };\n}\n",
+      "path": "/hooks/use-file-input.ts",
+      "target": "hooks/use-file-input.ts"
+    }
+  ]
+}

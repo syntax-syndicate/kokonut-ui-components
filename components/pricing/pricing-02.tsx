@@ -1,20 +1,19 @@
 "use client";
 
-import { Check, Sparkles, ArrowRight, Info } from "lucide-react";
+import { Check, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip";
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+} from "@/components/ui/card";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface Feature {
     name: string;
     included: boolean;
-    tooltip?: string;
 }
 
 interface Pricing02Props {
@@ -26,7 +25,6 @@ interface Pricing02Props {
     description: string;
     features: Feature[];
     popular?: boolean;
-    onSelect?: (tier: string) => void;
 }
 
 export default function Pricing_02({
@@ -41,7 +39,6 @@ export default function Pricing_02({
         {
             name: "Advanced analytics",
             included: true,
-            tooltip: "Includes user behavior tracking and custom reports",
         },
         { name: "Custom integrations", included: true },
         { name: "API access", included: true },
@@ -49,7 +46,6 @@ export default function Pricing_02({
         { name: "Custom branding", included: false },
     ],
     popular = false,
-    onSelect = (tier: string) => console.log(`Selected ${tier} tier`),
 }: Pricing02Props) {
     const [isYearly, setIsYearly] = useState(false);
     const currentPrice = isYearly ? price.yearly : price.monthly;
@@ -60,9 +56,11 @@ export default function Pricing_02({
             {popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
                     <div
-                        className="flex items-center gap-1.5 px-3 py-1 rounded-full
-                        bg-gradient-to-r from-amber-500/90 to-orange-500/90 
-                        text-white text-sm font-medium shadow-lg shadow-orange-500/25"
+                        className={cn(
+                            "flex items-center gap-1.5 px-3 py-1 rounded-full",
+                            "bg-gradient-to-r from-amber-500/90 to-orange-500/90",
+                            "text-white text-sm font-medium shadow-lg shadow-orange-500/25"
+                        )}
                     >
                         <Sparkles className="w-3.5 h-3.5" />
                         Most Popular
@@ -70,45 +68,41 @@ export default function Pricing_02({
                 </div>
             )}
 
-            <div
+            <Card
                 className={cn(
-                    "relative overflow-hidden rounded-2xl border-2 transition-colors duration-300",
-                    "bg-white dark:bg-zinc-900",
+                    "relative overflow-hidden transition-colors duration-300 bg-white dark:bg-zinc-900 shadow-md border border-zinc-200/50 dark:border-zinc-800/50",
                     popular
                         ? "border-orange-500/50 dark:border-orange-400/50"
                         : "border-zinc-200 dark:border-zinc-800"
                 )}
             >
-                <div className="p-8">
+                <CardHeader className="p-8">
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                             {tier}
                         </h3>
                         <div className="flex items-center gap-2">
-                            <button
-                                type="button"
-                                onClick={() => setIsYearly(false)}
-                                className={cn(
-                                    "px-2.5 py-1 text-sm rounded-md transition-colors",
-                                    !isYearly
-                                        ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
-                                        : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
-                                )}
-                            >
-                                Monthly
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => setIsYearly(true)}
-                                className={cn(
-                                    "px-2.5 py-1 text-sm rounded-md transition-colors",
-                                    isYearly
-                                        ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
-                                        : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
-                                )}
-                            >
-                                Yearly
-                            </button>
+                            {["Monthly", "Yearly"].map((period) => (
+                                <button
+                                    key={period}
+                                    type="button"
+                                    onClick={() =>
+                                        setIsYearly(period === "Yearly")
+                                    }
+                                    className={cn(
+                                        "px-2.5 py-1 text-sm rounded-md transition-colors",
+                                        (
+                                            period === "Yearly"
+                                                ? isYearly
+                                                : !isYearly
+                                        )
+                                            ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+                                            : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+                                    )}
+                                >
+                                    {period}
+                                </button>
+                            ))}
                         </div>
                     </div>
 
@@ -130,9 +124,9 @@ export default function Pricing_02({
                     <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
                         {description}
                     </p>
-                </div>
+                </CardHeader>
 
-                <div className="p-8 pt-4">
+                <CardContent className="p-8 pt-4">
                     <div className="space-y-4">
                         {features.map((feature) => (
                             <div
@@ -140,49 +134,33 @@ export default function Pricing_02({
                                 className="flex items-start gap-3"
                             >
                                 <div
-                                    className={`p-0.5 rounded-full mt-1
-                                    ${
+                                    className={cn(
+                                        "p-0.5 rounded-full mt-1",
                                         feature.included
                                             ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
                                             : "bg-zinc-200/50 dark:bg-zinc-700/50 text-zinc-400 dark:text-zinc-600"
-                                    }`}
+                                    )}
                                 >
                                     <Check className="w-3 h-3" />
                                 </div>
-                                <div className="flex items-center gap-1.5">
-                                    <span
-                                        className={`text-sm
-                                        ${
-                                            feature.included
-                                                ? "text-zinc-700 dark:text-zinc-300"
-                                                : "text-zinc-500 dark:text-zinc-500"
-                                        }`}
-                                    >
-                                        {feature.name}
-                                    </span>
-                                    {feature.tooltip && (
-                                        <TooltipProvider>
-                                            <Tooltip>
-                                                <TooltipTrigger>
-                                                    <Info className="w-3.5 h-3.5 text-zinc-400" />
-                                                </TooltipTrigger>
-                                                <TooltipContent>
-                                                    <p className="text-xs">
-                                                        {feature.tooltip}
-                                                    </p>
-                                                </TooltipContent>
-                                            </Tooltip>
-                                        </TooltipProvider>
+                                <span
+                                    className={cn(
+                                        "text-sm",
+                                        feature.included
+                                            ? "text-zinc-700 dark:text-zinc-300"
+                                            : "text-zinc-500 dark:text-zinc-500"
                                     )}
-                                </div>
+                                >
+                                    {feature.name}
+                                </span>
                             </div>
                         ))}
                     </div>
-                </div>
+                </CardContent>
 
-                <div className="p-8 pt-4">
+                <CardFooter className="p-8 pt-4">
                     <Button
-                        onClick={() => onSelect(tier)}
+                        type="button"
                         className={cn(
                             "w-full group",
                             popular
@@ -193,19 +171,23 @@ export default function Pricing_02({
                         Get started
                         <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
                     </Button>
-                </div>
+                </CardFooter>
 
                 <div className="absolute inset-0 pointer-events-none">
                     <div
-                        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r 
-                        from-transparent via-zinc-200 dark:via-zinc-700 to-transparent"
+                        className={cn(
+                            "absolute inset-x-0 top-0 h-px bg-gradient-to-r",
+                            "from-transparent via-zinc-200 dark:via-zinc-700 to-transparent"
+                        )}
                     />
                     <div
-                        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r 
-                        from-transparent via-zinc-200 dark:via-zinc-700 to-transparent"
+                        className={cn(
+                            "absolute inset-x-0 bottom-0 h-px bg-gradient-to-r",
+                            "from-transparent via-zinc-200 dark:via-zinc-700 to-transparent"
+                        )}
                     />
                 </div>
-            </div>
+            </Card>
         </div>
     );
 }

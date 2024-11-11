@@ -1,8 +1,5 @@
-"use client";
-
-import { Video, Users, Headphones, BarChart, Zap, Shield } from "lucide-react";
+import { Users, Headphones, BarChart, Zap, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 
 interface FeatureItem {
     text: string;
@@ -52,12 +49,12 @@ export default function Pricing_01({
     ],
 }: Pricing_01Props) {
     return (
-        <motion.div
-            className="w-full max-w-md mx-auto"
-            whileHover={{ translateY: -5, rotate: 1 }}
-            transition={{ duration: 0.2 }}
-        >
-            <div className="rounded-2xl bg-white dark:bg-zinc-900 shadow-md border border-zinc-200/50 dark:border-zinc-700/50 hover:border-emerald-200/50 dark:hover:border-emerald-700/50 transition-colors">
+        <div className="w-full max-w-md mx-auto">
+            <div
+                className="rounded-2xl bg-white dark:bg-zinc-900 shadow-md border border-zinc-200/50 
+                dark:border-zinc-700/50 hover:border-emerald-200/50 dark:hover:border-emerald-700/50 
+                transition-all duration-200 hover:-translate-y-1 hover:rotate-1 hover:shadow-lg"
+            >
                 <div className="p-6 space-y-4">
                     {/* Header */}
                     <div className="text-left space-y-2">
@@ -118,6 +115,6 @@ export default function Pricing_01({
                     </p>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 }

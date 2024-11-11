@@ -1,24 +1,25 @@
-import { registryComponents } from "../registry";
+import { registry } from "../registry";
 import { promises as fs } from "fs";
 import type { z } from "zod";
 import type { registryItemFileSchema } from "@/registry/schema";
 import path from "path";
 
-const REGISTRY_BASE_PATH = "registry";
+const REGISTRY_BASE_PATH = process.cwd();
 const PUBLIC_FOLDER_BASE_PATH = "public/registry";
-const COMPONENT_FOLDER_PATH = "components";
 
+// Map registry types to their target folders
+const REGISTRY_TYPE_FOLDERS: Record<string, string> = {
+    "registry:component": "components",
+    "registry:hook": "hooks",
+    "registry:lib": "lib",
+    // Add other registry types and their folders as needed
+};
 
 /**
  * bun run ./scripts/build-registry.ts
+ *
  */
 type File = z.infer<typeof registryItemFileSchema>;
-const FolderToComponentTypeMap = {
-    block: "registry:block",
-    component: "registry:component",
-    hooks: "registry:hook",
-    ui: "registry:ui",
-};
 
 async function writeFileRecursive(filePath: string, data: string) {
     const dir = path.dirname(filePath);
@@ -34,27 +35,47 @@ async function writeFileRecursive(filePath: string, data: string) {
     }
 }
 
-const getComponentFiles = async (files: File[], componentType: string) => {
+const getComponentFiles = async (files: File[], registryType: string) => {
+    const baseFolder = REGISTRY_TYPE_FOLDERS[registryType] || "components";
+
     const filesArrayPromises = (files ?? []).map(async (file) => {
         if (typeof file === "string") {
-            const filePath = `${REGISTRY_BASE_PATH}/${file}`;
+            const normalizedPath = file.startsWith("/") ? file : `/${file}`;
+            const filePath = path.join(REGISTRY_BASE_PATH, normalizedPath);
             const fileContent = await fs.readFile(filePath, "utf-8");
+            const targetPath = normalizedPath.replace(/^\/components\//, "/");
             return {
-                type: componentType,
+                type: registryType,
                 content: fileContent,
-                path: file,
-                target: `${COMPONENT_FOLDER_PATH}/${file}`,
+                path: normalizedPath,
+                target: `${baseFolder}${targetPath}`,
             };
         }
+        const normalizedPath = file.path.startsWith("/")
+            ? file.path
+            : `/${file.path}`;
+        const filePath = path.join(REGISTRY_BASE_PATH, normalizedPath);
+        const fileContent = await fs.readFile(filePath, "utf-8");
+        const targetFolder = REGISTRY_TYPE_FOLDERS[file.type] || baseFolder;
+        const targetPath = normalizedPath.replace(
+            /^\/(components|hooks|lib)\//,
+            "/"
+        );
+        return {
+            type: file.type || registryType,
+            content: fileContent,
+            path: normalizedPath,
+            target: file.target || `${targetFolder}${targetPath}`,
+        };
     });
-    const filesArray = await Promise.all(filesArrayPromises);
 
+    const filesArray = await Promise.all(filesArrayPromises);
     return filesArray;
 };
 
 const main = async () => {
-    for (let i = 0; i < registryComponents.length; i++) {
-        const component = registryComponents[i];
+    for (let i = 0; i < registry.length; i++) {
+        const component = registry[i];
         const files = component.files;
         if (!files) throw new Error("No files found for component");
 

@@ -48,7 +48,8 @@ export default function DocsPage() {
                                 shadcn
                             </Link>{" "}
                             is used in some components, as well as cn utility
-                            function. Run the init command and follow the instructions.
+                            function. Run the init command and follow the
+                            instructions.
                         </p>
                         <div className="flex flex-col gap-2">
                             <CodeBlock

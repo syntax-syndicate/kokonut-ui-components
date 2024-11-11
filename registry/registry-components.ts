@@ -6,362 +6,664 @@ export const component: Registry = [
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-01.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-01.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-02",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-02.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-02.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-file-input.ts",
+                type: "registry:hook",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-03",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-03.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-03.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-04",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-04.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-04.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-05",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-05.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-05.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-06",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-06.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-06.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-07",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-07.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-07.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-08",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["textarea"],
-        files: ["ai-input-08.tsx"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/ai-input/ai-input-08.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "ai-input-09",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-09.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-09.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+            {
+                path: "hooks/use-click-outside.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-10",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-10.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-10.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+            {
+                path: "hooks/use-file-input.ts",
+                type: "registry:hook",
+            },
+            {
+                path: "hooks/use-click-outside.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-11",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-11.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-11.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+            {
+                path: "hooks/use-click-outside.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-12",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea", "tooltip"],
-        files: ["ai-input-12.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-12.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-13",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-13.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-13.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-14",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-14.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-14.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-15",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
-        files: ["ai-input-15.tsx"],
+        files: [
+            {
+                path: "components/ai-input/ai-input-15.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "ai-input-16",
         type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["textarea"],
-        files: ["ai-input-16.tsx"],
-    },
-    {
-        name: "ai-input-17",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["textarea"],
-        files: ["ai-input-17.tsx"],
-    },
-    {
-        name: "ai-input-18",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["textarea"],
-        files: ["ai-input-18.tsx"],
-    },
-    {
-        name: "ai-input-19",
-        type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
-        registryDependencies: ["textarea"],
-        files: ["ai-input-19.tsx"],
-    },
-    {
-        name: "ai-input-20",
-        type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion", "cmdk"],
-        registryDependencies: ["textarea"],
-        files: ["ai-input-20.tsx"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/ai-input/ai-input-16.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-click-outside.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "btn-01",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
-        files: ["btn-01.tsx"],
+        files: [
+            {
+                path: "components/button/btn-01.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "btn-02",
         type: "registry:component",
         registryDependencies: ["button"],
-        files: ["btn-02.tsx"],
+        files: [
+            {
+                path: "components/button/btn-02.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "btn-03",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
         registryDependencies: ["button"],
-        files: ["btn-03.tsx"],
+        files: [
+            {
+                path: "components/button/btn-03.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "btn-04",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
         registryDependencies: ["button"],
-        files: ["btn-04.tsx"],
+        files: [
+            {
+                path: "components/button/btn-04.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "btn-05",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
         registryDependencies: ["button"],
-        files: ["btn-05.tsx"],
+        files: [
+            {
+                path: "components/button/btn-05.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "btn-06",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
         registryDependencies: ["button"],
-        files: ["btn-06.tsx"],
+        files: [
+            {
+                path: "components/button/btn-06.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-copy-to-clipboard.ts",
+                type: "registry:hook",
+            },
+        ],
     },
     {
         name: "btn-07",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react"],
         registryDependencies: ["button"],
-        files: ["btn-07.tsx"],
+        files: [
+            {
+                path: "components/button/btn-07.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "btn-08",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react"],
         registryDependencies: ["button"],
-        files: ["btn-08.tsx"],
+        files: [
+            {
+                path: "components/button/btn-08.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "btn-09",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
-        files: ["btn-09.tsx"],
+        files: [
+            {
+                path: "components/button/btn-09.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "btn-10",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
-        files: ["btn-10.tsx"],
+        files: [
+            {
+                path: "components/button/btn-10.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "text-01",
         type: "registry:component",
-        dependencies: ["lucide-react"],
-        files: ["text-01.tsx"],
+        dependencies: [],
+        files: [
+            {
+                path: "components/text/text-01.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "text-02",
         type: "registry:component",
-        dependencies: ["lucide-react"],
-        files: ["text-02.tsx"],
+        dependencies: ["framer-motion"],
+        files: [
+            {
+                path: "components/text/text-02.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "text-03",
         type: "registry:component",
-        dependencies: ["lucide-react"],
-        files: ["text-03.tsx"],
+        dependencies: ["framer-motion"],
+        files: [
+            {
+                path: "components/text/text-03.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "text-04",
         type: "registry:component",
-        dependencies: ["lucide-react"],
-        files: ["text-04.tsx"],
+        dependencies: ["framer-motion"],
+        files: [
+            {
+                path: "components/text/text-04.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "text-05",
         type: "registry:component",
-        dependencies: ["lucide-react"],
-        files: ["text-05.tsx"],
+        dependencies: ["framer-motion"],
+        files: [
+            {
+                path: "components/text/text-05.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "text-06",
         type: "registry:component",
-        dependencies: ["lucide-react"],
-        files: ["text-06.tsx"],
+        dependencies: [],
+        files: [
+            {
+                path: "components/text/text-06.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "card-01",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
         registryDependencies: ["select", "input", "button", "card", "label"],
-        files: ["card-01.tsx"],
+        files: [
+            {
+                path: "components/card/card-01.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "card-02",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button", "card"],
-        files: ["card-02.tsx"],
+        files: [
+            {
+                path: "components/card/card-02.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "card-03",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["card"],
-        files: ["card-03.tsx"],
+        files: [
+            {
+                path: "components/card/card-03.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "card-04",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button", "input"],
-        files: ["card-04.tsx"],
+        registryDependencies: ["button", "input", "card"],
+        files: [
+            {
+                path: "components/card/card-04.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "card-05",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
-        files: ["card-05.tsx"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/card/card-05.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "card-06",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react"],
         registryDependencies: ["button", "card"],
-        files: ["card-06.tsx"],
+        files: [
+            {
+                path: "components/card/card-06.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "pricing-01",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react"],
         registryDependencies: ["button"],
-        files: ["pricing-01.tsx"],
+        files: [
+            {
+                path: "components/pricing/pricing-01.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "pricing-02",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button", "tooltip"],
-        files: ["pricing-02.tsx"],
+        registryDependencies: ["button", "card"],
+        files: [
+            {
+                path: "components/pricing/pricing-02.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "pricing-03",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
-        files: ["pricing-03.tsx"],
+        files: [
+            {
+                path: "components/pricing/pricing-03.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "pricing-04",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button", "card"],
-        files: ["pricing-04.tsx"],
+        files: [
+            {
+                path: "components/pricing/pricing-04.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "alert-01",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["alert"],
-        files: ["alert-01.tsx"],
+        files: [
+            {
+                path: "components/alert/alert-01.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "alert-02",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["alert", "button"],
-        files: ["alert-02.tsx"],
+        files: [
+            {
+                path: "components/alert/alert-02.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "alert-03",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
-        files: ["alert-03.tsx"],
+        registryDependencies: ["alert"],
+        files: [
+            {
+                path: "components/alert/alert-03.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "alert-04",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
         registryDependencies: ["alert"],
-        files: ["alert-04.tsx"],
+        files: [
+            {
+                path: "components/alert/alert-04.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "alert-05",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["alert"],
-        files: ["alert-05.tsx"],
+        files: [
+            {
+                path: "components/alert/alert-05.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "alert-06",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
         registryDependencies: ["alert"],
-        files: ["alert-06.tsx"],
+        files: [
+            {
+                path: "components/alert/alert-06.tsx",
+                type: "registry:component",
+            },
+        ],
     },
     {
         name: "alert-07",
         type: "registry:component",
         dependencies: ["lucide-react", "framer-motion"],
         registryDependencies: ["button"],
-        files: ["alert-07.tsx"],
+        files: [
+            {
+                path: "components/alert/alert-07.tsx",
+                type: "registry:component",
+            },
+        ],
     },
 ];

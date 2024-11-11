@@ -11,6 +11,8 @@ export const metadata: Metadata = {
         "A collection of pricing components to use and customize. Built with Tailwind CSS and Shadcn.",
 };
 
+const FOLDER = "pricing";
+
 export default function Pricing_View() {
     const components = [
         {
@@ -64,29 +66,22 @@ export default function Pricing_View() {
                         {
                             name: "Unlimited party members",
                             included: true,
-                            tooltip:
-                                "Build your dream team with no size limits",
                         },
                         {
                             name: "Exclusive character skins",
                             included: true,
-                            tooltip: "Stand out with unique cosmetic items",
                         },
                         {
                             name: "Priority matchmaking",
                             included: true,
-                            tooltip:
-                                "Get into games faster with priority queue",
                         },
                         {
                             name: "Double XP weekends",
                             included: true,
-                            tooltip: "Level up faster during special events",
                         },
                         {
                             name: "Custom game modes",
                             included: true,
-                            tooltip: "Create and host your own game modes",
                         },
                     ]}
                     popular={true}
@@ -111,7 +106,7 @@ export default function Pricing_View() {
         <div className="grid grid-rows-[auto_1fr_20px] min-h-screen p-1 lg:p-4 pb-20 gap-12 sm:p-16">
             <ViewComponents
                 components={components}
-                folder="pricing"
+                folder={FOLDER}
                 containerClassName="grid-cols-1 lg:grid-cols-2 gap-2"
             />
         </div>

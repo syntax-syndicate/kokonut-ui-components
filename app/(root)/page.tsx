@@ -1,26 +1,26 @@
 import Link from "next/link";
 import { ArrowRight, PartyPopper } from "lucide-react";
-import AIInput_04 from "@/components/inputs/ai-input-04";
+import AIInput_04 from "@/components/ai-input/ai-input-04";
 import Pricing_01 from "@/components/pricing/pricing-01";
 import { CommandRotator } from "@/components/command-rotator";
-import Btn03 from "@/components/buttons/btn-03";
+import Btn03 from "@/components/button/btn-03";
 import Arrow25 from "@/components/icons/arrow6";
-import Card_01 from "@/components/cards/card-01";
-import Alert02 from "@/components/alerts/alert-02";
+import Card_01 from "@/components/card/card-01";
+import Alert02 from "@/components/alert/alert-02";
 
 export default function Home() {
     const categories = [
         {
             id: 1,
             title: "Button Components",
-            href: "/docs/components/buttons",
+            href: "/docs/components/button",
             component: <Btn03 attractRadius={30} />,
             count: 10,
         },
         {
             id: 2,
             title: "Alert Components",
-            href: "/docs/components/alerts",
+            href: "/docs/components/alert",
             component: <Alert02 />,
             count: 7,
         },
@@ -34,7 +34,7 @@ export default function Home() {
         {
             id: 4,
             title: "Card Components",
-            href: "/docs/components/cards",
+            href: "/docs/components/card",
             component: <Card_01 />,
             count: 6,
         },

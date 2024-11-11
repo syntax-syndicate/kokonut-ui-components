@@ -1,5 +1,3 @@
-"use client";
-
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -27,7 +25,7 @@ export function Pricing_04({
     subtitle = "Most Popular",
     description = "Perfect for growing businesses and teams",
     interval = "monthly",
-    highlighted = false,
+    highlighted = true,
     ctaText = "Get started",
     features = [
         { text: "Unlimited team members", included: true },

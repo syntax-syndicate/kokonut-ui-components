@@ -23,13 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.5,
         },
         {
-            url: "https://kokonut.dev/docs/components/buttons",
+            url: "https://kokonut.dev/docs/components/button",
             lastModified: currentDate,
             changeFrequency: "monthly",
             priority: 0.6,
         },
         {
-            url: "https://kokonut.dev/docs/components/cards",
+            url: "https://kokonut.dev/docs/components/card",
             lastModified: currentDate,
             changeFrequency: "monthly",
             priority: 0.5,
@@ -41,13 +41,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.6,
         },
         {
-            url: "https://kokonut.dev/docs/components/texts",
+            url: "https://kokonut.dev/docs/components/text",
             lastModified: currentDate,
             changeFrequency: "monthly",
             priority: 0.5,
         },
         {
-            url: "https://kokonut.dev/docs/components/alerts",
+            url: "https://kokonut.dev/docs/components/alert",
             lastModified: currentDate,
             changeFrequency: "monthly",
             priority: 0.6,

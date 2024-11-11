@@ -9,6 +9,10 @@
   "registryDependencies": [
     "textarea"
   ],
+  "hookDependencies": [
+    "use-debounce",
+    "use-clipboard"
+  ],
   "files": [
     {
       "type": "registry:component",

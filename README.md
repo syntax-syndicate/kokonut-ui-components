@@ -10,28 +10,44 @@
 
 ## Overview
 
-Access a collection of free-to-use, standalone components with KokonutUI. Each component is designed with TailwindCSS, ShadCN, and optional animations powered by Framer Motion.
+Access a collection of free-to-use, standalone components with KokonutUI. Each component is designed with TailwindCSS, shadcn, and optional animations powered by Framer Motion.
 
-![KokonutUI](https://ferf1mheo22r9ira.public.blob.vercel-storage.com/intro-7o9ffrw4AtH1YC39yYZp3cdZmpAFys.png)
+This is not a library, it's a collection of components / hooks that you can copy paste and customize to your preference.
 
 ## Getting Started
 
 KokonutUI components are meant to be use with Next.js projects that use TailwindCSS and shadcn. However they are also compatible with any React Project.
 
-### Using Shadcn CLI.
+### Import Components
 
-All components can be installed using [shadcn CLI](https://ui.shadcn.com/docs/cli), which make it really easy.
+All components are standalone and can be installed using [shadcn CLI](https://ui.shadcn.com/docs/cli), which make it very easy.
+
+#### A component
 
 ```bash
-# npx, bunx...
 bunx shadcn@latest add https://kokonut.dev/registry/alert-01.json
 ```
 
 ```jsx
-import AIInput_01 from "@/components/ui/ai-input-01";
+import AIInput01 from "@/components/ai-input/ai-input-01";
 
 export function AIInput01Demo() {
-    return <AIInput_01 />;
+    return <AIInput01 />;
+}
+```
+
+#### A hook
+
+```bash
+bunx shadcn@latest add https://kokonut.dev/registry/utils.json
+```
+
+```ts
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
 }
 ```
 
@@ -50,6 +66,6 @@ They are no way to contribute for now.
 
 This project is licensed under the MIT License.
 
-## Author
+## Note
 
-Developed by [@dorian](https://x.com/dorian_baffier)
+This is a work in progress project, you can follow updates at [@dorian](https://x.com/dorian_baffier)

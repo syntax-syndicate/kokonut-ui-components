@@ -5,6 +5,7 @@ import { CopyOverlay } from "./copy-overlay";
 import { AnimatePresence } from "framer-motion";
 import { CopyButton } from "./copy-button";
 import { Terminal } from "lucide-react";
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 
 interface CopyWrapperProps {
     fileName: string;
@@ -17,22 +18,27 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export function CopyWrapper({ fileName, text }: CopyWrapperProps) {
     const [showOverlay, setShowOverlay] = useState(false);
+    const { copyToClipboard } = useCopyToClipboard({
+        timeout: 1000,
+        onCopy: () => {
+            setShowOverlay(true);
+            setTimeout(() => {
+                setShowOverlay(false);
+            }, 1000);
+        },
+    });
 
     const handleCopy = () => {
-        setShowOverlay(true);
-        navigator.clipboard.writeText(text);
-        setTimeout(() => setShowOverlay(false), 1000);
+        copyToClipboard(text);
     };
 
     const handleCLI = () => {
-        setShowOverlay(true);
-        navigator.clipboard.writeText(
+        copyToClipboard(
             `bunx shadcn@latest add ${prePath}/registry/${fileName?.replace(
                 ".tsx",
                 ".json"
             )}`
         );
-        setTimeout(() => setShowOverlay(false), 1000);
     };
 
     return (
