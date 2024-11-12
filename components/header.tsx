@@ -8,7 +8,10 @@ export const revalidate = 3600;
 
 export async function Header() {
     const star = await fetch(
-        "https://api.github.com/repos/kokonut-labs/kokonutui"
+        "https://api.github.com/repos/kokonut-labs/kokonutui",
+        {
+            cache: "force-cache",
+        }
     )
         .then((res) => res.json())
         .then((data) => data.stargazers_count);
