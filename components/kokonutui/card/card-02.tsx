@@ -23,10 +23,10 @@ const defaultProfile = {
     availability: "Available in 2 weeks",
     rating: 4.9,
     skills: [
-        { name: "UI Design", level: 5 },
-        { name: "UX Research", level: 4 },
-        { name: "Prototyping", level: 5 },
-        { name: "Design Systems", level: 4 },
+        { name: "UI", level: 2 },
+        { name: "UX", level: 4 },
+        { name: "Dev", level: 5 },
+        { name: "Design", level: 4 },
     ],
 } satisfies Required<Card02Props>;
 
