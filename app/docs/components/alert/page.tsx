@@ -4,6 +4,7 @@ import Alert03 from "@/components/kokonutui/alert-03";
 import Alert04 from "@/components/kokonutui/alert-04";
 import Alert05 from "@/components/kokonutui/alert-05";
 import Alert06 from "@/components/kokonutui/alert-06";
+import Alert07 from "@/components/kokonutui/alert-07";
 import { createComponentPage } from "@/components/page-builder";
 
 const { default: AlertsPage, metadata } = createComponentPage({
@@ -31,7 +32,6 @@ const { default: AlertsPage, metadata } = createComponentPage({
             id: 3,
             title: "Info",
             component: <Alert03 />,
-            dependencies: ["framer-motion"],
             fileName: "alert-03.tsx",
         },
         {
@@ -51,7 +51,14 @@ const { default: AlertsPage, metadata } = createComponentPage({
             id: 6,
             title: "Glass",
             component: <Alert06 />,
+            dependencies: ["framer-motion"],
             fileName: "alert-06.tsx",
+        },
+        {
+            id: 7,
+            title: "Classy",
+            component: <Alert07 />,
+            fileName: "alert-07.tsx",
         },
     ],
 });

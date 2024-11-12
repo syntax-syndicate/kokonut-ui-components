@@ -655,6 +655,18 @@ export const component: Registry = [
         ],
     },
     {
+        name: "alert-07",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button"],
+        files: [
+            {
+                path: "components/kokonutui/alert/alert-07.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
         name: "input-01",
         type: "registry:component",
         dependencies: ["lucide-react"],
