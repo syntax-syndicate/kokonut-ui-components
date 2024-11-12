@@ -797,4 +797,52 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "faq-01",
+        type: "registry:component",
+        registryDependencies: ["accordion"],
+        dependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/faq/faq-01.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "faq-02",
+        type: "registry:component",
+        registryDependencies: [],
+        dependencies: ["framer-motion", "lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/faq/faq-02.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "faq-03",
+        type: "registry:component",
+        registryDependencies: ["accordion", "badge"],
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/faq/faq-03.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "faq-04",
+        type: "registry:component",
+        registryDependencies: ["accordion"],
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/faq/faq-04.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];

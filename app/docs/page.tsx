@@ -49,7 +49,11 @@ export default function DocsPage() {
                                 cn
                             </span>{" "}
                             utility function. Run the following command to
-                            install it.
+                            install it. As you may notice, this use{" "}
+                            <span className="font-mono text-orange-500">
+                                tailwind
+                            </span>
+                            , please make sure to install it in your project.
                         </p>
                         <div className="flex flex-col gap-2">
                             <CodeBlock

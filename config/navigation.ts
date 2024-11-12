@@ -59,6 +59,14 @@ export const navigationSections: NavSection[] = [
             },
             {
                 id: 5,
+                title: "Faq",
+                href: "/docs/components/faq",
+                description: "Frequently asked questions",
+                count: 4,
+                isNew: true,
+            },
+            {
+                id: 6,
                 title: "Input",
                 href: "/docs/components/input",
                 description: "More components coming soon",
@@ -66,14 +74,14 @@ export const navigationSections: NavSection[] = [
                 isNew: true,
             },
             {
-                id: 6,
+                id: 7,
                 title: "Pricing",
                 href: "/docs/components/pricing",
                 description: "Pricing components and layouts",
                 count: 5,
             },
             {
-                id: 7,
+                id: 8,
                 title: "Text",
                 href: "/docs/components/text",
                 description: "Typography and text animation components",
