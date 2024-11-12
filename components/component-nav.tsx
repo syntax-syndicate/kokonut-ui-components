@@ -139,7 +139,7 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
             </div>
 
             {/* Mobile Navigation */}
-            <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
+            <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-center px-4 pb-6">
                 <AnimatePresence>
                     {isExpanded && (
                         <motion.div
@@ -160,10 +160,12 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                     layout
                     animate={{
                         width: isExpanded ? "100%" : "192px",
-                        height: isExpanded ? "80vh" : "48px",
+                        height: isExpanded ? "90vh" : "48px",
                         bottom: isExpanded ? "0" : "24px",
                         left: isExpanded ? "0" : "50%",
-                        x: isExpanded ? "0" : "-50%",
+                        transform: isExpanded
+                            ? "translateX(0)"
+                            : "translateX(-50%)",
                         borderRadius: isExpanded ? "0" : "28px",
                     }}
                     initial={{
@@ -171,21 +173,22 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                         height: "48px",
                         bottom: "24px",
                         left: "50%",
-                        x: "-50%",
+                        transform: "translateX(-50%)",
                         borderRadius: "28px",
                     }}
                     style={{
                         position: "fixed",
-                        transformOrigin: "bottom center",
+                        willChange: "transform, width, height",
                     }}
                     transition={{
                         type: "spring",
-                        stiffness: 400,
-                        damping: 40,
+                        stiffness: 500,
+                        damping: 45,
+                        mass: 0.8,
                         height: {
                             type: "spring",
-                            stiffness: 300,
-                            damping: 35,
+                            stiffness: 400,
+                            damping: 40,
                         },
                     }}
                     className={cn(
@@ -204,6 +207,7 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
+                            transition={{ duration: 0.15 }}
                         >
                             {/* Header */}
                             <div className="p-4 border-b border-zinc-200 dark:border-zinc-800">
@@ -309,8 +313,8 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                         </motion.div>
                     ) : (
                         // Collapsed View
-                        <div className="flex items-center justify-between p-3">
-                            <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate">
+                        <div className="flex items-center justify-center h-full">
+                            <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate text-center">
                                 {currentPage?.title}
                             </span>
                             <span className="text-xs text-zinc-500 dark:text-zinc-400 ml-2">

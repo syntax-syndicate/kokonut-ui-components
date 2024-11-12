@@ -1,22 +1,20 @@
-import Alert01 from "@/components/alert/alert-01";
-import Alert02 from "@/components/alert/alert-02";
-import Alert03 from "@/components/alert/alert-03";
-import Alert04 from "@/components/alert/alert-04";
-import Alert05 from "@/components/alert/alert-05";
-import Alert06 from "@/components/alert/alert-06";
-import { ViewComponents } from "@/components/ViewComponents";
-import type { Metadata } from "next";
+import Alert01 from "@/components/kokonutui/alert-01";
+import Alert02 from "@/components/kokonutui/alert-02";
+import Alert03 from "@/components/kokonutui/alert-03";
+import Alert04 from "@/components/kokonutui/alert-04";
+import Alert05 from "@/components/kokonutui/alert-05";
+import Alert06 from "@/components/kokonutui/alert-06";
+import { createComponentPage } from "@/components/page-builder";
 
-export const metadata: Metadata = {
-    title: "Alert",
+const { default: AlertsPage, metadata } = createComponentPage({
+    title: "Alerts",
     description:
         "A collection of alert components to use and customize. Built with Tailwind CSS.",
-};
-
-const FOLDER = "alert";
-
-export default function Alerts_View() {
-    const components = [
+    folder: "kokonutui/alert",
+    viewType: "grid",
+    gridClassName: "grid-cols-1 lg:grid-cols-2 gap-2",
+    componentClassName: "h-full my-0",
+    components: [
         {
             id: 1,
             title: "Basic",
@@ -55,15 +53,8 @@ export default function Alerts_View() {
             component: <Alert06 />,
             fileName: "alert-06.tsx",
         },
-    ];
+    ],
+});
 
-    return (
-        <div className="grid grid-rows-[auto_1fr_20px] min-h-screen p-1 lg:p-4 pb-20 gap-12 sm:p-16">
-            <ViewComponents
-                components={components}
-                folder={FOLDER}
-                containerClassName="grid-cols-1 lg:grid-cols-2 gap-2"
-            />
-        </div>
-    );
-}
+export { metadata };
+export default AlertsPage;

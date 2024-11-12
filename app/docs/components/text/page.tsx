@@ -1,22 +1,19 @@
-import Text_01 from "@/components/text/text-01";
-import Text_02 from "@/components/text/text-02";
-import Text_03 from "@/components/text/text-03";
-import { Text_04 } from "@/components/text/text-04";
-import { Text_05 } from "@/components/text/text-05";
-import { Text_06 } from "@/components/text/text-06";
-import { ViewComponents } from "@/components/ViewComponents";
-import type { Metadata } from "next";
+import { createComponentPage } from "@/components/page-builder";
+import Text_01 from "@/components/kokonutui/text-01";
+import Text_02 from "@/components/kokonutui/text-02";
+import Text_03 from "@/components/kokonutui/text-03";
+import Text_04 from "@/components/kokonutui/text-04";
+import Text_05 from "@/components/kokonutui/text-05";
+import Text_06 from "@/components/kokonutui/text-06";
 
-export const metadata: Metadata = {
+const { default: TextsPage, metadata } = createComponentPage({
     title: "Text",
     description:
         "A collection of text components to use and customize. Built with Tailwind CSS and Shadcn.",
-};
-
-const FOLDER = "text";
-
-export default function Texts() {
-    const components = [
+    folder: "kokonutui/text",
+    viewType: "grid",
+    gridClassName: "grid-cols-1 lg:grid-cols-2 gap-2",
+    components: [
         {
             id: 1,
             title: "Shimmer",
@@ -58,15 +55,9 @@ export default function Texts() {
             component: <Text_06 />,
             fileName: "text-06.tsx",
         },
-    ];
+    ],
+});
 
-    return (
-        <div className="grid grid-rows-[auto_1fr_20px] min-h-screen p-1 lg:p-4 pb-20 gap-12 sm:p-16">
-            <ViewComponents
-                components={components}
-                folder={FOLDER}
-                containerClassName="grid-cols-1 lg:grid-cols-3 gap-2"
-            />
-        </div>
-    );
-}
+export { metadata };
+
+export default TextsPage;

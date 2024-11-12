@@ -62,10 +62,11 @@ export default function Card04({
     ],
 }: Card04Props) {
     return (
-        <div className="group relative w-full max-w-md mx-auto">
+        <div className="group relative w-full max-w-md mx-auto h-[500px]">
             <div
                 className="rounded-lg border relative overflow-hidden border-zinc-200/80 dark:border-zinc-800/80 
-                bg-gradient-to-br from-white/80 to-white/50 dark:from-zinc-900/80 dark:to-zinc-900/50 backdrop-blur-md"
+                bg-gradient-to-br from-white/80 to-white/50 dark:from-zinc-900/80 dark:to-zinc-900/50 backdrop-blur-md
+                h-full flex flex-col"
             >
                 <div className="border-b border-zinc-200 dark:border-zinc-800 p-4">
                     <div className="flex items-center justify-between">

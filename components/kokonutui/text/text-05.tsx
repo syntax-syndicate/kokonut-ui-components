@@ -10,7 +10,7 @@ interface BouncingTextProps {
     bouncingIndices?: number[];
 }
 
-export function Text_05({
+export default function Text_05({
     text = "BOUNCE",
     className = "",
     delay = 0.1,

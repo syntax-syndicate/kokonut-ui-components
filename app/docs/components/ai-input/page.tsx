@@ -1,32 +1,30 @@
-import AIInput_01 from "@/components/ai-input/ai-input-01";
-import AIInput_02 from "@/components/ai-input/ai-input-02";
-import AIInput_03 from "@/components/ai-input/ai-input-03";
-import AIInput_04 from "@/components/ai-input/ai-input-04";
-import AIInput_05 from "@/components/ai-input/ai-input-05";
-import AIInput_06 from "@/components/ai-input/ai-input-06";
-import AIInput_07 from "@/components/ai-input/ai-input-07";
-import AIInput_08 from "@/components/ai-input/ai-input-08";
-import AIInput_09 from "@/components/ai-input/ai-input-09";
-import AIInput_10 from "@/components/ai-input/ai-input-10";
-import AIInput_11 from "@/components/ai-input/ai-input-11";
-import AIInput_12 from "@/components/ai-input/ai-input-12";
-import AIInput_13 from "@/components/ai-input/ai-input-13";
-import AIInput_14 from "@/components/ai-input/ai-input-14";
-import AIInput_15 from "@/components/ai-input/ai-input-15";
-import AIInput_16 from "@/components/ai-input/ai-input-16";
-import { ViewComponents } from "@/components/ViewComponents";
-import type { Metadata } from "next";
+import AIInput_01 from "@/components/kokonutui/ai-input-01";
+import AIInput_02 from "@/components/kokonutui/ai-input-02";
+import AIInput_03 from "@/components/kokonutui/ai-input-03";
+import AIInput_04 from "@/components/kokonutui/ai-input-04";
+import AIInput_05 from "@/components/kokonutui/ai-input-05";
+import AIInput_06 from "@/components/kokonutui/ai-input-06";
+import AIInput_07 from "@/components/kokonutui/ai-input-07";
+import AIInput_08 from "@/components/kokonutui/ai-input-08";
+import AIInput_09 from "@/components/kokonutui/ai-input-09";
+import AIInput_10 from "@/components/kokonutui/ai-input-10";
+import AIInput_11 from "@/components/kokonutui/ai-input-11";
+import AIInput_12 from "@/components/kokonutui/ai-input-12";
+import AIInput_13 from "@/components/kokonutui/ai-input-13";
+import AIInput_14 from "@/components/kokonutui/ai-input-14";
+import AIInput_15 from "@/components/kokonutui/ai-input-15";
+import AIInput_16 from "@/components/kokonutui/ai-input-16";
+import { createComponentPage } from "@/components/page-builder";
 
-export const metadata: Metadata = {
+const { default: AIInputPage, metadata } = createComponentPage({
     title: "AI Input",
     description:
         "A collection of AI input components to use and customize. Built with Tailwind CSS and Shadcn.",
-};
-
-const FOLDER = "ai-input";
-
-export default function AIInput() {
-    const components = [
+    folder: "kokonutui/ai-input",
+    viewType: "grid",
+    gridClassName: "grid-cols-1 sm:grid-cols-1 lg:grid-cols-1",
+    componentClassName: "h-full items-center",
+    components: [
         {
             id: 1,
             title: "Slide-in",
@@ -125,11 +123,8 @@ export default function AIInput() {
             fileName: "ai-input-16.tsx",
             dependencies: ["Framer Motion", "CMDK"],
         },
-    ];
+    ],
+});
 
-    return (
-        <div className="grid grid-rows-[auto_1fr_20px] min-h-screen p-1 lg:p-4 gap-12 sm:p-16 pb-16">
-            <ViewComponents components={components} folder={FOLDER} />
-        </div>
-    );
-}
+export { metadata };
+export default AIInputPage;

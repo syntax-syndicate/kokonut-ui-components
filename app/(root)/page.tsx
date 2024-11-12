@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { ArrowRight, PartyPopper } from "lucide-react";
-import AIInput_04 from "@/components/ai-input/ai-input-04";
-import Pricing_01 from "@/components/pricing/pricing-01";
+import AIInput_04 from "@/components/kokonutui/ai-input-04";
+import Pricing_01 from "@/components/kokonutui/pricing-01";
 import { CommandRotator } from "@/components/command-rotator";
-import Btn03 from "@/components/button/btn-03";
-import Arrow25 from "@/components/icons/arrow6";
-import Card_01 from "@/components/card/card-01";
-import Alert02 from "@/components/alert/alert-02";
+import Btn03 from "@/components/kokonutui/btn-03";
+import Card_01 from "@/components/kokonutui/card-01";
+import Alert02 from "@/components/kokonutui/alert-02";
+import Arrow25 from "@/components/kokonutui/arrow25";
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -60,7 +60,7 @@ export default function Home() {
 
     return (
         <main className="bg-white dark:bg-black/5">
-            <p className="pt-16 text-sm text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-2 opacity-80">
+            <p className="pt-16 text-sm text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-2 opacity-80 ">
                 <PartyPopper className="w-4 h-4" />
                 New components added weekly
             </p>

@@ -1,25 +1,16 @@
-import { Block01Example } from "@/components/ui/block-01-example";
+import Block01Example from "@/components/ui/block-01-example";
+
 import Block02Example from "@/components/ui/block-02-example";
 import Block03Example from "@/components/ui/block-03-example";
-import { ViewBlocks } from "@/components/ViewBlocks";
-import type { Metadata } from "next";
+import { createComponentPage } from "@/components/page-builder";
 
-export const metadata: Metadata = {
+const { default: BlocksPage, metadata } = createComponentPage({
     title: "Blocks",
     description:
         "A collection of block components to use and customize. Built with Tailwind CSS and Shadcn.",
-};
-
-export type BlockComponent = {
-    id: number;
-    title: string;
-    component: React.ReactElement;
-    fileName: string;
-    fileExample: string;
-};
-
-export default function BlocksPage() {
-    const blocks: BlockComponent[] = [
+    folder: "kokonutui/block",
+    viewType: "block",
+    components: [
         {
             id: 1,
             title: "Landing Page",
@@ -41,11 +32,8 @@ export default function BlocksPage() {
             fileName: "block-03.json",
             fileExample: "block-03-example.tsx",
         },
-    ];
+    ],
+});
 
-    return (
-        <div className="container mx-auto py-12 lg:pr-[250px]">
-            <ViewBlocks blocks={blocks} />
-        </div>
-    );
-}
+export { metadata };
+export default BlocksPage;

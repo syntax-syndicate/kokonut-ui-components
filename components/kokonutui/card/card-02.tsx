@@ -40,9 +40,6 @@ export default function Card02({
 }: Card02Props = defaultProfile) {
     return (
         <div className="relative w-full max-w-xl mx-auto">
-            <div className="absolute -top-20 -right-20 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-
             <div
                 className="relative overflow-hidden border border-zinc-200/80 dark:border-zinc-800/80 
                 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl rounded-2xl"
@@ -144,22 +141,6 @@ export default function Card02({
                         <Send className="w-4 h-4" />
                         Contact Designer
                     </Button>
-                </div>
-
-                <div
-                    className="absolute inset-0 rounded-2xl duration-300
-                    opacity-0 group-hover:opacity-100 pointer-events-none"
-                >
-                    <div
-                        className="absolute inset-0 dark:opacity-0
-                        bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))]
-                        from-rose-100/20 via-white/0 to-white/0"
-                    />
-                    <div
-                        className="absolute inset-0 opacity-0 dark:opacity-100
-                        bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))]
-                        from-rose-900/20 via-zinc-900/0 to-zinc-900/0"
-                    />
                 </div>
             </div>
         </div>

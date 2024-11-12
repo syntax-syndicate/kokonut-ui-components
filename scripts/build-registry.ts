@@ -7,12 +7,12 @@ import path from "path";
 const REGISTRY_BASE_PATH = process.cwd();
 const PUBLIC_FOLDER_BASE_PATH = "public/registry";
 
-const REGISTRY_TYPE_FOLDERS: Record<string, string> = {
-    "registry:component": "components",
-    "registry:hook": "hooks",
-    "registry:lib": "lib",
-    "registry:block": "blocks",
-};
+// const REGISTRY_TYPE_FOLDERS: Record<string, string> = {
+//     "registry:component": "components",
+//     "registry:hook": "hooks",
+//     "registry:lib": "lib",
+//     "registry:block": "blocks",
+// };
 
 /**
  * bun run ./scripts/build-registry.ts
@@ -35,22 +35,19 @@ async function writeFileRecursive(filePath: string, data: string) {
 }
 
 const getComponentFiles = async (files: File[], registryType: string) => {
-    const baseFolder = REGISTRY_TYPE_FOLDERS[registryType] || "components";
-
     const filesArrayPromises = (files ?? []).map(async (file) => {
         if (typeof file === "string") {
             const normalizedPath = file.startsWith("/") ? file : `/${file}`;
             const filePath = path.join(REGISTRY_BASE_PATH, normalizedPath);
             const fileContent = await fs.readFile(filePath, "utf-8");
-            const targetPath = normalizedPath.replace(
-                /^\/(components|block)\//,
-                "/"
-            );
+            
+            const fileName = normalizedPath.split('/').pop() || '';
+            
             return {
                 type: registryType,
                 content: fileContent,
                 path: normalizedPath,
-                target: `${baseFolder}${targetPath}`,
+                target: `/components/kokonutui/${fileName}`,
             };
         }
         const normalizedPath = file.path.startsWith("/")
@@ -58,16 +55,14 @@ const getComponentFiles = async (files: File[], registryType: string) => {
             : `/${file.path}`;
         const filePath = path.join(REGISTRY_BASE_PATH, normalizedPath);
         const fileContent = await fs.readFile(filePath, "utf-8");
-        const targetFolder = REGISTRY_TYPE_FOLDERS[file.type] || baseFolder;
-        const targetPath = normalizedPath.replace(
-            /^\/(components|hooks|lib|block)\//,
-            "/"
-        );
+        
+        const fileName = normalizedPath.split('/').pop() || '';
+        
         return {
             type: file.type || registryType,
             content: fileContent,
             path: normalizedPath,
-            target: file.target || `${targetFolder}${targetPath}`,
+            target: file.target || `/components/kokonutui/${fileName}`,
         };
     });
 

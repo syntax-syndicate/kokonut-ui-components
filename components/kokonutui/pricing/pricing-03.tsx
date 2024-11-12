@@ -16,7 +16,7 @@ interface Pricing_03Props {
     features?: PricingFeature[];
 }
 
-export function Pricing_03({
+export default function Pricing_03({
     tier = "pro",
     price = "49",
     title = "Pro Plan",

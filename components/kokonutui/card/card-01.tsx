@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Card01() {
     return (
-        <div className="relative w-full max-w-md mx-auto">
+        <div className="relative w-full h-auto mx-auto">
             <div
                 className="relative overflow-hidden rounded-2xl
                 border border-zinc-200 dark:border-zinc-800

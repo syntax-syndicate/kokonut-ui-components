@@ -3,16 +3,11 @@ import React from "react";
 import { PreviewButton } from "./PreviewButton";
 import { CodeBlock } from "./code-block";
 import { getBlockExample } from "@/lib/action";
+import type { ComponentItem } from "@/types/component-page";
 
 interface BlockItemProps {
-    item: {
-        id: number;
-        title: string;
-        component: React.ReactElement;
-        fileName: string;
-        fileExample: string;
-        dependencies?: string[];
-    };
+    item: ComponentItem;
+    folder: string;
 }
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -20,7 +15,9 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
 
 export async function BlockItem({ item }: BlockItemProps) {
-    const text = await getBlockExample(item.fileExample);
+    const text = item.fileExample
+        ? await getBlockExample(item.fileExample)
+        : null;
 
     const previewComponent = React.cloneElement(item.component, {
         preview: "true",
@@ -101,14 +98,16 @@ export async function BlockItem({ item }: BlockItemProps) {
                     </div>
                 </div>
 
-                <div className="p-4 md:p-6 ">
-                    <div className="">
-                        <h2 className="text-xl font-medium text-zinc-800 dark:text-zinc-200 mb-4">
-                            Usage
-                        </h2>
-                        <CodeBlock code={text} language="tsx" />
+                {text && (
+                    <div className="p-4 md:p-6">
+                        <div>
+                            <h2 className="text-xl font-medium text-zinc-800 dark:text-zinc-200 mb-4">
+                                Usage
+                            </h2>
+                            <CodeBlock code={text} language="tsx" />
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );

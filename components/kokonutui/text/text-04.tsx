@@ -15,7 +15,7 @@ interface AnimatedTextProps {
     };
 }
 
-export function Text_04({
+export default function Text_04({
     text = "LINE",
     className = "",
     shadowColors = {

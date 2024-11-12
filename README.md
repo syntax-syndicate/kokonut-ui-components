@@ -25,11 +25,11 @@ All components are standalone and can be installed using [shadcn CLI](https://ui
 #### A component
 
 ```bash
-bunx shadcn@latest add https://kokonut.dev/registry/alert-01.json
+bunx shadcn@latest add https://kokonut.dev/registry/ai-input-01.json
 ```
 
 ```jsx
-import AIInput01 from "@/components/ai-input/ai-input-01";
+import AIInput01 from "@/components/kokonut-ui/ai-input-01";
 
 export function AIInput01Demo() {
     return <AIInput01 />;

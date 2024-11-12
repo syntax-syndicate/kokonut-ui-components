@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,9 +23,29 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ],
+      "@/components/kokonutui/*": [
+        "./components/kokonutui/block/*",
+        "./components/kokonutui/pricing/*",
+        "./components/kokonutui/alert/*",
+        "./components/kokonutui/icons/*",
+        "./components/kokonutui/button/*",
+        "./components/kokonutui/input/*",
+        "./components/kokonutui/card/*",
+        "./components/kokonutui/text/*",
+        "./components/kokonutui/ai-input/*",
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -5,7 +5,10 @@ interface SwooshTextProps {
     className?: string;
 }
 
-export function Text_06({ text = "HONGDAE", className = "" }: SwooshTextProps) {
+export default function Text_06({
+    text = "HONGDAE",
+    className = "",
+}: SwooshTextProps) {
     return (
         <div className="relative w-full text-center">
             {/* SVG Filter Definition */}

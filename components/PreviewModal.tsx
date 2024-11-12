@@ -2,7 +2,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X, Copy, Check } from "lucide-react";
 import { CodeBlock } from "./code-block";
-import Btn01 from "./button/btn-01";
+import Btn01 from "./kokonutui/button/btn-01";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 
 interface PreviewModalProps {

@@ -1,26 +1,23 @@
-import Btn01 from "@/components/button/btn-01";
-import Btn02 from "@/components/button/btn-02";
-import Btn03 from "@/components/button/btn-03";
-import Btn04 from "@/components/button/btn-04";
-import Btn_05 from "@/components/button/btn-05";
-import Btn06 from "@/components/button/btn-06";
-import Btn07 from "@/components/button/btn-07";
-import Btn08 from "@/components/button/btn-08";
-import Btn09 from "@/components/button/btn-09";
-import Btn10 from "@/components/button/btn-10";
-import { ViewComponents } from "@/components/ViewComponents";
-import type { Metadata } from "next";
+import Btn01 from "@/components/kokonutui/btn-01";
+import Btn02 from "@/components/kokonutui/btn-02";
+import Btn03 from "@/components/kokonutui/btn-03";
+import Btn04 from "@/components/kokonutui/btn-04";
+import Btn_05 from "@/components/kokonutui/btn-05";
+import Btn06 from "@/components/kokonutui/btn-06";
+import Btn07 from "@/components/kokonutui/btn-07";
+import Btn08 from "@/components/kokonutui/btn-08";
+import Btn09 from "@/components/kokonutui/btn-09";
+import Btn10 from "@/components/kokonutui/btn-10";
+import { createComponentPage } from "@/components/page-builder";
 
-export const metadata: Metadata = {
-    title: "Button",
+const { default: ButtonsPage, metadata } = createComponentPage({
+    title: "Buttons",
     description:
         "A collection of button components to use and customize. Built with Tailwind CSS and Shadcn.",
-};
-
-const FOLDER = "button";
-
-export default function Buttons_View() {
-    const components = [
+    folder: "kokonutui/button",
+    viewType: "grid",
+    gridClassName: "grid-cols-1 lg:grid-cols-2",
+    components: [
         {
             id: 1,
             title: "Basic",
@@ -86,15 +83,8 @@ export default function Buttons_View() {
             component: <Btn10 />,
             fileName: "btn-10.tsx",
         },
-    ];
+    ],
+});
 
-    return (
-        <div className="grid grid-rows-[auto_1fr_20px] min-h-screen p-1 lg:p-4 pb-20 gap-12 sm:p-16">
-            <ViewComponents
-                components={components}
-                folder={FOLDER}
-                containerClassName="grid-cols-1 lg:grid-cols-3 gap-2"
-            />
-        </div>
-    );
-}
+export { metadata };
+export default ButtonsPage;

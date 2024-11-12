@@ -25,7 +25,7 @@ export default function DocsLayout({
                     New components added weekly
                 </p>
             </div>
-            <main className="flex-1 w-full pt-4 md:pt-8 pb-24 md:pl-0 lg:pl-[260px]">
+            <main className="flex-1 w-full pt-4 md:pt-8 pb-24 md:pl-0">
                 {children}
             </main>
         </div>

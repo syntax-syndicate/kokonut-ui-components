@@ -1,27 +1,23 @@
-import Input_01 from "@/components/input/input-01";
-import Input_02 from "@/components/input/input-02";
-import Input_03 from "@/components/input/input-03";
-import Input_04 from "@/components/input/input-04";
-import Input_05 from "@/components/input/input-05";
-import Input_06 from "@/components/input/input-06";
-import Input_07 from "@/components/input/input-07";
-import Input_08 from "@/components/input/input-08";
-import Input_09 from "@/components/input/input-09";
-import Input_10 from "@/components/input/input-10";
+import Input_01 from "@/components/kokonutui/input-01";
+import Input_02 from "@/components/kokonutui/input-02";
+import Input_03 from "@/components/kokonutui/input-03";
+import Input_04 from "@/components/kokonutui/input-04";
+import Input_05 from "@/components/kokonutui/input-05";
+import Input_06 from "@/components/kokonutui/input-06";
+import Input_07 from "@/components/kokonutui/input-07";
+import Input_08 from "@/components/kokonutui/input-08";
+import Input_09 from "@/components/kokonutui/input-09";
+import Input_10 from "@/components/kokonutui/input-10";
+import { createComponentPage } from "@/components/page-builder";
 
-import { ViewComponents } from "@/components/ViewComponents";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
+const { default: InputsPage, metadata } = createComponentPage({
     title: "Inputs",
     description:
         "A collection of input components to use and customize. Built with Tailwind CSS and Shadcn.",
-};
-
-const FOLDER = "input";
-
-export default function Inputs() {
-    const components = [
+    folder: "kokonutui/input",
+    viewType: "grid",
+    gridClassName: "grid-cols-1 lg:grid-cols-2",
+    components: [
         {
             id: 1,
             title: "Basic",
@@ -82,10 +78,8 @@ export default function Inputs() {
             component: <Input_10 />,
             fileName: "input-10.tsx",
         },
-    ];
-    return (
-        <div className="grid grid-rows-[auto_1fr_20px] min-h-screen p-1 lg:p-4 gap-12 sm:p-16 pb-16">
-            <ViewComponents components={components} folder={FOLDER} />
-        </div>
-    );
-}
+    ],
+});
+
+export { metadata };
+export default InputsPage;

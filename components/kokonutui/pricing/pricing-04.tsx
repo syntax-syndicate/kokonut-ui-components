@@ -19,7 +19,7 @@ interface Pricing_04Props {
     ctaText?: string;
 }
 
-export function Pricing_04({
+export default function Pricing_04({
     price = "399",
     title = "Business Pro",
     subtitle = "Most Popular",

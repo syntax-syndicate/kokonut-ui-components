@@ -1,5 +1,5 @@
 import { Sparkles } from "lucide-react";
-import { Pricing_03 } from "@/components/pricing/pricing-03";
+import Pricing_03 from "@/components/kokonutui/pricing-03";
 
 function PricingHeader() {
     return (

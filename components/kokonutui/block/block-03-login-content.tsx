@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Block03LoginContent() {
     return (
         <form className="space-y-6">
-            <div className="p-8 space-y-6">
+            <div className="space-y-6 p-8">
                 <div className="space-y-2 text-center">
                     <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">
                         Welcome back
@@ -29,7 +29,7 @@ export default function Block03LoginContent() {
                             type="email"
                             autoComplete="username"
                             placeholder="hello@example.com"
-                            className="w-full h-11 bg-zinc-50 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-800"
+                            className="h-11 bg-zinc-50 border-zinc-200 dark:bg-zinc-800/50 dark:border-zinc-800"
                         />
                     </div>
 
@@ -44,7 +44,7 @@ export default function Block03LoginContent() {
                             id="password"
                             type="password"
                             autoComplete="current-password"
-                            className="w-full h-11 bg-zinc-50 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-800"
+                            className="h-11 bg-zinc-50 border-zinc-200 dark:bg-zinc-800/50 dark:border-zinc-800"
                         />
                     </div>
 
@@ -71,9 +71,9 @@ export default function Block03LoginContent() {
                         </Link>
                     </div>
 
-                    <Button className="w-full h-11 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200">
+                    <Button className="h-11 w-full bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200">
                         Sign in
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
 
                     <div className="relative">

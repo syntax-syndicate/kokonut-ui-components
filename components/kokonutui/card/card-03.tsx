@@ -66,11 +66,12 @@ export default function Card03({
     };
 
     return (
-        <div className="group relative w-full max-w-2xl mx-auto">
+        <div className="group relative w-full max-w-2xl mx-auto h-[500px]">
             <div
                 className="relative overflow-hidden border border-zinc-200 dark:border-zinc-800
                 bg-gradient-to-b from-white to-zinc-50/50
-                dark:from-zinc-900 dark:to-zinc-900/50 backdrop-blur-xl pb-8 rounded-xl"
+                dark:from-zinc-900 dark:to-zinc-900/50 backdrop-blur-xl 
+                h-full flex flex-col"
             >
                 <div className="p-8 pb-6">
                     <div className="flex items-start justify-between">

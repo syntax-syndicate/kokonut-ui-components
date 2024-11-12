@@ -1,22 +1,20 @@
-import { ViewComponents } from "@/components/ViewComponents";
-import type { Metadata } from "next";
-import Card_01 from "@/components/card/card-01";
-import Card_03 from "@/components/card/card-03";
-import Card_04 from "@/components/card/card-04";
-import Card_05 from "@/components/card/card-05";
-import Card_06 from "@/components/card/card-06";
-import Card_02 from "@/components/card/card-02";
+import Card_01 from "@/components/kokonutui/card-01";
+import Card_03 from "@/components/kokonutui/card-03";
+import Card_04 from "@/components/kokonutui/card-04";
+import Card_05 from "@/components/kokonutui/card-05";
+import Card_06 from "@/components/kokonutui/card-06";
+import Card_02 from "@/components/kokonutui/card-02";
+import { createComponentPage } from "@/components/page-builder";
 
-export const metadata: Metadata = {
-    title: "Card",
+const { default: CardsPage, metadata } = createComponentPage({
+    title: "Cards",
     description:
         "A collection of card components to use and customize. Built with Tailwind CSS and Shadcn.",
-};
-
-const FOLDER = "card";
-
-export default function Cards_View() {
-    const components = [
+    folder: "kokonutui/card",
+    viewType: "grid",
+    gridClassName: "grid-cols-1 lg:grid-cols-2",
+    componentClassName: "my-0",
+    components: [
         {
             id: 1,
             title: "Card 01",
@@ -53,15 +51,8 @@ export default function Cards_View() {
             component: <Card_06 />,
             fileName: "card-06.tsx",
         },
-    ];
+    ],
+});
 
-    return (
-        <div className="grid grid-rows-[auto_1fr_20px] min-h-screen p-1 lg:p-4 pb-20 gap-12 sm:p-16">
-            <ViewComponents
-                components={components}
-                folder={FOLDER}
-                containerClassName="grid-cols-1 lg:grid-cols-2 gap-2"
-            />
-        </div>
-    );
-}
+export { metadata };
+export default CardsPage;

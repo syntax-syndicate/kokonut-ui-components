@@ -8,7 +8,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-01.tsx",
+                path: "components/kokonutui/ai-input/ai-input-01.tsx",
                 type: "registry:component",
             },
             {
@@ -24,7 +24,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-02.tsx",
+                path: "components/kokonutui/ai-input/ai-input-02.tsx",
                 type: "registry:component",
             },
             {
@@ -44,7 +44,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-03.tsx",
+                path: "components/kokonutui/ai-input/ai-input-03.tsx",
                 type: "registry:component",
             },
             {
@@ -60,7 +60,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-04.tsx",
+                path: "components/kokonutui/ai-input/ai-input-04.tsx",
                 type: "registry:component",
             },
             {
@@ -76,7 +76,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-05.tsx",
+                path: "components/kokonutui/ai-input/ai-input-05.tsx",
                 type: "registry:component",
             },
             {
@@ -92,7 +92,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-06.tsx",
+                path: "components/kokonutui/ai-input/ai-input-06.tsx",
                 type: "registry:component",
             },
             {
@@ -108,7 +108,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-07.tsx",
+                path: "components/kokonutui/ai-input/ai-input-07.tsx",
                 type: "registry:component",
             },
             {
@@ -124,7 +124,7 @@ export const component: Registry = [
         registryDependencies: [],
         files: [
             {
-                path: "components/ai-input/ai-input-08.tsx",
+                path: "components/kokonutui/ai-input/ai-input-08.tsx",
                 type: "registry:component",
             },
         ],
@@ -136,7 +136,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-09.tsx",
+                path: "components/kokonutui/ai-input/ai-input-09.tsx",
                 type: "registry:component",
             },
             {
@@ -156,7 +156,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-10.tsx",
+                path: "components/kokonutui/ai-input/ai-input-10.tsx",
                 type: "registry:component",
             },
             {
@@ -180,7 +180,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-11.tsx",
+                path: "components/kokonutui/ai-input/ai-input-11.tsx",
                 type: "registry:component",
             },
             {
@@ -200,7 +200,7 @@ export const component: Registry = [
         registryDependencies: ["textarea", "tooltip"],
         files: [
             {
-                path: "components/ai-input/ai-input-12.tsx",
+                path: "components/kokonutui/ai-input/ai-input-12.tsx",
                 type: "registry:component",
             },
             {
@@ -216,7 +216,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-13.tsx",
+                path: "components/kokonutui/ai-input/ai-input-13.tsx",
                 type: "registry:component",
             },
             {
@@ -232,7 +232,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-14.tsx",
+                path: "components/kokonutui/ai-input/ai-input-14.tsx",
                 type: "registry:component",
             },
             {
@@ -248,7 +248,7 @@ export const component: Registry = [
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/ai-input/ai-input-15.tsx",
+                path: "components/kokonutui/ai-input/ai-input-15.tsx",
                 type: "registry:component",
             },
             {
@@ -264,7 +264,7 @@ export const component: Registry = [
         registryDependencies: [],
         files: [
             {
-                path: "components/ai-input/ai-input-16.tsx",
+                path: "components/kokonutui/ai-input/ai-input-16.tsx",
                 type: "registry:component",
             },
             {
@@ -280,7 +280,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-01.tsx",
+                path: "components/kokonutui/button/btn-01.tsx",
                 type: "registry:component",
             },
         ],
@@ -291,7 +291,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-02.tsx",
+                path: "components/kokonutui/button/btn-02.tsx",
                 type: "registry:component",
             },
         ],
@@ -303,7 +303,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-03.tsx",
+                path: "components/kokonutui/button/btn-03.tsx",
                 type: "registry:component",
             },
         ],
@@ -315,7 +315,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-04.tsx",
+                path: "components/kokonutui/button/btn-04.tsx",
                 type: "registry:component",
             },
         ],
@@ -327,7 +327,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-05.tsx",
+                path: "components/kokonutui/button/btn-05.tsx",
                 type: "registry:component",
             },
         ],
@@ -339,7 +339,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-06.tsx",
+                path: "components/kokonutui/button/btn-06.tsx",
                 type: "registry:component",
             },
             {
@@ -355,7 +355,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-07.tsx",
+                path: "components/kokonutui/button/btn-07.tsx",
                 type: "registry:component",
             },
         ],
@@ -367,7 +367,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-08.tsx",
+                path: "components/kokonutui/button/btn-08.tsx",
                 type: "registry:component",
             },
         ],
@@ -379,7 +379,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-09.tsx",
+                path: "components/kokonutui/button/btn-09.tsx",
                 type: "registry:component",
             },
         ],
@@ -391,7 +391,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/button/btn-10.tsx",
+                path: "components/kokonutui/button/btn-10.tsx",
                 type: "registry:component",
             },
         ],
@@ -402,7 +402,7 @@ export const component: Registry = [
         dependencies: [],
         files: [
             {
-                path: "components/text/text-01.tsx",
+                path: "components/kokonutui/text/text-01.tsx",
                 type: "registry:component",
             },
         ],
@@ -413,7 +413,7 @@ export const component: Registry = [
         dependencies: ["framer-motion"],
         files: [
             {
-                path: "components/text/text-02.tsx",
+                path: "components/kokonutui/text/text-02.tsx",
                 type: "registry:component",
             },
         ],
@@ -424,7 +424,7 @@ export const component: Registry = [
         dependencies: ["framer-motion"],
         files: [
             {
-                path: "components/text/text-03.tsx",
+                path: "components/kokonutui/text/text-03.tsx",
                 type: "registry:component",
             },
         ],
@@ -435,7 +435,7 @@ export const component: Registry = [
         dependencies: ["framer-motion"],
         files: [
             {
-                path: "components/text/text-04.tsx",
+                path: "components/kokonutui/text/text-04.tsx",
                 type: "registry:component",
             },
         ],
@@ -446,7 +446,7 @@ export const component: Registry = [
         dependencies: ["framer-motion"],
         files: [
             {
-                path: "components/text/text-05.tsx",
+                path: "components/kokonutui/text/text-05.tsx",
                 type: "registry:component",
             },
         ],
@@ -457,7 +457,7 @@ export const component: Registry = [
         dependencies: [],
         files: [
             {
-                path: "components/text/text-06.tsx",
+                path: "components/kokonutui/text/text-06.tsx",
                 type: "registry:component",
             },
         ],
@@ -469,7 +469,7 @@ export const component: Registry = [
         registryDependencies: ["select", "button"],
         files: [
             {
-                path: "components/card/card-01.tsx",
+                path: "components/kokonutui/card/card-01.tsx",
                 type: "registry:component",
             },
         ],
@@ -481,7 +481,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/card/card-02.tsx",
+                path: "components/kokonutui/card/card-02.tsx",
                 type: "registry:component",
             },
         ],
@@ -493,7 +493,7 @@ export const component: Registry = [
         registryDependencies: [],
         files: [
             {
-                path: "components/card/card-03.tsx",
+                path: "components/kokonutui/card/card-03.tsx",
                 type: "registry:component",
             },
         ],
@@ -505,7 +505,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/card/card-04.tsx",
+                path: "components/kokonutui/card/card-04.tsx",
                 type: "registry:component",
             },
         ],
@@ -517,7 +517,7 @@ export const component: Registry = [
         registryDependencies: [],
         files: [
             {
-                path: "components/card/card-05.tsx",
+                path: "components/kokonutui/card/card-05.tsx",
                 type: "registry:component",
             },
         ],
@@ -529,7 +529,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/card/card-06.tsx",
+                path: "components/kokonutui/card/card-06.tsx",
                 type: "registry:component",
             },
         ],
@@ -541,7 +541,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/pricing/pricing-01.tsx",
+                path: "components/kokonutui/pricing/pricing-01.tsx",
                 type: "registry:component",
             },
         ],
@@ -553,7 +553,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/pricing/pricing-02.tsx",
+                path: "components/kokonutui/pricing/pricing-02.tsx",
                 type: "registry:component",
             },
         ],
@@ -565,7 +565,7 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/pricing/pricing-03.tsx",
+                path: "components/kokonutui/pricing/pricing-03.tsx",
                 type: "registry:component",
             },
         ],
@@ -577,7 +577,7 @@ export const component: Registry = [
         registryDependencies: ["button", "card"],
         files: [
             {
-                path: "components/pricing/pricing-04.tsx",
+                path: "components/kokonutui/pricing/pricing-04.tsx",
                 type: "registry:component",
             },
         ],
@@ -589,7 +589,7 @@ export const component: Registry = [
         registryDependencies: [],
         files: [
             {
-                path: "components/alert/alert-01.tsx",
+                path: "components/kokonutui/alert/alert-01.tsx",
                 type: "registry:component",
             },
         ],
@@ -601,7 +601,7 @@ export const component: Registry = [
         registryDependencies: ["alert"],
         files: [
             {
-                path: "components/alert/alert-02.tsx",
+                path: "components/kokonutui/alert/alert-02.tsx",
                 type: "registry:component",
             },
         ],
@@ -613,7 +613,7 @@ export const component: Registry = [
         registryDependencies: [],
         files: [
             {
-                path: "components/alert/alert-03.tsx",
+                path: "components/kokonutui/alert/alert-03.tsx",
                 type: "registry:component",
             },
         ],
@@ -625,7 +625,7 @@ export const component: Registry = [
         registryDependencies: [],
         files: [
             {
-                path: "components/alert/alert-04.tsx",
+                path: "components/kokonutui/alert/alert-04.tsx",
                 type: "registry:component",
             },
         ],
@@ -637,7 +637,7 @@ export const component: Registry = [
         registryDependencies: [],
         files: [
             {
-                path: "components/alert/alert-05.tsx",
+                path: "components/kokonutui/alert/alert-05.tsx",
                 type: "registry:component",
             },
         ],
@@ -649,7 +649,7 @@ export const component: Registry = [
         registryDependencies: ["alert"],
         files: [
             {
-                path: "components/alert/alert-06.tsx",
+                path: "components/kokonutui/alert/alert-06.tsx",
                 type: "registry:component",
             },
         ],
@@ -660,7 +660,7 @@ export const component: Registry = [
         dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/input/input-01.tsx",
+                path: "components/kokonutui/input/input-01.tsx",
                 type: "registry:component",
             },
         ],
@@ -671,7 +671,7 @@ export const component: Registry = [
         dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/input/input-02.tsx",
+                path: "components/kokonutui/input/input-02.tsx",
                 type: "registry:component",
             },
             {
@@ -690,7 +690,7 @@ export const component: Registry = [
         dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/input/input-03.tsx",
+                path: "components/kokonutui/input/input-03.tsx",
                 type: "registry:component",
             },
             {
@@ -705,7 +705,7 @@ export const component: Registry = [
         dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/input/input-04.tsx",
+                path: "components/kokonutui/input/input-04.tsx",
                 type: "registry:component",
             },
         ],
@@ -716,7 +716,7 @@ export const component: Registry = [
         dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/input/input-05.tsx",
+                path: "components/kokonutui/input/input-05.tsx",
                 type: "registry:component",
             },
         ],
@@ -727,7 +727,7 @@ export const component: Registry = [
         dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/input/input-06.tsx",
+                path: "components/kokonutui/input/input-06.tsx",
                 type: "registry:component",
             },
         ],
@@ -738,7 +738,7 @@ export const component: Registry = [
         dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/input/input-07.tsx",
+                path: "components/kokonutui/input/input-07.tsx",
                 type: "registry:component",
             },
             {
@@ -753,7 +753,7 @@ export const component: Registry = [
         dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/input/input-08.tsx",
+                path: "components/kokonutui/input/input-08.tsx",
                 type: "registry:component",
             },
             {
@@ -769,7 +769,7 @@ export const component: Registry = [
         registryDependencies: ["popover"],
         files: [
             {
-                path: "components/input/input-09.tsx",
+                path: "components/kokonutui/input/input-09.tsx",
                 type: "registry:component",
             },
         ],
@@ -780,7 +780,7 @@ export const component: Registry = [
         dependencies: ["lucide-react"],
         files: [
             {
-                path: "components/input/input-10.tsx",
+                path: "components/kokonutui/input/input-10.tsx",
                 type: "registry:component",
             },
         ],
