@@ -8,7 +8,7 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export default function DocsPage() {
     return (
-        <div className="flex flex-col px-4 md:px-16 mt-4 md:mt-12 gap-4 md:gap-10 max-w-4xl relative mx-auto">
+        <div className="flex flex-col mt-4 md:mt-12 gap-4 md:gap-10 max-w-4xl relative">
             <div className="flex flex-col gap-2">
                 <h1 className="text-3xl sm:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
                     Installation

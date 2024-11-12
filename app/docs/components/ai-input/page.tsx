@@ -22,7 +22,7 @@ const { default: AIInputPage, metadata } = createComponentPage({
         "A collection of AI input components to use and customize. Built with Tailwind CSS and Shadcn.",
     folder: "kokonutui/ai-input",
     viewType: "grid",
-    gridClassName: "grid-cols-1 sm:grid-cols-1 lg:grid-cols-1",
+    gridClassName: "grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8",
     componentClassName: "h-full items-center",
     components: [
         {

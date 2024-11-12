@@ -12,7 +12,7 @@ const { default: AlertsPage, metadata } = createComponentPage({
         "A collection of alert components to use and customize. Built with Tailwind CSS.",
     folder: "kokonutui/alert",
     viewType: "grid",
-    gridClassName: "grid-cols-1 lg:grid-cols-2 gap-2",
+    gridClassName: "grid-cols-1 lg:grid-cols-2 gap-8",
     componentClassName: "h-full my-0",
     components: [
         {

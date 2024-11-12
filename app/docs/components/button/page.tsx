@@ -16,7 +16,7 @@ const { default: ButtonsPage, metadata } = createComponentPage({
         "A collection of button components to use and customize. Built with Tailwind CSS and Shadcn.",
     folder: "kokonutui/button",
     viewType: "grid",
-    gridClassName: "grid-cols-1 lg:grid-cols-2",
+    gridClassName: "grid-cols-1 lg:grid-cols-2 gap-8",
     components: [
         {
             id: 1,

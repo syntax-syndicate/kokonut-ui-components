@@ -44,8 +44,7 @@ export function ItemNavigation<T extends NavigationItem>({
     return (
         <div
             className={cn(
-                "sticky top-8 w-full lg:w-[200px] ml-auto",
-                "lg:fixed lg:right-6 lg:top-1/2 lg:-translate-y-1/2",
+                "sticky top-8 w-full",
                 "z-40",
                 className
             )}

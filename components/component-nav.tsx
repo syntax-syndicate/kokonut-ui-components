@@ -37,7 +37,7 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
     return (
         <>
             {/* Desktop Navigation */}
-            <div className="hidden md:block fixed left-6 top-1/2 -translate-y-1/2 w-[200px] z-40 space-y-4">
+            <div className="hidden md:block w-full z-40 space-y-4">
                 <div
                     key="desktop-nav"
                     className="bg-gradient-to-b from-white/95 via-gray-50/95 to-white/95

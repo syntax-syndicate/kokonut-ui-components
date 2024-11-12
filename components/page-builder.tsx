@@ -13,7 +13,7 @@ export function createComponentPage(config: PageConfig): {
 
     function ComponentPage() {
         return (
-            <div className="container mx-auto py-12 max-w-4xl">
+            <div className="container py-12 w-full">
                 <ViewBlocks
                     blocks={config.components}
                     folder={config.folder}
