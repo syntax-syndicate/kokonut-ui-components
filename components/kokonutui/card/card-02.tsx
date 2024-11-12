@@ -18,7 +18,7 @@ interface Card02Props {
 
 const defaultProfile = {
     name: "Sarah Anderson",
-    role: "Senior Product Designer",
+    role: "Senior Product",
     image: "/av01.png",
     availability: "Available in 2 weeks",
     rating: 4.9,

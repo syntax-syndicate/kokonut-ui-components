@@ -22,23 +22,23 @@ interface Card03Props {
 }
 
 export default function Card03({
-    projectName = "Design System 2.0",
-    description = "Modernizing our component library with enhanced accessibility and dark mode support",
+    projectName = "Kokonut UI",
+    description = "Use the CLI to generate your components",
     teamMembers = [
         {
-            name: "Alex Chen",
+            name: "Alex",
             role: "Lead Designer",
             avatar: "/av01.png",
             status: "online",
         },
         {
-            name: "Sarah Kim",
+            name: "Sarah",
             role: "Developer",
             avatar: "/av02.png",
-            status: "busy",
+            status: "online",
         },
         {
-            name: "Mike Liu",
+            name: "Mike",
             role: "PM",
             avatar: "/av03.png",
             status: "offline",
@@ -51,7 +51,7 @@ export default function Card03({
             dueDate: "Mar 28",
             completed: false,
         },
-        { title: "Documentation", dueDate: "Apr 10", completed: false },
+        { title: "Docs", dueDate: "Apr 10", completed: false },
     ],
 }: Card03Props) {
     const getStatusColor = (status: TeamMember["status"]) => {
