@@ -50,7 +50,7 @@ export function ViewBlocks({
     return (
         <div className="w-full relative">
             <div className="flex gap-8">
-                <div className="flex-1">
+                <div className="flex-1 w-full">
                     <div className="flex flex-col gap-12">
                         {blocks.map((block) => (
                             <div
@@ -65,7 +65,11 @@ export function ViewBlocks({
                 </div>
                 <div className="hidden lg:block w-[240px] flex-shrink-0">
                     <div className="sticky top-24">
-                        <Navigation items={blocks} type="block" title="Blocks" />
+                        <Navigation
+                            items={blocks}
+                            type="block"
+                            title="Blocks"
+                        />
                     </div>
                 </div>
             </div>

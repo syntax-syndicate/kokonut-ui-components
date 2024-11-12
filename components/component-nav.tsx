@@ -273,13 +273,13 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                             {item.title}
                                                             {item.isNew &&
                                                                 !isActive && (
-                                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase rounded-[28px] bg-gradient-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20">
+                                                                    <span className="ml-2 rounded-lg inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase bg-gradient-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20">
                                                                         new
                                                                     </span>
                                                                 )}
                                                             {item.isLab &&
                                                                 !isActive && (
-                                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase rounded-[28px] bg-gradient-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20 dark:ring-purple-400/20">
+                                                                    <span className="ml-2 rounded-xl inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase  bg-gradient-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20 dark:ring-purple-400/20">
                                                                         lab
                                                                     </span>
                                                                 )}
