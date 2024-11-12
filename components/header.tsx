@@ -1,9 +1,18 @@
 import { ThemeToggle } from "@/lib/theme-toggle";
-import { Github } from "lucide-react";
+import { Github, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { Suspense } from "react";
 
-export function Header() {
+export const revalidate = 3600;
+
+export async function Header() {
+    const star = await fetch(
+        "https://api.github.com/repos/kokonut-labs/kokonutui"
+    )
+        .then((res) => res.json())
+        .then((data) => data.stargazers_count);
+
     return (
         <div className="fixed top-0 left-0 right-0 z-50">
             <div className="flex items-center justify-center w-full flex-col">
@@ -73,21 +82,34 @@ export function Header() {
                                 className={`
                                         relative z-10
                                         cursor-pointer
-                                    flex items-center gap-2
+                                    flex items-center gap-1
                                     rounded-full
                                     bg-zinc-900 dark:bg-white
-                                    hover:bg-zinc-800 dark:hover:bg-gray-100
+                                    hover:bg-gradient-to-r hover:from-zinc-800 hover:to-zinc-600 
+                                    dark:hover:bg-gradient-to-r dark:hover:from-zinc-100 dark:hover:to-zinc-300
+                                    hover:ring-2 hover:ring-zinc-500/20 
+                                    dark:hover:ring-2 dark:hover:ring-zinc-300/20
                                     text-white dark:text-zinc-900
+                                    dark:hover:text-zinc-800 hover:text-white
                                     px-3 h-7
                                     transition-all duration-300 ease-in-out
                                     shadow-[0_2px_8px_-2px_rgba(0,0,0,0.12)]
-                                    group
+                                    group justify-center
                                 `}
                             >
-                                <Github className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
+                                <Github className="w-4 h-4 group-hover:rotate-12" />
                                 <span className="text-sm font-medium">
-                                    Star on Github
+                                    Star
                                 </span>
+                                <span className="hidden md:block text-sm font-medium">
+                                    on Github
+                                </span>
+                                | <Sparkles className="w-3.5 h-3.5" />
+                                <Suspense fallback={null}>
+                                    <span className="text-sm font-medium ">
+                                        {star}
+                                    </span>
+                                </Suspense>
                             </Link>
                         </div>
                     </div>

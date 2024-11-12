@@ -18,7 +18,7 @@ export default function DocsLayout({
 }) {
     return (
         <div className="relative min-h-screen">
-            <p className="pt-16 text-sm text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-2 opacity-80 ">
+            <p className="pt-16 text-sm text-emerald-700 dark:text-emerald-400 flex items-center justify-center gap-2 opacity-80 ">
                 <PartyPopper className="w-4 h-4" />
                 New components added weekly
             </p>
