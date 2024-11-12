@@ -80,10 +80,10 @@ function Faq04() {
     const filteredFaqs = faqs.filter((faq) => faq.category === activeCategory);
 
     return (
-        <section className="py-8 w-full bg-gray-50/50 dark:bg-black rounded-xl">
+        <section className="py-8 w-full rounded-xl">
             <div className="container px-4 mx-auto">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 dark:from-primary/90 dark:to-primary/50 bg-clip-text text-transparent">
+                    <h2 className="text-4xl font-bold mb-4 text-white dark:text-white">
                         How can we help?
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400">

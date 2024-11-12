@@ -67,11 +67,11 @@ function Faq03() {
     ];
 
     return (
-        <section className="py-16 bg-gray-50/50 dark:bg-black/5 w-full">
+        <section className="py-16 w-full">
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto">
                     <div className="text-center space-y-4 mb-12">
-                        <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 dark:from-primary/90 dark:to-primary/50 bg-clip-text text-transparent">
+                        <h2 className="text-4xl font-bold text-white dark:text-white">
                             Frequently Asked Questions
                         </h2>
                         <p className="text-gray-600 dark:text-gray-400">
@@ -89,7 +89,10 @@ function Faq03() {
                         <p className="text-gray-600 dark:text-gray-400 mb-4">
                             Still have questions?
                         </p>
-                        <button className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary dark:bg-primary/90 text-white hover:bg-primary/90 dark:hover:bg-primary/80 transition-colors">
+                        <button
+                            type="button"
+                            className="inline-flex items-center justify-center px-6 py-3 rounded-lg"
+                        >
                             Contact Support
                         </button>
                     </div>
