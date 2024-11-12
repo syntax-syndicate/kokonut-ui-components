@@ -13,7 +13,7 @@ export function createComponentPage(config: PageConfig): {
 
     function ComponentPage() {
         return (
-            <div className="container py-12 w-full">
+            <div className="container pb-12 w-full">
                 <ViewBlocks
                     blocks={config.components}
                     folder={config.folder}
