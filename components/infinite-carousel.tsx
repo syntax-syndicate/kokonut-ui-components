@@ -62,7 +62,7 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     };
 
     return (
-        <div className="relative w-full overflow-hidden py-4 max-w-[100vw]">
+        <div className="relative overflow-hidden py-4">
             <motion.div
                 className="flex gap-6 overflow-visible"
                 animate={{

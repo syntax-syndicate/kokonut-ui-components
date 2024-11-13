@@ -82,13 +82,13 @@ export default function Home() {
     const baseCommand = `shadcn@latest add ${prePath}/registry/my-component.json`;
 
     return (
-        <main className="bg-white dark:bg-black/5">
+        <main className="bg-white dark:bg-black/5 overflow-x-hidden">
             <p className="pt-16 text-sm text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-2 opacity-80 ">
                 <PartyPopper className="w-4 h-4" />
                 New components added weekly
             </p>
             <div className="pt-4">
-                <div className="grid grid-rows-[auto_1fr_auto] min-h-screen p-1 lg:p-4 pb-4 sm:pb-20 gap-4 sm:gap-12 sm:p-16">
+                <div className="grid grid-rows-[auto_1fr_auto] min-h-screen px-4 pb-4 sm:pb-20 gap-4 sm:gap-12 sm:p-16">
                     <div className="space-y-6 text-center pt-4 my-12">
                         <div className="inline-block">
                             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
@@ -124,13 +124,13 @@ export default function Home() {
                             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
                                 Explore all 50+ components.
                             </h2>
-                            <p className="mt-2 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+                            <p className="mt-2 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto px-4">
                                 Ready to use. Fully customizable. Built for
                                 making apps faster.
                             </p>
                         </div>
 
-                        <div className="max-w-[95vw] mx-auto">
+                        <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
                             <InfiniteCarousel items={categories} />
                         </div>
 
