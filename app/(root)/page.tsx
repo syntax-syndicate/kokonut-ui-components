@@ -88,7 +88,7 @@ export default function Home() {
                 New components added weekly
             </p>
             <div className="pt-4">
-                <div className="grid grid-rows-[auto_1fr_auto] min-h-screen p-1 lg:p-4 pb-20 gap-12 sm:p-16">
+                <div className="grid grid-rows-[auto_1fr_auto] min-h-screen p-1 lg:p-4 pb-4 sm:pb-20 gap-4 sm:gap-12 sm:p-16">
                     <div className="space-y-6 text-center pt-4 my-12">
                         <div className="inline-block">
                             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
@@ -141,7 +141,7 @@ export default function Home() {
                             </div>
 
                             <div className="max-w-7xl mx-auto px-4">
-                                <div className="flex justify-center mb-16 gap-4">
+                                <div className="flex flex-col sm:flex-row justify-center mb-16 gap-4">
                                     <div
                                         className="inline-flex items-center px-4 py-2 rounded-full text-sm 
                                         bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-zinc-900 dark:to-zinc-800
@@ -319,11 +319,10 @@ export default function Home() {
                     <span>50+ Components and Growing</span>
                 </div>
                 <h3 className="mt-4 text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
-                    Everything you need to build modern web applications
+                    Open Source, Customizable & Accessible
                 </h3>
-                <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-                    From buttons to complex AI inputs, we've got your UI needs
-                    covered
+                <p className="mt-2 text-zinc-600 dark:text-zinc-400 w-10/12 mx-auto">
+                    Cards, Buttons, Lists, AI Inputs, Alerts, and more.
                 </p>
             </div>
         </main>
