@@ -26,7 +26,6 @@ import AIInput_05 from "@/components/kokonutui/ai-input-05";
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Input_08 from "@/components/kokonutui/input-08";
 import Btn06 from "@/components/kokonutui/btn-06";
-import Input_06 from "@/components/kokonutui/input-06";
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -289,7 +288,6 @@ export default function Home() {
 
                                             <div className="flex flex-col items-center pt-8">
                                                 <Input_08 label="" />
-                                                <Input_06 />
                                             </div>
                                         </div>
 
