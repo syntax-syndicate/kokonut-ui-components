@@ -23,14 +23,14 @@ interface InfiniteCarouselProps {
 export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     const [width, setWidth] = useState(0);
     const isMobile = useIsMobile();
-    const [displayItems] = useState([...items, ...items]);
+    const [displayItems] = useState([...items]);
 
     useEffect(() => {
         const calculateWidth = () => {
             const itemWidths = items.map((item) => {
                 const span = item.span || 1;
-                const baseWidth = isMobile ? 280 : 300;
-                return span * baseWidth + 24;
+                const baseWidth = isMobile ? 260 : 300;
+                return span * baseWidth + (isMobile ? 16 : 24);
             });
             const totalWidth = itemWidths.reduce((acc, curr) => acc + curr, 0);
             setWidth(totalWidth);
@@ -64,13 +64,13 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     return (
         <div className="relative overflow-hidden py-4">
             <motion.div
-                className="flex gap-6 overflow-visible"
+                className="flex gap-4 sm:gap-6"
                 animate={{
                     x: [`0px`, `-${width}px`],
                 }}
                 transition={{
                     x: {
-                        duration: isMobile ? 15 : 30,
+                        duration: isMobile ? 20 : 30,
                         repeat: Infinity,
                         ease: "linear",
                         repeatType: "loop",
@@ -78,6 +78,10 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
                 }}
                 style={{
                     willChange: "transform",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                    transform: "translateZ(0)",
+                    WebkitTransform: "translateZ(0)",
                 }}
             >
                 {displayItems.map((item, index) => (
@@ -86,8 +90,12 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
                         className={`flex-shrink-0 ${getWidthClasses(
                             item.span
                         )}`}
+                        style={{
+                            willChange: "transform",
+                            transform: "translateZ(0)",
+                        }}
                     >
-                        <div className="group relative p-4 h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col overflow-hidden">
+                        <div className="group relative p-3 sm:p-4 h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col overflow-hidden">
                             <div
                                 className={`flex-1 flex items-center justify-center mb-3 rounded-lg overflow-hidden ${getComponentClasses(
                                     item.size
