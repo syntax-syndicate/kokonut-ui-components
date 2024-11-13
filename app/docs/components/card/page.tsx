@@ -1,19 +1,19 @@
-import Card_01 from "@/components/kokonutui/card-01";
 import Card_03 from "@/components/kokonutui/card-03";
 import Card_04 from "@/components/kokonutui/card-04";
 import Card_05 from "@/components/kokonutui/card-05";
 import Card_06 from "@/components/kokonutui/card-06";
 import Card_02 from "@/components/kokonutui/card-02";
 import { createComponentPage } from "@/components/page-builder";
-
+import Card_01 from "@/components/kokonutui/card-01";
+import Card_07 from "@/components/kokonutui/card-07";
 const { default: CardsPage, metadata } = createComponentPage({
     title: "Cards",
     description:
         "A collection of card components to use and customize. Built with Tailwind CSS and Shadcn.",
     folder: "kokonutui/card",
     viewType: "grid",
-    gridClassName: "grid-cols-1 lg:grid-cols-2 gap-8",
-    componentClassName: "my-0",
+    gridClassName: "grid-cols-1 lg:grid-cols-1 gap-8",
+    componentClassName: "mt-0 mb-4",
     components: [
         {
             id: 1,
@@ -50,6 +50,12 @@ const { default: CardsPage, metadata } = createComponentPage({
             title: "Card 06",
             component: <Card_06 />,
             fileName: "card-06.tsx",
+        },
+        {
+            id: 7,
+            title: "Card 07",
+            component: <Card_07 />,
+            fileName: "card-07.tsx",
         },
     ],
 });

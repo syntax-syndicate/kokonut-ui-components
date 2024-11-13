@@ -1,118 +1,187 @@
-import { Users, Headphones, BarChart, Zap, Shield } from "lucide-react";
-import { Button } from "@/components/ui/button";
+"use client";
 
-interface FeatureItem {
-    text: string;
-    icon: React.ReactNode;
+import { Check, Sparkles, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+
+interface Feature {
+    name: string;
+    included: boolean;
 }
 
 interface Pricing_01Props {
-    price: string;
-    description: string;
-    features?: FeatureItem[];
+    tier?: "Starter" | "Pro" | "Enterprise";
+    price?: {
+        monthly?: number;
+        yearly?: number;
+    };
+    description?: string;
+    features?: Feature[];
+    popular?: boolean;
 }
 
 export default function Pricing_01({
-    price = "3999",
-    description = "Ready for your space adventure?",
+    tier = "Pro",
+    price = {
+        monthly: 49,
+        yearly: 490,
+    },
+    description = "Perfect for growing businesses that need more power and flexibility.",
     features = [
+        { name: "Up to 10 team members", included: true },
         {
-            text: "Personal AI Space Navigator",
-            icon: (
-                <Users className="w-5 h-5 text-emerald-500 dark:text-emerald-400 animate-pulse" />
-            ),
+            name: "Advanced analytics",
+            included: true,
         },
-        {
-            text: "Zero-Gravity Training",
-            icon: (
-                <BarChart className="w-5 h-5 text-emerald-500 dark:text-emerald-400 animate-bounce" />
-            ),
-        },
-        {
-            text: "Intergalactic Wi-Fi (Slight delay when passing black holes)",
-            icon: (
-                <Zap className="w-5 h-5 text-emerald-500 dark:text-emerald-400 animate-pulse" />
-            ),
-        },
-        {
-            text: "Anti-Alien Insurance (You never know!)",
-            icon: (
-                <Shield className="w-5 h-5 text-emerald-500 dark:text-emerald-400 hover:scale-110 transition-transform" />
-            ),
-        },
-        {
-            text: "Quantum Communication Device (aka really fancy phone)",
-            icon: (
-                <Headphones className="w-5 h-5 text-emerald-500 dark:text-emerald-400 animate-wiggle" />
-            ),
-        },
+        { name: "Custom integrations", included: true },
+        { name: "API access", included: true },
+        { name: "24/7 phone support", included: false },
+        { name: "Custom branding", included: false },
     ],
+    popular = false,
 }: Pricing_01Props) {
+    const [isYearly, setIsYearly] = useState(true);
+    const currentPrice = isYearly ? price.yearly : price.monthly;
+    const savings = Math.round(
+        (1 - (price.yearly ?? 0) / 12 / (price.monthly ?? 0)) * 100
+    );
+
     return (
-        <div className="w-full max-w-md mx-auto">
+        <div className="relative w-full max-w-sm mx-auto">
+            {popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                    <div
+                        className={cn(
+                            "flex items-center gap-1.5 px-3 py-1 rounded-full",
+                            "bg-gradient-to-r from-amber-500/90 to-orange-500/90",
+                            "text-white text-sm font-medium shadow-lg shadow-orange-500/25"
+                        )}
+                    >
+                        <Sparkles className="w-3.5 h-3.5" />
+                        Most Popular
+                    </div>
+                </div>
+            )}
+
             <div
-                className="rounded-2xl bg-white dark:bg-zinc-900 shadow-md border border-zinc-200/50 
-                dark:border-zinc-700/50 hover:border-emerald-200/50 dark:hover:border-emerald-700/50 
-                transition-all duration-200 hover:-translate-y-1 hover:rotate-1 hover:shadow-lg"
+                className={cn(
+                    "relative overflow-hidden transition-colors duration-300 bg-white dark:bg-zinc-900 shadow-md border border-zinc-200/50 dark:border-zinc-800/50 rounded-2xl",
+                    popular
+                        ? "border-orange-500/50 dark:border-orange-400/50"
+                        : "border-zinc-200 dark:border-zinc-800"
+                )}
             >
-                <div className="p-6 space-y-4">
-                    {/* Header */}
-                    <div className="text-left space-y-2">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30">
-                            <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400">
-                                Premium
-                            </span>
-                        </div>
-                        <h3 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-                            Space X Package 🚀
+                <div className="p-8">
+                    <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                            {tier}
                         </h3>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-[280px]">
-                            {description}
-                        </p>
-                        <div className="flex items-center justify-start">
-                            <span className="text-4xl font-bold text-zinc-900 dark:text-zinc-50">
-                                <span className="text-2xl align-top">$</span>
-                                {price}
-                            </span>
-                            <span className="text-zinc-500 dark:text-zinc-400 ml-2">
-                                /year
-                            </span>
+                        <div className="flex items-center gap-2">
+                            {["Monthly", "Yearly"].map((period) => (
+                                <button
+                                    key={period}
+                                    type="button"
+                                    onClick={() =>
+                                        setIsYearly(period === "Yearly")
+                                    }
+                                    className={cn(
+                                        "px-2.5 py-1 text-sm rounded-md transition-colors",
+                                        (
+                                            period === "Yearly"
+                                                ? isYearly
+                                                : !isYearly
+                                        )
+                                            ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+                                            : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+                                    )}
+                                >
+                                    {period}
+                                </button>
+                            ))}
                         </div>
                     </div>
 
-                    <div className="space-y-2">
-                        {features.map((feature, index) => (
+                    <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+                            ${currentPrice}
+                        </span>
+                        <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                            /{isYearly ? "year" : "month"}
+                        </span>
+                    </div>
+
+                    {isYearly && (
+                        <div className="mt-2 text-sm text-emerald-600 dark:text-emerald-400">
+                            Save {savings}% with yearly billing
+                        </div>
+                    )}
+
+                    <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+                        {description}
+                    </p>
+                </div>
+
+                <div className="p-8 pt-4">
+                    <div className="space-y-4">
+                        {features.map((feature) => (
                             <div
-                                key={index}
-                                className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300 hover:scale-[1.02]"
+                                key={feature.name}
+                                className="flex items-start gap-3"
                             >
-                                {feature.icon}
-                                <span className="text-sm text-zinc-600 dark:text-zinc-300">
-                                    {feature.text}
+                                <div
+                                    className={cn(
+                                        "p-0.5 rounded-full mt-1",
+                                        feature.included
+                                            ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+                                            : "bg-zinc-200/50 dark:bg-zinc-700/50 text-zinc-400 dark:text-zinc-600"
+                                    )}
+                                >
+                                    <Check className="w-3 h-3" />
+                                </div>
+                                <span
+                                    className={cn(
+                                        "text-sm",
+                                        feature.included
+                                            ? "text-zinc-700 dark:text-zinc-300"
+                                            : "text-zinc-500 dark:text-zinc-500"
+                                    )}
+                                >
+                                    {feature.name}
                                 </span>
                             </div>
                         ))}
                     </div>
+                </div>
 
+                <div className="p-8 pt-4">
                     <Button
-                        className="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 
-                        dark:from-emerald-500 dark:to-emerald-400 dark:hover:from-emerald-600 dark:hover:to-emerald-500
-                        text-white font-medium rounded-xl py-6 relative overflow-hidden transition-all duration-300 
-                        hover:shadow-lg hover:shadow-emerald-200/50 dark:hover:shadow-emerald-900/50 
-                        active:scale-[0.98] group"
+                        type="button"
+                        className={cn(
+                            "w-full group",
+                            popular
+                                ? "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white"
+                                : "bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900"
+                        )}
                     >
-                        <span className="group-hover:hidden">
-                            Launch My Space Adventure! 🚀
-                        </span>
-                        <span className="hidden group-hover:inline">
-                            To Infinity and Beyond! ✨
-                        </span>
+                        Get started
+                        <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
                     </Button>
+                </div>
 
-                    <p className="text-xs text-center text-zinc-400 dark:text-zinc-500 italic">
-                        * Actual space travel not included. But our VR is pretty
-                        convincing! 😉
-                    </p>
+                <div className="absolute inset-0 pointer-events-none">
+                    <div
+                        className={cn(
+                            "absolute inset-x-0 top-0 h-px bg-gradient-to-r",
+                            "from-transparent via-zinc-200 dark:via-zinc-700 to-transparent"
+                        )}
+                    />
+                    <div
+                        className={cn(
+                            "absolute inset-x-0 bottom-0 h-px bg-gradient-to-r",
+                            "from-transparent via-zinc-200 dark:via-zinc-700 to-transparent"
+                        )}
+                    />
                 </div>
             </div>
         </div>

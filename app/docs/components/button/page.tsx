@@ -9,6 +9,8 @@ import Btn08 from "@/components/kokonutui/btn-08";
 import Btn09 from "@/components/kokonutui/btn-09";
 import Btn10 from "@/components/kokonutui/btn-10";
 import { createComponentPage } from "@/components/page-builder";
+import { Command } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const { default: ButtonsPage, metadata } = createComponentPage({
     title: "Buttons",
@@ -74,7 +76,23 @@ const { default: ButtonsPage, metadata } = createComponentPage({
         {
             id: 9,
             title: "Action",
-            component: <Btn09 />,
+            component: (
+                <Btn09>
+                    <Command
+                        className={cn(
+                            "w-4 h-4",
+                            "text-zinc-600 dark:text-zinc-400",
+                            "transition-all duration-300",
+                            "group-hover:scale-110",
+                            "group-hover:rotate-[-4deg]",
+                            "group-active:scale-95"
+                        )}
+                    />
+                    <span className="ml-2 text-sm text-zinc-600 dark:text-zinc-400">
+                        CMD + K
+                    </span>
+                </Btn09>
+            ),
             fileName: "btn-09.tsx",
         },
         {

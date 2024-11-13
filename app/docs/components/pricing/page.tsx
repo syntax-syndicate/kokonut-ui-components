@@ -1,8 +1,8 @@
 import { createComponentPage } from "@/components/page-builder";
-import Pricing_01 from "@/components/kokonutui/pricing-01";
-import Pricing_02 from "@/components/kokonutui/pricing-02";
 import Pricing_03 from "@/components/kokonutui/pricing-03";
 import Pricing_04 from "@/components/kokonutui/pricing-04";
+import Pricing_01 from "@/components/kokonutui/pricing-01";
+import Pricing_02 from "@/components/kokonutui/pricing-02";
 
 const { default: PricingPage, metadata } = createComponentPage({
     title: "Pricing",
@@ -10,25 +10,13 @@ const { default: PricingPage, metadata } = createComponentPage({
         "A collection of pricing components to use and customize. Built with Tailwind CSS and Shadcn.",
     folder: "kokonutui/pricing",
     viewType: "grid",
-    gridClassName: "grid-cols-1 lg:grid-cols-2 gap-8",
+    gridClassName: "grid-cols-1 lg:grid-cols-1 gap-8",
     components: [
         {
             id: 1,
-            title: "Fancy",
-            component: (
-                <Pricing_01
-                    price="4242"
-                    description="Ready for your space adventure?"
-                />
-            ),
-            fileName: "pricing-01.tsx",
-            dependencies: ["Framer Motion"],
-        },
-        {
-            id: 2,
             title: "Basic",
             component: (
-                <Pricing_02
+                <Pricing_01
                     tier="Pro"
                     price={{ monthly: 42, yearly: 420 }}
                     description="Perfect for growing businesses that need more power and flexibility."
@@ -43,6 +31,18 @@ const { default: PricingPage, metadata } = createComponentPage({
                     popular={false}
                 />
             ),
+            fileName: "pricing-01.tsx",
+            dependencies: ["Framer Motion"],
+        },
+        {
+            id: 2,
+            title: "Fancy",
+            component: (
+                <Pricing_02
+                    price="4242"
+                    description="Ready for your space adventure?"
+                />
+            ),
             fileName: "pricing-02.tsx",
         },
         {
@@ -55,7 +55,7 @@ const { default: PricingPage, metadata } = createComponentPage({
             id: 4,
             title: "Popular",
             component: (
-                <Pricing_02
+                <Pricing_01
                     tier="Pro"
                     price={{ monthly: 42, yearly: 420 }}
                     description="Level up your gaming experience with premium features and rewards"

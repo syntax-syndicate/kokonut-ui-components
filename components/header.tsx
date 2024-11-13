@@ -8,7 +8,6 @@ export async function Header() {
     const star = await fetch(
         "https://api.github.com/repos/kokonut-labs/kokonutui",
         {
-            cache: "force-cache",
             next: {
                 revalidate: 3600,
             },
