@@ -23,26 +23,29 @@ interface InfiniteCarouselProps {
 
 export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     const isMobile = useIsMobile();
-    const displayItems = isMobile ? items.slice(0, 3) : items;
+    const displayItems = isMobile ? items.slice(0, 3) : [...items, ...items];
+
     const [width, setWidth] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const calculateWidth = () => {
             if (!containerRef.current) return;
-            
-            // Get the actual width of the container
-            const itemWidth = containerRef.current.firstElementChild?.clientWidth || 0;
+
+            const itemWidth =
+                containerRef.current.firstElementChild?.clientWidth || 0;
             const gap = isMobile ? 16 : 24;
-            const totalWidth = (itemWidth + gap) * displayItems.length;
-            
-            setWidth(totalWidth);
+            const singleSetWidth =
+                (itemWidth + gap) *
+                (isMobile ? displayItems.length : items.length);
+
+            setWidth(singleSetWidth);
         };
 
         calculateWidth();
-        window.addEventListener('resize', calculateWidth);
-        return () => window.removeEventListener('resize', calculateWidth);
-    }, [displayItems, isMobile]);
+        window.addEventListener("resize", calculateWidth);
+        return () => window.removeEventListener("resize", calculateWidth);
+    }, [displayItems, isMobile, items.length]);
 
     const getWidthClasses = (span?: 1 | 2 | 3) => {
         switch (span) {
@@ -68,7 +71,7 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
 
     return (
         <div className="relative overflow-hidden py-4">
-            <div 
+            <div
                 ref={containerRef}
                 className={cn(
                     "flex gap-4 sm:gap-6",
@@ -77,14 +80,18 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
                     // Custom style for the animation
                     "[--carousel-width:0px]" // Will be set via inline style
                 )}
-                style={{ 
-                    '--carousel-width': `${width}px`
-                } as React.CSSProperties}
+                style={
+                    {
+                        "--carousel-width": `${width}px`,
+                    } as React.CSSProperties
+                }
             >
-                {displayItems.map((item) => (
+                {displayItems.map((item, index) => (
                     <div
-                        key={item.id}
-                        className={`flex-shrink-0 ${getWidthClasses(item.span)}`}
+                        key={`${item.id}-${item.title}-${index}`}
+                        className={`flex-shrink-0 ${getWidthClasses(
+                            item.span
+                        )}`}
                     >
                         <div className="group relative p-3 sm:p-4 h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col overflow-hidden">
                             <div

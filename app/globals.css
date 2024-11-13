@@ -83,6 +83,7 @@ table {
 
 .animate-carousel {
   animation: carousel 20s linear infinite;
+  will-change: transform;
 }
 
 /* Pause on hover only for desktop */
