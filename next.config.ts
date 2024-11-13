@@ -4,13 +4,9 @@ import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-    // outputFileTracingIncludes: {
-    //     "/**": [
-    //         "components/ai-input/**/*",
-    //         "components/texts/**/*",
-    //         "components/buttons/**/*",
-    //     ],
-    // },
+    outputFileTracingIncludes: {
+        "/**": ["components/kokonutui/**/*"],
+    },
     images: {
         remotePatterns: [
             {
