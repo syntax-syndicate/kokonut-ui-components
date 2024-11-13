@@ -27,6 +27,7 @@
     "cmdk": "^1.0.3",
     "framer-motion": "12.0.0-alpha.0",
     "fs": "0.0.2",
+    "hast-util-to-jsx-runtime": "^2.3.2",
     "lucide-react": "^0.456.0",
     "next": "latest",
     "next-themes": "^0.3.0",
