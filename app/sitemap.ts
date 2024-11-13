@@ -88,5 +88,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "monthly",
             priority: 0.6,
         },
+        {
+            url: "https://kokonut.dev/docs/components/list",
+            lastModified: currentDate,
+            changeFrequency: "monthly",
+            priority: 0.6,
+        },
     ];
 }

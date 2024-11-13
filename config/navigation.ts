@@ -41,7 +41,7 @@ export const navigationSections: NavSection[] = [
                 title: "Alerts",
                 href: "/docs/components/alert",
                 description: "Alert components and layouts",
-                count: 6,
+                count: 7,
             },
             {
                 id: 3,
@@ -55,7 +55,7 @@ export const navigationSections: NavSection[] = [
                 title: "Card",
                 href: "/docs/components/card",
                 description: "Versatile card components and layouts",
-                count: 6,
+                count: 7,
             },
             {
                 id: 5,
@@ -63,7 +63,6 @@ export const navigationSections: NavSection[] = [
                 href: "/docs/components/faq",
                 description: "Frequently asked questions",
                 count: 4,
-                isNew: true,
             },
             {
                 id: 6,
@@ -75,13 +74,21 @@ export const navigationSections: NavSection[] = [
             },
             {
                 id: 7,
+                title: "List",
+                href: "/docs/components/list",
+                description: "List components and layouts",
+                count: 6,
+                isNew: true,
+            },
+            {
+                id: 8,
                 title: "Pricing",
                 href: "/docs/components/pricing",
                 description: "Pricing components and layouts",
                 count: 5,
             },
             {
-                id: 8,
+                id: 9,
                 title: "Text",
                 href: "/docs/components/text",
                 description: "Typography and text animation components",

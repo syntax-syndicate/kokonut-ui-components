@@ -43,7 +43,7 @@ const { default: AlertsPage, metadata } = createComponentPage({
         },
         {
             id: 5,
-            title: "Congratz",
+            title: "Payment",
             component: <Alert05 />,
             fileName: "alert-05.tsx",
         },

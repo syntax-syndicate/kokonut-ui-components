@@ -465,8 +465,8 @@ export const component: Registry = [
     {
         name: "card-01",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
-        registryDependencies: ["select", "button"],
+        dependencies: [],
+        registryDependencies: [],
         files: [
             {
                 path: "components/kokonutui/card/card-01.tsx",
@@ -530,6 +530,18 @@ export const component: Registry = [
         files: [
             {
                 path: "components/kokonutui/card/card-06.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-07",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button", "select"],
+        files: [
+            {
+                path: "components/kokonutui/card/card-07.tsx",
                 type: "registry:component",
             },
         ],
@@ -841,6 +853,78 @@ export const component: Registry = [
         files: [
             {
                 path: "components/kokonutui/faq/faq-04.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "list-01",
+        type: "registry:component",
+        registryDependencies: [],
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/list/list-01.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "list-02",
+        type: "registry:component",
+        registryDependencies: [],
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/list/list-02.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "list-03",
+        type: "registry:component",
+        registryDependencies: [],
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/list/list-03.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "list-04",
+        type: "registry:component",
+        registryDependencies: [],
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/list/list-04.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "list-05",
+        type: "registry:component",
+        registryDependencies: [],
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/list/list-05.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "list-06",
+        type: "registry:component",
+        registryDependencies: [],
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/list/list-06.tsx",
                 type: "registry:component",
             },
         ],

@@ -70,7 +70,7 @@ export default function Input_08({
     };
 
     return (
-        <div className="w-full max-w-xs space-y-2 relative z-10 min-h-[250px]">
+        <div className="w-full max-w-xs space-y-2 relative z-10 min-h-[200px]">
             {label && (
                 <label
                     htmlFor="color-input"

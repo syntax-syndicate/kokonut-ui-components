@@ -3,7 +3,6 @@ import {
     ArrowUpRight,
     Plus,
     Target,
-    Calendar,
     CheckCircle2,
 } from "lucide-react";
 import Link from "next/link";

@@ -39,7 +39,7 @@ export default function Card02({
     skills = defaultProfile.skills,
 }: Card02Props = defaultProfile) {
     return (
-        <div className="relative w-full max-w-xl mx-auto">
+        <div className="relative w-full max-w-lg mx-auto">
             <div
                 className="relative overflow-hidden border border-zinc-200/80 dark:border-zinc-800/80 
                 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl rounded-2xl"
