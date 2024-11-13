@@ -5,6 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { Magnet } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Btn03Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     particleCount?: number;
@@ -23,24 +24,34 @@ export default function Btn03({
     attractRadius = 50,
     ...props
 }: Btn03Props) {
+    const isMobile = useIsMobile();
     const [isAttracting, setIsAttracting] = useState(false);
     const [particles, setParticles] = useState<Particle[]>([]);
     const particlesControl = useAnimation();
 
-    // Generate random particles
-    useEffect(() => {
-        const newParticles = Array.from({ length: particleCount }, (_, i) => ({
-            id: i,
-            x: Math.random() * 360 - 180,
-            y: Math.random() * 360 - 180,
-        }));
-        setParticles(newParticles);
-    }, [particleCount]);
+    // Reduce particle count on mobile
+    const actualParticleCount = isMobile
+        ? Math.min(6, particleCount)
+        : particleCount;
 
-    // Combined handler for both mouse and touch events
-    const handleInteractionStart = useCallback(async () => {
+    // Generate random particles with memoization
+    useEffect(() => {
+        const newParticles = Array.from(
+            { length: actualParticleCount },
+            (_, i) => ({
+                id: i,
+                x: (Math.random() * 360 - 180) * (isMobile ? 0.7 : 1),
+                y: (Math.random() * 360 - 180) * (isMobile ? 0.7 : 1),
+            })
+        );
+        setParticles(newParticles);
+    }, [actualParticleCount, isMobile]);
+
+    // Optimized handler for both mouse and touch events
+    const handleInteractionStart = useCallback(() => {
+        if (isMobile) return;
         setIsAttracting(true);
-        await particlesControl.start({
+        particlesControl.start({
             x: 0,
             y: 0,
             transition: {
@@ -49,25 +60,27 @@ export default function Btn03({
                 damping: 10,
             },
         });
-    }, [particlesControl]);
+    }, [particlesControl, isMobile]);
 
-    const handleInteractionEnd = useCallback(async () => {
+    const handleInteractionEnd = useCallback(() => {
+        if (isMobile) return;
         setIsAttracting(false);
-        await particlesControl.start((i) => ({
-            x: particles[i].x,
-            y: particles[i].y,
+        particlesControl.start((i) => ({
+            x: particles[i]?.x || 0,
+            y: particles[i]?.y || 0,
             transition: {
                 type: "spring",
                 stiffness: 100,
                 damping: 15,
             },
         }));
-    }, [particlesControl, particles]);
+    }, [particlesControl, particles, isMobile]);
 
     return (
         <Button
             className={cn(
-                "min-w-40 relative touch-none",
+                "min-w-40 relative",
+                !isMobile && "touch-none",
                 "bg-violet-100 dark:bg-violet-900",
                 "hover:bg-violet-200 dark:hover:bg-violet-800",
                 "text-violet-600 dark:text-violet-300",
@@ -77,32 +90,44 @@ export default function Btn03({
             )}
             onMouseEnter={handleInteractionStart}
             onMouseLeave={handleInteractionEnd}
-            onTouchStart={handleInteractionStart}
-            onTouchEnd={handleInteractionEnd}
+            onTouchStart={isMobile ? undefined : handleInteractionStart}
+            onTouchEnd={isMobile ? undefined : handleInteractionEnd}
             {...props}
         >
-            {particles.map((_, index) => (
-                <motion.div
-                    key={index}
-                    custom={index}
-                    initial={{ x: particles[index].x, y: particles[index].y }}
-                    animate={particlesControl}
-                    className={cn(
-                        "absolute w-1.5 h-1.5 rounded-full",
-                        "bg-violet-400 dark:bg-violet-300",
-                        "transition-opacity duration-300",
-                        isAttracting ? "opacity-100" : "opacity-40"
-                    )}
-                />
-            ))}
+            {!isMobile &&
+                particles.map((_, index) => (
+                    <motion.div
+                        key={index}
+                        custom={index}
+                        initial={{
+                            x: particles[index].x,
+                            y: particles[index].y,
+                        }}
+                        animate={particlesControl}
+                        className={cn(
+                            "absolute w-1.5 h-1.5 rounded-full",
+                            "bg-violet-400 dark:bg-violet-300",
+                            "transition-opacity duration-300",
+                            isAttracting ? "opacity-100" : "opacity-40"
+                        )}
+                        style={{
+                            willChange: "transform",
+                            transform: "translateZ(0)",
+                        }}
+                    />
+                ))}
             <span className="relative w-full flex items-center justify-center gap-2">
                 <Magnet
                     className={cn(
                         "w-4 h-4 transition-transform duration-300",
-                        isAttracting && "scale-110"
+                        isAttracting && !isMobile && "scale-110"
                     )}
                 />
-                {isAttracting ? "Attracting" : "Hover me"}
+                {isMobile
+                    ? "Magnetic Button"
+                    : isAttracting
+                    ? "Attracting"
+                    : "Hover me"}
             </span>
         </Button>
     );

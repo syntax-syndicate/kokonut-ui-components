@@ -73,10 +73,11 @@ table {
 
 @keyframes carousel {
   0% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
+
   100% {
-      transform: translateX(calc(var(--carousel-width) * -1));
+    transform: translateX(calc(var(--carousel-width) * -1));
   }
 }
 
@@ -84,14 +85,16 @@ table {
   animation: carousel 20s linear infinite;
 }
 
-/* Optional: Pause on hover */
-.animate-carousel:hover {
-  animation-play-state: paused;
+/* Pause on hover only for desktop */
+@media (min-width: 768px) {
+  .animate-carousel:hover {
+    animation-play-state: paused;
+  }
 }
 
-/* Optional: Respect user's motion preferences */
+/* Respect user's motion preferences */
 @media (prefers-reduced-motion) {
   .animate-carousel {
-      animation: none;
+    animation: none;
   }
 }
