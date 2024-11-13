@@ -4,13 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Suspense } from "react";
 
-export const revalidate = 3600;
-
 export async function Header() {
     const star = await fetch(
         "https://api.github.com/repos/kokonut-labs/kokonutui",
         {
             cache: "force-cache",
+            next: {
+                revalidate: 3600,
+            },
         }
     )
         .then((res) => res.json())
