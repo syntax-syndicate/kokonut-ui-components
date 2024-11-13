@@ -70,3 +70,32 @@ table {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(var(--carousel-width) * -1));
+  }
+}
+
+.animate-carousel {
+  animation: carousel 20s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover only for desktop */
+@media (min-width: 768px) {
+  .animate-carousel:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion) {
+  .animate-carousel {
+    animation: none;
+  }
+}

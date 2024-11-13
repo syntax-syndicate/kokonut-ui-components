@@ -20,7 +20,7 @@ export default function Btn_05({
     const [isHolding, setIsHolding] = useState(false);
     const controls = useAnimation();
 
-    async function handleMouseDown() {
+    async function handleHoldStart() {
         setIsHolding(true);
         controls.set({ width: "0%" });
         await controls.start({
@@ -33,7 +33,7 @@ export default function Btn_05({
         onHoldComplete?.();
     }
 
-    function handleMouseUp() {
+    function handleHoldEnd() {
         setIsHolding(false);
         controls.stop();
         controls.start({
@@ -45,16 +45,19 @@ export default function Btn_05({
     return (
         <Button
             className={cn(
-                "min-w-40 relative overflow-hidden",
+                "min-w-40 relative overflow-hidden touch-none",
                 "bg-red-100 dark:bg-red-200",
                 "hover:bg-red-100 dark:hover:bg-red-200",
                 "text-red-500 dark:text-red-600",
                 "border border-red-200 dark:border-red-300",
                 className
             )}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
+            onMouseDown={handleHoldStart}
+            onMouseUp={handleHoldEnd}
+            onMouseLeave={handleHoldEnd}
+            onTouchStart={handleHoldStart}
+            onTouchEnd={handleHoldEnd}
+            onTouchCancel={handleHoldEnd}
             {...props}
         >
             <motion.div

@@ -25,6 +25,7 @@ import Alert05 from "@/components/kokonutui/alert-05";
 import AIInput_05 from "@/components/kokonutui/ai-input-05";
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Input_08 from "@/components/kokonutui/input-08";
+import Btn06 from "@/components/kokonutui/btn-06";
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -246,13 +247,9 @@ export default function Home() {
                                                 {[
                                                     {
                                                         component: (
-                                                            <Btn03
-                                                                attractRadius={
-                                                                    30
-                                                                }
-                                                            />
+                                                            <Btn06 textToCopy="Hello World" />
                                                         ),
-                                                        label: "Magnetic Button",
+                                                        label: "Copy Button",
                                                     },
                                                     {
                                                         component: <Btn05 />,
@@ -289,7 +286,6 @@ export default function Home() {
                                                 ))}
                                             </div>
 
-                                            {/* Input Section */}
                                             <div className="flex flex-col items-center pt-8">
                                                 <Input_08 label="" />
                                             </div>
