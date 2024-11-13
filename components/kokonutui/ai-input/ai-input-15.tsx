@@ -21,13 +21,13 @@ interface ToolbarButton {
     isRecording?: boolean;
 }
 
-const MIN_HEIGHT = 128;
+const MIN_HEIGHT = 96;
 
 export default function AIInput_15() {
     const [value, setValue] = useState("");
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
         minHeight: MIN_HEIGHT,
-        maxHeight: 200,
+        maxHeight: 300,
     });
     const [useMemory, setUseMemory] = useState(false);
     const [isRecording, setIsRecording] = useState(false);
@@ -108,68 +108,88 @@ export default function AIInput_15() {
                 </div>
 
                 <div className="relative">
-                    <Textarea
-                        id="ai-input-15"
-                        value={value}
-                        placeholder={
-                            isRecording
-                                ? "Listening..."
-                                : "What would you like to know?"
-                        }
-                        className={cn(
-                            "w-full rounded-xl px-4 py-3 pb-8 bg-black/5 dark:bg-white/5 border-none dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70 resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
-                            `min-h-[${MIN_HEIGHT}px]`
-                        )}
-                        ref={textareaRef}
-                        onKeyDown={handleKeyDown}
-                        onChange={(e) => {
-                            setValue(e.target.value);
-                            adjustHeight();
-                        }}
-                    />
+                    <div className="relative flex flex-col">
+                        <div
+                            className="overflow-y-auto"
+                            style={{ maxHeight: "400px" }}
+                        >
+                            <Textarea
+                                id="ai-input-15"
+                                value={value}
+                                placeholder={
+                                    isRecording
+                                        ? "Listening..."
+                                        : "What would you like to know?"
+                                }
+                                className={cn(
+                                    "w-full rounded-xl rounded-b-none px-4 py-3 bg-black/5 dark:bg-white/5 border-none dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70 resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
+                                    `min-h-[${MIN_HEIGHT}px]`
+                                )}
+                                ref={textareaRef}
+                                onKeyDown={handleKeyDown}
+                                onChange={(e) => {
+                                    setValue(e.target.value);
+                                    adjustHeight();
+                                }}
+                            />
+                        </div>
 
-                    <div className="absolute left-3 bottom-3 flex items-center gap-2">
-                        {TOOLBAR_BUTTONS.map((button, index) =>
-                            button.isFileInput ? (
-                                <label
-                                    key={index}
-                                    className={
-                                        typeof button.className === "string"
-                                            ? button.className
-                                            : button.className(isRecording)
-                                    }
-                                >
-                                    <input type="file" className="hidden" />
-                                    <button.icon className="w-4 h-4 text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors" />
-                                </label>
-                            ) : (
+                        {/* Fixed toolbar area */}
+                        <div className="h-14 bg-black/5 dark:bg-white/5 rounded-b-xl">
+                            <div className="absolute left-3 right-3 bottom-3 flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    {TOOLBAR_BUTTONS.map((button, index) =>
+                                        button.isFileInput ? (
+                                            <label
+                                                key={index}
+                                                className={
+                                                    typeof button.className ===
+                                                    "string"
+                                                        ? button.className
+                                                        : button.className(
+                                                              isRecording
+                                                          )
+                                                }
+                                            >
+                                                <input
+                                                    type="file"
+                                                    className="hidden"
+                                                />
+                                                <button.icon className="w-4 h-4 text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors" />
+                                            </label>
+                                        ) : (
+                                            <button
+                                                key={index}
+                                                type="button"
+                                                onClick={button.onClick}
+                                                className={
+                                                    typeof button.className ===
+                                                    "string"
+                                                        ? button.className
+                                                        : button.className(
+                                                              isRecording
+                                                          )
+                                                }
+                                            >
+                                                <button.icon className="w-4 h-4" />
+                                            </button>
+                                        )
+                                    )}
+                                </div>
                                 <button
-                                    key={index}
                                     type="button"
-                                    onClick={button.onClick}
-                                    className={
-                                        typeof button.className === "string"
-                                            ? button.className
-                                            : button.className(isRecording)
-                                    }
+                                    className="rounded-lg p-2 bg-black/5 dark:bg-white/5"
                                 >
-                                    <button.icon className="w-4 h-4" />
+                                    <ArrowRight
+                                        className={cn(
+                                            "w-4 h-4 dark:text-white",
+                                            value ? "opacity-100" : "opacity-30"
+                                        )}
+                                    />
                                 </button>
-                            )
-                        )}
+                            </div>
+                        </div>
                     </div>
-
-                    <button
-                        type="button"
-                        className="absolute right-3 bottom-3 rounded-lg p-2 bg-black/5 dark:bg-white/5"
-                    >
-                        <ArrowRight
-                            className={cn(
-                                "w-4 h-4 dark:text-white",
-                                value ? "opacity-100" : "opacity-30"
-                            )}
-                        />
-                    </button>
                 </div>
 
                 <div className="mt-3 flex items-center gap-2 text-xs text-black/50 dark:text-white/50 justify-center">
