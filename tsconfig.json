@@ -37,7 +37,8 @@
         "./components/kokonutui/text/*",
         "./components/kokonutui/ai-input/*",
         "./components/kokonutui/faq/*",
-        "./components/kokonutui/list/*"
+        "./components/kokonutui/list/*",
+        "./components/kokonutui/profile/*"
       ]
     }
   },
