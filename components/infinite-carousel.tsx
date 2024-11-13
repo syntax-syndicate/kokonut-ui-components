@@ -1,7 +1,7 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -21,23 +21,23 @@ interface InfiniteCarouselProps {
 }
 
 export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
-    const [width, setWidth] = useState(0);
     const isMobile = useIsMobile();
-    const [displayItems] = useState([...items]);
+    const displayItems = isMobile ? items.slice(0, 3) : items;
+    const [width, setWidth] = useState(0);
 
     useEffect(() => {
-        const calculateWidth = () => {
-            const itemWidths = items.map((item) => {
-                const span = item.span || 1;
-                const baseWidth = isMobile ? 260 : 300;
-                return span * baseWidth + (isMobile ? 16 : 24);
-            });
-            const totalWidth = itemWidths.reduce((acc, curr) => acc + curr, 0);
-            setWidth(totalWidth);
-        };
+        // Calculate total width
+        const containerWidth = displayItems.reduce((acc, item) => {
+            const span = item.span || 1;
+            const baseWidth = isMobile ? 260 : 300;
+            return acc + (span * baseWidth + (isMobile ? 16 : 24));
+        }, 0);
+        
+        setWidth(containerWidth);
+    }, [displayItems, isMobile]);
 
-        calculateWidth();
-    }, [items, isMobile]);
+    // Create 4 copies to ensure smooth infinite loop
+    const duplicatedItems = [...displayItems, ...displayItems, ...displayItems, ...displayItems];
 
     const getWidthClasses = (span?: 1 | 2 | 3) => {
         switch (span) {
@@ -66,34 +66,24 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
             <motion.div
                 className="flex gap-4 sm:gap-6"
                 animate={{
-                    x: [`0px`, `-${width}px`],
+                    x: [-width, -width * 2],
                 }}
                 transition={{
                     x: {
-                        duration: isMobile ? 20 : 30,
                         repeat: Infinity,
-                        ease: "linear",
                         repeatType: "loop",
+                        duration: 40,
+                        ease: "linear",
                     },
                 }}
                 style={{
-                    willChange: "transform",
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                    transform: "translateZ(0)",
-                    WebkitTransform: "translateZ(0)",
+                    width: `${width * 4}px`, // Quadruple width for duplicated items
                 }}
             >
-                {displayItems.map((item, index) => (
-                    <div
+                {duplicatedItems.map((item, index) => (
+                    <motion.div
                         key={`${item.id}-${index}`}
-                        className={`flex-shrink-0 ${getWidthClasses(
-                            item.span
-                        )}`}
-                        style={{
-                            willChange: "transform",
-                            transform: "translateZ(0)",
-                        }}
+                        className={`flex-shrink-0 ${getWidthClasses(item.span)}`}
                     >
                         <div className="group relative p-3 sm:p-4 h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col overflow-hidden">
                             <div
@@ -120,7 +110,7 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
                                 <ArrowRight className="w-4 h-4 text-zinc-400 dark:text-zinc-600 transition-all duration-300 group-hover/link:text-emerald-700 dark:group-hover/link:text-emerald-400 group-hover/link:rotate-[-35deg]" />
                             </Link>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </motion.div>
         </div>
