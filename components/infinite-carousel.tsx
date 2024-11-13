@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export interface CarouselItem {
     id: number;
@@ -21,22 +22,22 @@ interface InfiniteCarouselProps {
 
 export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     const [width, setWidth] = useState(0);
-    const [displayItems] = useState([...items, ...items, ...items, ...items]);
+    const isMobile = useIsMobile();
+    const [displayItems] = useState([...items]);
 
-    // Calculate total width of items for animation
     useEffect(() => {
         const calculateWidth = () => {
-            const itemWidths = items.map(item => {
+            const itemWidths = items.map((item) => {
                 const span = item.span || 1;
-                // Base width + gap (24px)
-                return (span * 300) + 24;
+                const baseWidth = isMobile ? 260 : 300;
+                return span * baseWidth + (isMobile ? 16 : 24);
             });
             const totalWidth = itemWidths.reduce((acc, curr) => acc + curr, 0);
             setWidth(totalWidth);
         };
 
         calculateWidth();
-    }, [items]);
+    }, [items, isMobile]);
 
     const getWidthClasses = (span?: 1 | 2 | 3) => {
         switch (span) {
@@ -61,27 +62,45 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     };
 
     return (
-        <div className="relative w-full overflow-hidden py-4">
+        <div className="relative overflow-hidden py-4">
             <motion.div
-                className="flex gap-6"
+                className="flex gap-4 sm:gap-6"
                 animate={{
                     x: [`0px`, `-${width}px`],
                 }}
                 transition={{
                     x: {
-                        duration: 20,
+                        duration: isMobile ? 20 : 30,
                         repeat: Infinity,
                         ease: "linear",
+                        repeatType: "loop",
                     },
+                }}
+                style={{
+                    willChange: "transform",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                    transform: "translateZ(0)",
+                    WebkitTransform: "translateZ(0)",
                 }}
             >
                 {displayItems.map((item, index) => (
                     <div
                         key={`${item.id}-${index}`}
-                        className={`flex-shrink-0 ${getWidthClasses(item.span)}`}
+                        className={`flex-shrink-0 ${getWidthClasses(
+                            item.span
+                        )}`}
+                        style={{
+                            willChange: "transform",
+                            transform: "translateZ(0)",
+                        }}
                     >
-                        <div className="group relative p-4 h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col">
-                            <div className={`flex-1 flex items-center justify-center mb-3 rounded-lg overflow-hidden ${getComponentClasses(item.size)}`}>
+                        <div className="group relative p-3 sm:p-4 h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col overflow-hidden">
+                            <div
+                                className={`flex-1 flex items-center justify-center mb-3 rounded-lg overflow-hidden ${getComponentClasses(
+                                    item.size
+                                )}`}
+                            >
                                 <div className="pointer-events-auto w-full h-full flex items-center justify-center">
                                     {item.component}
                                 </div>
