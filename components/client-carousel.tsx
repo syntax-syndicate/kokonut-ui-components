@@ -46,7 +46,7 @@ export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
                     }
                 }
             },
-            [0.2]
+            { threshold: 0.2 }
         );
 
         observer.observe(containerRef.current);
