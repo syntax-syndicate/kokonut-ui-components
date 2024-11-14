@@ -7,77 +7,21 @@ import {
     Github,
     Command,
 } from "lucide-react";
-import AIInput_04 from "@/components/kokonutui/ai-input-04";
 import { CommandRotator } from "@/components/command-rotator";
-import Btn03 from "@/components/kokonutui/btn-03";
 import Btn05 from "@/components/kokonutui/btn-05";
 import Btn09 from "@/components/kokonutui/btn-09";
-
 import Arrow25 from "@/components/kokonutui/arrow25";
-import List05 from "@/components/kokonutui/list-05";
-import Card_01 from "@/components/kokonutui/card-01";
-import {
-    type CarouselItem,
-    InfiniteCarousel,
-} from "@/components/infinite-carousel";
 import { cn } from "@/lib/utils";
-import Alert05 from "@/components/kokonutui/alert-05";
 import AIInput_05 from "@/components/kokonutui/ai-input-05";
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Input_08 from "@/components/kokonutui/input-08";
 import Btn06 from "@/components/kokonutui/btn-06";
 
+import { CarouselWrapper } from "@/components/carousel-wrapper";
+
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
-
-const categories: CarouselItem[] = [
-    {
-        id: 1,
-        title: "Button Components",
-        href: "/docs/components/button",
-        component: <Btn03 attractRadius={30} />,
-        count: 10,
-        size: "default",
-        span: 1,
-    },
-    {
-        id: 2,
-        title: "Card Components",
-        href: "/docs/components/card",
-        component: <Card_01 />,
-        count: 6,
-        size: "default",
-        span: 2,
-    },
-    {
-        id: 3,
-        title: "List Components",
-        href: "/docs/components/list",
-        component: <List05 />,
-        count: 5,
-        size: "tall",
-        span: 2,
-    },
-    {
-        id: 4,
-        title: "Alert Components",
-        href: "/docs/components/alert",
-        component: <Alert05 />,
-        count: 6,
-        size: "wide",
-        span: 2,
-    },
-    {
-        id: 5,
-        title: "AI Components",
-        href: "/docs/components/ai-input",
-        component: <AIInput_04 />,
-        count: 16,
-        size: "tall",
-        span: 2,
-    },
-];
 
 const CARD_BASE_CLASSES = cn(
     "p-8 rounded-3xl",
@@ -127,19 +71,7 @@ export default function Home() {
                     </div>
 
                     <div className="space-y-8">
-                        <div className="text-center">
-                            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
-                                Explore all 50+ components.
-                            </h2>
-                            <p className="mt-2 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto px-4">
-                                Ready to use. Fully customizable. Built for
-                                making apps faster.
-                            </p>
-                        </div>
-
-                        <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
-                            <InfiniteCarousel items={categories} />
-                        </div>
+                        <CarouselWrapper />
 
                         <div className="relative mt-32 mb-24">
                             <div className="absolute inset-0 -z-10">
