@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import {
     ArrowRight,
@@ -9,22 +7,22 @@ import {
     Github,
     Command,
 } from "lucide-react";
-// import AIInput_04 from "@/components/kokonutui/ai-input-04";
+import AIInput_04 from "@/components/kokonutui/ai-input-04";
 import { CommandRotator } from "@/components/command-rotator";
 import Btn03 from "@/components/kokonutui/btn-03";
 import Btn05 from "@/components/kokonutui/btn-05";
 import Btn09 from "@/components/kokonutui/btn-09";
 
 import Arrow25 from "@/components/kokonutui/arrow25";
-// import List05 from "@/components/kokonutui/list-05";
-// import Card_01 from "@/components/kokonutui/card-01";
+import List05 from "@/components/kokonutui/list-05";
+import Card_01 from "@/components/kokonutui/card-01";
 import {
     type CarouselItem,
     InfiniteCarousel,
 } from "@/components/infinite-carousel";
 import { cn } from "@/lib/utils";
 import Alert05 from "@/components/kokonutui/alert-05";
-// import AIInput_05 from "@/components/kokonutui/ai-input-05";
+import AIInput_05 from "@/components/kokonutui/ai-input-05";
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Input_08 from "@/components/kokonutui/input-08";
 import Btn06 from "@/components/kokonutui/btn-06";
@@ -33,84 +31,61 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
 
-import dynamic from "next/dynamic";
+const categories: CarouselItem[] = [
+    {
+        id: 1,
+        title: "Alert Components",
+        href: "/docs/components/alert",
+        component: <Alert05 />,
+        count: 6,
+        size: "wide",
+        span: 1,
+    },
+    {
+        id: 2,
+        title: "Card Components",
+        href: "/docs/components/card",
+        component: <Card_01 />,
+        count: 6,
+        size: "default",
+        span: 1,
+    },
+    {
+        id: 3,
+        title: "List Components",
+        href: "/docs/components/list",
+        component: <List05 />,
+        count: 5,
+        size: "tall",
+        span: 2,
+    },
+    {
+        id: 4,
+        title: "Button Components",
+        href: "/docs/components/button",
+        component: <Btn03 attractRadius={30} />,
+        count: 10,
+        size: "default",
+        span: 1,
+    },
+    {
+        id: 5,
+        title: "AI Components",
+        href: "/docs/components/ai-input",
+        component: <AIInput_04 />,
+        count: 16,
+        size: "tall",
+        span: 2,
+    },
+];
 
-// Lazy load heavy components
-const AIInput_04 = dynamic(() => import("@/components/kokonutui/ai-input-04"), {
-    loading: () => (
-        <div className="w-full h-full animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg" />
-    ),
-    ssr: false,
-});
-
-const AIInput_05 = dynamic(() => import("@/components/kokonutui/ai-input-05"), {
-    loading: () => (
-        <div className="w-full h-12 animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg" />
-    ),
-    ssr: false,
-});
-
-const Card_01 = dynamic(() => import("@/components/kokonutui/card-01"), {
-    loading: () => (
-        <div className="w-full h-full animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg" />
-    ),
-});
-
-const List05 = dynamic(() => import("@/components/kokonutui/list-05"), {
-    loading: () => (
-        <div className="w-full h-full animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg" />
-    ),
-});
+const CARD_BASE_CLASSES = cn(
+    "p-8 rounded-3xl",
+    "bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50",
+    "border border-zinc-200 dark:border-zinc-800"
+);
 
 export default function Home() {
-    const categories: CarouselItem[] = [
-        {
-            id: 1,
-            title: "Alert Components",
-            href: "/docs/components/alert",
-            component: <Alert05 />,
-            count: 6,
-            size: "wide",
-            span: 1,
-        },
-        {
-            id: 2,
-            title: "Card Components",
-            href: "/docs/components/card",
-            component: <Card_01 />,
-            count: 6,
-            size: "default",
-            span: 1,
-        },
-        {
-            id: 3,
-            title: "List Components",
-            href: "/docs/components/list",
-            component: <List05 />,
-            count: 5,
-            size: "tall",
-            span: 2,
-        },
-        {
-            id: 4,
-            title: "Button Components",
-            href: "/docs/components/button",
-            component: <Btn03 attractRadius={30} />,
-            count: 10,
-            size: "default",
-            span: 1,
-        },
-        {
-            id: 5,
-            title: "AI Components",
-            href: "/docs/components/ai-input",
-            component: <AIInput_04 />,
-            count: 16,
-            size: "tall",
-            span: 2,
-        },
-    ];
-
     const baseCommand = `shadcn@latest add ${prePath}/registry/my-component.json`;
 
     return (
@@ -200,12 +175,7 @@ export default function Home() {
                                 </div>
 
                                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 min-h-[500px]">
-                                    <div
-                                        className="lg:col-span-2 p-8 rounded-3xl 
-                                        bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50
-                                        border border-zinc-200 dark:border-zinc-800 
-                                        shadow-sm"
-                                    >
+                                    <div className={CARD_BASE_CLASSES}>
                                         <div className="h-full flex flex-col justify-between">
                                             <div>
                                                 <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
@@ -263,15 +233,12 @@ export default function Home() {
                                         </div>
                                     </div>
 
-                                    <div
-                                        className="space-y-4 p-8 rounded-3xl 
-                                        bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50
-                                        border border-zinc-200 dark:border-zinc-800"
-                                    >
+                                    <div className={CARD_BASE_CLASSES}>
                                         <div className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
                                             Buttons, Inputs & More
                                         </div>
 
+                                        {/* Buttons Section */}
                                         <div className="space-y-6">
                                             <div className="space-y-4">
                                                 {[
