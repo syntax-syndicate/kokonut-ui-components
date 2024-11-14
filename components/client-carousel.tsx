@@ -6,6 +6,15 @@ import { CarouselItem } from "./carousel-item";
 
 import type { CarouselItemType } from "./carousel-wrapper";
 
+const autoScrollOptions = {
+    speed: 0.5,
+    stopOnInteraction: false,
+    stopOnMouseEnter: false,
+    startDelay: 0,
+    playOnInit: true,
+    rootNode: (emblaRoot: HTMLElement) => emblaRoot.parentElement,
+};
+
 export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
     const [emblaRef] = useEmblaCarousel(
         {
@@ -16,28 +25,15 @@ export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
             containScroll: false,
             skipSnaps: false,
             inViewThreshold: 0.7,
-            direction: "ltr",
-            watchDrag: false, // Disable drag watching
-            axis: "x",
-            active: true, // Disable all internal event listeners
+            direction: "ltr" as const,
+            watchDrag: false,
+            axis: "x" as const,
         },
-        [
-            AutoScroll({
-                speed: 0.5,
-                stopOnInteraction: false,
-                stopOnMouseEnter: false,
-                startDelay: 0,
-                playOnInit: true,
-                // rootNode: (emblaRoot) => emblaRoot.parentElement,
-            }),
-        ]
+        [AutoScroll(autoScrollOptions)]
     );
 
     return (
-        <div
-            className="relative overflow-hidden py-4 content-visibility-auto"
-            style={{ touchAction: "none" }}
-        >
+        <div className="relative overflow-hidden py-4 content-visibility-auto">
             <div
                 className="overflow-hidden pl-4 sm:pl-6"
                 ref={emblaRef}
@@ -50,7 +46,7 @@ export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
                 <div className="flex gap-4 sm:gap-6 gpu-accelerated">
                     {items.map((item, index) => (
                         <CarouselItem
-                            key={`${item.id}-${index}`}
+                            key={`${item.id}`}
                             item={item}
                             index={index}
                         />

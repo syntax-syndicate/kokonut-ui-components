@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import type { CarouselItemType } from "./carousel-wrapper";
 
 export const WIDTH_CLASSES = {
@@ -31,37 +31,51 @@ interface CarouselItemProps {
     index: number;
 }
 
+// Move static styles to constants
+const baseItemStyles = {
+    userSelect: "none" as const,
+    touchAction: "none" as const,
+};
+
+// Optimize class strings by pre-computing them
+const itemBaseClasses = `relative p-3 sm:p-4 h-full rounded-xl 
+    border border-zinc-200 dark:border-zinc-800 
+    bg-white dark:bg-zinc-900 
+    transition-colors duration-200 
+    flex flex-col overflow-hidden
+    pointer-events-none`;
+
+const footerBaseClasses = `flex items-center justify-between mt-auto pt-3 
+    border-t border-zinc-200 dark:border-zinc-800 -mx-4 px-4`;
+
 export const CarouselItem = memo(function CarouselItem({
     item,
 }: CarouselItemProps) {
-    return (
-        <div
-            className={`flex-shrink-0 ${getWidthClasses(
+    // Memoize the combined classes since they depend on props
+    const containerClasses = useMemo(
+        () =>
+            `flex-shrink-0 ${getWidthClasses(
                 item.span
-            )} gpu-accelerated select-none`}
-            style={{ userSelect: "none", touchAction: "none" }}
-        >
-            <div
-                className="relative p-3 sm:p-4 h-full rounded-xl 
-                    border border-zinc-200 dark:border-zinc-800 
-                    bg-white dark:bg-zinc-900 
-                    transition-colors duration-200 
-                    flex flex-col overflow-hidden
-                    pointer-events-none"
-            >
-                <div
-                    className={`flex-1 flex items-center justify-center mb-3 
-                        rounded-lg overflow-hidden 
-                        ${getComponentClasses(item.size)}`}
-                >
+            )} gpu-accelerated select-none`,
+        [item.span]
+    );
+
+    const componentClasses = useMemo(
+        () => `flex-1 flex items-center justify-center mb-3 
+            rounded-lg overflow-hidden 
+            ${getComponentClasses(item.size)}`,
+        [item.size]
+    );
+
+    return (
+        <div className={containerClasses} style={baseItemStyles}>
+            <div className={itemBaseClasses}>
+                <div className={componentClasses}>
                     <div className="w-full h-full flex items-center justify-center">
                         {item.component}
                     </div>
                 </div>
-                <div
-                    className="flex items-center justify-between mt-auto pt-3 
-                    border-t border-zinc-200 dark:border-zinc-800 -mx-4 px-4"
-                >
+                <div className={footerBaseClasses}>
                     <div>
                         <h3
                             className="text-base font-semibold 
