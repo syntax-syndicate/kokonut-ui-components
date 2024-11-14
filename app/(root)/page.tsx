@@ -239,7 +239,7 @@ export default function Home() {
                                         </div>
 
                                         {/* Buttons Section */}
-                                        <div className="space-y-6">
+                                        {/* <div className="space-y-6">
                                             <div className="space-y-4">
                                                 {[
                                                     {
@@ -286,7 +286,7 @@ export default function Home() {
                                             <div className="flex flex-col items-center pt-8">
                                                 <Input_08 label="" />
                                             </div>
-                                        </div>
+                                        </div> */}
 
                                         <p className="text-sm text-center text-zinc-500 dark:text-zinc-400 mt-4">
                                             + more available
