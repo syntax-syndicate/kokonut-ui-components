@@ -3,13 +3,13 @@ import { ArrowRight, PartyPopper, Sparkles, Zap, Github } from "lucide-react";
 import { CommandRotator } from "@/components/command-rotator";
 import Arrow25 from "@/components/kokonutui/arrow25";
 import { cn } from "@/lib/utils";
-import AIInput_05 from "@/components/kokonutui/ai-input-05";
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Input_08 from "@/components/kokonutui/input-08";
 
 import { CarouselWrapper } from "@/components/carousel-wrapper";
 import Alert04 from "@/components/kokonutui/alert-04";
 import Input_10 from "@/components/kokonutui/input-10";
+import AIInput_04 from "@/components/kokonutui/ai-input-04";
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -119,9 +119,9 @@ export default function Home() {
                                             </div>
                                             <div>
                                                 <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">
-                                                    components/AI-Input 05
+                                                    components / AI-Input-04
                                                 </p>
-                                                <AIInput_05 />
+                                                <AIInput_04 />
                                             </div>
                                             <div className="flex flex-wrap gap-4 mt-8">
                                                 <Link

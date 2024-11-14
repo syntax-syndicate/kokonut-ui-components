@@ -9,7 +9,6 @@ import Card_01 from "./kokonutui/card/card-01";
 import List05 from "./kokonutui/list/list-05";
 import Alert05 from "./kokonutui/alert/alert-05";
 import Profile01 from "./kokonutui/profile/profile-01";
-import Btn03 from "./kokonutui/button/btn-03";
 
 const categories: CarouselItem[] = [
     {
@@ -23,15 +22,6 @@ const categories: CarouselItem[] = [
     },
     {
         id: 2,
-        title: "Button Components",
-        href: "/docs/components/button",
-        component: <Btn03 />,
-        count: 6,
-        size: "wide",
-        span: 2,
-    },
-    {
-        id: 3,
         title: "Card Components",
         href: "/docs/components/card",
         component: <Card_01 />,
@@ -40,7 +30,7 @@ const categories: CarouselItem[] = [
         span: 1,
     },
     {
-        id: 4,
+        id: 3,
         title: "List Components",
         href: "/docs/components/list",
         component: <List05 />,
@@ -49,7 +39,7 @@ const categories: CarouselItem[] = [
         span: 2,
     },
     {
-        id: 5,
+        id: 4,
         title: "Alert Components",
         href: "/docs/components/alert",
         component: <Alert05 />,
@@ -58,7 +48,7 @@ const categories: CarouselItem[] = [
         span: 2,
     },
     {
-        id: 6,
+        id: 5,
         title: "AI Components",
         href: "/docs/components/ai-input",
         component: <AIInput_04 />,
@@ -71,11 +61,7 @@ const categories: CarouselItem[] = [
 export function CarouselWrapper() {
     const isMobile = useIsMobile();
 
-    const filteredCategories = isMobile
-        ? categories.filter(
-              (_, index) => index !== 1 && index !== categories.length - 1
-          )
-        : categories.filter((_, index) => index !== 0);
+    const filteredCategories = isMobile ? categories.slice(1, 4) : categories;
 
     return (
         <>
