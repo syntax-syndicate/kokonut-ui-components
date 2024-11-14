@@ -6,15 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 
-interface TypewriterState {
-    text: string;
-    index: number;
-    isComplete: boolean;
-}
-
 const INITIAL_TEXT = "What can i do for you?";
 const SPEED = 30;
-const RESET_DELAY = 1000;
 const MIN_HEIGHT = 56;
 
 export default function AIInput_05() {
@@ -23,48 +16,36 @@ export default function AIInput_05() {
         minHeight: MIN_HEIGHT,
         maxHeight: 200,
     });
-    const [typewriter, setTypewriter] = useState<TypewriterState>({
-        text: "",
-        index: 0,
-        isComplete: false,
-    });
+    const [displayText, setDisplayText] = useState("");
+    const [isTyping, setIsTyping] = useState(true);
 
-    // Memoize handlers
     const handleSubmit = useCallback(() => {
         setInputValue("");
         adjustHeight(true);
     }, [adjustHeight]);
 
-    // Optimize typewriter effect with RAF
     useEffect(() => {
-        if (typewriter.index >= INITIAL_TEXT.length) {
-            const resetTimer = setTimeout(() => {
-                setTypewriter({ text: "", index: 0, isComplete: false });
-            }, RESET_DELAY);
-            setTypewriter((prev) => ({ ...prev, isComplete: true }));
-            return () => clearTimeout(resetTimer);
-        }
+        let currentIndex = 0;
 
-        const animate = () => {
-            setTypewriter((prev) => ({
-                text: INITIAL_TEXT.slice(0, prev.index + 1),
-                index: prev.index + 1,
-                isComplete: false,
-            }));
+        const typeText = () => {
+            if (currentIndex < INITIAL_TEXT.length) {
+                setDisplayText(INITIAL_TEXT.slice(0, currentIndex + 1));
+                currentIndex++;
+                setTimeout(typeText, SPEED);
+            } else {
+                setIsTyping(false);
+            }
         };
 
-        const rafId = requestAnimationFrame(animate);
-        return () => cancelAnimationFrame(rafId);
-    }, [typewriter.index]);
+        typeText();
+    }, []);
 
     return (
         <div className="w-full py-4">
             <div className="text-2xl p-4 bg-background min-h-[100px] flex items-center justify-center">
                 <p className="text-black dark:text-white font-semibold">
-                    {typewriter.text}
-                    {!typewriter.isComplete && (
-                        <span className="animate-blink">|</span>
-                    )}
+                    {displayText}
+                    {isTyping && <span className="animate-blink">|</span>}
                 </p>
             </div>
 
