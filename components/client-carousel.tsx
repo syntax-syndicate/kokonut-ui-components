@@ -3,8 +3,8 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
-import AutoScroll from "embla-carousel-auto-scroll";
 import { useCallback, useMemo } from "react";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 export interface CarouselItem {
     id: number;
@@ -34,36 +34,26 @@ const COMPONENT_SIZES = {
 } as const;
 
 export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
-    // Memoize duplicated items
-    const displayItems = useMemo(() => [...items, ...items], [items]);
 
-    // Memoize carousel options
-    const carouselOptions = useMemo(
-        () => ({
+    const autoScrollOptions = {
+        speed: 0.5,
+        stopOnInteraction: true,
+        stopOnMouseEnter: false,
+        startDelay: 0,
+        playOnInit: true,
+    };
+
+    const [emblaRef] = useEmblaCarousel(
+        {
             loop: true,
-            dragFree: true, // Changed to true for smoother mobile experience
+            dragFree: true,
             align: "start",
             startIndex: 0,
             containScroll: false,
-            skipSnaps: false, // Changed to false for better mobile control
+            skipSnaps: false,
             inViewThreshold: 0.7,
-        }),
-        []
-    );
-
-    const autoScrollOptions = useMemo(
-        () => ({
-            speed: 0.5, // Reduced speed for better performance
-            stopOnInteraction: true,
-            stopOnMouseEnter: true, // Changed to true for better UX
-            startDelay: 1000,
-            playOnInit: true,
-        }),
-        []
-    );
-
-    const [emblaRef] = useEmblaCarousel(carouselOptions, [
-        AutoScroll(autoScrollOptions),
+        },
+        [AutoScroll(autoScrollOptions)]
     ]);
 
     // Memoized helper functions
@@ -153,7 +143,7 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
                 ref={emblaRef}
             >
                 <div className="flex gap-4 sm:gap-6 gpu-accelerated">
-                    {displayItems.map((item, index) => (
+                    {items.map((item, index) => (
                         <CarouselItem
                             key={`${item.id}-${index}`}
                             item={item}
