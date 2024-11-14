@@ -12,6 +12,7 @@ const autoScrollOptions = {
     startDelay: 0,
     playOnInit: true,
     rootNode: (emblaRoot: HTMLElement) => emblaRoot.parentElement,
+    playOnVisible: true,
 };
 
 export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {

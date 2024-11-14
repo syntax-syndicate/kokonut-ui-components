@@ -27,9 +27,9 @@ export default function Home() {
                     <div className="space-y-8">
                         <CarouselWrapper />
                         <div className="relative mt-32 mb-24">
-                            <div className="absolute inset-0 -z-10">
-                                <div className="absolute inset-0 bg-gradient-to-b from-zinc-100/0 via-zinc-100/50 to-zinc-100/0 dark:from-zinc-900/0 dark:via-zinc-900/50 dark:to-zinc-900/0" />
-                                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent dark:from-emerald-500/5 dark:via-emerald-500/2 dark:to-transparent blur-3xl" />
+                            <div className="hidden sm:block absolute inset-0 -z-10">
+                                <div className="hidden sm:absolute inset-0 bg-gradient-to-b from-zinc-100/0 via-zinc-100/50 to-zinc-100/0 dark:from-zinc-900/0 dark:via-zinc-900/50 dark:to-zinc-900/0" />
+                                <div className="hidden sm:absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent dark:from-emerald-500/5 dark:via-emerald-500/2 dark:to-transparent blur-3xl" />
                             </div>
                             <div className="max-w-7xl mx-auto md:px-4">
                                 <TechnologyBadges />
