@@ -25,43 +25,8 @@ export default function Block02Content() {
     return (
         <div className="relative max-w-7xl mx-auto px-4 py-24">
             <PricingHeader />
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Pricing_03
-                    tier="starter"
-                    price="29"
-                    title="Starter"
-                    description="Perfect for individuals"
-                    features={[
-                        { text: "Basic features", included: true },
-                        { text: "Up to 10 projects", included: true },
-                        { text: "Basic support", included: true },
-                    ]}
-                />
-
-                <Pricing_03
-                    tier="pro"
-                    price="99"
-                    title="Pro"
-                    description="Perfect for growing teams"
-                    features={[
-                        { text: "All Starter features", included: true },
-                        { text: "Unlimited projects", included: true },
-                        { text: "Priority support", included: true },
-                        { text: "Advanced analytics", included: true },
-                    ]}
-                />
-                <Pricing_03
-                    tier="enterprise"
-                    price="299"
-                    title="Enterprise"
-                    description="For large organizations"
-                    features={[
-                        { text: "All Pro features", included: true },
-                        { text: "Custom solutions", included: true },
-                        { text: "Dedicated support", included: true },
-                    ]}
-                />
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
+                <Pricing_03 />
             </div>
         </div>
     );

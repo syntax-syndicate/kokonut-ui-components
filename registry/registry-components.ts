@@ -550,7 +550,7 @@ export const component: Registry = [
         name: "pricing-01",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
+        registryDependencies: ["button", "badge"],
         files: [
             {
                 path: "components/kokonutui/pricing/pricing-01.tsx",
@@ -586,7 +586,7 @@ export const component: Registry = [
         name: "pricing-04",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button", "card"],
+        registryDependencies: ["button"],
         files: [
             {
                 path: "components/kokonutui/pricing/pricing-04.tsx",
