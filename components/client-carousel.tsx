@@ -40,10 +40,11 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     const [emblaRef] = useEmblaCarousel(
         {
             loop: true,
-            dragFree: isMobile,
+            dragFree: false,
             align: "start",
             startIndex: 0,
-            containScroll: false,
+            containScroll: "trimSnaps",
+            slidesToScroll: isMobile ? 1 : "auto",
         },
         isMobile
             ? []
