@@ -16,10 +16,10 @@ function EmotionFace({ value }: { value: number }) {
             return {
                 color: "#EF4444",
                 eyes: {
-                    left: "M6 10 Q8 12 10 10",
-                    right: "M14 10 Q16 12 18 10",
+                    left: "M6 10 Q8 8 10 10",
+                    right: "M14 10 Q16 8 18 10",
                 },
-                mouth: "M8 16 Q12 19 16 16",
+                mouth: "M8 16 Q12 13 16 16",
             };
         }
 
@@ -37,10 +37,10 @@ function EmotionFace({ value }: { value: number }) {
         return {
             color: "#10B981",
             eyes: {
-                left: "M6 10 Q8 8 10 10",
-                right: "M14 10 Q16 8 18 10",
+                left: "M6 10 Q8 12 10 10",
+                right: "M14 10 Q16 12 18 10",
             },
-            mouth: "M8 16 Q12 13 16 16",
+            mouth: "M8 16 Q12 19 16 16",
         };
     };
 
@@ -107,15 +107,6 @@ export default function Input_10() {
 
     return (
         <div className="w-full max-w-sm space-y-4">
-            <div className="flex items-center justify-between">
-                <span
-                    className="text-sm font-medium transition-colors duration-200"
-                    style={{ color: currentMood.color }}
-                >
-                    {currentMood.label}
-                </span>
-            </div>
-
             <div className="relative flex items-center justify-center gap-8 py-4">
                 <button
                     type="button"
