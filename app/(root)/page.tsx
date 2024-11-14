@@ -43,8 +43,8 @@ export default function Home() {
                         <div className="relative">
                             <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
                                 A collection of modern, interactive,
-                                customizable UI components built with shadcn &
-                                TailwindCSS. Quick and easy to use.
+                                customizable UI components built. Quick and easy
+                                to use.
                                 <Arrow25 className="inline-block ml-1 w-6 h-6 align-middle mt-1" />
                             </p>
                         </div>
@@ -64,7 +64,6 @@ export default function Home() {
 
                     <div className="space-y-8">
                         <CarouselWrapper />
-
                         <div className="relative mt-32 mb-24">
                             <div className="absolute inset-0 -z-10">
                                 <div className="absolute inset-0 bg-gradient-to-b from-zinc-100/0 via-zinc-100/50 to-zinc-100/0 dark:from-zinc-900/0 dark:via-zinc-900/50 dark:to-zinc-900/0" />

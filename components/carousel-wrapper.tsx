@@ -59,10 +59,6 @@ const categories: CarouselItem[] = [
 ];
 
 export function CarouselWrapper() {
-    const isMobile = useIsMobile();
-
-    const filteredCategories = isMobile ? categories.slice(1, 4) : categories;
-
     return (
         <>
             <div className="text-center">
@@ -75,13 +71,9 @@ export function CarouselWrapper() {
                 </p>
             </div>
 
-            {isMobile ? (
-                <CategoryGrid items={filteredCategories} />
-            ) : (
-                <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
-                    <InfiniteCarousel items={filteredCategories} />
-                </div>
-            )}
+            <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
+                <InfiniteCarousel items={categories} />
+            </div>
         </>
     );
 }
