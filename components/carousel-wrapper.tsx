@@ -12,13 +12,13 @@ import Profile01 from "./kokonutui/profile/profile-01";
 
 const categories: CarouselItem[] = [
     {
-        id: 1,
-        title: "Profile Components",
-        href: "/docs/components/profile",
-        component: <Profile01 />,
-        count: 10,
+        id: 3,
+        title: "List Components",
+        href: "/docs/components/list",
+        component: <List05 />,
+        count: 5,
         size: "tall",
-        span: 1,
+        span: 2,
     },
     {
         id: 2,
@@ -26,15 +26,6 @@ const categories: CarouselItem[] = [
         href: "/docs/components/card",
         component: <Card_01 />,
         count: 6,
-        size: "tall",
-        span: 1,
-    },
-    {
-        id: 3,
-        title: "List Components",
-        href: "/docs/components/list",
-        component: <List05 />,
-        count: 5,
         size: "tall",
         span: 2,
     },
@@ -55,6 +46,15 @@ const categories: CarouselItem[] = [
         count: 16,
         size: "tall",
         span: 2,
+    },
+    {
+        id: 1,
+        title: "Profile Components",
+        href: "/docs/components/profile",
+        component: <Profile01 />,
+        count: 10,
+        size: "tall",
+        span: 1,
     },
 ];
 

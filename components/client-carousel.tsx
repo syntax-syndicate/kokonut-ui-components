@@ -34,7 +34,6 @@ const COMPONENT_SIZES = {
 } as const;
 
 export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
-
     const autoScrollOptions = {
         speed: 0.5,
         stopOnInteraction: true,
@@ -54,7 +53,7 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
             inViewThreshold: 0.7,
         },
         [AutoScroll(autoScrollOptions)]
-    ]);
+    );
 
     // Memoized helper functions
     const getWidthClasses = useCallback(
