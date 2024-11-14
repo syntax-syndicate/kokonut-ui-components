@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -21,54 +21,72 @@ interface InfiniteCarouselProps {
 
 export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     const isMobile = useIsMobile();
-    const displayItems = isMobile ? items.slice(0, 3) : [...items, ...items];
+    const displayItems = useMemo(
+        () => (isMobile ? items.slice(0, 3) : [...items, ...items]),
+        [items, isMobile]
+    );
 
-    const [width, setWidth] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
     const animationRef = useRef<number>();
     const positionRef = useRef(0);
     const lastTimeRef = useRef(0);
+    const [width, setWidth] = useState(0);
 
-    // Memoize these functions to prevent unnecessary recalculations
-    const getWidthClasses = (span?: 1 | 2 | 3) => {
-        switch (span) {
-            case 3:
-                return "w-[600px] md:w-[700px] lg:w-[800px]";
-            case 2:
-                return "w-[400px] md:w-[500px] lg:w-[600px]";
-            default:
-                return "w-[300px] md:w-[350px] lg:w-[400px]";
-        }
-    };
+    // Memoize style functions
+    const getWidthClasses = useMemo(
+        () => (span?: 1 | 2 | 3) => {
+            switch (span) {
+                case 3:
+                    return isMobile
+                        ? "w-[300px]"
+                        : "w-[600px] md:w-[700px] lg:w-[800px]";
+                case 2:
+                    return isMobile
+                        ? "w-[280px]"
+                        : "w-[400px] md:w-[500px] lg:w-[600px]";
+                default:
+                    return isMobile
+                        ? "w-[260px]"
+                        : "w-[300px] md:w-[350px] lg:w-[400px]";
+            }
+        },
+        [isMobile]
+    );
 
-    const getComponentClasses = (size?: "default" | "wide" | "tall") => {
-        switch (size) {
-            case "wide":
-                return "w-full aspect-[2/1]";
-            case "tall":
-                return "w-full aspect-[4/3]";
-            default:
-                return "w-full aspect-[3/2]";
-        }
-    };
+    const getComponentClasses = useMemo(
+        () => (size?: "default" | "wide" | "tall") => {
+            if (isMobile) return "w-full aspect-[3/2]";
+            switch (size) {
+                case "wide":
+                    return "w-full aspect-[2/1]";
+                case "tall":
+                    return "w-full aspect-[4/3]";
+                default:
+                    return "w-full aspect-[3/2]";
+            }
+        },
+        [isMobile]
+    );
 
     useEffect(() => {
         const calculateWidth = () => {
             if (!containerRef.current) return;
-
             const itemWidth =
                 containerRef.current.firstElementChild?.clientWidth || 0;
             const gap = isMobile ? 16 : 24;
             const singleSetWidth =
                 (itemWidth + gap) *
                 (isMobile ? displayItems.length : items.length);
-
             setWidth(singleSetWidth);
         };
 
-        calculateWidth();
-        const resizeObserver = new ResizeObserver(calculateWidth);
+        const resizeObserver = new ResizeObserver(() => {
+            // Debounce resize calculations
+            window.requestAnimationFrame(calculateWidth);
+        });
+
         if (containerRef.current) {
+            calculateWidth();
             resizeObserver.observe(containerRef.current);
         }
 
@@ -79,7 +97,8 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
         if (!lastTimeRef.current) lastTimeRef.current = timestamp;
 
         const elapsed = timestamp - lastTimeRef.current;
-        const speed = 0.1;
+        // Slower animation speed for mobile
+        const speed = isMobile ? 0.03 : 0.05;
 
         positionRef.current -= elapsed * speed;
 
@@ -88,7 +107,8 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
         }
 
         if (containerRef.current) {
-            containerRef.current.style.transform = `translateX(${positionRef.current}px)`;
+            // Use transform3d for hardware acceleration
+            containerRef.current.style.transform = `translate3d(${positionRef.current}px, 0, 0)`;
         }
 
         lastTimeRef.current = timestamp;
@@ -119,8 +139,12 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
                 ref={containerRef}
                 className="flex gap-4 sm:gap-6"
                 style={{
-                    transform: "translateX(0)",
+                    transform: "translate3d(0, 0, 0)",
                     willChange: "transform",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                    WebkitPerspective: 1000,
+                    perspective: 1000,
                 }}
                 onMouseEnter={() => !isMobile && stopAnimation()}
                 onMouseLeave={() => !isMobile && startAnimation()}
