@@ -72,29 +72,33 @@ table {
 }
 
 @keyframes carousel {
-  0% {
+  from {
     transform: translateX(0);
   }
 
-  100% {
-    transform: translateX(calc(var(--carousel-width) * -1));
+  to {
+    transform: translateX(calc(-50% - 1rem));
+    /* Adjust based on your gap */
   }
 }
 
 .animate-carousel {
-  animation: carousel 20s linear infinite;
-  will-change: transform;
+  animation: carousel 25s linear infinite;
 }
 
-/* Pause on hover only for desktop */
-@media (min-width: 768px) {
-  .animate-carousel:hover {
-    animation-play-state: paused;
-  }
+.animation-play-state-paused {
+  animation-play-state: paused;
 }
 
 /* Respect user's motion preferences */
-@media (prefers-reduced-motion) {
+@media (prefers-reduced-motion: reduce) {
+  .animate-carousel {
+    animation: none;
+  }
+}
+
+/* Optional: Pause animation when device is low-power mode */
+@media (prefers-reduced-data: reduce) {
   .animate-carousel {
     animation: none;
   }
