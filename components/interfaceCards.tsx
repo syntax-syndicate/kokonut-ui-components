@@ -1,20 +1,10 @@
 import Link from "next/link";
 import { ArrowRight, Github, Zap } from "lucide-react";
-import dynamic from "next/dynamic";
+import AIInput_04 from "@/components/kokonutui/ai-input-04";
 
-// Dynamic import is still useful for code-splitting
-const AIInput_04 = dynamic(() => import("@/components/kokonutui/ai-input-04"), {
-    ssr: true,
-    loading: () => (
-        <div className="h-[200px] animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg" />
-    ),
-});
-
-// Static classes are still good for performance
 const gradientTextClasses =
     "bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 via-zinc-600 to-zinc-800 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100";
 
-// Regular function components for simple UI elements
 function Header() {
     return (
         <div>

@@ -31,13 +31,11 @@ interface CarouselItemProps {
     index: number;
 }
 
-// Move static styles to constants
 const baseItemStyles = {
     userSelect: "none" as const,
     touchAction: "none" as const,
 };
 
-// Optimize class strings by pre-computing them
 const itemBaseClasses = `relative p-3 sm:p-4 h-full rounded-xl 
     border border-zinc-200 dark:border-zinc-800 
     bg-white dark:bg-zinc-900 
