@@ -129,7 +129,7 @@ export default function Home() {
                                                 <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">
                                                     components/AI-Input 05
                                                 </p>
-                                                <AIInput_05 />
+                                                {/* <AIInput_05 /> */}
                                             </div>
                                             <div className="flex flex-wrap gap-4 mt-8">
                                                 <Link
