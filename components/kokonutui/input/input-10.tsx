@@ -83,7 +83,7 @@ function EmotionFace({ value }: { value: number }) {
 }
 
 export default function Input_10() {
-    const [value, setValue] = useState(50);
+    const [value, setValue] = useState(100);
 
     const getCurrentMoodState = () => {
         return (
