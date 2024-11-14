@@ -4,19 +4,19 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { CarouselItem } from "./carousel-item";
 import type { CarouselItemType } from "./carousel-wrapper";
+import { useEffect, useRef } from "react";
 
 const autoScrollOptions = {
     speed: 0.8,
     stopOnInteraction: false,
     stopOnMouseEnter: false,
     startDelay: 0,
-    playOnInit: true,
+    playOnInit: false,
     rootNode: (emblaRoot: HTMLElement) => emblaRoot.parentElement,
-    playOnVisible: true,
 };
 
 export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
-    const [emblaRef] = useEmblaCarousel(
+    const [emblaRef, emblaApi] = useEmblaCarousel(
         {
             loop: true,
             dragFree: false,
@@ -31,8 +31,33 @@ export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
         [AutoScroll(autoScrollOptions)]
     );
 
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!containerRef.current || !emblaApi) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        emblaApi.plugins().autoScroll.play();
+                    } else {
+                        emblaApi.plugins().autoScroll.stop();
+                    }
+                }
+            },
+            [0.2]
+        );
+
+        observer.observe(containerRef.current);
+
+        return () => {
+            observer.disconnect();
+        };
+    }, [emblaApi]);
+
     return (
-        <div className="relative overflow-hidden py-4">
+        <div className="relative overflow-hidden py-4" ref={containerRef}>
             <div
                 className="overflow-hidden pl-4 sm:pl-6"
                 ref={emblaRef}
