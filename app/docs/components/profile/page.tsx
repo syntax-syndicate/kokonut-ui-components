@@ -4,8 +4,9 @@ import Profile03 from "@/components/kokonutui/profile-03";
 import Profile04 from "@/components/kokonutui/profile-04";
 import Profile05 from "@/components/kokonutui/profile-05";
 import { createComponentPage } from "@/components/page-builder";
+import type { PageConfig } from "@/types/component-page";
 
-const { default: ProfilePage, metadata } = createComponentPage({
+const PROFILE_CONFIG: PageConfig = {
     title: "Profile",
     description:
         "A collection of profile components to use and customize. Built with Tailwind CSS.",
@@ -45,7 +46,9 @@ const { default: ProfilePage, metadata } = createComponentPage({
             fileName: "profile-05.tsx",
         },
     ],
-});
+};
+
+const { default: ProfilePage, metadata } = createComponentPage(PROFILE_CONFIG);
 
 export { metadata };
 export default ProfilePage;

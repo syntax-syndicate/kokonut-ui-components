@@ -34,11 +34,11 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
 const categories: CarouselItem[] = [
     {
         id: 1,
-        title: "Alert Components",
-        href: "/docs/components/alert",
-        component: <Alert05 />,
-        count: 6,
-        size: "wide",
+        title: "Button Components",
+        href: "/docs/components/button",
+        component: <Btn03 attractRadius={30} />,
+        count: 10,
+        size: "default",
         span: 1,
     },
     {
@@ -48,7 +48,7 @@ const categories: CarouselItem[] = [
         component: <Card_01 />,
         count: 6,
         size: "default",
-        span: 1,
+        span: 2,
     },
     {
         id: 3,
@@ -61,12 +61,12 @@ const categories: CarouselItem[] = [
     },
     {
         id: 4,
-        title: "Button Components",
-        href: "/docs/components/button",
-        component: <Btn03 attractRadius={30} />,
-        count: 10,
-        size: "default",
-        span: 1,
+        title: "Alert Components",
+        href: "/docs/components/alert",
+        component: <Alert05 />,
+        count: 6,
+        size: "wide",
+        span: 2,
     },
     {
         id: 5,
@@ -239,7 +239,7 @@ export default function Home() {
                                         </div>
 
                                         {/* Buttons Section */}
-                                        {/* <div className="space-y-6">
+                                        <div className="space-y-6">
                                             <div className="space-y-4">
                                                 {[
                                                     {
@@ -286,7 +286,7 @@ export default function Home() {
                                             <div className="flex flex-col items-center pt-8">
                                                 <Input_08 label="" />
                                             </div>
-                                        </div> */}
+                                        </div>
 
                                         <p className="text-sm text-center text-zinc-500 dark:text-zinc-400 mt-4">
                                             + more available

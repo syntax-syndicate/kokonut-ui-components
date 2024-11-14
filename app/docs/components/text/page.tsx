@@ -5,8 +5,8 @@ import Text_03 from "@/components/kokonutui/text-03";
 import Text_04 from "@/components/kokonutui/text-04";
 import Text_05 from "@/components/kokonutui/text-05";
 import Text_06 from "@/components/kokonutui/text-06";
-
-const { default: TextsPage, metadata } = createComponentPage({
+import type { PageConfig } from "@/types/component-page";
+const TEXT_CONFIG: PageConfig = {
     title: "Text",
     description:
         "A collection of text components to use and customize. Built with Tailwind CSS and Shadcn.",
@@ -58,6 +58,7 @@ const { default: TextsPage, metadata } = createComponentPage({
     ],
 });
 
-export { metadata };
+const { default: TextsPage, metadata } = createComponentPage(TEXT_CONFIG);
 
+export { metadata };
 export default TextsPage;

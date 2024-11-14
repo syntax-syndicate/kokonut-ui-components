@@ -3,8 +3,9 @@ import Faq02 from "@/components/kokonutui/faq-02";
 import Faq03 from "@/components/kokonutui/faq-03";
 import Faq04 from "@/components/kokonutui/faq-04";
 import { createComponentPage } from "@/components/page-builder";
+import type { PageConfig } from "@/types/component-page";
 
-const { default: FaqPage, metadata } = createComponentPage({
+const FAQ_CONFIG: PageConfig = {
     title: "FAQ",
     description:
         "A collection of FAQ components to use and customize. Built with Tailwind CSS and Shadcn.",
@@ -41,8 +42,9 @@ const { default: FaqPage, metadata } = createComponentPage({
             dependencies: [],
         },
     ],
-});
+};
+
+const { default: FaqPage, metadata } = createComponentPage(FAQ_CONFIG);
 
 export { metadata };
-
 export default FaqPage;

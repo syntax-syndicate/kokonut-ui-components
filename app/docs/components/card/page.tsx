@@ -6,7 +6,9 @@ import Card_02 from "@/components/kokonutui/card-02";
 import { createComponentPage } from "@/components/page-builder";
 import Card_01 from "@/components/kokonutui/card-01";
 import Card_07 from "@/components/kokonutui/card-07";
-const { default: CardsPage, metadata } = createComponentPage({
+import type { PageConfig } from "@/types/component-page";
+
+const CARDS_CONFIG: PageConfig = {
     title: "Cards",
     description:
         "A collection of card components to use and customize. Built with Tailwind CSS and Shadcn.",
@@ -59,6 +61,8 @@ const { default: CardsPage, metadata } = createComponentPage({
         },
     ],
 });
+
+const { default: CardsPage, metadata } = createComponentPage(CARDS_CONFIG);
 
 export { metadata };
 export default CardsPage;

@@ -6,8 +6,9 @@ import Alert05 from "@/components/kokonutui/alert-05";
 import Alert06 from "@/components/kokonutui/alert-06";
 import Alert07 from "@/components/kokonutui/alert-07";
 import { createComponentPage } from "@/components/page-builder";
+import type { PageConfig } from "@/types/component-page";
 
-const { default: AlertsPage, metadata } = createComponentPage({
+const ALERT_CONFIG: PageConfig = {
     title: "Alerts",
     description:
         "A collection of alert components to use and customize. Built with Tailwind CSS.",
@@ -61,7 +62,9 @@ const { default: AlertsPage, metadata } = createComponentPage({
             fileName: "alert-07.tsx",
         },
     ],
-});
+};
+
+const { default: AlertsPage, metadata } = createComponentPage(ALERT_CONFIG);
 
 export { metadata };
 export default AlertsPage;
