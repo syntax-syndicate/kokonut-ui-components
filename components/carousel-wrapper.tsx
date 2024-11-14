@@ -1,16 +1,21 @@
-"use client";
-
-import { useIsMobile } from "@/hooks/use-mobile";
 import { InfiniteCarousel } from "@/components/client-carousel";
-import { CategoryGrid } from "@/components/category-grid";
-import type { CarouselItem } from "@/components/client-carousel";
 import AIInput_04 from "@/components/kokonutui/ai-input-04";
 import Card_01 from "./kokonutui/card/card-01";
 import List05 from "./kokonutui/list/list-05";
 import Alert05 from "./kokonutui/alert/alert-05";
 import Profile01 from "./kokonutui/profile/profile-01";
 
-const categories: CarouselItem[] = [
+export type CarouselItemType = {
+    id: number;
+    title: string;
+    href: string;
+    component: React.ReactNode;
+    count: number;
+    size: "default" | "wide" | "tall";
+    span: 1 | 2 | 3;
+};
+
+const categories: CarouselItemType[] = [
     {
         id: 3,
         title: "List Components",
