@@ -70,7 +70,6 @@ export const navigationSections: NavSection[] = [
                 href: "/docs/components/input",
                 description: "More components coming soon",
                 count: "10",
-                isNew: true,
             },
             {
                 id: 7,
@@ -78,7 +77,6 @@ export const navigationSections: NavSection[] = [
                 href: "/docs/components/list",
                 description: "List components and layouts",
                 count: 6,
-                isNew: true,
             },
             {
                 id: 8,
@@ -86,6 +84,7 @@ export const navigationSections: NavSection[] = [
                 href: "/docs/components/pricing",
                 description: "Pricing components and layouts",
                 count: 4,
+                isNew: true,
             },
             {
                 id: 9,
@@ -93,6 +92,7 @@ export const navigationSections: NavSection[] = [
                 href: "/docs/components/profile",
                 description: "Profile components and layouts",
                 count: 3,
+                isNew: true,
             },
             {
                 id: 10,
