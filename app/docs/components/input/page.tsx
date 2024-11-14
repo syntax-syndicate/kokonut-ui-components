@@ -80,7 +80,7 @@ const INPUTS_CONFIG: PageConfig = {
             fileName: "input-10.tsx",
         },
     ],
-});
+};
 
 const { default: InputsPage, metadata } = createComponentPage(INPUTS_CONFIG);
 

@@ -104,7 +104,7 @@ const BUTTONS_CONFIG: PageConfig = {
             fileName: "btn-10.tsx",
         },
     ],
-});
+};
 
 const { default: ButtonsPage, metadata } = createComponentPage(BUTTONS_CONFIG);
 

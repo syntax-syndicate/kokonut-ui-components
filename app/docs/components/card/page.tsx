@@ -60,7 +60,7 @@ const CARDS_CONFIG: PageConfig = {
             fileName: "card-07.tsx",
         },
     ],
-});
+};
 
 const { default: CardsPage, metadata } = createComponentPage(CARDS_CONFIG);
 

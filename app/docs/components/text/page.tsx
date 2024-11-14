@@ -56,7 +56,7 @@ const TEXT_CONFIG: PageConfig = {
             fileName: "text-06.tsx",
         },
     ],
-});
+};
 
 const { default: TextsPage, metadata } = createComponentPage(TEXT_CONFIG);
 
