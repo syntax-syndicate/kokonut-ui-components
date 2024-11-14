@@ -1,11 +1,15 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import AutoScroll from "embla-carousel-auto-scroll";
+import AutoScroll, {
+    type AutoScrollOptionsType,
+} from "embla-carousel-auto-scroll";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+
+import type { EmblaOptionsType } from "embla-carousel";
 
 export interface CarouselItem {
     id: number;
@@ -25,13 +29,13 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     const isMobile = useIsMobile();
     const displayItems = isMobile ? items.slice(0, 3) : [...items, ...items];
 
-    const options = {
+    const options: EmblaOptionsType = {
         loop: true,
         align: "start",
         containScroll: false,
     };
 
-    const autoScrollOptions = {
+    const autoScrollOptions: AutoScrollOptionsType = {
         speed: 1,
         startDelay: 0,
         direction: "forward",
