@@ -2,7 +2,6 @@
 
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useIsMobile } from "@/hooks/use-mobile";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
@@ -34,8 +33,7 @@ const COMPONENT_SIZES = {
 } as const;
 
 export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
-    const isMobile = useIsMobile();
-    const displayItems = isMobile ? items : [...items, ...items];
+    const displayItems = [...items, ...items];
 
     const [emblaRef] = useEmblaCarousel(
         {
@@ -43,19 +41,18 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
             dragFree: false,
             align: "start",
             startIndex: 0,
-            containScroll: "trimSnaps",
-            slidesToScroll: isMobile ? 1 : "auto",
+            containScroll: false,
+            skipSnaps: true,
+            inViewThreshold: 0.7,
         },
-        isMobile
-            ? []
-            : [
-                  AutoScroll({
-                      speed: 1,
-                      stopOnInteraction: false,
-                      stopOnMouseEnter: false,
-                      startDelay: 0,
-                  }),
-              ]
+        [
+            AutoScroll({
+                speed: 1,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+                startDelay: 0,
+            }),
+        ]
     );
 
     // Simplified helper functions using the maps
@@ -106,7 +103,7 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
 
     return (
         <div className="relative overflow-hidden py-4">
-            <div className="overflow-hidden pl-4 sm:pl-6" ref={emblaRef}>
+            <div className={`overflow-hidden pl-4 sm:pl-6`} ref={emblaRef}>
                 <div className="flex gap-4 sm:gap-6">
                     {displayItems.map((item, index) => (
                         <CarouselItem

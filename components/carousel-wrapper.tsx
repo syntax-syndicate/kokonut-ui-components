@@ -1,4 +1,8 @@
+"use client";
+
+import { useIsMobile } from "@/hooks/use-mobile";
 import { InfiniteCarousel } from "@/components/client-carousel";
+import { CategoryGrid } from "@/components/category-grid";
 import type { CarouselItem } from "@/components/client-carousel";
 import AIInput_04 from "@/components/kokonutui/ai-input-04";
 import Card_01 from "./kokonutui/card/card-01";
@@ -13,7 +17,7 @@ const categories: CarouselItem[] = [
         href: "/docs/components/profile",
         component: <Profile01 />,
         count: 10,
-        size: "default",
+        size: "tall",
         span: 1,
     },
     {
@@ -22,8 +26,8 @@ const categories: CarouselItem[] = [
         href: "/docs/components/card",
         component: <Card_01 />,
         count: 6,
-        size: "default",
-        span: 2,
+        size: "tall",
+        span: 1,
     },
     {
         id: 3,
@@ -55,6 +59,10 @@ const categories: CarouselItem[] = [
 ];
 
 export function CarouselWrapper() {
+    const isMobile = useIsMobile();
+
+    const filteredCategories = isMobile ? categories.slice(0, 4) : categories;
+
     return (
         <>
             <div className="text-center">
@@ -67,9 +75,33 @@ export function CarouselWrapper() {
                 </p>
             </div>
 
-            <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
-                <InfiniteCarousel items={categories} />
-            </div>
+            {isMobile ? (
+                <CategoryGrid items={filteredCategories} />
+            ) : (
+                <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
+                    <InfiniteCarousel items={filteredCategories} />
+                </div>
+            )}
         </>
     );
 }
+
+// {
+//     component: (
+//         <Btn09>
+//             <Command
+//                 className={cn(
+//                     "w-4 h-4",
+//                     "text-zinc-600 dark:text-zinc-400",
+//                     "transition-all duration-300",
+//                     "group-hover:scale-110",
+//                     "group-hover:rotate-[-4deg]",
+//                     "group-active:scale-95"
+//                 )}
+//             />
+//             <span className="ml-2 text-sm text-zinc-600 dark:text-zinc-400">
+//                 CMD + K
+//             </span>
+//         </Btn09>
+//     ),
+// },

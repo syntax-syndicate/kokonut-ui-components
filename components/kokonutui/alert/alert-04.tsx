@@ -81,7 +81,7 @@ export default function Alert04({ className }: Alert04Props) {
                 </div>
 
                 {/* Celebration badge */}
-                <div className="absolute top-4 right-4">
+                <div className="hidden sm:block absolute top-4 right-4">
                     <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}

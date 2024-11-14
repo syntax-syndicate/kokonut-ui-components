@@ -18,6 +18,7 @@ import Input_08 from "@/components/kokonutui/input-08";
 import { CarouselWrapper } from "@/components/carousel-wrapper";
 import Text_02 from "@/components/kokonutui/text-02";
 import Alert04 from "@/components/kokonutui/alert-04";
+import Input_10 from "@/components/kokonutui/input-10";
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -79,7 +80,7 @@ export default function Home() {
                                 <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent dark:from-emerald-500/5 dark:via-emerald-500/2 dark:to-transparent blur-3xl" />
                             </div>
 
-                            <div className="max-w-7xl mx-auto px-4">
+                            <div className="max-w-7xl mx-auto md:px-4">
                                 <div className="flex flex-col sm:flex-row justify-center mb-16 gap-4">
                                     <div
                                         className="inline-flex items-center px-4 py-2 rounded-full text-sm 
@@ -129,7 +130,7 @@ export default function Home() {
                                                 <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">
                                                     components/AI-Input 05
                                                 </p>
-                                                {/* <AIInput_05 /> */}
+                                                <AIInput_05 />
                                             </div>
                                             <div className="flex flex-wrap gap-4 mt-8">
                                                 <Link
@@ -171,33 +172,12 @@ export default function Home() {
                                         </div>
 
                                         {/* Buttons Section */}
-                                        <div className="space-y-6">
-                                            <div className="space-y-4 mt-8">
+                                        <div className="space-y-12">
+                                            <div className="space-y-20 mt-8">
                                                 {[
                                                     {
-                                                        component: (
-                                                            <Btn09>
-                                                                <Command
-                                                                    className={cn(
-                                                                        "w-4 h-4",
-                                                                        "text-zinc-600 dark:text-zinc-400",
-                                                                        "transition-all duration-300",
-                                                                        "group-hover:scale-110",
-                                                                        "group-hover:rotate-[-4deg]",
-                                                                        "group-active:scale-95"
-                                                                    )}
-                                                                />
-                                                                <span className="ml-2 text-sm text-zinc-600 dark:text-zinc-400">
-                                                                    CMD + K
-                                                                </span>
-                                                            </Btn09>
-                                                        ),
-                                                    },
-                                                    {
-                                                        component: (
-                                                            <Text_02 text="KokonutUI" />
-                                                        ),
-                                                        label: "Text 02",
+                                                        component: <Input_10 />,
+                                                        label: "Input 10",
                                                     },
                                                     {
                                                         component: <Alert04 />,
@@ -206,9 +186,9 @@ export default function Home() {
                                                 ].map((btn, index) => (
                                                     <div
                                                         key={index}
-                                                        className="flex flex-col items-center"
+                                                        className="flex flex-col items-center gap-8"
                                                     >
-                                                        <div className="h-16 flex items-center">
+                                                        <div className="h-16 flex items-center gap-8">
                                                             {btn.component}
                                                         </div>
                                                     </div>
