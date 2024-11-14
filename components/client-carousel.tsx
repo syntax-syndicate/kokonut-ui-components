@@ -3,11 +3,10 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { CarouselItem } from "./carousel-item";
-
 import type { CarouselItemType } from "./carousel-wrapper";
 
 const autoScrollOptions = {
-    speed: 0.5,
+    speed: 0.8,
     stopOnInteraction: false,
     stopOnMouseEnter: false,
     startDelay: 0,
@@ -21,10 +20,9 @@ export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
             loop: true,
             dragFree: false,
             align: "start",
-            startIndex: 0,
             containScroll: false,
             skipSnaps: false,
-            inViewThreshold: 0.7,
+            inViewThreshold: 1,
             direction: "ltr" as const,
             watchDrag: false,
             axis: "x" as const,
@@ -33,17 +31,13 @@ export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
     );
 
     return (
-        <div className="relative overflow-hidden py-4 content-visibility-auto">
+        <div className="relative overflow-hidden py-4">
             <div
                 className="overflow-hidden pl-4 sm:pl-6"
                 ref={emblaRef}
-                style={{
-                    pointerEvents: "none",
-                    userSelect: "none",
-                    touchAction: "none",
-                }}
+                style={{ touchAction: "none" }}
             >
-                <div className="flex gap-4 sm:gap-6 gpu-accelerated">
+                <div className="flex gap-4 sm:gap-6 will-change-transform">
                     {items.map((item, index) => (
                         <CarouselItem
                             key={`${item.id}`}

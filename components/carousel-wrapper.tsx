@@ -4,7 +4,6 @@ import Card_01 from "./kokonutui/card/card-01";
 import List05 from "./kokonutui/list/list-05";
 import Alert05 from "./kokonutui/alert/alert-05";
 import Profile01 from "./kokonutui/profile/profile-01";
-import { useMemo, memo } from "react";
 
 export type CarouselItemType = {
     id: number;
@@ -64,7 +63,7 @@ const categories: CarouselItemType[] = [
     },
 ];
 
-const CarouselHeader = memo(function CarouselHeader() {
+const CarouselHeader = () => {
     return (
         <div className="text-center">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
@@ -75,16 +74,14 @@ const CarouselHeader = memo(function CarouselHeader() {
             </p>
         </div>
     );
-});
+};
 
 export function CarouselWrapper() {
-    const memoizedCategories = useMemo(() => categories, []);
-
     return (
         <>
             <CarouselHeader />
             <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
-                <InfiniteCarousel items={memoizedCategories} />
+                <InfiniteCarousel items={categories} />
             </div>
         </>
     );

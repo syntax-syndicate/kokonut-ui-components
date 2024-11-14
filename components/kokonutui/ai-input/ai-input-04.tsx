@@ -6,7 +6,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
-import { useDebouncedCallback } from "use-debounce";
 
 const MIN_HEIGHT = 48;
 const MAX_HEIGHT = 164;
@@ -24,24 +23,19 @@ export default function AIInput_04() {
         adjustHeight(true);
     };
 
-    const debouncedAdjustHeight = useDebouncedCallback(
-        () => adjustHeight(),
-        100
-    );
-
     return (
         <div className="w-full py-4">
             <div className="relative max-w-xl w-full mx-auto">
                 <div className="relative flex flex-col">
                     <div
-                        className="overflow-y-auto overscroll-none"
+                        className="overflow-y-auto"
                         style={{ maxHeight: `${MAX_HEIGHT}px` }}
                     >
                         <Textarea
                             id="ai-input-04"
                             value={value}
                             placeholder="Search the web..."
-                            className="w-full rounded-xl rounded-b-none px-4 py-3 bg-black/5 dark:bg-white/5 border-none dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70 resize-none focus-visible:ring-0 leading-[1.2] touch-manipulation"
+                            className="w-full rounded-xl rounded-b-none px-4 py-3 bg-black/5 dark:bg-white/5 border-none dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70 resize-none focus-visible:ring-0 leading-[1.2]"
                             ref={textareaRef}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter" && !e.shiftKey) {
@@ -51,14 +45,12 @@ export default function AIInput_04() {
                             }}
                             onChange={(e) => {
                                 setValue(e.target.value);
-                                debouncedAdjustHeight();
+                                adjustHeight();
                             }}
-                            inputMode="text"
-                            enterKeyHint="send"
                         />
                     </div>
 
-                    <div className="h-12 bg-black/5 dark:bg-white/5 rounded-b-xl touch-manipulation">
+                    <div className="h-12 bg-black/5 dark:bg-white/5 rounded-b-xl">
                         <div className="absolute left-3 bottom-3 flex items-center gap-2">
                             <label className="cursor-pointer rounded-lg p-2 bg-black/5 dark:bg-white/5">
                                 <input type="file" className="hidden" />

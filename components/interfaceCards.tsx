@@ -38,7 +38,9 @@ export function BuildInterfacesCard({ className }: BuildInterfacesCardProps) {
                     <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">
                         components / AI-Input-04
                     </p>
-                    <AIInput_04 />
+                    <div className="select-none cursor-default touch-none pointer-events-none">
+                        <AIInput_04 />
+                    </div>
                 </div>
 
                 <div className="flex flex-wrap gap-4 mt-8">
