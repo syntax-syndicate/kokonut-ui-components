@@ -71,34 +71,33 @@ table {
   }
 }
 
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
 @keyframes carousel {
-  from {
+  0% {
     transform: translateX(0);
   }
-
-  to {
-    transform: translateX(calc(-50% - 1rem));
-    /* Adjust based on your gap */
+  100% {
+    transform: translateX(calc(-50% - 1rem)); /* Adjust based on your gap */
   }
 }
 
 .animate-carousel {
-  animation: carousel 25s linear infinite;
+  animation: carousel 20s linear infinite;
 }
 
-.animation-play-state-paused {
+/* Optional: Add smooth pause/resume */
+.animate-carousel:hover {
   animation-play-state: paused;
 }
 
-/* Respect user's motion preferences */
+/* Optional: For reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .animate-carousel {
-    animation: none;
-  }
-}
-
-/* Optional: Pause animation when device is low-power mode */
-@media (prefers-reduced-data: reduce) {
   .animate-carousel {
     animation: none;
   }
