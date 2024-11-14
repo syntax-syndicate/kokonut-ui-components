@@ -1,14 +1,6 @@
 import Link from "next/link";
-import {
-    ArrowRight,
-    PartyPopper,
-    Sparkles,
-    Zap,
-    Github,
-    Command,
-} from "lucide-react";
+import { ArrowRight, PartyPopper, Sparkles, Zap, Github } from "lucide-react";
 import { CommandRotator } from "@/components/command-rotator";
-import Btn09 from "@/components/kokonutui/btn-09";
 import Arrow25 from "@/components/kokonutui/arrow25";
 import { cn } from "@/lib/utils";
 import AIInput_05 from "@/components/kokonutui/ai-input-05";
@@ -16,7 +8,6 @@ import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Input_08 from "@/components/kokonutui/input-08";
 
 import { CarouselWrapper } from "@/components/carousel-wrapper";
-import Text_02 from "@/components/kokonutui/text-02";
 import Alert04 from "@/components/kokonutui/alert-04";
 import Input_10 from "@/components/kokonutui/input-10";
 

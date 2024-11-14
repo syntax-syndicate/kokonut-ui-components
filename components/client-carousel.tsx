@@ -48,8 +48,8 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
         [
             AutoScroll({
                 speed: 1,
-                stopOnInteraction: false,
-                stopOnMouseEnter: true,
+                stopOnInteraction: true,
+                stopOnMouseEnter: false,
                 startDelay: 0,
             }),
         ]

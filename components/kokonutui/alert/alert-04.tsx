@@ -80,7 +80,6 @@ export default function Alert04({ className }: Alert04Props) {
                     <div className="absolute -right-2 -bottom-2 h-16 w-16 rounded-full bg-indigo-400 dark:bg-indigo-600/30 blur-2xl opacity-20" />
                 </div>
 
-                {/* Celebration badge */}
                 <div className="hidden sm:block absolute top-4 right-4">
                     <motion.div
                         initial={{ scale: 0 }}

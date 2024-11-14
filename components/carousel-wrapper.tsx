@@ -85,23 +85,3 @@ export function CarouselWrapper() {
         </>
     );
 }
-
-// {
-//     component: (
-//         <Btn09>
-//             <Command
-//                 className={cn(
-//                     "w-4 h-4",
-//                     "text-zinc-600 dark:text-zinc-400",
-//                     "transition-all duration-300",
-//                     "group-hover:scale-110",
-//                     "group-hover:rotate-[-4deg]",
-//                     "group-active:scale-95"
-//                 )}
-//             />
-//             <span className="ml-2 text-sm text-zinc-600 dark:text-zinc-400">
-//                 CMD + K
-//             </span>
-//         </Btn09>
-//     ),
-// },

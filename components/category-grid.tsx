@@ -6,7 +6,6 @@ interface CategoryGridProps {
     items: CarouselItem[];
 }
 
-// Mobile-optimized width classes
 const WIDTH_CLASSES = {
     3: "w-[calc(100vw-2rem)] max-w-[500px]",
     2: "w-[calc(100vw-2rem)] max-w-[500px]",
