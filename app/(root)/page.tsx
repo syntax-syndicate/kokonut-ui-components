@@ -8,16 +8,16 @@ import {
     Command,
 } from "lucide-react";
 import { CommandRotator } from "@/components/command-rotator";
-import Btn05 from "@/components/kokonutui/btn-05";
 import Btn09 from "@/components/kokonutui/btn-09";
 import Arrow25 from "@/components/kokonutui/arrow25";
 import { cn } from "@/lib/utils";
 import AIInput_05 from "@/components/kokonutui/ai-input-05";
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Input_08 from "@/components/kokonutui/input-08";
-import Btn06 from "@/components/kokonutui/btn-06";
 
 import { CarouselWrapper } from "@/components/carousel-wrapper";
+import Text_02 from "@/components/kokonutui/text-02";
+import Alert04 from "@/components/kokonutui/alert-04";
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -106,7 +106,7 @@ export default function Home() {
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 min-h-[500px]">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-[500px]">
                                     <div className={CARD_BASE_CLASSES}>
                                         <div className="h-full flex flex-col justify-between">
                                             <div>
@@ -172,18 +172,8 @@ export default function Home() {
 
                                         {/* Buttons Section */}
                                         <div className="space-y-6">
-                                            <div className="space-y-4">
+                                            <div className="space-y-4 mt-8">
                                                 {[
-                                                    {
-                                                        component: (
-                                                            <Btn06 textToCopy="Hello World" />
-                                                        ),
-                                                        label: "Copy Button",
-                                                    },
-                                                    {
-                                                        component: <Btn05 />,
-                                                        label: "Glowing Button",
-                                                    },
                                                     {
                                                         component: (
                                                             <Btn09>
@@ -202,6 +192,16 @@ export default function Home() {
                                                                 </span>
                                                             </Btn09>
                                                         ),
+                                                    },
+                                                    {
+                                                        component: (
+                                                            <Text_02 text="KokonutUI" />
+                                                        ),
+                                                        label: "Text 02",
+                                                    },
+                                                    {
+                                                        component: <Alert04 />,
+                                                        label: "Alert 04",
                                                     },
                                                 ].map((btn, index) => (
                                                     <div

@@ -1,17 +1,17 @@
 import { InfiniteCarousel } from "@/components/client-carousel";
 import type { CarouselItem } from "@/components/client-carousel";
 import AIInput_04 from "@/components/kokonutui/ai-input-04";
-import Btn03 from "./kokonutui/button/btn-03";
 import Card_01 from "./kokonutui/card/card-01";
 import List05 from "./kokonutui/list/list-05";
 import Alert05 from "./kokonutui/alert/alert-05";
+import Profile01 from "./kokonutui/profile/profile-01";
 
 const categories: CarouselItem[] = [
     {
         id: 1,
-        title: "Button Components",
-        href: "/docs/components/button",
-        component: <Btn03 attractRadius={30} />,
+        title: "Profile Components",
+        href: "/docs/components/profile",
+        component: <Profile01 />,
         count: 10,
         size: "default",
         span: 1,
