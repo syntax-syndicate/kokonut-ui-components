@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
     ArrowRight,
@@ -7,22 +9,22 @@ import {
     Github,
     Command,
 } from "lucide-react";
-import AIInput_04 from "@/components/kokonutui/ai-input-04";
+// import AIInput_04 from "@/components/kokonutui/ai-input-04";
 import { CommandRotator } from "@/components/command-rotator";
 import Btn03 from "@/components/kokonutui/btn-03";
 import Btn05 from "@/components/kokonutui/btn-05";
 import Btn09 from "@/components/kokonutui/btn-09";
 
 import Arrow25 from "@/components/kokonutui/arrow25";
-import List05 from "@/components/kokonutui/list-05";
-import Card_01 from "@/components/kokonutui/card-01";
+// import List05 from "@/components/kokonutui/list-05";
+// import Card_01 from "@/components/kokonutui/card-01";
 import {
     type CarouselItem,
     InfiniteCarousel,
 } from "@/components/infinite-carousel";
 import { cn } from "@/lib/utils";
 import Alert05 from "@/components/kokonutui/alert-05";
-import AIInput_05 from "@/components/kokonutui/ai-input-05";
+// import AIInput_05 from "@/components/kokonutui/ai-input-05";
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Input_08 from "@/components/kokonutui/input-08";
 import Btn06 from "@/components/kokonutui/btn-06";
@@ -33,10 +35,32 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 import dynamic from "next/dynamic";
 
-// const AIInput_04 = dynamic(() => import("@/components/kokonutui/ai-input-04"), {
-//     loading: () => <div>Loading...</div>,
-//     ssr: false,
-// });
+// Lazy load heavy components
+const AIInput_04 = dynamic(() => import("@/components/kokonutui/ai-input-04"), {
+    loading: () => (
+        <div className="w-full h-full animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg" />
+    ),
+    ssr: false,
+});
+
+const AIInput_05 = dynamic(() => import("@/components/kokonutui/ai-input-05"), {
+    loading: () => (
+        <div className="w-full h-12 animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg" />
+    ),
+    ssr: false,
+});
+
+const Card_01 = dynamic(() => import("@/components/kokonutui/card-01"), {
+    loading: () => (
+        <div className="w-full h-full animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg" />
+    ),
+});
+
+const List05 = dynamic(() => import("@/components/kokonutui/list-05"), {
+    loading: () => (
+        <div className="w-full h-full animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-lg" />
+    ),
+});
 
 export default function Home() {
     const categories: CarouselItem[] = [

@@ -8,6 +8,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+import { memo, useMemo } from "react";
 
 import type { EmblaOptionsType } from "embla-carousel";
 
@@ -25,24 +26,74 @@ interface InfiniteCarouselProps {
     items: CarouselItem[];
 }
 
+const CarouselItem = memo(function CarouselItem({
+    item,
+    getWidthClasses,
+    getComponentClasses,
+}: {
+    item: CarouselItem;
+    getWidthClasses: (span?: 1 | 2 | 3) => string;
+    getComponentClasses: (size?: "default" | "wide" | "tall") => string;
+}) {
+    return (
+        <div className={cn("flex-shrink-0", getWidthClasses(item.span))}>
+            <div className="group relative p-3 sm:p-4 h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col overflow-hidden">
+                <div
+                    className={cn(
+                        "flex-1 flex items-center justify-center mb-3 rounded-lg overflow-hidden",
+                        getComponentClasses(item.size)
+                    )}
+                >
+                    <div className="pointer-events-auto w-full h-full flex items-center justify-center">
+                        {item.component}
+                    </div>
+                </div>
+                <Link
+                    href={item.href}
+                    className="flex items-center justify-between mt-auto pt-3 border-t border-zinc-200 dark:border-zinc-800 group/link -mx-4 px-4"
+                >
+                    <div>
+                        <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 group-hover/link:text-emerald-500 dark:group-hover/link:text-emerald-400 transition-colors">
+                            {item.title}
+                        </h3>
+                        <p className="mt-0.5 text-sm text-zinc-600 dark:text-zinc-400">
+                            {item.count} components
+                        </p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-zinc-400 dark:text-zinc-600 transition-all duration-300 group-hover/link:text-emerald-700 dark:group-hover/link:text-emerald-400 group-hover/link:rotate-[-35deg]" />
+                </Link>
+            </div>
+        </div>
+    );
+});
+
 export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     const isMobile = useIsMobile();
-    const displayItems = isMobile ? items.slice(0, 3) : [...items, ...items];
+    const displayItems = useMemo(
+        () => (isMobile ? items.slice(0, 3) : [...items, ...items]),
+        [items, isMobile]
+    );
 
-    const options: EmblaOptionsType = {
-        loop: true,
-        align: "start",
-        containScroll: false,
-    };
+    const options: EmblaOptionsType = useMemo(
+        () => ({
+            loop: true,
+            align: "start",
+            containScroll: false,
+        }),
+        []
+    );
 
-    const autoScrollOptions: AutoScrollOptionsType = {
-        speed: 1,
-        startDelay: 0,
-        direction: "forward",
-        stopOnInteraction: true,
-        stopOnMouseEnter: false,
-        stopOnFocusIn: false,
-    };
+    const autoScrollOptions: AutoScrollOptionsType = useMemo(
+        () => ({
+            speed: 0.5,
+            startDelay: 0,
+            direction: "forward",
+            stopOnInteraction: true,
+            stopOnMouseEnter: true,
+            stopOnFocusIn: false,
+        }),
+        []
+    );
 
     const [emblaRef] = useEmblaCarousel(options, [
         AutoScroll(autoScrollOptions),
@@ -82,40 +133,12 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
             <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex gap-4 sm:gap-6 backface-hidden">
                     {displayItems.map((item, index) => (
-                        <div
+                        <CarouselItem
                             key={`${item.id}-${item.title}-${index}`}
-                            className={cn(
-                                "flex-shrink-0",
-                                getWidthClasses(item.span)
-                            )}
-                        >
-                            <div className="group relative p-3 sm:p-4 h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-200 flex flex-col overflow-hidden">
-                                <div
-                                    className={cn(
-                                        "flex-1 flex items-center justify-center mb-3 rounded-lg overflow-hidden",
-                                        getComponentClasses(item.size)
-                                    )}
-                                >
-                                    <div className="pointer-events-auto w-full h-full flex items-center justify-center">
-                                        {item.component}
-                                    </div>
-                                </div>
-                                <Link
-                                    href={item.href}
-                                    className="flex items-center justify-between mt-auto pt-3 border-t border-zinc-200 dark:border-zinc-800 group/link -mx-4 px-4"
-                                >
-                                    <div>
-                                        <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 group-hover/link:text-emerald-500 dark:group-hover/link:text-emerald-400 transition-colors">
-                                            {item.title}
-                                        </h3>
-                                        <p className="mt-0.5 text-sm text-zinc-600 dark:text-zinc-400">
-                                            {item.count} components
-                                        </p>
-                                    </div>
-                                    <ArrowRight className="w-4 h-4 text-zinc-400 dark:text-zinc-600 transition-all duration-300 group-hover/link:text-emerald-700 dark:group-hover/link:text-emerald-400 group-hover/link:rotate-[-35deg]" />
-                                </Link>
-                            </div>
-                        </div>
+                            item={item}
+                            getWidthClasses={getWidthClasses}
+                            getComponentClasses={getComponentClasses}
+                        />
                     ))}
                 </div>
             </div>
