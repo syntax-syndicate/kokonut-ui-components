@@ -15,8 +15,9 @@ import AIInput_14 from "@/components/kokonutui/ai-input-14";
 import AIInput_15 from "@/components/kokonutui/ai-input-15";
 import AIInput_16 from "@/components/kokonutui/ai-input-16";
 import { createComponentPage } from "@/components/page-builder";
+import type { PageConfig } from "@/types/component-page";
 
-const { default: AIInputPage, metadata } = createComponentPage({
+const AI_INPUT_CONFIG: PageConfig = {
     title: "AI Input",
     description:
         "A collection of AI input components to use and customize. Built with Tailwind CSS and Shadcn.",
@@ -124,7 +125,9 @@ const { default: AIInputPage, metadata } = createComponentPage({
             dependencies: ["Framer Motion", "CMDK"],
         },
     ],
-});
+};
+
+const { default: AIInputPage, metadata } = createComponentPage(AI_INPUT_CONFIG);
 
 export { metadata };
 export default AIInputPage;

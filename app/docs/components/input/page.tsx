@@ -9,8 +9,9 @@ import Input_08 from "@/components/kokonutui/input-08";
 import Input_09 from "@/components/kokonutui/input-09";
 import Input_10 from "@/components/kokonutui/input-10";
 import { createComponentPage } from "@/components/page-builder";
+import type { PageConfig } from "@/types/component-page";
 
-const { default: InputsPage, metadata } = createComponentPage({
+const INPUTS_CONFIG: PageConfig = {
     title: "Inputs",
     description:
         "A collection of input components to use and customize. Built with Tailwind CSS and Shadcn.",
@@ -79,7 +80,9 @@ const { default: InputsPage, metadata } = createComponentPage({
             fileName: "input-10.tsx",
         },
     ],
-});
+};
+
+const { default: InputsPage, metadata } = createComponentPage(INPUTS_CONFIG);
 
 export { metadata };
 export default InputsPage;

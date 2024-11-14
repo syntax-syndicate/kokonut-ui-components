@@ -1,17 +1,15 @@
 import { ViewBlocks } from "@/components/ViewBlocks";
 import type { PageConfig, PageMetadata } from "@/types/component-page";
-import type { Metadata } from "next";
 
-export function createComponentPage(config: PageConfig): {
-    default: () => JSX.Element;
-    metadata: Metadata;
-} {
-    const metadata: PageMetadata = {
+function createPageMetadata(config: PageConfig): PageMetadata {
+    return {
         title: config.title,
         description: config.description,
     };
+}
 
-    function ComponentPage() {
+function createStaticPage(config: PageConfig) {
+    return function ComponentPage() {
         return (
             <div className="container pb-12 w-full">
                 <ViewBlocks
@@ -23,10 +21,12 @@ export function createComponentPage(config: PageConfig): {
                 />
             </div>
         );
-    }
+    };
+}
 
+export function createComponentPage(config: PageConfig) {
     return {
-        default: ComponentPage,
-        metadata,
+        default: createStaticPage(config),
+        metadata: createPageMetadata(config),
     };
 }

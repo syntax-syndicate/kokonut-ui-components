@@ -1,85 +1,27 @@
 import Link from "next/link";
-import {
-    ArrowRight,
-    PartyPopper,
-    Sparkles,
-    Zap,
-    Github,
-    Command,
-} from "lucide-react";
-import AIInput_04 from "@/components/kokonutui/ai-input-04";
+import { ArrowRight, PartyPopper, Sparkles, Zap, Github } from "lucide-react";
 import { CommandRotator } from "@/components/command-rotator";
-import Btn03 from "@/components/kokonutui/btn-03";
-import Btn05 from "@/components/kokonutui/btn-05";
-import Btn09 from "@/components/kokonutui/btn-09";
-
 import Arrow25 from "@/components/kokonutui/arrow25";
-import List05 from "@/components/kokonutui/list-05";
-import Card_01 from "@/components/kokonutui/card-01";
-import {
-    type CarouselItem,
-    InfiniteCarousel,
-} from "@/components/infinite-carousel";
 import { cn } from "@/lib/utils";
-import Alert05 from "@/components/kokonutui/alert-05";
 import AIInput_05 from "@/components/kokonutui/ai-input-05";
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import Input_08 from "@/components/kokonutui/input-08";
-import Btn06 from "@/components/kokonutui/btn-06";
+
+import { CarouselWrapper } from "@/components/carousel-wrapper";
+import Alert04 from "@/components/kokonutui/alert-04";
+import Input_10 from "@/components/kokonutui/input-10";
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
 
-export default function Home() {
-    const categories: CarouselItem[] = [
-        {
-            id: 1,
-            title: "Alert Components",
-            href: "/docs/components/alert",
-            component: <Alert05 />,
-            count: 6,
-            size: "wide",
-            span: 1,
-        },
-        {
-            id: 2,
-            title: "Card Components",
-            href: "/docs/components/card",
-            component: <Card_01 />,
-            count: 6,
-            size: "default",
-            span: 1,
-        },
-        {
-            id: 3,
-            title: "List Components",
-            href: "/docs/components/list",
-            component: <List05 />,
-            count: 5,
-            size: "tall",
-            span: 2,
-        },
-        {
-            id: 4,
-            title: "Button Components",
-            href: "/docs/components/button",
-            component: <Btn03 attractRadius={30} />,
-            count: 10,
-            size: "default",
-            span: 1,
-        },
-        {
-            id: 5,
-            title: "AI Components",
-            href: "/docs/components/ai-input",
-            component: <AIInput_04 />,
-            count: 16,
-            size: "tall",
-            span: 2,
-        },
-    ];
+const CARD_BASE_CLASSES = cn(
+    "p-8 rounded-3xl",
+    "bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50",
+    "border border-zinc-200 dark:border-zinc-800"
+);
 
+export default function Home() {
     const baseCommand = `shadcn@latest add ${prePath}/registry/my-component.json`;
 
     return (
@@ -121,19 +63,7 @@ export default function Home() {
                     </div>
 
                     <div className="space-y-8">
-                        <div className="text-center">
-                            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
-                                Explore all 50+ components.
-                            </h2>
-                            <p className="mt-2 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto px-4">
-                                Ready to use. Fully customizable. Built for
-                                making apps faster.
-                            </p>
-                        </div>
-
-                        <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
-                            <InfiniteCarousel items={categories} />
-                        </div>
+                        <CarouselWrapper />
 
                         <div className="relative mt-32 mb-24">
                             <div className="absolute inset-0 -z-10">
@@ -141,7 +71,7 @@ export default function Home() {
                                 <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent dark:from-emerald-500/5 dark:via-emerald-500/2 dark:to-transparent blur-3xl" />
                             </div>
 
-                            <div className="max-w-7xl mx-auto px-4">
+                            <div className="max-w-7xl mx-auto md:px-4">
                                 <div className="flex flex-col sm:flex-row justify-center mb-16 gap-4">
                                     <div
                                         className="inline-flex items-center px-4 py-2 rounded-full text-sm 
@@ -168,13 +98,8 @@ export default function Home() {
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 min-h-[500px]">
-                                    <div
-                                        className="lg:col-span-2 p-8 rounded-3xl 
-                                        bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50
-                                        border border-zinc-200 dark:border-zinc-800 
-                                        shadow-sm"
-                                    >
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-[500px]">
+                                    <div className={CARD_BASE_CLASSES}>
                                         <div className="h-full flex flex-col justify-between">
                                             <div>
                                                 <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
@@ -232,54 +157,29 @@ export default function Home() {
                                         </div>
                                     </div>
 
-                                    <div
-                                        className="space-y-4 p-8 rounded-3xl 
-                                        bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50
-                                        border border-zinc-200 dark:border-zinc-800"
-                                    >
+                                    <div className={CARD_BASE_CLASSES}>
                                         <div className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
                                             Buttons, Inputs & More
                                         </div>
 
                                         {/* Buttons Section */}
-                                        <div className="space-y-6">
-                                            <div className="space-y-4">
+                                        <div className="space-y-12">
+                                            <div className="space-y-20 mt-8">
                                                 {[
                                                     {
-                                                        component: (
-                                                            <Btn06 textToCopy="Hello World" />
-                                                        ),
-                                                        label: "Copy Button",
+                                                        component: <Input_10 />,
+                                                        label: "Input 10",
                                                     },
                                                     {
-                                                        component: <Btn05 />,
-                                                        label: "Glowing Button",
-                                                    },
-                                                    {
-                                                        component: (
-                                                            <Btn09>
-                                                                <Command
-                                                                    className={cn(
-                                                                        "w-4 h-4",
-                                                                        "text-zinc-600 dark:text-zinc-400",
-                                                                        "transition-all duration-300",
-                                                                        "group-hover:scale-110",
-                                                                        "group-hover:rotate-[-4deg]",
-                                                                        "group-active:scale-95"
-                                                                    )}
-                                                                />
-                                                                <span className="ml-2 text-sm text-zinc-600 dark:text-zinc-400">
-                                                                    CMD + K
-                                                                </span>
-                                                            </Btn09>
-                                                        ),
+                                                        component: <Alert04 />,
+                                                        label: "Alert 04",
                                                     },
                                                 ].map((btn, index) => (
                                                     <div
                                                         key={index}
-                                                        className="flex flex-col items-center"
+                                                        className="flex flex-col items-center gap-8"
                                                     >
-                                                        <div className="h-16 flex items-center">
+                                                        <div className="h-16 flex items-center gap-8">
                                                             {btn.component}
                                                         </div>
                                                     </div>

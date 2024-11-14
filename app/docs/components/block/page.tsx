@@ -3,8 +3,9 @@ import Block01Example from "@/components/ui/block-01-example";
 import Block02Example from "@/components/ui/block-02-example";
 import Block03Example from "@/components/ui/block-03-example";
 import { createComponentPage } from "@/components/page-builder";
+import type { PageConfig } from "@/types/component-page";
 
-const { default: BlocksPage, metadata } = createComponentPage({
+const BLOCKS_CONFIG: PageConfig = {
     title: "Blocks",
     description:
         "A collection of block components to use and customize. Built with Tailwind CSS and Shadcn.",
@@ -33,7 +34,9 @@ const { default: BlocksPage, metadata } = createComponentPage({
             fileExample: "block-03-example.tsx",
         },
     ],
-});
+};
+
+const { default: BlocksPage, metadata } = createComponentPage(BLOCKS_CONFIG);
 
 export { metadata };
 export default BlocksPage;

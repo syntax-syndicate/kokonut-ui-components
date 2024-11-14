@@ -5,8 +5,9 @@ import List04 from "@/components/kokonutui/list-04";
 import List05 from "@/components/kokonutui/list-05";
 import List06 from "@/components/kokonutui/list-06";
 import { createComponentPage } from "@/components/page-builder";
+import type { PageConfig } from "@/types/component-page";
 
-const { default: ListPage, metadata } = createComponentPage({
+const LIST_CONFIG: PageConfig = {
     title: "Lists",
     description:
         "A collection of list components to use and customize. Built with Tailwind CSS.",
@@ -52,7 +53,9 @@ const { default: ListPage, metadata } = createComponentPage({
             fileName: "list-06.tsx",
         },
     ],
-});
+};
+
+const { default: ListPage, metadata } = createComponentPage(LIST_CONFIG);
 
 export { metadata };
 export default ListPage;

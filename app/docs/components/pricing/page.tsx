@@ -3,8 +3,10 @@ import Pricing_01 from "@/components/kokonutui/pricing-01";
 import Pricing_02 from "@/components/kokonutui/pricing-02";
 import Pricing_03 from "@/components/kokonutui/pricing-03";
 import Pricing_04 from "@/components/kokonutui/pricing-04";
+import type { PageConfig } from "@/types/component-page";
 
-const { default: PricingPage, metadata } = createComponentPage({
+
+const PRICING_CONFIG: PageConfig = {
     title: "Pricing",
     description:
         "A collection of pricing components to use and customize. Built with Tailwind CSS and Shadcn.",
@@ -37,8 +39,9 @@ const { default: PricingPage, metadata } = createComponentPage({
             fileName: "pricing-04.tsx",
         },
     ],
-});
+};
+
+const { default: PricingPage, metadata } = createComponentPage(PRICING_CONFIG);
 
 export { metadata };
-
 export default PricingPage;

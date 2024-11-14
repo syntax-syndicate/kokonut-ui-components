@@ -12,7 +12,9 @@ import { createComponentPage } from "@/components/page-builder";
 import { Command } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const { default: ButtonsPage, metadata } = createComponentPage({
+import type { PageConfig } from "@/types/component-page";
+
+const BUTTONS_CONFIG: PageConfig = {
     title: "Buttons",
     description:
         "A collection of button components to use and customize. Built with Tailwind CSS and Shadcn.",
@@ -102,7 +104,9 @@ const { default: ButtonsPage, metadata } = createComponentPage({
             fileName: "btn-10.tsx",
         },
     ],
-});
+};
+
+const { default: ButtonsPage, metadata } = createComponentPage(BUTTONS_CONFIG);
 
 export { metadata };
 export default ButtonsPage;
