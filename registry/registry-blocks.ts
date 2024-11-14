@@ -36,7 +36,7 @@ export const block: Registry = [
                 type: "registry:component",
             },
             {
-                path: "components/kokonutui/block/block-02-content.tsx",
+                path: "components/kokonutui/pricing/pricing-03.tsx",
                 type: "registry:component",
             },
         ],

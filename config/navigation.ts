@@ -85,10 +85,17 @@ export const navigationSections: NavSection[] = [
                 title: "Pricing",
                 href: "/docs/components/pricing",
                 description: "Pricing components and layouts",
-                count: 5,
+                count: 4,
             },
             {
                 id: 9,
+                title: "Profile",
+                href: "/docs/components/profile",
+                description: "Profile components and layouts",
+                count: 3,
+            },
+            {
+                id: 10,
                 title: "Text",
                 href: "/docs/components/text",
                 description: "Typography and text animation components",

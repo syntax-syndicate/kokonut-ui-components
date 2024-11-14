@@ -1,118 +1,171 @@
-import { Sparkles, Rocket, Zap, Star } from "lucide-react";
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface PricingFeature {
-    text: string;
-    included: boolean;
+interface Feature {
+    name: string;
+    included: "starter" | "pro" | "all" | null;
 }
 
-interface Pricing_03Props {
-    tier: "starter" | "pro" | "enterprise";
-    price: string;
-    title?: string;
-    description?: string;
-    interval?: "monthly" | "yearly";
-    features?: PricingFeature[];
-}
+const features: Feature[] = [
+    { name: "Basic Analytics", included: "starter" },
+    { name: "Up to 5 team members", included: "starter" },
+    { name: "Basic support", included: "starter" },
+    { name: "Advanced Analytics", included: "pro" },
+    { name: "Up to 20 team members", included: "pro" },
+    { name: "Priority support", included: "pro" },
+    { name: "Custom integrations", included: "all" },
+    { name: "Unlimited team members", included: "all" },
+    { name: "24/7 phone support", included: "all" },
+];
 
-export default function Pricing_03({
-    tier = "pro",
-    price = "49",
-    title = "Pro Plan",
-    description = "Perfect for growing businesses",
-    interval = "monthly",
-    features = [
-        { text: "All starter features", included: true },
-        { text: "Advanced analytics", included: true },
-        { text: "Priority support", included: true },
-    ],
-}: Pricing_03Props) {
-    const tiers = {
-        starter: {
-            icon: Star,
-            gradient: "from-emerald-500 to-teal-500",
-        },
-        pro: {
-            icon: Sparkles,
-            gradient: "from-violet-600 to-indigo-600",
-        },
-        enterprise: {
-            icon: Rocket,
-            gradient: "from-fuchsia-600 to-pink-600",
-        },
-    };
+const plans = [
+    {
+        name: "Starter",
+        price: { monthly: 15, yearly: 144 },
+        level: "starter" as const,
+    },
+    {
+        name: "Pro",
+        price: { monthly: 49, yearly: 470 },
+        level: "pro" as const,
+    },
+    {
+        name: "Enterprise",
+        price: { monthly: 99, yearly: 990 },
+        level: "all" as const,
+    },
+];
 
-    const IconComponent = tiers[tier].icon;
-    const gradientClass = tiers[tier].gradient;
+export default function Pricing_03() {
+    const [isYearly, setIsYearly] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState<string>("pro");
 
     return (
-        <div className="w-full max-w-sm transition-transform duration-200 hover:-translate-y-2">
-            <div className="relative group">
-                <div
-                    className={cn(
-                        "absolute inset-0 blur-3xl opacity-20 group-hover:opacity-30 transition-opacity -z-10",
-                        `bg-gradient-to-r ${gradientClass}`
-                    )}
-                />
-
-                <div className="relative rounded-2xl border border-zinc-200/50 dark:border-zinc-800 backdrop-blur-sm bg-white/50 dark:bg-zinc-900/50 overflow-hidden">
-                    <div
+        <div className="w-full max-w-3xl mx-auto px-4">
+            <div className="flex justify-end mb-8">
+                <div className="inline-flex items-center gap-2 text-sm">
+                    <button
+                        type="button"
+                        onClick={() => setIsYearly(false)}
                         className={cn(
-                            "p-6 text-white",
-                            `bg-gradient-to-r ${gradientClass}`
+                            "px-3 py-1 rounded-md transition-colors",
+                            !isYearly
+                                ? "bg-zinc-100 dark:bg-zinc-800"
+                                : "text-zinc-500"
                         )}
                     >
-                        <div className="flex items-center justify-between mb-3">
-                            <IconComponent className="w-6 h-6" />
-                            <div className="px-3 py-1 rounded-full bg-white/20 text-xs font-medium">
-                                {tier.toUpperCase()}
-                            </div>
+                        Monthly
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => setIsYearly(true)}
+                        className={cn(
+                            "px-3 py-1 rounded-md transition-colors",
+                            isYearly
+                                ? "bg-zinc-100 dark:bg-zinc-800"
+                                : "text-zinc-500"
+                        )}
+                    >
+                        Yearly
+                    </button>
+                </div>
+            </div>
+            <div className="flex gap-4 mb-8">
+                {plans.map((plan) => (
+                    <button
+                        key={plan.name}
+                        type="button"
+                        onClick={() => setSelectedPlan(plan.level)}
+                        className={cn(
+                            "flex-1 p-4 rounded-xl text-left transition-all",
+                            "border border-zinc-200 dark:border-zinc-800",
+                            selectedPlan === plan.level &&
+                                "ring-2 ring-blue-500 dark:ring-blue-400"
+                        )}
+                    >
+                        <div className="flex items-center justify-between mb-2">
+                            <span className="text-sm font-medium">
+                                {plan.name}
+                            </span>
+                            {plan.level === "pro" && (
+                                <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">
+                                    Popular
+                                </span>
+                            )}
                         </div>
-                        <h3 className="text-2xl font-bold mb-2">{title}</h3>
-                        <p className="text-sm opacity-90">{description}</p>
-                    </div>
-                    <div className="p-6 border-b border-zinc-200 dark:border-zinc-800">
-                        <div className="flex items-end gap-2">
-                            <span className="text-4xl font-bold">${price}</span>
-                            <span className="text-zinc-500 dark:text-zinc-400 mb-1">
-                                /{interval}
+                        <div className="text-2xl font-bold">
+                            ${isYearly ? plan.price.yearly : plan.price.monthly}
+                            <span className="text-sm font-normal text-zinc-500">
+                                /{isYearly ? "year" : "month"}
                             </span>
                         </div>
-                    </div>
-
-                    <div className="p-6 space-y-4">
-                        <ul className="space-y-3">
-                            {features.map((feature, index) => (
-                                <li
-                                    key={index}
-                                    className="flex items-center gap-3"
-                                >
-                                    <Zap
-                                        className={cn(
-                                            "w-4 h-4",
-                                            `text-gradient-to-r ${gradientClass}`
-                                        )}
-                                    />
-                                    <span className="text-sm text-zinc-700 dark:text-zinc-300">
-                                        {feature.text}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <Button
+                    </button>
+                ))}
+            </div>
+            <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden">
+                <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
+                    {features.map((feature) => (
+                        <div
+                            key={feature.name}
                             className={cn(
-                                "w-full mt-6 text-white",
-                                `bg-gradient-to-r ${gradientClass}`,
-                                "hover:opacity-90 transition-opacity"
+                                "flex items-center p-4 transition-colors",
+                                feature.included === selectedPlan &&
+                                    "bg-blue-50/50 dark:bg-blue-900/20"
                             )}
                         >
-                            Get Started
-                        </Button>
-                    </div>
+                            <div className="flex-1 text-sm">{feature.name}</div>
+                            <div className="flex items-center gap-8 text-sm">
+                                {plans.map((plan) => (
+                                    <div
+                                        key={plan.level}
+                                        className={cn(
+                                            "w-16 flex justify-center",
+                                            plan.level === selectedPlan &&
+                                                "font-medium"
+                                        )}
+                                    >
+                                        {shouldShowCheck(
+                                            feature.included,
+                                            plan.level
+                                        ) ? (
+                                            <Check className="w-5 h-5 text-blue-500" />
+                                        ) : (
+                                            <span className="text-zinc-300 dark:text-zinc-700">
+                                                -
+                                            </span>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
+            </div>
+            <div className="mt-8 text-center">
+                <Button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 rounded-xl">
+                    Get started with{" "}
+                    {plans.find((p) => p.level === selectedPlan)?.name}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
             </div>
         </div>
     );
+}
+
+function shouldShowCheck(
+    included: Feature["included"],
+    level: string
+): boolean {
+    if (included === "all") return true;
+    if (included === "pro" && (level === "pro" || level === "all")) return true;
+    if (
+        included === "starter" &&
+        (level === "starter" || level === "pro" || level === "all")
+    )
+        return true;
+    return false;
 }
