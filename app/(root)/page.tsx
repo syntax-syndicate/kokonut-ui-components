@@ -63,7 +63,7 @@ export default function Home() {
                     </div>
 
                     <div className="space-y-8">
-                        {/* <CarouselWrapper /> */}
+                        <CarouselWrapper />
 
                         <div className="relative mt-32 mb-24">
                             <div className="absolute inset-0 -z-10">

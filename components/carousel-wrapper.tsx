@@ -61,7 +61,7 @@ const categories: CarouselItem[] = [
 export function CarouselWrapper() {
     const isMobile = useIsMobile();
 
-    const filteredCategories = isMobile ? categories.slice(0, 4) : categories;
+    const filteredCategories = isMobile ? categories.slice(1, 4) : categories;
 
     return (
         <>
