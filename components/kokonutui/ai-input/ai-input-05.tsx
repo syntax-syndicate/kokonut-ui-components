@@ -1,7 +1,7 @@
 "use client";
 
 import { CornerRightUp } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
@@ -29,30 +29,33 @@ export default function AIInput_05() {
         isComplete: false,
     });
 
-    useEffect(() => {
-        if (typewriter.index < INITIAL_TEXT.length) {
-            const timer = setTimeout(() => {
-                setTypewriter((prev) => ({
-                    text: prev.text + INITIAL_TEXT[prev.index],
-                    index: prev.index + 1,
-                    isComplete: false,
-                }));
-            }, SPEED);
-            return () => clearTimeout(timer);
-        }
-
-        const resetTimer = setTimeout(() => {
-            setTypewriter({ text: "", index: 0, isComplete: false });
-        }, RESET_DELAY);
-
-        setTypewriter((prev) => ({ ...prev, isComplete: true }));
-        return () => clearTimeout(resetTimer);
-    }, [typewriter.index]);
-
-    const handleSubmit = () => {
+    // Memoize handlers
+    const handleSubmit = useCallback(() => {
         setInputValue("");
         adjustHeight(true);
-    };
+    }, [adjustHeight]);
+
+    // Optimize typewriter effect with RAF
+    useEffect(() => {
+        if (typewriter.index >= INITIAL_TEXT.length) {
+            const resetTimer = setTimeout(() => {
+                setTypewriter({ text: "", index: 0, isComplete: false });
+            }, RESET_DELAY);
+            setTypewriter((prev) => ({ ...prev, isComplete: true }));
+            return () => clearTimeout(resetTimer);
+        }
+
+        const animate = () => {
+            setTypewriter((prev) => ({
+                text: INITIAL_TEXT.slice(0, prev.index + 1),
+                index: prev.index + 1,
+                isComplete: false,
+            }));
+        };
+
+        const rafId = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(rafId);
+    }, [typewriter.index]);
 
     return (
         <div className="w-full py-4">
