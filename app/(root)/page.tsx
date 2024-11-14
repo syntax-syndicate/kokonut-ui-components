@@ -31,6 +31,13 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
 
+import dynamic from "next/dynamic";
+
+// const AIInput_04 = dynamic(() => import("@/components/kokonutui/ai-input-04"), {
+//     loading: () => <div>Loading...</div>,
+//     ssr: false,
+// });
+
 export default function Home() {
     const categories: CarouselItem[] = [
         {
@@ -241,7 +248,6 @@ export default function Home() {
                                             Buttons, Inputs & More
                                         </div>
 
-                                        {/* Buttons Section */}
                                         <div className="space-y-6">
                                             <div className="space-y-4">
                                                 {[

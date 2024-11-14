@@ -1,11 +1,9 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { cn } from "@/lib/utils";
 
 export interface CarouselItem {
     id: number;
@@ -27,26 +25,11 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
 
     const [width, setWidth] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
+    const animationRef = useRef<number>();
+    const positionRef = useRef(0);
+    const lastTimeRef = useRef(0);
 
-    useEffect(() => {
-        const calculateWidth = () => {
-            if (!containerRef.current) return;
-
-            const itemWidth =
-                containerRef.current.firstElementChild?.clientWidth || 0;
-            const gap = isMobile ? 16 : 24;
-            const singleSetWidth =
-                (itemWidth + gap) *
-                (isMobile ? displayItems.length : items.length);
-
-            setWidth(singleSetWidth);
-        };
-
-        calculateWidth();
-        window.addEventListener("resize", calculateWidth);
-        return () => window.removeEventListener("resize", calculateWidth);
-    }, [displayItems, isMobile, items.length]);
-
+    // Memoize these functions to prevent unnecessary recalculations
     const getWidthClasses = (span?: 1 | 2 | 3) => {
         switch (span) {
             case 3:
@@ -69,22 +52,78 @@ export function InfiniteCarousel({ items }: InfiniteCarouselProps) {
         }
     };
 
+    useEffect(() => {
+        const calculateWidth = () => {
+            if (!containerRef.current) return;
+
+            const itemWidth =
+                containerRef.current.firstElementChild?.clientWidth || 0;
+            const gap = isMobile ? 16 : 24;
+            const singleSetWidth =
+                (itemWidth + gap) *
+                (isMobile ? displayItems.length : items.length);
+
+            setWidth(singleSetWidth);
+        };
+
+        calculateWidth();
+        const resizeObserver = new ResizeObserver(calculateWidth);
+        if (containerRef.current) {
+            resizeObserver.observe(containerRef.current);
+        }
+
+        return () => resizeObserver.disconnect();
+    }, [displayItems.length, isMobile, items.length]);
+
+    const animate = (timestamp: number) => {
+        if (!lastTimeRef.current) lastTimeRef.current = timestamp;
+
+        const elapsed = timestamp - lastTimeRef.current;
+        const speed = 0.1;
+
+        positionRef.current -= elapsed * speed;
+
+        if (positionRef.current <= -width) {
+            positionRef.current = 0;
+        }
+
+        if (containerRef.current) {
+            containerRef.current.style.transform = `translateX(${positionRef.current}px)`;
+        }
+
+        lastTimeRef.current = timestamp;
+        animationRef.current = requestAnimationFrame(animate);
+    };
+
+    const startAnimation = () => {
+        if (animationRef.current) return;
+        lastTimeRef.current = 0;
+        animationRef.current = requestAnimationFrame(animate);
+    };
+
+    const stopAnimation = () => {
+        if (animationRef.current) {
+            cancelAnimationFrame(animationRef.current);
+            animationRef.current = undefined;
+        }
+    };
+
+    useEffect(() => {
+        startAnimation();
+        return () => stopAnimation();
+    }, [width]);
+
     return (
         <div className="relative overflow-hidden py-4">
             <div
                 ref={containerRef}
-                className={cn(
-                    "flex gap-4 sm:gap-6",
-                    // Using CSS animation instead of Framer Motion
-                    "animate-carousel",
-                    // Custom style for the animation
-                    "[--carousel-width:0px]" // Will be set via inline style
-                )}
-                style={
-                    {
-                        "--carousel-width": `${width}px`,
-                    } as React.CSSProperties
-                }
+                className="flex gap-4 sm:gap-6"
+                style={{
+                    transform: "translateX(0)",
+                    willChange: "transform",
+                }}
+                onMouseEnter={() => !isMobile && stopAnimation()}
+                onMouseLeave={() => !isMobile && startAnimation()}
             >
                 {displayItems.map((item, index) => (
                     <div
