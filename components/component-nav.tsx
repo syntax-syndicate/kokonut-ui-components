@@ -11,17 +11,24 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
     const pathname = usePathname();
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const totalItems = sections.reduce((acc, section) => acc + section.items.length, 0);
+    const totalItems = sections.reduce(
+        (acc, section) => acc + section.items.length,
+        0
+    );
 
-    const currentPage = sections.flatMap((section) => section.items).find((item) => {
-        if (item.href === "/docs") {
-            return pathname === "/docs" || pathname === "/docs/introduction";
-        }
-        if (item.href === "/docs/components/block/") {
-            return pathname.startsWith("/docs/components/block");
-        }
-        return pathname === item.href;
-    });
+    const currentPage = sections
+        .flatMap((section) => section.items)
+        .find((item) => {
+            if (item.href === "/docs") {
+                return (
+                    pathname === "/docs" || pathname === "/docs/introduction"
+                );
+            }
+            if (item.href === "/docs/components/block/") {
+                return pathname.startsWith("/docs/components/block");
+            }
+            return pathname === item.href;
+        });
 
     const handleExpandToggle = () => {
         setIsExpanded(!isExpanded);
@@ -157,20 +164,14 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                         "backdrop-blur-md",
                         "border border-[rgba(200,200,200,0.8)] dark:border-[rgba(70,70,70,0.7)]",
                         "overflow-hidden z-50",
-                        isExpanded ? "w-full h-[90vh] rounded-none" : "w-48 h-12 rounded-2xl"
+                        isExpanded
+                            ? "w-full h-[90vh] rounded-none"
+                            : "w-48 h-12 rounded-2xl"
                     )}
                     onClick={handleExpandToggle}
                 >
                     {isExpanded ? (
                         <div className="h-full flex flex-col">
-                            {/* Header */}
-                            <div className="p-4 border-b border-zinc-200 dark:border-zinc-800">
-                                <h2 className="text-base font-medium text-zinc-900 dark:text-zinc-100">
-                                    {currentPage?.title}
-                                </h2>
-                            </div>
-
-                            {/* Navigation Items */}
                             <div className="flex-1 overflow-y-auto px-4 py-2">
                                 {sections.map((section) => (
                                     <div key={section.title} className="mb-6">
@@ -200,7 +201,9 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                                 ? "#"
                                                                 : item.href
                                                         }
-                                                        onClick={handleItemClick}
+                                                        onClick={
+                                                            handleItemClick
+                                                        }
                                                         className={cn(
                                                             "flex items-center justify-between px-3 py-2 rounded-md",
                                                             item.isComingSoon
