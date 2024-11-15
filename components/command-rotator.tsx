@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-export function CommandRotator() {
+export function CommandRotator({ prePath }: { prePath: string }) {
     const [commandIndex, setCommandIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const commandPrefixes = ["bunx", "npx", "pnpm dlx"];
@@ -40,7 +40,7 @@ export function CommandRotator() {
                     shadcn add{" "}
                 </span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-emerald-300">
-                    https://kokonut.dev/
+                    {prePath}
                 </span>
                 <span className="text-orange-600 dark:text-orange-300">
                     registry/my-component.json

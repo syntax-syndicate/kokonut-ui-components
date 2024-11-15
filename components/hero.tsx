@@ -7,7 +7,6 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
 
 export function HeroSection() {
-    const baseCommand = `shadcn@latest add ${prePath}/registry/my-component.json`;
     return (
         <div className="space-y-6 text-center pt-4 my-12">
             <div className="inline-block">
@@ -27,7 +26,7 @@ export function HeroSection() {
 
             <div className="flex items-center justify-center gap-2 mt-8">
                 <div className="relative group">
-                    <CommandRotator baseCommand={baseCommand} />
+                    <CommandRotator prePath={prePath} />
                     <div className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
                 </div>
             </div>
