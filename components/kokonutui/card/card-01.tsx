@@ -76,8 +76,8 @@ export default function Card_01({
                     <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-3">
                             <img
-                                src={author.avatar}
-                                alt={author.name}
+                                src={author?.avatar}
+                                alt={author?.name}
                                 className="w-10 h-10 rounded-full ring-2 ring-white dark:ring-zinc-800"
                             />
                             <div>
@@ -85,7 +85,7 @@ export default function Card_01({
                                     {author.name}
                                 </h3>
                                 <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                                    @{author.username} · {author.timeAgo}
+                                    @{author?.username} · {author?.timeAgo}
                                 </p>
                             </div>
                         </div>
@@ -98,22 +98,22 @@ export default function Card_01({
                     </div>
 
                     <p className="text-zinc-600 dark:text-zinc-300 mb-4">
-                        {content.text}
+                        {content?.text}
                     </p>
 
-                    {content.link && (
+                    {content?.link && (
                         <div className="mb-4 rounded-2xl border border-zinc-200 dark:border-zinc-700 overflow-hidden">
                             <div className="p-4 bg-zinc-50 dark:bg-zinc-800/50">
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className="p-2 bg-white dark:bg-zinc-700 rounded-xl">
-                                        {content.link.icon}
+                                        {content?.link.icon}
                                     </div>
                                     <div>
                                         <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                            {content.link.title}
+                                            {content?.link.title}
                                         </h4>
                                         <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                                            {content.link.description}
+                                            {content?.link.description}
                                         </p>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@ export default function Card_01({
                                 type="button"
                                 className={cn(
                                     "flex items-center gap-2 text-sm",
-                                    engagement.isLiked
+                                    engagement?.isLiked
                                         ? "text-rose-600"
                                         : "text-zinc-500 dark:text-zinc-400 hover:text-rose-600"
                                 )}
@@ -135,24 +135,24 @@ export default function Card_01({
                                 <Heart
                                     className={cn(
                                         "w-5 h-5",
-                                        engagement.isLiked && "fill-current"
+                                        engagement?.isLiked && "fill-current"
                                     )}
                                 />
-                                <span>{engagement.likes}</span>
+                                <span>{engagement?.likes}</span>
                             </button>
                             <button
                                 type="button"
                                 className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-blue-500 transition-colors"
                             >
                                 <MessageCircle className="w-5 h-5" />
-                                <span>{engagement.comments}</span>
+                                <span>{engagement?.comments}</span>
                             </button>
                             <button
                                 type="button"
                                 className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-green-500 transition-colors"
                             >
                                 <Share2 className="w-5 h-5" />
-                                <span>{engagement.shares}</span>
+                                <span>{engagement?.shares}</span>
                             </button>
                         </div>
                         <button
