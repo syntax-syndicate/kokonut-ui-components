@@ -82,7 +82,7 @@ export default function Card_01({
                             />
                             <div>
                                 <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                    {author.name}
+                                    {author?.name}
                                 </h3>
                                 <p className="text-xs text-zinc-500 dark:text-zinc-400">
                                     @{author?.username} · {author?.timeAgo}
