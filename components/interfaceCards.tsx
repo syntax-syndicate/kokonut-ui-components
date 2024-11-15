@@ -2,18 +2,15 @@ import Link from "next/link";
 import { ArrowRight, Github, Zap } from "lucide-react";
 import AIInput_04 from "@/components/kokonutui/ai-input-04";
 
-const gradientTextClasses =
-    "bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 via-zinc-600 to-zinc-800 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100";
-
 function Header() {
     return (
         <div>
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
-                <span className={gradientTextClasses}>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-pink-500 dark:from-amber-400 dark:to-pink-400">
                     Build beautiful interfaces
                 </span>
             </h2>
-            <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p className="mt-6 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 A collection of UI components that you can copy and paste into
                 your apps.
             </p>

@@ -23,7 +23,7 @@ export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
             align: "start",
             containScroll: false,
             skipSnaps: false,
-            inViewThreshold: 1,
+            inViewThreshold: 0.8,
             direction: "ltr" as const,
             watchDrag: false,
             axis: "x" as const,

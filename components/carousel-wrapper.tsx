@@ -4,6 +4,7 @@ import Card_01 from "./kokonutui/card/card-01";
 import List05 from "./kokonutui/list/list-05";
 import Alert05 from "./kokonutui/alert/alert-05";
 import Profile01 from "./kokonutui/profile/profile-01";
+import Btn03 from "./kokonutui/button/btn-03";
 
 export type CarouselItemType = {
     id: number;
@@ -17,13 +18,13 @@ export type CarouselItemType = {
 
 const categories: CarouselItemType[] = [
     {
-        id: 3,
-        title: "List Components",
-        href: "/docs/components/list",
-        component: <List05 />,
-        count: 5,
-        size: "tall",
-        span: 2,
+        id: 6,
+        title: "Button Components",
+        href: "/docs/components/button",
+        component: <Btn03 />,
+        count: 6,
+        size: "default",
+        span: 1,
     },
     {
         id: 2,
@@ -35,13 +36,22 @@ const categories: CarouselItemType[] = [
         span: 2,
     },
     {
+        id: 3,
+        title: "List Components",
+        href: "/docs/components/list",
+        component: <List05 />,
+        count: 5,
+        size: "tall",
+        span: 1,
+    },
+    {
         id: 4,
         title: "Alert Components",
         href: "/docs/components/alert",
         component: <Alert05 />,
         count: 6,
         size: "wide",
-        span: 2,
+        span: 1,
     },
     {
         id: 5,
@@ -70,7 +80,7 @@ const CarouselHeader = () => {
                 Explore all 50+ components.
             </h2>
             <p className="mt-2 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto px-4">
-                Ready to use. Fully customizable. Built for making apps faster.
+                Ready to use. Fully customizable. Built for making apps better.
             </p>
         </div>
     );
