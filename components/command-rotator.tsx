@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function CommandRotator({ prePath }: { prePath: string }) {
     const [commandIndex, setCommandIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
-    const commandPrefixes = ["bunx", "npx", "pnpm dlx"];
+    const commandPrefixes = ["bunx", "npx"];
 
     useEffect(() => {
         const timer = setInterval(() => {
