@@ -8,7 +8,7 @@
   "files": [
     {
       "type": "registry:component",
-      "content": "interface Block02Props {\n    children: React.ReactNode;\n}\n\nexport default function Block02({ children }: Block02Props) {\n    return (\n        <div className=\"relative w-full min-h-screen bg-white dark:bg-black/5 overflow-hidden\">\n            <div className=\"absolute inset-0 overflow-hidden\">\n                <div className=\"absolute inset-0 bg-zinc-50/50 dark:bg-zinc-900/50\" />\n            </div>\n            {children}\n        </div>\n    );\n} ",
+      "content": "export default function Block02({ children }: { children: React.ReactNode }) {\n    return (\n        <div className=\"relative w-full min-h-screen bg-white dark:bg-black/5 overflow-hidden\">\n            <div className=\"absolute inset-0 overflow-hidden\">\n                <div className=\"absolute inset-0 bg-zinc-50/50 dark:bg-zinc-900/50\" />\n            </div>\n            {children}\n        </div>\n    );\n}\n",
       "path": "/components/kokonutui/block/block-02.tsx",
       "target": "/components/kokonutui/block-02.tsx"
     },

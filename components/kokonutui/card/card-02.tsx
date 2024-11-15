@@ -44,7 +44,6 @@ export default function Card02({
                 className="relative overflow-hidden border border-zinc-200/80 dark:border-zinc-800/80 
                 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl rounded-2xl"
             >
-                {/* Header Section */}
                 <div className="p-8 pb-0">
                     <div className="flex items-start gap-6">
                         <div className="relative">

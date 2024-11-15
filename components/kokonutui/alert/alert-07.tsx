@@ -15,7 +15,7 @@ export default function Alert07() {
                         type="button"
                         className="relative group overflow-hidden bg-blue-700 dark:bg-blue-500 hover:bg-blue-800 dark:hover:bg-blue-600 backdrop-blur-sm border border-blue-400/30 dark:border-blue-600/30 transition-all duration-300"
                     >
-                        <span className="relative z-10 font-semibold text-sm text-white">   
+                        <span className="relative z-10 font-semibold text-sm text-white">
                             Subscribe Now
                         </span>
                         <div className="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gradient-to-r from-transparent via-blue-600 to-transparent dark:via-blue-400 transition-transform duration-700 ease-out" />

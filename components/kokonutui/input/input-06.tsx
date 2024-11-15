@@ -63,7 +63,6 @@ export default function Input_06() {
         });
         setCode(newCode);
 
-        // Focus last filled input or first empty input
         const focusIndex = Math.min(pastedData.length, OTP_LENGTH - 1);
         inputRefs.current[focusIndex]?.focus();
         setActiveIndex(focusIndex);

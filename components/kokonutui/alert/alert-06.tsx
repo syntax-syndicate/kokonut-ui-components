@@ -49,25 +49,6 @@ export default function Alert06() {
                         </div>
                     </div>
                 </div>
-
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute inset-0 opacity-20 mix-blend-soft-light">
-                        <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-purple-400 blur-2xl" />
-                        <div className="absolute -right-4 -bottom-4 h-24 w-24 rounded-full bg-purple-400 blur-2xl" />
-                    </div>
-                </div>
-
-                <motion.div
-                    initial={{ x: "-100%", opacity: 0 }}
-                    animate={{ x: "100%", opacity: 0.3 }}
-                    transition={{
-                        duration: 1.5,
-                        delay: 0.5,
-                        repeat: Number.POSITIVE_INFINITY,
-                        repeatDelay: 3,
-                    }}
-                    className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-r from-transparent via-white to-transparent"
-                />
             </div>
         </motion.div>
     );

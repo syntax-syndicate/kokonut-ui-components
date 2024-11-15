@@ -3,11 +3,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-interface CommandRotatorProps {
-    baseCommand: string;
-}
-
-export function CommandRotator({ baseCommand }: CommandRotatorProps) {
+export function CommandRotator() {
     const [commandIndex, setCommandIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const commandPrefixes = ["bunx", "npx", "pnpm dlx"];

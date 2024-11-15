@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Star } from "lucide-react";
 import Link from "next/link";
 
-export function HeroBadge() {
+function HeroBadge() {
     return (
         <div className="mb-8 animate-fade-in">
             <div className="px-4 py-2 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 inline-flex items-center gap-2">
@@ -15,11 +15,7 @@ export function HeroBadge() {
     );
 }
 
-interface StatItemProps {
-    text: string;
-}
-
-function StatItem({ text }: StatItemProps) {
+function StatItem({ text }: { text: string }) {
     return (
         <div className="flex items-center gap-2">
             <div className="h-2 w-2 bg-zinc-900 dark:bg-white rounded-full" />
@@ -46,7 +42,7 @@ export default function Block01Content() {
     return (
         <div className="relative flex flex-col items-center justify-center px-4 text-center min-h-[calc(100vh-6rem)] sm:min-h-[calc(100vh-12rem)]">
             <HeroBadge />
-
+            
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white max-w-4xl leading-tight">
                 KokonutUI
             </h1>

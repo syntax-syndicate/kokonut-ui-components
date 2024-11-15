@@ -11,8 +11,8 @@ export default function Text_06({
 }: SwooshTextProps) {
     return (
         <div className="relative w-full text-center">
-            {/* SVG Filter Definition */}
             <svg className="absolute w-0 h-0">
+                <title>Motion Blur Filter</title>
                 <defs>
                     <filter id="motion-blur" filterUnits="userSpaceOnUse">
                         <feGaussianBlur stdDeviation="2 0" />
@@ -28,9 +28,7 @@ export default function Text_06({
                     className
                 )}
             >
-                {/* Background line shadows */}
                 <div className="absolute inset-0 opacity-5 flex flex-col justify-center gap-4">
-                    {/* Top line */}
                     <span
                         className="absolute right-[55%] top-[15%] h-2"
                         style={{
@@ -41,7 +39,6 @@ export default function Text_06({
                                 "linear-gradient(to left, currentColor, transparent)",
                         }}
                     />
-                    {/* Middle line */}
                     <span
                         className="absolute right-[55%] top-[40%] h-2"
                         style={{
@@ -52,7 +49,6 @@ export default function Text_06({
                                 "linear-gradient(to left, currentColor, transparent)",
                         }}
                     />
-                    {/* Bottom line */}
                     <span
                         className="absolute right-[55%] top-[65%] h-2"
                         style={{
@@ -64,8 +60,6 @@ export default function Text_06({
                         }}
                     />
                 </div>
-
-                {/* Main text */}
                 <span className="relative italic text-emerald-400">{text}</span>
             </div>
         </div>

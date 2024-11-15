@@ -55,6 +55,7 @@ function EmotionFace({ value }: { value: number }) {
             xmlns="http://www.w3.org/2000/svg"
             className="transition-all duration-300 ease-in-out"
         >
+            <title>Face Mood</title>
             {/* Left Eye */}
             <path
                 d={face.eyes.left}
@@ -83,13 +84,7 @@ function EmotionFace({ value }: { value: number }) {
 }
 
 export default function Input_10() {
-    const [value, setValue] = useState(50);
-
-    const getCurrentMoodState = () => {
-        return (
-            moodStates.find((state) => state.value === value) ?? moodStates[1]
-        );
-    };
+    const [value, setValue] = useState(100);
 
     const adjustValue = (direction: "left" | "right") => {
         const currentIndex = moodStates.findIndex(
@@ -102,8 +97,6 @@ export default function Input_10() {
 
         setValue(moodStates[newIndex].value);
     };
-
-    const currentMood = getCurrentMoodState();
 
     return (
         <div className="w-full max-w-sm space-y-4">

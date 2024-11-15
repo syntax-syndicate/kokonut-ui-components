@@ -1,11 +1,11 @@
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 
-interface Block03LoginProps {
+export default function Block03Login({
+    children,
+}: {
     children?: React.ReactNode;
-}
-
-export default function Block03Login({ children }: Block03LoginProps) {
+}) {
     return (
         <div className="relative min-h-screen">
             <div className="flex min-h-screen flex-col items-center justify-start pt-12 p-4">

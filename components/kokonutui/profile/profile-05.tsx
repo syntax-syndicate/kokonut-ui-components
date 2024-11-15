@@ -1,16 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-    Users,
-    Mail,
-    Plus,
-    MoreHorizontal,
-    Shield,
-    Star,
-} from "lucide-react";
+import { Users, Mail, Plus, MoreHorizontal, Shield } from "lucide-react";
 
 interface TeamMember {
     id: string;
@@ -29,7 +19,8 @@ interface Profile05Props {
 
 const defaultProfile = {
     teamName: "Design Team",
-    description: "Core design team responsible for product design and user experience",
+    description:
+        "Core design team responsible for product design and user experience",
     members: [
         {
             id: "1",
@@ -63,12 +54,9 @@ export default function Profile05({
     description = defaultProfile.description,
     members = defaultProfile.members,
 }: Partial<Profile05Props> = defaultProfile) {
-    const [activeMembers, setActiveMembers] = useState(members);
-
     return (
         <div className="w-full max-w-2xl mx-auto">
             <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
-                {/* Header */}
                 <div className="bg-gradient-to-r from-zinc-100 to-zinc-50 dark:from-zinc-900 dark:to-zinc-800/50 p-6">
                     <div className="flex items-center justify-between mb-4">
                         <div>
@@ -91,14 +79,17 @@ export default function Profile05({
                         </div>
                         <div className="flex items-center gap-1">
                             <Shield className="w-4 h-4" />
-                            {members.filter(m => m.permissions === "admin").length} admins
+                            {
+                                members.filter((m) => m.permissions === "admin")
+                                    .length
+                            }{" "}
+                            admins
                         </div>
                     </div>
                 </div>
 
-                {/* Member List */}
                 <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
-                    {activeMembers.map((member) => (
+                    {members.map((member) => (
                         <div
                             key={member.id}
                             className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900"

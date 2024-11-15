@@ -23,7 +23,6 @@ const Text_02: React.FC<TextSplitProps> = ({
             whileHover="hover"
             initial="default"
         >
-            {/* Top half */}
             <motion.div
                 className="absolute w-full text-4xl -ml-0.5"
                 variants={{
@@ -42,8 +41,6 @@ const Text_02: React.FC<TextSplitProps> = ({
             >
                 {text}
             </motion.div>
-
-            {/* Bottom half */}
             <motion.div
                 className="absolute w-full text-4xl"
                 variants={{

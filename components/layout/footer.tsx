@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Github } from "lucide-react";
-import XIcon from "../kokonutui/icons/x-icon";
+import XIcon from "../icons/x-icon";
 
 interface SocialLink {
     href: string;

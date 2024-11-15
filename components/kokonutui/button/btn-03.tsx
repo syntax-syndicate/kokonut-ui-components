@@ -27,7 +27,6 @@ export default function Btn03({
     const [particles, setParticles] = useState<Particle[]>([]);
     const particlesControl = useAnimation();
 
-    // Generate random particles
     useEffect(() => {
         const newParticles = Array.from({ length: particleCount }, (_, i) => ({
             id: i,
@@ -37,7 +36,6 @@ export default function Btn03({
         setParticles(newParticles);
     }, [particleCount]);
 
-    // Combined handler for both mouse and touch events
     const handleInteractionStart = useCallback(async () => {
         setIsAttracting(true);
         await particlesControl.start({
