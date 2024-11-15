@@ -26,7 +26,6 @@ export default function Text_04({
         glow: "#f40468",
     },
 }: AnimatedTextProps) {
-    // Create two style states - with and without shadow
     const textShadowStyle = {
         textShadow: `10px 10px 0px ${shadowColors.first}, 
                      15px 15px 0px ${shadowColors.second}, 

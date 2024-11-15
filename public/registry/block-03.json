@@ -11,7 +11,7 @@
   "files": [
     {
       "type": "registry:component",
-      "content": "interface Block03Props {\n    children: React.ReactNode;\n}\n\nexport default function Block03({ children }: Block03Props) {\n    return (\n        <div className=\"relative h-screen bg-white dark:bg-zinc-950\">\n            {children}\n        </div>\n    );\n}\n",
+      "content": "export default function Block03({ children }: { children: React.ReactNode }) {\n    return (\n        <div className=\"relative h-screen bg-white dark:bg-zinc-950\">\n            {children}\n        </div>\n    );\n}\n",
       "path": "/components/kokonutui/block/block-03.tsx",
       "target": "/components/kokonutui/block-03.tsx"
     },
@@ -23,7 +23,7 @@
     },
     {
       "type": "registry:component",
-      "content": "import { Sparkles } from \"lucide-react\";\nimport Link from \"next/link\";\n\ninterface Block03LoginProps {\n    children?: React.ReactNode;\n}\n\nexport default function Block03Login({ children }: Block03LoginProps) {\n    return (\n        <div className=\"relative min-h-screen\">\n            <div className=\"flex min-h-screen flex-col items-center justify-start pt-12 p-4\">\n                <Link href=\"#\" className=\"mb-8 flex items-center gap-2\">\n                    <div className=\"flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 dark:bg-white\">\n                        <Sparkles className=\"h-5 w-5 text-white dark:text-black\" />\n                    </div>\n                    <span className=\"text-xl font-bold text-zinc-900 dark:text-white\">\n                        Acme\n                    </span>\n                </Link>\n\n                <div className=\"w-full max-w-md\">\n                    <div className=\"rounded-2xl border border-zinc-200/50 bg-white shadow-xl dark:border-zinc-800/50 dark:bg-zinc-900\">\n                        {children}\n                    </div>\n                </div>\n            </div>\n        </div>\n    );\n}\n",
+      "content": "import { Sparkles } from \"lucide-react\";\nimport Link from \"next/link\";\n\nexport default function Block03Login({\n    children,\n}: {\n    children?: React.ReactNode;\n}) {\n    return (\n        <div className=\"relative min-h-screen\">\n            <div className=\"flex min-h-screen flex-col items-center justify-start pt-12 p-4\">\n                <Link href=\"#\" className=\"mb-8 flex items-center gap-2\">\n                    <div className=\"flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 dark:bg-white\">\n                        <Sparkles className=\"h-5 w-5 text-white dark:text-black\" />\n                    </div>\n                    <span className=\"text-xl font-bold text-zinc-900 dark:text-white\">\n                        Acme\n                    </span>\n                </Link>\n\n                <div className=\"w-full max-w-md\">\n                    <div className=\"rounded-2xl border border-zinc-200/50 bg-white shadow-xl dark:border-zinc-800/50 dark:bg-zinc-900\">\n                        {children}\n                    </div>\n                </div>\n            </div>\n        </div>\n    );\n}\n",
       "path": "/components/kokonutui/block/block-03-login.tsx",
       "target": "/components/kokonutui/block-03-login.tsx"
     }

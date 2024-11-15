@@ -1,8 +1,4 @@
-interface Block01Props {
-    children: React.ReactNode;
-}
-
-export default function Block01({ children }: Block01Props) {
+export default function Block01({ children }: { children: React.ReactNode }) {
     return (
         <div className="relative w-full min-h-screen bg-white dark:bg-black/5 overflow-hidden py-12 sm:py-24">
             <div className="absolute inset-0 overflow-hidden">

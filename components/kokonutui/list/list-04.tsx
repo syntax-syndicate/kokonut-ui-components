@@ -17,7 +17,6 @@ export default function List04() {
                 "rounded-2xl shadow-sm"
             )}
         >
-            {/* Header Section */}
             <div className="p-6 pb-0">
                 <div className="flex items-start justify-between gap-4">
                     <div className="space-y-1">
@@ -34,7 +33,6 @@ export default function List04() {
                 </div>
             </div>
 
-            {/* List Section */}
             <div className="p-6">
                 <div className="space-y-2">
                     <div

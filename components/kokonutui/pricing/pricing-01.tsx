@@ -111,7 +111,7 @@ export default function Pricing_01({
     const [isYearly, setIsYearly] = useState(false);
 
     return (
-        <div className="w-full max-w-4xl mx-auto px-4">
+        <div className="w-full max-w-4xl sm:mx-auto">
             <div className="flex justify-center mb-8">
                 <div className="inline-flex items-center p-1 bg-zinc-100 dark:bg-zinc-800/50 rounded-full">
                     {["Monthly", "Yearly"].map((period) => (
@@ -164,7 +164,7 @@ export default function Pricing_01({
                             </div>
                         )}
 
-                        <div className="p-6">
+                        <div className="p-4 sm:p-6">
                             <div className="flex items-center justify-between mb-4">
                                 <div
                                     className={cn(

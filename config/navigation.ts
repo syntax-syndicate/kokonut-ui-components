@@ -91,7 +91,7 @@ export const navigationSections: NavSection[] = [
                 title: "Profile",
                 href: "/docs/components/profile",
                 description: "Profile components and layouts",
-                count: 3,
+                count: 5,
                 isNew: true,
             },
             {

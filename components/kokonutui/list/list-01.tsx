@@ -1,11 +1,5 @@
 import { cn } from "@/lib/utils";
-import {
-    ChevronRight,
-    MessageSquare,
-    type LucideIcon,
-    Music,
-    Store,
-} from "lucide-react";
+import { MessageSquare, type LucideIcon, Music, Store } from "lucide-react";
 
 interface ListItem {
     id: string;
@@ -19,7 +13,6 @@ interface ListItem {
         variant: "pink" | "indigo" | "orange";
     };
     starred?: boolean;
-    onClick?: () => void;
 }
 
 interface List01Props {
@@ -86,7 +79,6 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                 {items.map((item) => (
                     <div
                         key={item.id}
-                        onClick={item.onClick}
                         className={cn(
                             "group relative flex items-start gap-4 p-4",
                             "bg-white/50 dark:bg-zinc-800/50",
@@ -95,8 +87,7 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                             "transition-all duration-300 ease-out",
                             "rounded-2xl",
                             "border border-white/20 dark:border-zinc-700/50",
-                            "shadow-sm hover:shadow-md",
-                            item.onClick && "cursor-pointer"
+                            "shadow-sm hover:shadow-md"
                         )}
                     >
                         <div
@@ -144,17 +135,6 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                                 {item.time}
                             </span>
                         </div>
-
-                        {item.onClick && (
-                            <ChevronRight
-                                className={cn(
-                                    "w-5 h-5 text-zinc-300 dark:text-zinc-600",
-                                    "group-hover:text-zinc-400 dark:group-hover:text-zinc-400",
-                                    "transition-all duration-300",
-                                    "group-hover:translate-x-0.5"
-                                )}
-                            />
-                        )}
                     </div>
                 ))}
             </div>

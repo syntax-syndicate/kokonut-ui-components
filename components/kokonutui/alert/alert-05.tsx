@@ -62,11 +62,6 @@ export default function Alert05() {
                         </motion.div>
                     </div>
                 </div>
-
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute -left-8 -top-8 w-32 h-32 rounded-full bg-indigo-400/20 dark:bg-indigo-600/10 blur-3xl" />
-                    <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-violet-400/20 dark:bg-violet-600/10 blur-3xl" />
-                </div>
             </div>
         </motion.div>
     );

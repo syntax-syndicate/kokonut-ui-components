@@ -1,8 +1,4 @@
-interface Block03Props {
-    children: React.ReactNode;
-}
-
-export default function Block03({ children }: Block03Props) {
+export default function Block03({ children }: { children: React.ReactNode }) {
     return (
         <div className="relative h-screen bg-white dark:bg-zinc-950">
             {children}

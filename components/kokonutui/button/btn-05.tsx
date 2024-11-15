@@ -7,13 +7,11 @@ import { Trash2Icon } from "lucide-react";
 import { useState } from "react";
 
 interface Btn_05Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    onHoldComplete?: () => void;
     holdDuration?: number;
 }
 
 export default function Btn_05({
     className,
-    onHoldComplete,
     holdDuration = 3000,
     ...props
 }: Btn_05Props) {
@@ -30,7 +28,6 @@ export default function Btn_05({
                 ease: "linear",
             },
         });
-        onHoldComplete?.();
     }
 
     function handleHoldEnd() {

@@ -5,14 +5,13 @@ import Pricing_03 from "@/components/kokonutui/pricing-03";
 import Pricing_04 from "@/components/kokonutui/pricing-04";
 import type { PageConfig } from "@/types/component-page";
 
-
 const PRICING_CONFIG: PageConfig = {
     title: "Pricing",
     description:
         "A collection of pricing components to use and customize. Built with Tailwind CSS and Shadcn.",
     folder: "kokonutui/pricing",
     viewType: "grid",
-    gridClassName: "grid-cols-1 lg:grid-cols-1 gap-8",
+    gridClassName: "grid-cols-1 gap-2 sm:gap-8",
     components: [
         {
             id: 1,

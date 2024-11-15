@@ -54,9 +54,7 @@ export default function List05() {
                 </div>
             </div>
 
-            {/* Tracks List */}
             <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
-                {/* Track Item */}
                 <div className="group flex items-center gap-4 px-6 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
                     <div className="w-10 h-10 rounded-lg overflow-hidden">
                         <img
@@ -92,7 +90,6 @@ export default function List05() {
                     </div>
                 </div>
 
-                {/* More Track Items */}
                 <div className="group flex items-center gap-4 px-6 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
                     <div className="w-10 h-10 rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
                         <Music2 className="w-5 h-5 text-zinc-400" />

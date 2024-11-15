@@ -4,16 +4,12 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { PartyPopper } from "lucide-react";
 
-interface Alert04Props {
-    className?: string;
-}
-
-export default function Alert04({ className }: Alert04Props) {
+export default function Alert04() {
     return (
         <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            className={cn("w-full max-w-xl mx-auto", className)}
+            className="w-full max-w-xl mx-auto"
         >
             <div
                 className={cn(
@@ -22,8 +18,7 @@ export default function Alert04({ className }: Alert04Props) {
                     "dark:from-violet-950/20 dark:to-zinc-950",
                     "border border-violet-100 dark:border-violet-900/50",
                     "shadow-[0_1px_6px_0_rgba(139,92,246,0.06)]",
-                    "rounded-xl p-4",
-                    className
+                    "rounded-xl p-4"
                 )}
             >
                 <div className="flex items-center gap-4">
@@ -71,13 +66,6 @@ export default function Alert04({ className }: Alert04Props) {
                             You've just hit 1,000 followers on your journey!
                         </motion.p>
                     </div>
-                </div>
-
-                {/* Confetti effect */}
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute -left-2 -top-2 h-16 w-16 rounded-full bg-fuchsia-400 dark:bg-fuchsia-600/30 blur-2xl opacity-20" />
-                    <div className="absolute top-2 right-8 h-12 w-12 rounded-full bg-violet-400 dark:bg-violet-600/30 blur-2xl opacity-20" />
-                    <div className="absolute -right-2 -bottom-2 h-16 w-16 rounded-full bg-indigo-400 dark:bg-indigo-600/30 blur-2xl opacity-20" />
                 </div>
 
                 <div className="hidden sm:block absolute top-4 right-4">

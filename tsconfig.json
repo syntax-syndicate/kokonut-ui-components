@@ -30,7 +30,6 @@
         "./components/kokonutui/block/*",
         "./components/kokonutui/pricing/*",
         "./components/kokonutui/alert/*",
-        "./components/kokonutui/icons/*",
         "./components/kokonutui/button/*",
         "./components/kokonutui/input/*",
         "./components/kokonutui/card/*",

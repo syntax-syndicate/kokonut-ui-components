@@ -1,21 +1,8 @@
-"use client";
-
-import {
-    LogOut,
-    Pencil,
-    Flame,
-    Shield,
-    Check,
-    X,
-    Loader2,
-    ArrowUpRight,
-} from "lucide-react";
+import { LogOut, Flame, Shield, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Input } from "@/components/ui/input";
-import { useState } from "react";
 
 interface Profile04Props {
     name: string;
@@ -32,7 +19,7 @@ const defaultProfile = {
     name: "Kokonut",
     role: "Making apps",
     avatar: "/av02.png",
-    subscription: "Elite",
+    subscription: "Maker",
     email: "hello@kokonut.dev",
     level: 42,
     currentExp: 2800,
@@ -49,10 +36,6 @@ export default function Profile04({
     currentExp = defaultProfile.currentExp,
     maxExp = defaultProfile.maxExp,
 }: Partial<Profile04Props> = defaultProfile) {
-    const [isEditing, setIsEditing] = useState(false);
-    const [newName, setNewName] = useState(name);
-    const [isPending, setIsPending] = useState(false);
-
     const menuItems = [
         {
             icon: <ArrowUpRight className="w-4 h-4 text-amber-500" />,
@@ -103,56 +86,6 @@ export default function Profile04({
                             </Badge>
                         </div>
                         <div className="space-y-1">
-                            {isEditing ? (
-                                <div className="flex items-center gap-2">
-                                    <Input
-                                        value={newName}
-                                        onChange={(e) =>
-                                            setNewName(e.target.value)
-                                        }
-                                        className="h-7 text-sm bg-zinc-50 dark:bg-zinc-800/50 
-                                            border-zinc-200/50 dark:border-zinc-800/50 
-                                            focus:ring-offset-0 focus:ring-1 focus:ring-zinc-300 
-                                            dark:focus:ring-zinc-700"
-                                        disabled={isPending}
-                                    />
-                                    <div className="flex gap-1">
-                                        <Button
-                                            size="icon"
-                                            variant="ghost"
-                                            className="h-7 w-7"
-                                        >
-                                            {isPending ? (
-                                                <Loader2 className="h-4 w-4 animate-spin" />
-                                            ) : (
-                                                <Check className="h-4 w-4 text-green-500" />
-                                            )}
-                                        </Button>
-                                        <Button
-                                            size="icon"
-                                            variant="ghost"
-                                            className="h-7 w-7"
-                                            onClick={() => setIsEditing(false)}
-                                        >
-                                            <X className="h-4 w-4 text-red-500" />
-                                        </Button>
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="flex items-center gap-2">
-                                    <h2 className="text-lg font-semibold">
-                                        {name}
-                                    </h2>
-                                    <Button
-                                        size="icon"
-                                        variant="ghost"
-                                        className="h-7 w-7"
-                                        onClick={() => setIsEditing(true)}
-                                    >
-                                        <Pencil className="h-3.5 w-3.5" />
-                                    </Button>
-                                </div>
-                            )}
                             <p className="text-sm text-zinc-500">{role}</p>
                             <p className="text-sm text-zinc-400">{email}</p>
                         </div>
@@ -166,7 +99,6 @@ export default function Profile04({
                     </Button>
                 </div>
 
-                {/* Menu Items */}
                 <div className="space-y-4">
                     {menuItems.map((item) => (
                         <div
