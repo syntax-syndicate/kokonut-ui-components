@@ -1,5 +1,5 @@
 import { Sparkles } from "lucide-react";
-import Arrow25 from "@/components/kokonutui/arrow25";
+import Arrow25 from "./icons/arrow25";
 
 export function EndPage() {
     return (
