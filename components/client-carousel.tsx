@@ -61,7 +61,7 @@ export function InfiniteCarousel({ items }: { items: CarouselItemType[] }) {
             <div
                 className="overflow-hidden pl-4 sm:pl-6"
                 ref={emblaRef}
-                style={{ touchAction: "none" }}
+                style={{ touchAction: "pan-y" }}
             >
                 <div className="flex gap-4 sm:gap-6 will-change-transform">
                     {items.map((item, index) => (
