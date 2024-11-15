@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -147,30 +146,25 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
             </div>
 
             {/* Mobile Navigation */}
-            <div className="md:hidden fixed inset-0 z-50 flex justify-center items-end px-4 pb-6">
+            <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-center items-end px-4 pb-6">
                 {isExpanded && (
                     <div
-                        className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm z-40"
+                        className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm transition-opacity duration-300 ease-in-out"
                         onClick={handleExpandToggle}
-                        style={{
-                            pointerEvents: isExpanded ? "auto" : "none",
-                            touchAction: "pan-y",
-                        }}
                     />
                 )}
 
                 <div
                     className={cn(
-                        "transition-all duration-300 ease-in-out",
+                        "w-full max-w-lg transition-all duration-300 ease-in-out",
                         "bg-gradient-to-b from-white/95 via-gray-50/95 to-white/95",
                         "dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90",
                         "shadow-[0_2px_20px_-2px_rgba(0,0,0,0.15)]",
-                        "backdrop-blur-md",
+                        "backdrop-blur-md cursor-pointer",
                         "border border-[rgba(200,200,200,0.8)] dark:border-[rgba(70,70,70,0.7)]",
-                        "overflow-hidden z-50",
                         isExpanded
-                            ? "w-full h-screen rounded-none"
-                            : "w-48 h-12 rounded-2xl"
+                            ? "h-[80vh] rounded-t-2xl"
+                            : "h-12 rounded-2xl"
                     )}
                     onClick={handleExpandToggle}
                 >
@@ -205,7 +199,9 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                                 ? "#"
                                                                 : item.href
                                                         }
-                                                        onClick={handleItemClick}
+                                                        onClick={
+                                                            handleItemClick
+                                                        }
                                                         className={cn(
                                                             "flex items-center justify-between px-3 py-2 rounded-md",
                                                             item.isComingSoon
@@ -269,7 +265,7 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                             </div>
                         </div>
                     ) : (
-                        // Collapsed View
+                        // Collapsed View - Now clickable to expand
                         <div className="flex items-center justify-center h-full">
                             <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate text-center">
                                 {currentPage?.title}
