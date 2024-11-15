@@ -163,10 +163,10 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                         "backdrop-blur-md cursor-pointer",
                         "border border-[rgba(200,200,200,0.8)] dark:border-[rgba(70,70,70,0.7)]",
                         isExpanded
-                            ? "h-[80vh] rounded-t-2xl"
-                            : "h-12 rounded-2xl"
+                            ? "h-[80vh] rounded-[28px]"
+                            : "h-12 rounded-[28px]"
                     )}
-                    onClick={handleExpandToggle}
+                    onClick={() => !isExpanded && setIsExpanded(true)}
                 >
                     {isExpanded ? (
                         <div className="h-full flex flex-col">
