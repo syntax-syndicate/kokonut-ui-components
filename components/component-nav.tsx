@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -12,27 +11,25 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
     const pathname = usePathname();
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const totalItems = sections.reduce(
-        (acc, section) => acc + section.items.length,
-        0
-    );
+    const totalItems = sections.reduce((acc, section) => acc + section.items.length, 0);
 
-    const currentPage = sections
-        .flatMap((section) => section.items)
-        .find((item) => {
-            if (item.href === "/docs") {
-                return (
-                    pathname === "/docs" || pathname === "/docs/introduction"
-                );
-            }
-            if (item.href === "/docs/components/block/") {
-                return pathname.startsWith("/docs/components/block");
-            }
-            if (item.href.includes("/docs/components/")) {
-                return pathname === item.href;
-            }
-            return pathname === item.href;
-        });
+    const currentPage = sections.flatMap((section) => section.items).find((item) => {
+        if (item.href === "/docs") {
+            return pathname === "/docs" || pathname === "/docs/introduction";
+        }
+        if (item.href === "/docs/components/block/") {
+            return pathname.startsWith("/docs/components/block");
+        }
+        return pathname === item.href;
+    });
+
+    const handleExpandToggle = () => {
+        setIsExpanded(!isExpanded);
+    };
+
+    const handleItemClick = () => {
+        setIsExpanded(false);
+    };
 
     return (
         <>
@@ -140,75 +137,32 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
 
             {/* Mobile Navigation */}
             <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex justify-center px-4 pb-6">
-                <AnimatePresence>
-                    {isExpanded && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm z-40"
-                            onClick={() => setIsExpanded(false)}
-                            style={{
-                                pointerEvents: isExpanded ? "auto" : "none",
-                                touchAction: "pan-y",
-                            }}
-                        />
-                    )}
-                </AnimatePresence>
+                {isExpanded && (
+                    <div
+                        className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm z-40"
+                        onClick={handleExpandToggle}
+                        style={{
+                            pointerEvents: isExpanded ? "auto" : "none",
+                            touchAction: "pan-y",
+                        }}
+                    />
+                )}
 
-                <motion.div
-                    layout
-                    animate={{
-                        width: isExpanded ? "100%" : "192px",
-                        height: isExpanded ? "90vh" : "48px",
-                        bottom: isExpanded ? "0" : "24px",
-                        left: isExpanded ? "0" : "50%",
-                        transform: isExpanded
-                            ? "translateX(0)"
-                            : "translateX(-50%)",
-                        borderRadius: isExpanded ? "0" : "28px",
-                    }}
-                    initial={{
-                        width: "192px",
-                        height: "48px",
-                        bottom: "24px",
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        borderRadius: "28px",
-                    }}
-                    style={{
-                        position: "fixed",
-                        willChange: "transform, width, height",
-                    }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 45,
-                        mass: 0.8,
-                        height: {
-                            type: "spring",
-                            stiffness: 400,
-                            damping: 40,
-                        },
-                    }}
+                <div
                     className={cn(
+                        "transition-all duration-300",
                         "bg-gradient-to-b from-white/95 via-gray-50/95 to-white/95",
                         "dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90",
                         "shadow-[0_2px_20px_-2px_rgba(0,0,0,0.15)]",
                         "backdrop-blur-md",
                         "border border-[rgba(200,200,200,0.8)] dark:border-[rgba(70,70,70,0.7)]",
-                        "overflow-hidden z-50"
+                        "overflow-hidden z-50",
+                        isExpanded ? "w-full h-[90vh] rounded-none" : "w-48 h-12 rounded-2xl"
                     )}
-                    onClick={() => !isExpanded && setIsExpanded(true)}
+                    onClick={handleExpandToggle}
                 >
                     {isExpanded ? (
-                        <motion.div
-                            className="h-[100dvh] flex flex-col"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.15 }}
-                        >
+                        <div className="h-full flex flex-col">
                             {/* Header */}
                             <div className="p-4 border-b border-zinc-200 dark:border-zinc-800">
                                 <h2 className="text-base font-medium text-zinc-900 dark:text-zinc-100">
@@ -246,9 +200,7 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                                                 ? "#"
                                                                 : item.href
                                                         }
-                                                        onClick={() =>
-                                                            setIsExpanded(false)
-                                                        }
+                                                        onClick={handleItemClick}
                                                         className={cn(
                                                             "flex items-center justify-between px-3 py-2 rounded-md",
                                                             item.isComingSoon
@@ -310,7 +262,7 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                                     <X className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
                                 </button>
                             </div>
-                        </motion.div>
+                        </div>
                     ) : (
                         // Collapsed View
                         <div className="flex items-center justify-center h-full">
@@ -322,7 +274,7 @@ export default function ComponentNav({ sections }: { sections: NavSection[] }) {
                             </span>
                         </div>
                     )}
-                </motion.div>
+                </div>
             </div>
         </>
     );
