@@ -39,7 +39,7 @@ export default function AIInput_02() {
     });
 
     return (
-        <div className="w-full py-4">
+        <div className="w-full py-2 sm:py-4 px-2 sm:px-0">
             <div className="relative max-w-xl w-full mx-auto flex flex-col gap-2">
                 {fileName && (
                     <FileDisplay fileName={fileName} onClear={clearFile} />
@@ -47,10 +47,10 @@ export default function AIInput_02() {
 
                 <div className="relative">
                     <div
-                        className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center h-8 w-8 rounded-lg bg-black/5 dark:bg-white/5 hover:cursor-pointer"
+                        className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 flex items-center justify-center h-7 sm:h-8 w-7 sm:w-8 rounded-lg bg-black/5 dark:bg-white/5 hover:cursor-pointer"
                         onClick={() => fileInputRef.current?.click()}
                     >
-                        <Paperclip className="w-4 h-4 transition-opacity transform scale-x-[-1] rotate-45 dark:text-white" />
+                        <Paperclip className="w-3.5 sm:w-4 h-3.5 sm:h-4 transition-opacity transform scale-x-[-1] rotate-45 dark:text-white" />
                     </div>
 
                     <input
@@ -64,10 +64,11 @@ export default function AIInput_02() {
                         id="ai-input-02"
                         placeholder="File Upload and Chat!"
                         className={cn(
-                            "max-w-xl bg-black/5 dark:bg-white/5 w-full rounded-3xl pl-12 pr-16",
+                            "max-w-xl bg-black/5 dark:bg-white/5 w-full rounded-2xl sm:rounded-3xl pl-10 sm:pl-12 pr-12 sm:pr-16",
                             "placeholder:text-black/70 dark:placeholder:text-white/70",
                             "border-none ring-black/30 dark:ring-white/30",
-                            "text-black dark:text-white text-wrap py-4",
+                            "text-black dark:text-white text-wrap py-3 sm:py-4",
+                            "text-sm sm:text-base",
                             "max-h-[200px] overflow-y-auto resize-none leading-[1.2]",
                             `min-h-[${MIN_HEIGHT}px]`
                         )}
@@ -87,12 +88,12 @@ export default function AIInput_02() {
                     />
 
                     <button
-                        className="absolute right-3 top-1/2 -translate-y-1/2 rounded-xl bg-black/5 dark:bg-white/5 py-1 px-1"
+                        className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-xl bg-black/5 dark:bg-white/5 py-1 px-1"
                         type="button"
                     >
                         <CornerRightUp
                             className={cn(
-                                "w-4 h-4 transition-opacity dark:text-white",
+                                "w-3.5 sm:w-4 h-3.5 sm:h-4 transition-opacity dark:text-white",
                                 inputValue ? "opacity-100" : "opacity-30"
                             )}
                         />
