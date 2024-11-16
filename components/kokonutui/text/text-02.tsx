@@ -6,25 +6,27 @@ import { motion } from "framer-motion";
 interface TextSplitProps {
     text: string;
     className?: string;
+    containerClassName?: string;
     splitSpacing?: number;
 }
 
 const Text_02: React.FC<TextSplitProps> = ({
     text = "Payout fees",
     className = "",
+    containerClassName = "",
     splitSpacing = 2,
 }) => {
     return (
         <motion.div
             className={cn(
                 "w-full text-center relative inline-block",
-                className
+                containerClassName
             )}
             whileHover="hover"
             initial="default"
         >
             <motion.div
-                className="absolute w-full text-4xl -ml-0.5"
+                className={cn("absolute w-full text-4xl -ml-0.5", className)}
                 variants={{
                     default: {
                         clipPath: "inset(0 0 50% 0)",
@@ -42,7 +44,7 @@ const Text_02: React.FC<TextSplitProps> = ({
                 {text}
             </motion.div>
             <motion.div
-                className="absolute w-full text-4xl"
+                className={cn("absolute w-full text-4xl", className)}
                 variants={{
                     default: {
                         clipPath: "inset(50% 0 0 0)",
@@ -61,7 +63,7 @@ const Text_02: React.FC<TextSplitProps> = ({
             </motion.div>
 
             {/* Hidden text for maintaining layout size */}
-            <div className="invisible text-4xl">{text}</div>
+            <div className={cn("invisible text-4xl", className)}>{text}</div>
         </motion.div>
     );
 };

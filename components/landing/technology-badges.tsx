@@ -2,7 +2,7 @@ import { Sparkles } from "lucide-react";
 
 export function TechnologyBadges() {
     return (
-        <div className="flex flex-col sm:flex-row justify-center mb-16 gap-4">
+        <div className="flex flex-col sm:flex-row justify-center my-8 sm:my-24 gap-4">
             <div
                 className="inline-flex items-center px-4 py-2 rounded-full text-sm 
           bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-zinc-900 dark:to-zinc-800

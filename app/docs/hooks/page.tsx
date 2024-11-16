@@ -1,4 +1,4 @@
-import { ViewHooks } from "@/components/ViewHooks";
+import { ViewHooks } from "@/components/hooks/ViewHooks";
 import type { Metadata } from "next";
 const hookExamples = [
     {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function HooksPage() {
     return (
-        <div className="flex flex-col px-4 gap-4 md:gap-10 max-w-4xl">
+        <div className="flex flex-col mt-4 gap-4 md:gap-10 max-w-4xl relative">
             <div className="flex flex-col gap-2">
                 <h1 className="text-3xl sm:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
                     Custom Hooks

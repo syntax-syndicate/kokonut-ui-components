@@ -4,7 +4,7 @@ import Arrow25 from "./icons/arrow25";
 export function EndPage() {
     return (
         <>
-            <div className="flex items-center justify-center gap-2 mt-6 text-base text-zinc-500 dark:text-zinc-400">
+            <div className="flex items-center justify-center gap-2 text-base text-zinc-500 dark:text-zinc-400">
                 <Arrow25 className="w-12 h-12 rotate-180" />
                 <span>Built with KokonutUI components</span>
             </div>

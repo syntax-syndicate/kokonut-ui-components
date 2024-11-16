@@ -1,11 +1,12 @@
 import { PartyPopper } from "lucide-react";
-import { HeroSection } from "@/components/hero";
-import { TechnologyBadges } from "@/components/technology-badges";
-import { BuildInterfacesCard } from "@/components/interfaceCards";
-import { ComponentShowcaseCard } from "@/components/component-showcase-card";
-import { CarouselWrapper } from "@/components/carousel-wrapper";
+import { HeroSection } from "@/components/landing/hero";
+import { TechnologyBadges } from "@/components/landing/technology-badges";
+import { BuildInterfacesCard } from "@/components/landing/interfaceCards";
+import { ComponentShowcaseCard } from "@/components/landing/component-showcase-card";
+import { CarouselWrapper } from "@/components/landing/carousel-wrapper";
 import { cn } from "@/lib/utils";
 import { EndPage } from "@/components/end";
+import { ShowcaseSection } from "@/components/landing/showcase";
 
 const CARD_BASE_CLASSES = cn(
     "p-8 rounded-3xl",
@@ -46,6 +47,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <ShowcaseSection />
             <EndPage />
         </main>
     );

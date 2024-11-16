@@ -1,6 +1,6 @@
 import { CommandRotator } from "@/components/command-rotator";
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
-import Arrow25 from "./icons/arrow25";
+import Arrow25 from "@/components/icons/arrow25";
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`

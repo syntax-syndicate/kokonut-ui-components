@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
-import { Header } from "@/components/header";
+import { Header } from "@/components/landing/header";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/layout/footer";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-    themeColor: META_THEME_COLORS.light,
+    themeColor: META_THEME_COLORS.dark,
 };
 
 export default function RootLayout({

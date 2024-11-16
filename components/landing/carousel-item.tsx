@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import type { CarouselItemType } from "./carousel-wrapper";
+import type { CarouselItemType } from "@/components/landing/carousel-wrapper";
 
 export const WIDTH_CLASSES = {
     3: "w-[600px] md:w-[700px] lg:w-[800px]",

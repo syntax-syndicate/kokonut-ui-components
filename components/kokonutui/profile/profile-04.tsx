@@ -18,7 +18,7 @@ interface Profile04Props {
 const defaultProfile = {
     name: "Kokonut",
     role: "Making apps",
-    avatar: "/av02.png",
+    avatar: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-04-uuYHWIRvVPi01gEt6NwnGyjqLeeZhz.png",
     subscription: "Maker",
     email: "hello@kokonut.dev",
     level: 42,

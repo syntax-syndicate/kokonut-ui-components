@@ -1,10 +1,10 @@
-import { InfiniteCarousel } from "@/components/client-carousel";
+import { InfiniteCarousel } from "@/components/landing/client-carousel";
 import AIInput_04 from "@/components/kokonutui/ai-input-04";
-import Card_01 from "./kokonutui/card/card-01";
-import List05 from "./kokonutui/list/list-05";
-import Alert05 from "./kokonutui/alert/alert-05";
-import Profile01 from "./kokonutui/profile/profile-01";
-import Btn03 from "./kokonutui/button/btn-03";
+import Card_01 from "@/components/kokonutui/card-01";
+import List05 from "@/components/kokonutui/list-05";
+import Alert05 from "@/components/kokonutui/alert-05";
+import Profile01 from "@/components/kokonutui/profile-01";
+import Btn03 from "@/components/kokonutui/btn-03";
 
 export type CarouselItemType = {
     id: number;

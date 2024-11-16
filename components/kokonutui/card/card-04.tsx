@@ -38,7 +38,7 @@ export default function Card04({
             content: "Hey team! I've just pushed the latest design changes 🎨",
             sender: {
                 name: "Alex Chen",
-                avatar: "/av01.png",
+                avatar: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-01-n0x8HFv8EUetf9z6ht0wScJKoTHqf8.png",
                 isOnline: true,
             },
             timestamp: "10:24 AM",
@@ -53,7 +53,7 @@ export default function Card04({
             content: "Looking great! The new color scheme is perfect",
             sender: {
                 name: "Sarah Kim",
-                avatar: "/av02.png",
+                avatar: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-02-albo9B0tWOSLXCVZh9rX9KFxXIVWMr.png",
                 isOnline: true,
             },
             timestamp: "10:26 AM",

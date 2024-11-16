@@ -1,12 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import {
-    ArrowUpRight,
-    Clock,
-    Code2,
-    MessageSquare,
-    Plus,
-} from "lucide-react";
+import { ArrowUpRight, Clock, Code2, MessageSquare, Plus } from "lucide-react";
 import Link from "next/link";
 
 interface TeamMember {
@@ -30,10 +24,22 @@ export default function Card06({
     title = "Mobile App Redesign",
     subtitle = "Design System & Component Library",
     teamMembers = [
-        { name: "Alex", image: "/av01.png" },
-        { name: "Sarah", image: "/av02.png" },
-        { name: "Mike", image: "/av03.png" },
-        { name: "Lisa", image: "/av04.png" },
+        {
+            name: "Alex",
+            image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-01-n0x8HFv8EUetf9z6ht0wScJKoTHqf8.png",
+        },
+        {
+            name: "Sarah",
+            image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-02-albo9B0tWOSLXCVZh9rX9KFxXIVWMr.png",
+        },
+        {
+            name: "Mike",
+            image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-03-JateJIUhtd3PXynaMG9TDWQ55j5AVP.png",
+        },
+        {
+            name: "Lisa",
+            image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-04-uuYHWIRvVPi01gEt6NwnGyjqLeeZhz.png",
+        },
     ],
     stats = {
         discussions: 8,
@@ -179,7 +185,7 @@ export default function Card06({
                             border border-zinc-200/50 dark:border-zinc-800/50"
                         >
                             <Image
-                                src="/av01.png"
+                                src="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-01-n0x8HFv8EUetf9z6ht0wScJKoTHqf8.png"
                                 alt="Alex"
                                 width={20}
                                 height={20}
