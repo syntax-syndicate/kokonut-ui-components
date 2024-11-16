@@ -1,5 +1,6 @@
-import { HookItem } from "@/components/HookItem";
+import { HookItem } from "@/components/hooks/HookItem";
 import { Suspense } from "react";
+
 interface Hook {
     id: number;
     title: string;

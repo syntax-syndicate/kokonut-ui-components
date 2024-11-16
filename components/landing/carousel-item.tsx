@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import type { CarouselItemType } from "./carousel-wrapper";
+import type { CarouselItemType } from "@/components/landing/carousel-wrapper";
 
 export const WIDTH_CLASSES = {
     3: "w-[600px] md:w-[700px] lg:w-[800px]",
@@ -37,13 +37,15 @@ const baseItemStyles = {
 
 const itemBaseClasses = `relative p-3 sm:p-4 h-full rounded-xl 
     border border-zinc-200 dark:border-zinc-800 
-    bg-white dark:bg-zinc-900 
+    bg-white dark:bg-zinc-900/80 backdrop-blur-sm
     transition-colors duration-200 
     flex flex-col overflow-hidden
-    pointer-events-none`;
+    pointer-events-none
+    shadow-sm hover:shadow-md`;
 
-const footerBaseClasses = `flex items-center justify-between mt-auto pt-3 
-    border-t border-zinc-200 dark:border-zinc-800 -mx-4 px-4`;
+const footerBaseClasses = `flex items-center justify-between mt-auto pt-3.5
+    border-t border-zinc-100 dark:border-zinc-800/50 -mx-4 px-4
+    bg-gradient-to-b from-transparent to-zinc-50/50 dark:to-zinc-900/50`;
 
 export function CarouselItem({ item }: CarouselItemProps) {
     const containerClasses = `flex-shrink-0 ${getWidthClasses(
@@ -63,18 +65,24 @@ export function CarouselItem({ item }: CarouselItemProps) {
                     </div>
                 </div>
                 <div className={footerBaseClasses}>
-                    <div>
+                    <div className="flex flex-col gap-1.5">
                         <h3
-                            className="text-base font-semibold 
-                            text-zinc-900 dark:text-zinc-100"
+                            className="text-base font-semibold tracking-tight 
+                            text-zinc-900 dark:text-zinc-50"
                         >
                             {item.title}
                         </h3>
-                        <p className="mt-0.5 text-sm text-zinc-600 dark:text-zinc-400">
+                        <span
+                            className="inline-flex items-center px-2.5 py-0.5 text-xs 
+                            font-medium rounded-full w-fit
+                            bg-gradient-to-r from-zinc-100 to-zinc-200 
+                            dark:from-zinc-800 dark:to-zinc-900
+                            text-zinc-700 dark:text-zinc-300
+                            border border-zinc-200/50 dark:border-zinc-700/50"
+                        >
                             {item.count} components
-                        </p>
+                        </span>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-zinc-400 dark:text-zinc-600" />
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ interface Profile02Props {
 const defaultProfile = {
     name: "Alex Thompson",
     role: "Product Designer",
-    avatar: "/av01.png",
+    avatar: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-02-albo9B0tWOSLXCVZh9rX9KFxXIVWMr.png",
     location: "San Francisco, CA",
     email: "hello@kokonut.dev",
     website: "https://kokonut.dev/",

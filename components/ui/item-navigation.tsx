@@ -53,7 +53,7 @@ export function ItemNavigation<T extends NavigationItem>({
                 <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-3 px-2.5">
                     {title}
                 </h4>
-                <ScrollArea className="h-[500px] scroll-smooth">
+                <ScrollArea className="h-[700px] scroll-smooth">
                     <nav className="space-y-0.5">
                         {items.map((item) => (
                             <a

@@ -30,7 +30,6 @@ export function BuildInterfacesCard({ className }: BuildInterfacesCardProps) {
         <div className={className}>
             <div className="h-full flex flex-col justify-between">
                 <Header />
-
                 <div>
                     <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">
                         components / AI-Input-04
