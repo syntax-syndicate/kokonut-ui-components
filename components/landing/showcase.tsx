@@ -5,12 +5,14 @@ import Text02 from "@/components/kokonutui/text-02";
 export function ShowcaseSection() {
     return (
         <div className="py-8 sm:py-24 text-center relative">
-            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight mb-12">
-                <Text02
-                    text="Showcase"
-                    className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-amber-500 dark:from-pink-400 dark:to-amber-400 text-4xl sm:text-7xl"
-                />
-            </h2>
+            <div className="inline-block mb-12">
+                <h2 className="text-2xl sm:text-4xl font-bold tracking-tight">
+                    <Text02
+                        text="Showcase"
+                        className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-amber-500 dark:from-pink-400 dark:to-amber-400 text-4xl sm:text-7xl"
+                    />
+                </h2>
+            </div>
 
             <div className="relative max-w-6xl mx-auto px-4">
                 <div className="hidden sm:block absolute -left-4 top-1/4 transform -translate-x-full text-left">

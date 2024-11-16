@@ -1,10 +1,11 @@
 import { InfiniteCarousel } from "@/components/landing/client-carousel";
-import AIInput_04 from "@/components/kokonutui/ai-input-04";
 import Card_01 from "@/components/kokonutui/card-01";
 import List05 from "@/components/kokonutui/list-05";
 import Alert05 from "@/components/kokonutui/alert-05";
 import Profile01 from "@/components/kokonutui/profile-01";
 import Btn03 from "@/components/kokonutui/btn-03";
+import AIInput_15 from "@/components/kokonutui/ai-input-15";
+import AIInput_08 from "../kokonutui/ai-input/ai-input-08";
 
 export type CarouselItemType = {
     id: number;
@@ -18,7 +19,7 @@ export type CarouselItemType = {
 
 const categories: CarouselItemType[] = [
     {
-        id: 6,
+        id: 1,
         title: "Button Components",
         href: "/docs/components/button",
         component: <Btn03 />,
@@ -28,6 +29,15 @@ const categories: CarouselItemType[] = [
     },
     {
         id: 2,
+        title: "AI Components",
+        href: "/docs/components/ai-input",
+        component: <AIInput_08 />,
+        count: 16,
+        size: "tall",
+        span: 1,
+    },
+    {
+        id: 3,
         title: "Card Components",
         href: "/docs/components/card",
         component: <Card_01 />,
@@ -36,7 +46,7 @@ const categories: CarouselItemType[] = [
         span: 2,
     },
     {
-        id: 3,
+        id: 4,
         title: "List Components",
         href: "/docs/components/list",
         component: <List05 />,
@@ -45,7 +55,7 @@ const categories: CarouselItemType[] = [
         span: 1,
     },
     {
-        id: 4,
+        id: 5,
         title: "Alert Components",
         href: "/docs/components/alert",
         component: <Alert05 />,
@@ -54,22 +64,22 @@ const categories: CarouselItemType[] = [
         span: 1,
     },
     {
-        id: 5,
-        title: "AI Components",
-        href: "/docs/components/ai-input",
-        component: <AIInput_04 />,
-        count: 16,
-        size: "tall",
-        span: 2,
-    },
-    {
-        id: 1,
+        id: 7,
         title: "Profile Components",
         href: "/docs/components/profile",
         component: <Profile01 />,
         count: 5,
         size: "tall",
         span: 1,
+    },
+    {
+        id: 6,
+        title: "AI Components",
+        href: "/docs/components/ai-input",
+        component: <AIInput_15 />,
+        count: 16,
+        size: "tall",
+        span: 2,
     },
 ];
 
