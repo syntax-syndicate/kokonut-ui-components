@@ -5,7 +5,6 @@ import Alert05 from "@/components/kokonutui/alert-05";
 import Profile01 from "@/components/kokonutui/profile-01";
 import Btn03 from "@/components/kokonutui/btn-03";
 import AIInput_15 from "@/components/kokonutui/ai-input-15";
-import AIInput_08 from "../kokonutui/ai-input/ai-input-08";
 
 export type CarouselItemType = {
     id: number;
@@ -31,10 +30,10 @@ const categories: CarouselItemType[] = [
         id: 2,
         title: "AI Components",
         href: "/docs/components/ai-input",
-        component: <AIInput_08 />,
+        component: <AIInput_15 />,
         count: 16,
         size: "tall",
-        span: 1,
+        span: 2,
     },
     {
         id: 3,
@@ -71,15 +70,6 @@ const categories: CarouselItemType[] = [
         count: 5,
         size: "tall",
         span: 1,
-    },
-    {
-        id: 6,
-        title: "AI Components",
-        href: "/docs/components/ai-input",
-        component: <AIInput_15 />,
-        count: 16,
-        size: "tall",
-        span: 2,
     },
 ];
 
