@@ -17,7 +17,7 @@ export function ShowcaseSection() {
             <div className="relative max-w-6xl mx-auto px-4">
                 <div className="hidden sm:block absolute -left-4 top-1/4 transform -translate-x-full text-left">
                     <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 mb-2">
-                        30+ Components
+                        50+ Components
                     </p>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400">
                         Ready to Use
