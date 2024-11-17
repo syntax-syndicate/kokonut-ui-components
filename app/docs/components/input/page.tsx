@@ -69,7 +69,7 @@ const INPUTS_CONFIG: PageConfig = {
         },
         {
             id: 9,
-            title: "Emoji Reaction",
+            title: "People Selector",
             component: <Input_09 />,
             fileName: "input-09.tsx",
         },

@@ -18,8 +18,20 @@ export default function Home() {
     return (
         <main className="bg-white dark:bg-black/5 overflow-x-hidden">
             <p className="pt-16 text-sm text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-2 opacity-80">
-                <PartyPopper className="w-4 h-4" />
-                New components added weekly
+                {/* <PartyPopper className="w-4 h-4" />
+                New components added weekly */}
+                <a
+                    href="https://www.producthunt.com/posts/kokonutui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-kokonutui"
+                    target="_blank"
+                >
+                    <img
+                        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=611037&theme=light"
+                        alt="KokonutUI - Copy&#0044;&#0032;Paste&#0044;&#0032;Customize&#0046;&#0032; | Product Hunt"
+                        style={{ width: "200px", height: "54px" }}
+                        width="200"
+                        height="54"
+                    />
+                </a>
             </p>
 
             <div className="pt-4">
