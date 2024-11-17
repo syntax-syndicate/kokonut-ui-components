@@ -80,7 +80,7 @@ export default function AIInput_16() {
         <div className="w-full py-4 min-h-[244px]">
             <div className="relative" ref={containerRef}>
                 <div className="relative rounded-lg bg-black/5 dark:bg-white/5">
-                    <div className="flex items-center px-3 h-12">
+                    <div className="flex items-center flex-wrap gap-2 px-3 h-auto min-h-[48px] py-2">
                         {activeCommand &&
                             (() => {
                                 const activeCmd = COMMANDS.find(
@@ -90,7 +90,7 @@ export default function AIInput_16() {
 
                                 return (
                                     <div className="flex items-center gap-2 text-sm bg-black/10 dark:bg-white/10 px-2 py-1 rounded-md">
-                                        <span className="flex items-center gap-1.5">
+                                        <span className="flex items-center gap-1.5 flex-shrink-0">
                                             <activeCmd.icon className="w-4 h-4 text-black/50 dark:text-white/50" />
                                             <span className="text-black/70 dark:text-white/70">
                                                 {activeCmd.label}
@@ -99,32 +99,34 @@ export default function AIInput_16() {
                                     </div>
                                 );
                             })()}
-                        <input
-                            ref={inputRef}
-                            type="text"
-                            value={inputValue}
-                            onChange={(e) => setInputValue(e.target.value)}
-                            onKeyDown={handleKeyDown}
-                            onFocus={() => !activeCommand && setIsOpen(true)}
-                            placeholder={
-                                activeCommand
-                                    ? "Type your message..."
-                                    : "Type / for commands..."
-                            }
-                            className="flex-1 bg-transparent border-none outline-none text-md text-black dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60 ml-2"
-                        />
-                        <button
-                            type="button"
-                            onClick={handleButtonClick}
-                            className={cn(
-                                "p-1.5 rounded-md transition-colors",
-                                inputValue || activeCommand
-                                    ? "bg-sky-500/15 text-sky-500"
-                                    : "text-black/50 dark:text-white/50 hover:text-black/70 dark:hover:text-white/70"
-                            )}
-                        >
-                            <SendHorizontal className="w-4 h-4" />
-                        </button>
+                        <div className="flex-1 flex items-center gap-2">
+                            <input
+                                ref={inputRef}
+                                type="text"
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
+                                onKeyDown={handleKeyDown}
+                                onFocus={() => !activeCommand && setIsOpen(true)}
+                                placeholder={
+                                    activeCommand
+                                        ? "Type your message..."
+                                        : "Type / for commands..."
+                                }
+                                className="flex-1 bg-transparent border-none outline-none text-md text-black dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60"
+                            />
+                            <button
+                                type="button"
+                                onClick={handleButtonClick}
+                                className={cn(
+                                    "p-1.5 rounded-md transition-colors flex-shrink-0",
+                                    inputValue || activeCommand
+                                        ? "bg-sky-500/15 text-sky-500"
+                                        : "text-black/50 dark:text-white/50 hover:text-black/70 dark:hover:text-white/70"
+                                )}
+                            >
+                                <SendHorizontal className="w-4 h-4" />
+                            </button>
+                        </div>
                     </div>
                 </div>
 
