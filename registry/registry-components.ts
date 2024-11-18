@@ -929,4 +929,63 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "profile-01",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/profile/profile-01.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "profile-02",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button"],
+        files: [
+            {
+                path: "components/kokonutui/profile/profile-02.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "profile-03",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button", "input", "label", "textarea", "avatar"],
+        files: [
+            {
+                path: "components/kokonutui/profile/profile-03.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "profile-04",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button", "badge", "progress"],
+        files: [
+            {
+                path: "components/kokonutui/profile/profile-04.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "profile-05",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button", "badge"],
+        files: [
+            {
+                path: "components/kokonutui/profile/profile-05.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
