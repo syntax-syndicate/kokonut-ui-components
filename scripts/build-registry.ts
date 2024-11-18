@@ -5,7 +5,7 @@ import type { registryItemFileSchema } from "@/registry/schema";
 import path from "path";
 
 const REGISTRY_BASE_PATH = process.cwd();
-const PUBLIC_FOLDER_BASE_PATH = "public/registry";
+const PUBLIC_FOLDER_BASE_PATH = "public/r";
 
 // const REGISTRY_TYPE_FOLDERS: Record<string, string> = {
 //     "registry:component": "components",

@@ -91,7 +91,7 @@ export async function BlockItem({ item }: BlockItemProps) {
                         </h2>
                         <CodeBlock
                             code={[
-                                `bunx shadcn@latest add ${prePath}/registry/${item.fileName}`,
+                                `bunx shadcn@latest add ${prePath}/r/${item.fileName}`,
                             ]}
                             language="bash"
                         />

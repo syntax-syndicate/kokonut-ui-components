@@ -39,7 +39,7 @@ export function CopyWrapper({
 
     const handleCLI = () => {
         copyToClipboard(
-            `bunx shadcn@latest add ${prePath}/registry/${fileName?.replace(
+            `bunx shadcn@latest add ${prePath}/r/${fileName?.replace(
                 ".tsx",
                 ".json"
             )}`

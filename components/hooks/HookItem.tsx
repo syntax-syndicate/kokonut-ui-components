@@ -39,7 +39,7 @@ export async function HookItem({ item }: HookItemProps) {
             <div className="space-y-4 sm:ml-12">
                 <CodeBlock
                     code={[
-                        `bunx shadcn@latest add ${prePath}/registry/${item.fileName.replace(
+                        `bunx shadcn@latest add ${prePath}/r/${item.fileName.replace(
                             ".ts",
                             ""
                         )}.json`,

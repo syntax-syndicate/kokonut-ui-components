@@ -57,11 +57,11 @@ export default function DocsPage() {
                         </p>
                         <div className="flex flex-col gap-2">
                             <CodeBlock
-                                code={`shadcn@latest add ${prePath}/registry/utils.json`}
+                                code={`shadcn@latest add ${prePath}/r/utils.json`}
                                 initial={
                                     <div className="text-[13px] font-mono text-zinc-400">
                                         shadcn@latest add
-                                        {prePath}/registry/utils.json
+                                        {prePath}/r/utils.json
                                     </div>
                                 }
                                 showPackageManager
@@ -105,7 +105,7 @@ export default function DocsPage() {
                         <CodeBlock
                             language="bash"
                             showPackageManager
-                            code={`shadcn@latest add ${prePath}/registry/alert-01.json`}
+                            code={`shadcn@latest add ${prePath}/r/alert-01.json`}
                         />
                         <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
                             The component will be added to the components folder

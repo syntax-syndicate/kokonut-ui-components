@@ -21,7 +21,7 @@ export function PreviewModal({
     children,
 }: PreviewModalProps) {
     const { isCopied, copyToClipboard } = useCopyToClipboard();
-    const command = `bunx shadcn@latest add ${prePath}/registry/${fileName.replace(
+    const command = `bunx shadcn@latest add ${prePath}/r/${fileName.replace(
         ".tsx",
         ".json"
     )}`;
