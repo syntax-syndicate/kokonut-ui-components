@@ -15,13 +15,13 @@
       "type": "registry:hook",
       "content": "import { useState } from \"react\";\n\ninterface Tag {\n    id: string;\n    label: string;\n    color?: string;\n}\n\ninterface UseTagsProps {\n    onChange?: (tags: Tag[]) => void;\n    defaultTags?: Tag[];\n    maxTags?: number;\n    defaultColors?: string[];\n}\n\nexport function useTags({\n    onChange,\n    defaultTags = [],\n    maxTags = 10,\n    defaultColors = [\n        \"bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300\",\n        \"bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300\",\n        \"bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300\",\n        \"bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300\",\n        \"bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300\",\n    ],\n}: UseTagsProps = {}) {\n    const [tags, setTags] = useState<Tag[]>(defaultTags);\n\n    function addTag(tag: Tag) {\n        if (tags.length >= maxTags) return;\n\n        const newTags = [\n            ...tags,\n            {\n                ...tag,\n                color:\n                    tag.color ||\n                    defaultColors[tags.length % defaultColors.length],\n            },\n        ];\n        setTags(newTags);\n        onChange?.(newTags);\n        return newTags;\n    }\n\n    function removeTag(tagId: string) {\n        const newTags = tags.filter((t) => t.id !== tagId);\n        setTags(newTags);\n        onChange?.(newTags);\n        return newTags;\n    }\n\n    function removeLastTag() {\n        if (tags.length === 0) return;\n        return removeTag(tags[tags.length - 1].id);\n    }\n\n    return {\n        tags,\n        setTags,\n        addTag,\n        removeTag,\n        removeLastTag,\n        hasReachedMax: tags.length >= maxTags,\n    };\n}\n",
       "path": "/hooks/use-tags.ts",
-      "target": "/components/kokonutui/use-tags.ts"
+      "target": "/hooks/use-tags.ts"
     },
     {
       "type": "registry:hook",
       "content": "import { useEffect, type RefObject } from \"react\";\n\nexport function useClickOutside(\n    ref: RefObject<HTMLElement>,\n    handler: () => void\n) {\n    useEffect(() => {\n        const handleClickOutside = (event: MouseEvent) => {\n            if (ref.current && !ref.current.contains(event.target as Node)) {\n                handler();\n            }\n        };\n\n        document.addEventListener(\"mousedown\", handleClickOutside);\n        return () =>\n            document.removeEventListener(\"mousedown\", handleClickOutside);\n    }, [ref, handler]);\n}\n",
       "path": "/hooks/use-click-outside.ts",
-      "target": "/components/kokonutui/use-click-outside.ts"
+      "target": "/hooks/use-click-outside.ts"
     }
   ]
 }
