@@ -58,15 +58,22 @@ const getComponentFiles = async (files: File[], registryType: string) => {
         
         const fileName = normalizedPath.split('/').pop() || '';
         
-        const target = registryType === 'registry:lib' 
-            ? `/lib/${fileName}`
-            : `/components/kokonutui/${fileName}`;
+        const getTargetPath = (type: string) => {
+            switch (type) {
+                case 'registry:hook':
+                    return `/hooks/${fileName}`;
+                case 'registry:lib':
+                    return `/lib/${fileName}`;
+                default:
+                    return `/components/kokonutui/${fileName}`;
+            }
+        };
         
         return {
             type: file.type || registryType,
             content: fileContent,
             path: normalizedPath,
-            target: file.target || target,
+            target: file.target || getTargetPath(registryType),
         };
     });
 
