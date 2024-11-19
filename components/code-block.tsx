@@ -89,9 +89,7 @@ export function CodeBlock({
                 </Tabs>
             )}
 
-            <motion.div
-                whileHover={{ scale: 1.002 }}
-                whileTap={{ scale: 0.995 }}
+            <div
                 onClick={handleCopy}
                 className="relative flex items-start gap-2 bg-zinc-50 dark:bg-zinc-900 px-3 md:px-4 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 cursor-pointer group hover:bg-white dark:hover:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all overflow-x-auto"
             >
@@ -111,7 +109,7 @@ export function CodeBlock({
                         )}
                     </motion.div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 }

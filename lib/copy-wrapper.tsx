@@ -3,14 +3,13 @@
 import { useState } from "react";
 import { CopyOverlay } from "./copy-overlay";
 import { AnimatePresence } from "framer-motion";
-import { CopyButton } from "./copy-button";
-import { Terminal } from "lucide-react";
+import { Code, Terminal } from "lucide-react";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 
 interface CopyWrapperProps {
     fileName: string;
-    text: string;
-    showTerminalOnly?: boolean;
+    showCode: boolean;
+    setShowCode: (show: boolean) => void;
 }
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -19,8 +18,8 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export function CopyWrapper({
     fileName,
-    text,
-    showTerminalOnly = false,
+    showCode = false,
+    setShowCode,
 }: CopyWrapperProps) {
     const [showOverlay, setShowOverlay] = useState(false);
     const { copyToClipboard } = useCopyToClipboard({
@@ -32,10 +31,6 @@ export function CopyWrapper({
             }, 1000);
         },
     });
-
-    const handleCopy = () => {
-        copyToClipboard(text);
-    };
 
     const handleCLI = () => {
         copyToClipboard(
@@ -52,11 +47,17 @@ export function CopyWrapper({
                 <button
                     type="button"
                     onClick={handleCLI}
-                    className="inline-flex items-center ml-2 px-3 py-2 text-sm rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+                    className="inline-flex items-center px-3 py-2 text-sm rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700"
                 >
                     <Terminal className="w-4 h-4" />
                 </button>
-                {!showTerminalOnly && <CopyButton onClick={handleCopy} />}
+                <button
+                    type="button"
+                    onClick={() => setShowCode(!showCode)}
+                    className="inline-flex items-center px-3 py-2 text-sm rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+                >
+                    <Code className="w-4 h-4" />
+                </button>
             </div>
             <AnimatePresence>
                 <CopyOverlay show={showOverlay} />

@@ -105,7 +105,7 @@ export default function DocsPage() {
                         <CodeBlock
                             language="bash"
                             showPackageManager
-                            code={`shadcn@latest add ${prePath}/r/alert-01.json`}
+                            code={`shadcn@latest add ${prePath}/r/alert-02.json`}
                         />
                         <p className="text-base leading-7 text-zinc-600 dark:text-zinc-300">
                             The component will be added to the components folder
