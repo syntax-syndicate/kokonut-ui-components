@@ -7,6 +7,7 @@ import { Header } from "@/components/landing/header";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/layout/footer";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
+import { ViewTransitions } from "next-view-transitions";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -55,28 +56,30 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
-            <body
-                className={cn(
-                    geistSans.variable,
-                    geistSans.className,
-                    "antialiased"
-                )}
-            >
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
+        <ViewTransitions>
+            <html lang="en" suppressHydrationWarning>
+                <body
+                    className={cn(
+                        geistSans.variable,
+                        geistSans.className,
+                        "antialiased"
+                    )}
                 >
-                    <div className="flex flex-col min-h-screen">
-                        <Header />
-                        <div className="flex-1">{children}</div>
-                        <Footer />
-                    </div>
-                </ThemeProvider>
-                <Analytics />
-            </body>
-        </html>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <div className="flex flex-col min-h-screen">
+                            <Header />
+                            <div className="flex-1">{children}</div>
+                            <Footer />
+                        </div>
+                    </ThemeProvider>
+                    <Analytics />
+                </body>
+            </html>
+        </ViewTransitions>
     );
 }

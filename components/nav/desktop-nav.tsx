@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { NavSection } from "@/config/navigation";
+import { Link } from "next-view-transitions";
 
 interface DesktopNavProps {
     sections: NavSection[];
