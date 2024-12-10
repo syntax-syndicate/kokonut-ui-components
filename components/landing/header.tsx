@@ -9,7 +9,7 @@ export async function Header() {
         "https://api.github.com/repos/kokonut-labs/kokonutui",
         {
             next: {
-                revalidate: 60,
+                revalidate: 3600,
             },
         }
     )
