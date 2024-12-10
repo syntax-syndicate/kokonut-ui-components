@@ -1,0 +1,30 @@
+{
+    "redirects": [
+      {
+        "source": "https://www.kokonut.dev",
+        "destination": "https://kokonutui.com",
+        "permanent": true
+      },
+      {
+        "source": "https://kokonut.dev",
+        "destination": "https://kokonutui.com",
+        "permanent": true
+      },
+      {
+        "source": "http://www.kokonut.dev",
+        "destination": "https://kokonutui.com",
+        "permanent": true
+      },
+      {
+        "source": "http://kokonut.dev",
+        "destination": "https://kokonutui.com",
+        "permanent": true
+      },
+      {
+        "source": "/(.*)", 
+        "destination": "https://kokonutui.com", 
+        "permanent": true
+      }
+    ]
+  }
+  
