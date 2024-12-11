@@ -32,7 +32,7 @@ export function Footer() {
         <footer className="border-t border-zinc-200 dark:border-zinc-800">
             <div className="mx-auto max-w-7xl px-4 py-6">
                 <h3 className="text-sm font-semibold text-zinc-900 dark:text-white mb-6">
-                    More from Dorian Baffier
+                    More from Me 👋
                 </h3>
                 <div className="flex flex-col sm:flex-row gap-6">
                     <div className="flex flex-col gap-4 sm:w-48">
