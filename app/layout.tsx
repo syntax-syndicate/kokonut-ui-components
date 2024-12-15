@@ -7,7 +7,6 @@ import { Header } from "@/components/landing/header";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/layout/footer";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
-import { WelcomeAlert } from "@/components/welcome-alert";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -75,7 +74,6 @@ export default function RootLayout({
                         <div className="flex-1">{children}</div>
                         <Footer />
                     </div>
-                    <WelcomeAlert />
                 </ThemeProvider>
                 <Analytics />
             </body>
