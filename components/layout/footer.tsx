@@ -18,13 +18,7 @@ export function Footer() {
             text: "KokonutUI",
             description: "Beautiful UI components for React",
             icon: "/logo.svg",
-            iconDark: "/logo-black.svg"
-        },
-        {
-            href: "https://invoicepdf.dev",
-            text: "InvoicePDF",
-            description: "Beautiful PDF invoices in seconds",
-            icon: "https://invoicepdf.dev/icon.png"
+            iconDark: "/logo-black.svg",
         },
     ];
 
@@ -56,7 +50,7 @@ export function Footer() {
                         </Link>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
-                        {projectLinks.map((project) => (
+                        {projectLinks.map((project) =>
                             project.href ? (
                                 <Link
                                     key={project.text}
@@ -88,7 +82,9 @@ export function Footer() {
                                 >
                                     <div className="flex items-center gap-2">
                                         <Image
-                                            src={project.iconDark || project.icon}
+                                            src={
+                                                project.iconDark || project.icon
+                                            }
                                             alt={`${project.text} icon`}
                                             width={20}
                                             height={20}
@@ -112,7 +108,7 @@ export function Footer() {
                                     </p>
                                 </div>
                             )
-                        ))}
+                        )}
                     </div>
                 </div>
             </div>
