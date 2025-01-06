@@ -6,7 +6,7 @@ import { ComponentShowcaseCard } from "@/components/landing/component-showcase-c
 import { CarouselWrapper } from "@/components/landing/carousel-wrapper";
 import { cn } from "@/lib/utils";
 import { EndPage } from "@/components/end";
-import { ShowcaseSection } from "@/components/landing/showcase";
+// import { ShowcaseSection } from "@/components/landing/showcase";
 
 const CARD_BASE_CLASSES = cn(
     "p-8 rounded-3xl",
@@ -17,11 +17,6 @@ const CARD_BASE_CLASSES = cn(
 export default function Home() {
     return (
         <main className="bg-white dark:bg-black/5 overflow-x-hidden">
-            <p className="pt-16 text-sm text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-2 opacity-80">
-                <PartyPopper className="w-4 h-4" />
-                New components added weekly
-            </p>
-
             <div className="pt-4">
                 <div className="grid grid-rows-[auto_1fr_auto] min-h-screen px-4 pb-4 sm:pb-20 gap-4 sm:gap-12 sm:p-16">
                     <HeroSection />
@@ -47,7 +42,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <ShowcaseSection />
+            {/* <ShowcaseSection /> */}
             <EndPage />
         </main>
     );

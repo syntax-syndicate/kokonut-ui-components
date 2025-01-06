@@ -8,6 +8,7 @@ import Input_07 from "@/components/kokonutui/input-07";
 import Input_08 from "@/components/kokonutui/input-08";
 import Input_09 from "@/components/kokonutui/input-09";
 import Input_10 from "@/components/kokonutui/input-10";
+
 import { createComponentPage } from "@/components/page-builder";
 import type { PageConfig } from "@/types/component-page";
 

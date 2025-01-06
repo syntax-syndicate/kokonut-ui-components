@@ -1,6 +1,8 @@
 import Input_10 from "@/components/kokonutui/input-10";
 import Alert04 from "@/components/kokonutui/alert-04";
 import Input_08 from "@/components/kokonutui/input-08";
+import { Btn12 } from "../kokonutui/button/btn-12";
+import { Btn13 } from "../kokonutui/button/btn-13";
 
 interface ComponentShowcaseCardProps {
     className: string;
@@ -20,6 +22,15 @@ export function ComponentShowcaseCard({
                     {[
                         { component: <Input_10 />, label: "Input 10" },
                         { component: <Alert04 />, label: "Alert 04" },
+                        {
+                            component: (
+                                <div className="w-full flex justify-center gap-4">
+                                    <Btn13 className="w-full" label="Welcome" />
+                                    <Btn12 className="w-full" label="Button" />
+                                </div>
+                            ),
+                            label: "Welcome",
+                        },
                     ].map((btn, index) => (
                         <div
                             key={index}

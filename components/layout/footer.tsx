@@ -9,16 +9,25 @@ interface ProjectLink {
     description: string;
     icon: string;
     iconDark?: string;
+    isNew?: boolean;
 }
 
 export function Footer() {
     const projectLinks: ProjectLink[] = [
+        // {
+        //     href: null,
+        //     text: "KokonutUI",
+        //     description: "Beautiful UI components for Free",
+        //     icon: "/logo.svg",
+        //     iconDark: "/logo-black.svg",
+        // },
         {
-            href: null,
-            text: "KokonutUI",
-            description: "Beautiful UI components for React",
+            href: "https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=footer",
+            text: "KokonutUI - PRO",
+            description: "Premium UI Components to ship apps faster",
             icon: "/logo.svg",
             iconDark: "/logo-black.svg",
+            isNew: true,
         },
     ];
 
@@ -57,8 +66,13 @@ export function Footer() {
                                     href={project.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"
+                                    className="group relative p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"
                                 >
+                                    {project.isNew && (
+                                        <span className="absolute -top-2 -right-2 px-2 py-0.5 text-[10px] font-medium bg-amber-500 text-white rounded-full">
+                                            New
+                                        </span>
+                                    )}
                                     <div className="flex items-center gap-2">
                                         <Image
                                             src={project.icon}

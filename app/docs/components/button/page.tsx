@@ -9,12 +9,14 @@ import Btn08 from "@/components/kokonutui/btn-08";
 import Btn09 from "@/components/kokonutui/btn-09";
 import Btn10 from "@/components/kokonutui/btn-10";
 import Btn11 from "@/components/kokonutui/btn-11";
+import { Btn12 } from "@/components/kokonutui/btn-12";
 
 import { createComponentPage } from "@/components/page-builder";
 import { Command } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import type { PageConfig } from "@/types/component-page";
+import { Btn13 } from "@/components/kokonutui/btn-13";
 
 const BUTTONS_CONFIG: PageConfig = {
     title: "Buttons",
@@ -26,42 +28,42 @@ const BUTTONS_CONFIG: PageConfig = {
     components: [
         {
             id: 1,
-            title: "Basic",
-            component: <Btn01 />,
-            fileName: "btn-01.tsx",
+            title: "Fancy",
+            component: <Btn12 />,
+            fileName: "btn-12.tsx",
         },
         {
             id: 2,
-            title: "Basic 2",
-            component: <Btn02 />,
-            fileName: "btn-02.tsx",
-        },
-        {
-            id: 3,
             title: "Attract",
             component: <Btn03 />,
             fileName: "btn-03.tsx",
             dependencies: ["Framer Motion"],
         },
         {
-            id: 4,
+            id: 3,
             title: "Cursor Blob",
             component: <Btn04 />,
             fileName: "btn-04.tsx",
             dependencies: ["Framer Motion"],
         },
         {
-            id: 5,
+            id: 4,
             title: "Hold to Action",
             component: <Btn_05 />,
             fileName: "btn-05.tsx",
             dependencies: ["Framer Motion"],
         },
         {
-            id: 6,
+            id: 5,
             title: "Copy",
             component: <Btn06 textToCopy="Hello, world!" />,
             fileName: "btn-06.tsx",
+        },
+        {
+            id: 6,
+            title: "Welcome",
+            component: <Btn13 />,
+            fileName: "btn-13.tsx",
         },
         {
             id: 7,
