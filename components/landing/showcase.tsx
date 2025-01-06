@@ -46,7 +46,7 @@ export function ShowcaseSection() {
                 </div>
 
                 <img
-                    src="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/demo-MKvQPGOuFCth4EE5FrmMUbxH59Vbze.png"
+                    src="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/Screenshot%202025-01-06%20at%2011.53.17%E2%80%AFAM-cjYGbgucRv0EPwuOF2VdsvMIUDrERS.png"
                     alt="KokonutUI Screenshot"
                     className="w-full sm:w-[80%] h-[300px] sm:h-[650px] mx-auto object-cover rounded-lg shadow-xl hover:shadow-2xl hover:shadow-zinc-900/20 dark:hover:shadow-zinc-100/10 transition-all duration-200"
                     width={800}
