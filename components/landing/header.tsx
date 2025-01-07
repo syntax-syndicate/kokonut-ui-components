@@ -63,9 +63,9 @@ export async function Header() {
                                         kokonutUI
                                     </span>
                                 </Link>
-                                <span className="text-xs font-medium px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-200">
+                                {/* <span className="text-xs font-medium px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-200">
                                     Beta
-                                </span>
+                                </span> */}
                             </div>
 
                             <div className="flex items-center gap-3">
