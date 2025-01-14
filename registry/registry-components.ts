@@ -433,6 +433,18 @@ export const component: Registry = [
         ],
     },
     {
+        name: "btn-15",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button"],
+        files: [
+            {
+                path: "components/kokonutui/button/btn-15.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
         name: "text-01",
         type: "registry:component",
         dependencies: [],
