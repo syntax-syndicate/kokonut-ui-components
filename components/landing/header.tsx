@@ -54,8 +54,8 @@ export function Header() {
                     `}
                     >
                         <div className="relative z-10 flex items-center justify-between w-full gap-2">
-                            {/* Logo Section - Keep logo only */}
-                            <div className="flex items-center">
+                            {/* Logo Section with Navigation Links */}
+                            <div className="flex items-center gap-6">
                                 <Link
                                     href="/"
                                     className="flex items-center gap-2"
@@ -78,9 +78,32 @@ export function Header() {
                                         kokonutUI
                                     </span>
                                 </Link>
+                                <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                                {/* Desktop Navigation Links */}
+                                <div className="hidden sm:flex items-center gap-4">
+                                    <Link
+                                        href="/docs"
+                                        className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                                    >
+                                        Docs
+                                    </Link>
+                                    <Link
+                                        href="/docs/components/button"
+                                        className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                                    >
+                                        Components
+                                    </Link>
+                                </div>
                             </div>
 
-                            {/* Mobile Navigation */}
+                            {/* Right side items */}
+                            <div className="hidden sm:flex items-center gap-3">
+                                <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                                <HeaderPro />
+                                <ThemeToggle />
+                            </div>
+
+                            {/* Mobile Navigation remains unchanged */}
                             <div className="flex sm:hidden items-center gap-4">
                                 <Link
                                     href="/docs"
@@ -94,15 +117,6 @@ export function Header() {
                                 >
                                     Components
                                 </Link>
-                                <ThemeToggle />
-                            </div>
-
-                            {/* Desktop Navigation - hidden on mobile */}
-                            <div className="hidden sm:flex items-center gap-3">
-                                <span className="text-zinc-300 dark:text-zinc-700">
-                                    |
-                                </span>
-                                <HeaderPro />
                                 <ThemeToggle />
                             </div>
                         </div>
