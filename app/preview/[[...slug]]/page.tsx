@@ -3,20 +3,17 @@ import dynamic from "next/dynamic";
 
 // Arrays to categorize components
 const CENTERED_COMPONENTS = [
-    "auth",
-    "banner",
-    "button",
-    "modal",
+    "alert",
     "ai-input",
-    "ai-chat",
-    "ai-message",
+    "button",
     "card",
-    "ai-card",
+    "faq",
     "input",
-    "form",
-    "headline",
-    "motion-button",
-    "motion-list",
+    "list",
+    "pricing",
+    "profile",
+    "text",
+    "checkout"
     // Add more small components here
 ];
 
