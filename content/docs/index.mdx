@@ -34,20 +34,30 @@ For exemple to add `alert-02` to your project, it will be easy as:
 <Tabs items={["bun", "npx", "pnpm"]}>
  
 ```bash tab="bun"
-bunx shadcn@latest add https://kokonutui.com/r/alert-02.json
+bunx shadcn@latest add https://kokonutui.com/r/card-05.json
 ```
  
 ```bash tab="npx"
-npx shadcn@latest add https://kokonutui.com/r/alert-02.json
+npx shadcn@latest add https://kokonutui.com/r/card-05.json
 ```
 
 ```bash tab="pnpm"
-pnpm dlx shadcn@latest add https://kokonutui.com/r/alert-02.json
+pnpm dlx shadcn@latest add https://kokonutui.com/r/card-05.json
 ```
 
 </Tabs>
 
 *While we provide a convenient 'copy' button for the code, we strongly recommend using the CLI for installing components, as it ensures all necessary files are included.*
+
+Add to your page and it works!
+```jsx
+import Card05 from "@/components/kokonutui/card-05";
+
+export default function Page() {
+    return <Card05 />
+}
+
+```
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 

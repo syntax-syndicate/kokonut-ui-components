@@ -1,18 +1,30 @@
 import { Activity, Heart, Flame, Timer } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const colorVariants = {
+    rose: "text-rose-500",
+    green: "text-green-500",
+    blue: "text-blue-500"
+} as const;
+
+const bgColorVariants = {
+    rose: "bg-rose-500",
+    green: "bg-green-500",
+    blue: "bg-blue-500"
+} as const;
+
 interface Card05Props {
     metrics?: {
         label: string;
         value: string;
         icon: JSX.Element;
-        color: string;
+        color: keyof typeof colorVariants;
         progress: number;
     }[];
     goals?: {
         title: string;
         progress: number;
-        color: string;
+        color: keyof typeof colorVariants;
     }[];
 }
 
@@ -100,7 +112,7 @@ export default function Card05({
                                     >
                                         <circle
                                             className={cn(
-                                                `text-${metric.color}-500`,
+                                                colorVariants[metric.color],
                                                 "stroke-current",
                                                 "transition-all duration-500"
                                             )}
@@ -133,7 +145,7 @@ export default function Card05({
                                     "ring-zinc-200 dark:ring-white/10",
                                     "backdrop-blur-sm"
                                 )}>
-                                    <div className={`text-${metric.color}-500`}>
+                                    <div className={colorVariants[metric.color]}>
                                         {metric.icon}
                                     </div>
                                     <span className="text-sm text-zinc-600 dark:text-zinc-300">
@@ -160,7 +172,7 @@ export default function Card05({
                                     <div
                                         className={cn(
                                             "h-full rounded-full",
-                                            `bg-${goal.color}-500`,
+                                            bgColorVariants[goal.color],
                                             "transition-all duration-500"
                                         )}
                                         style={{ width: `${goal.progress}%` }}
