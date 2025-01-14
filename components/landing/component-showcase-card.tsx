@@ -1,8 +1,8 @@
-import Input_10 from "@/components/kokonutui/input-10";
-import Alert04 from "@/components/kokonutui/alert-04";
-import Input_08 from "@/components/kokonutui/input-08";
-import { Btn12 } from "../kokonutui/button/btn-12";
-import { Btn13 } from "../kokonutui/button/btn-13";
+import Input_10 from "@/components/kokonutui/input/input-10";
+import Alert04 from "@/components/kokonutui/alert/alert-04";
+import Input_08 from "@/components/kokonutui/input/input-08";
+import Btn12 from "@/components/kokonutui/button/btn-12";
+import Btn13 from "@/components/kokonutui/button/btn-13";
 
 interface ComponentShowcaseCardProps {
     className: string;

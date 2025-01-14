@@ -1,173 +1,184 @@
-import {
-    Activity,
-    ArrowUpRight,
-    Plus,
-    Target,
-    CheckCircle2,
-} from "lucide-react";
-import Link from "next/link";
+import { Activity, Heart, Flame, Timer } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface Card05Props {
-    category?: string;
-    title?: string;
-    description?: string;
     metrics?: {
         label: string;
         value: string;
-        trend?: number;
+        icon: JSX.Element;
+        color: string;
+        progress: number;
     }[];
-    accentColor?: string;
-    href?: string;
-    dailyGoals?: {
+    goals?: {
         title: string;
-        isCompleted: boolean;
+        progress: number;
+        color: string;
     }[];
 }
 
-export default function Card_05({
-    category = "Activity",
-    title = "Today's Progress",
+export default function Card05({
     metrics = [
-        { label: "Move", value: "420", trend: 85 }, // value in calories
-        { label: "Exercise", value: "35", trend: 70 }, // value in minutes
-        { label: "Stand", value: "10", trend: 83 }, // value in hours
+        {
+            label: "Move",
+            value: "486",
+            icon: <Flame className="w-4 h-4" />,
+            color: "rose",
+            progress: 85,
+        },
+        {
+            label: "Exercise",
+            value: "48",
+            icon: <Timer className="w-4 h-4" />,
+            color: "green",
+            progress: 92,
+        },
+        {
+            label: "Heart",
+            value: "72",
+            icon: <Heart className="w-4 h-4" />,
+            color: "blue",
+            progress: 78,
+        },
     ],
-    dailyGoals = [
-        { title: "30min Morning Yoga", isCompleted: true },
-        { title: "10k Steps", isCompleted: false },
-        { title: "Drink 2L Water", isCompleted: true },
+    goals = [
+        { title: "Daily Move Goal", progress: 85, color: "rose" },
+        { title: "Exercise Time", progress: 92, color: "green" },
+        { title: "Stand Hours", progress: 75, color: "blue" },
     ],
 }: Card05Props) {
     return (
-        <div
-            className="relative h-full rounded-3xl p-6
-            bg-white dark:bg-black/5 
-            border border-zinc-200 dark:border-zinc-800
-            hover:border-zinc-300 dark:hover:border-zinc-700
-            transition-all duration-300"
-        >
-            {/* Header */}
-            <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800/50">
-                    <Activity className="w-5 h-5 text-[#FF2D55]" />
-                </div>
-                <div>
-                    <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
-                        {title}
-                    </h3>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                        {category}
-                    </p>
-                </div>
-            </div>
+        <div className="w-full max-w-sm mx-auto">
+            <div className={cn(
+                "relative overflow-hidden",
+                "bg-white dark:bg-black",
+                "rounded-[2.5rem]",
+                "transition-all duration-300",
+                "hover:shadow-2xl",
+                "hover:shadow-zinc-200/50 dark:hover:shadow-zinc-900/30",
+                "border border-zinc-200 dark:border-zinc-800"
+            )}>
+                <div className="p-8">
+                    {/* Header */}
+                    <div className="flex items-center gap-3 mb-8">
+                        <div className={cn(
+                            "p-2.5 rounded-2xl",
+                            "bg-zinc-100 dark:bg-zinc-800",
+                            "ring-1",
+                            "ring-zinc-200 dark:ring-white/10"
+                        )}>
+                            <Activity className="w-5 h-5 text-zinc-900 dark:text-white" />
+                        </div>
+                        <div>
+                            <h3 className="text-lg font-medium text-zinc-900 dark:text-white">
+                                Activity
+                            </h3>
+                            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                                Today's Progress
+                            </p>
+                        </div>
+                    </div>
 
-            {/* Metrics Rings */}
-            <div className="grid grid-cols-3 gap-4">
-                {metrics.map((metric, index) => {
-                    const colors = ["#FF2D55", "#2CD758", "#007AFF"];
-                    return (
-                        <div
-                            key={metric.label}
-                            className="relative flex flex-col items-center"
-                        >
-                            <div className="relative w-24 h-24">
-                                {/* Background Ring */}
-                                <div className="absolute inset-0 rounded-full border-4 border-zinc-200 dark:border-zinc-800/50" />
-                                {/* Progress Ring */}
-                                <div
-                                    className="absolute inset-0 rounded-full border-4"
-                                    style={{
-                                        borderColor: colors[index],
-                                        clipPath: `polygon(0 0, 100% 0, 100% ${metric.trend}%, 0 ${metric.trend}%)`,
-                                    }}
-                                />
-                                {/* Center Content */}
-                                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                    <span className="text-xl font-bold text-zinc-900 dark:text-white">
-                                        {metric.value}
-                                    </span>
-                                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                                        {index === 0
-                                            ? "cal"
-                                            : index === 1
-                                            ? "min"
-                                            : "hrs"}
+                    {/* Metrics Rings */}
+                    <div className="grid grid-cols-3 gap-6 mb-8">
+                        {metrics.map((metric) => (
+                            <div
+                                key={metric.label}
+                                className="relative flex flex-col items-center"
+                            >
+                                <div className="relative w-20 h-20 mb-3">
+                                    {/* Background Ring */}
+                                    <div className={cn(
+                                        "absolute inset-0 rounded-full",
+                                        "border-[3px]",
+                                        "border-zinc-100 dark:border-zinc-800"
+                                    )} />
+                                    
+                                    {/* Progress Ring */}
+                                    <svg
+                                        className="absolute inset-0 w-full h-full -rotate-90"
+                                        viewBox="0 0 100 100"
+                                    >
+                                        <circle
+                                            className={cn(
+                                                `text-${metric.color}-500`,
+                                                "stroke-current",
+                                                "transition-all duration-500"
+                                            )}
+                                            cx="50"
+                                            cy="50"
+                                            r="48"
+                                            fill="none"
+                                            strokeWidth="4"
+                                            strokeLinecap="round"
+                                            strokeDasharray={`${metric.progress * 3}, 1000`}
+                                        />
+                                    </svg>
+
+                                    {/* Center Content */}
+                                    <div className={cn(
+                                        "absolute inset-0",
+                                        "flex flex-col items-center justify-center",
+                                        "text-zinc-900 dark:text-white"
+                                    )}>
+                                        <span className="text-xl font-semibold">
+                                            {metric.value}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className={cn(
+                                    "flex items-center gap-1.5",
+                                    "px-3 py-1.5 rounded-xl",
+                                    "bg-zinc-100/80 dark:bg-zinc-800/50",
+                                    "ring-1",
+                                    "ring-zinc-200 dark:ring-white/10",
+                                    "backdrop-blur-sm"
+                                )}>
+                                    <div className={`text-${metric.color}-500`}>
+                                        {metric.icon}
+                                    </div>
+                                    <span className="text-sm text-zinc-600 dark:text-zinc-300">
+                                        {metric.label}
                                     </span>
                                 </div>
                             </div>
-                            <span className="mt-3 text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                                {metric.label}
-                            </span>
-                            <span className="text-xs text-zinc-500">
-                                {metric.trend}%
-                            </span>
-                        </div>
-                    );
-                })}
-            </div>
-
-            {/* New Goals & Notes Section */}
-            <div className="mt-8 space-y-6">
-                {/* Section Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-zinc-800 to-transparent" />
-
-                {/* Daily Goals */}
-                <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                        <h4 className="flex items-center gap-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                            <Target className="w-4 h-4" />
-                            Today's Goals
-                        </h4>
-                        <button
-                            type="button"
-                            className="p-1.5 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-                        >
-                            <Plus className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
-                        </button>
+                        ))}
                     </div>
 
-                    <div className="space-y-2">
-                        {dailyGoals.map((goal) => (
-                            <div
-                                key={goal.title}
-                                className="flex items-center gap-3 p-3 rounded-xl
-                                    bg-zinc-50 dark:bg-zinc-900/50 
-                                    border border-zinc-200/50 dark:border-zinc-800/50
-                                    hover:border-zinc-300/50 dark:hover:border-zinc-700/50 
-                                    transition-all"
-                            >
-                                <CheckCircle2
-                                    className={`w-5 h-5 ${
-                                        goal.isCompleted
-                                            ? "text-emerald-500"
-                                            : "text-zinc-400 dark:text-zinc-600"
-                                    }`}
-                                />
-                                <span
-                                    className={`text-sm ${
-                                        goal.isCompleted
-                                            ? "text-zinc-500 dark:text-zinc-400 line-through"
-                                            : "text-zinc-700 dark:text-zinc-300"
-                                    }`}
-                                >
-                                    {goal.title}
-                                </span>
+                    {/* Goals Progress */}
+                    <div className="space-y-4">
+                        {goals.map((goal) => (
+                            <div key={goal.title} className="space-y-2">
+                                <div className="flex items-center justify-between text-sm">
+                                    <span className="text-zinc-500 dark:text-zinc-400">
+                                        {goal.title}
+                                    </span>
+                                    <span className="text-zinc-900 dark:text-white">
+                                        {goal.progress}%
+                                    </span>
+                                </div>
+                                <div className="h-1 rounded-full bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+                                    <div
+                                        className={cn(
+                                            "h-full rounded-full",
+                                            `bg-${goal.color}-500`,
+                                            "transition-all duration-500"
+                                        )}
+                                        style={{ width: `${goal.progress}%` }}
+                                    />
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
-                <div className="pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                    <Link
-                        href="#"
-                        className="inline-flex items-center gap-2 text-sm font-medium
-                                text-zinc-600 hover:text-zinc-900 
-                                dark:text-zinc-400 dark:hover:text-white
-                                transition-colors duration-200"
-                    >
-                        View Activity Details
-                        <ArrowUpRight className="w-4 h-4" />
-                    </Link>
-                </div>
+
+                {/* Glossy Overlay */}
+                <div className={cn(
+                    "absolute inset-0",
+                    "pointer-events-none",
+                    "bg-gradient-to-br",
+                    "from-white/10 to-transparent dark:from-white/5 dark:to-transparent",
+                    "rounded-[2.5rem]"
+                )} />
             </div>
         </div>
     );

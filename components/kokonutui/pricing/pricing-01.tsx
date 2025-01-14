@@ -1,259 +1,166 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Check, Sparkles, Zap, ArrowRight, ArrowDownToDot } from "lucide-react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import {
+    Check,
+    Sparkles,
+    ArrowRight,
+    Shield,
+    Zap,
+    Infinity,
+} from "lucide-react";
 
 interface Feature {
-    name: string;
-    description: string;
-    included: boolean;
-}
-
-interface PricingTier {
-    name: string;
-    price: {
-        monthly: number;
-        yearly: number;
-    };
-    description: string;
-    features: Feature[];
-    highlight?: boolean;
-    badge?: string;
     icon: React.ReactNode;
+    title: string;
+    description: string;
+    highlight?: boolean;
 }
 
-const defaultTiers: PricingTier[] = [
+const features: Feature[] = [
     {
-        name: "Starter",
-        price: {
-            monthly: 15,
-            yearly: 144,
-        },
-        description: "Perfect for individuals and small projects",
-        icon: (
-            <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-500/30 to-gray-500/30 blur-2xl rounded-full" />
-                <Zap className="w-7 h-7 relative z-10 text-gray-500 dark:text-gray-400 animate-[float_3s_ease-in-out_infinite]" />
-            </div>
-        ),
-        features: [
-            {
-                name: "Basic Analytics",
-                description: "Track essential metrics and user behavior",
-                included: true,
-            },
-            {
-                name: "5 Team Members",
-                description: "Collaborate with a small team",
-                included: true,
-            },
-            {
-                name: "Basic Support",
-                description: "Email support with 24h response time",
-                included: true,
-            },
-            {
-                name: "API Access",
-                description: "Limited API access for basic integrations",
-                included: false,
-            },
-        ],
+        icon: <Infinity className="w-4 h-4" />,
+        title: "Unlimited Projects",
+        description: "Create as many projects as you need",
+        highlight: true,
     },
     {
-        name: "Pro",
-        price: {
-            monthly: 49,
-            yearly: 470,
-        },
-        description: "Ideal for growing teams and businesses",
+        icon: <Shield className="w-4 h-4" />,
+        title: "Enterprise Security",
+        description: "Advanced security protocols & encryption",
+    },
+    {
+        icon: <Zap className="w-4 h-4" />,
+        title: "Priority Access",
+        description: "Early access to new features",
         highlight: true,
-        badge: "Most Popular",
-        icon: (
-            <div className="relative">
-                <ArrowDownToDot className="w-7 h-7 relative z-10" />
-            </div>
-        ),
-        features: [
-            {
-                name: "Advanced Analytics",
-                description: "Deep insights and custom reports",
-                included: true,
-            },
-            {
-                name: "Unlimited Team Members",
-                description: "Scale your team without limits",
-                included: true,
-            },
-            {
-                name: "Priority Support",
-                description: "24/7 priority email and chat support",
-                included: true,
-            },
-            {
-                name: "Full API Access",
-                description: "Complete API access with higher rate limits",
-                included: true,
-            },
-        ],
     },
 ];
 
-export default function Pricing_01({
-    tiers = defaultTiers,
-}: {
-    tiers?: PricingTier[];
-}) {
-    const [isYearly, setIsYearly] = useState(false);
+export default function Pricing_01() {
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div className="w-full max-w-5xl mx-auto px-4">
-            <div className="flex flex-col items-center gap-4 mb-12">
-                <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
-                    Simple, transparent pricing
-                </h2>
-                <div className="inline-flex items-center p-1.5 bg-white dark:bg-zinc-800/50 rounded-full border border-zinc-200 dark:border-zinc-700 shadow-sm">
-                    {["Monthly", "Yearly"].map((period) => (
-                        <button
-                            key={period}
-                            onClick={() => setIsYearly(period === "Yearly")}
-                            className={cn(
-                                "px-8 py-2.5 text-sm font-medium rounded-full transition-all duration-300",
-                                (period === "Yearly") === isYearly
-                                    ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-lg"
-                                    : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
-                            )}
-                        >
-                            {period}
-                        </button>
-                    ))}
-                </div>
-            </div>
+        <div className="w-full max-w-sm mx-auto">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={cn(
+                    "group relative overflow-hidden",
+                    "bg-white dark:bg-zinc-900",
+                    "border border-zinc-200 dark:border-zinc-800",
+                    "rounded-2xl transition-all duration-300",
+                    "hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]",
+                    "dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)]"
+                )}
+            >
+                {/* Ambient background effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-transparent" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {tiers.map((tier) => (
-                    <div
-                        key={tier.name}
-                        className={cn(
-                            "relative group backdrop-blur-sm",
-                            "rounded-3xl transition-all duration-300",
-                            "flex flex-col",
-                            tier.highlight
-                                ? "bg-gradient-to-b from-zinc-100/80 to-transparent dark:from-zinc-400/[0.15]"
-                                : "bg-white dark:bg-zinc-800/50",
-                            "border",
-                            tier.highlight
-                                ? "border-zinc-400/50 dark:border-zinc-400/20 shadow-xl"
-                                : "border-zinc-200 dark:border-zinc-700 shadow-md",
-                            "hover:translate-y-0 hover:shadow-lg"
-                        )}
-                    >
-                        {tier.badge && tier.highlight && (
-                            <div className="absolute -top-4 left-6">
-                                <Badge
-                                    className={cn(
-                                        "px-4 py-1.5 text-sm font-medium",
-                                        "bg-zinc-900 dark:bg-zinc-100",
-                                        "text-white dark:text-zinc-900 border-none shadow-lg"
-                                    )}
-                                >
-                                    {tier.badge}
-                                </Badge>
-                            </div>
-                        )}
-
-                        <div className="p-8 flex-1">
-                            <div className="flex items-center justify-between mb-4">
-                                <div
-                                    className={cn(
-                                        "p-3 rounded-xl",
-                                        tier.highlight
-                                            ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
-                                            : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
-                                    )}
-                                >
-                                    {tier.icon}
-                                </div>
-                                <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-                                    {tier.name}
-                                </h3>
-                            </div>
-
-                            <div className="mb-6">
-                                <div className="flex items-baseline gap-2">
-                                    <span className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">
-                                        $
-                                        {isYearly
-                                            ? tier.price.yearly
-                                            : tier.price.monthly}
-                                    </span>
-                                    <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                                        /{isYearly ? "year" : "month"}
-                                    </span>
-                                </div>
-                                <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                                    {tier.description}
-                                </p>
-                            </div>
-
-                            <div className="space-y-4">
-                                {tier.features.map((feature) => (
-                                    <div
-                                        key={feature.name}
-                                        className="flex gap-4"
-                                    >
-                                        <div
-                                            className={cn(
-                                                "mt-1 p-0.5 rounded-full transition-colors duration-200",
-                                                feature.included
-                                                    ? "text-emerald-600 dark:text-emerald-400"
-                                                    : "text-zinc-400 dark:text-zinc-600"
-                                            )}
-                                        >
-                                            <Check className="w-4 h-4" />
-                                        </div>
-                                        <div>
-                                            <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                                {feature.name}
-                                            </div>
-                                            <div className="text-sm text-zinc-500 dark:text-zinc-400">
-                                                {feature.description}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
+                {/* Header */}
+                <div className="relative p-6 flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800">
+                    <div className="flex items-center gap-3">
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-violet-500/20 blur-xl rounded-full" />
+                            <div className="relative w-10 h-10 rounded-full bg-violet-100 dark:bg-violet-900/20 flex items-center justify-center">
+                                <Sparkles className="w-5 h-5 text-violet-600 dark:text-violet-400" />
                             </div>
                         </div>
-
-                        <div className="p-8 pt-0 mt-auto">
-                            <Button
-                                className={cn(
-                                    "w-full relative transition-all duration-300",
-                                    tier.highlight
-                                        ? "h-12 bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-300 text-white dark:text-zinc-900 shadow-[0_1px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_1px_20px_rgba(0,0,0,0.15)] font-semibold text-base"
-                                        : "h-12 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 shadow-sm hover:shadow-md text-sm font-medium"
-                                )}
-                            >
-                                <span className="relative z-10 flex items-center justify-center gap-2">
-                                    {tier.highlight ? (
-                                        <>
-                                            Buy now
-                                            <ArrowRight className="w-4 h-4" />
-                                        </>
-                                    ) : (
-                                        <>
-                                            Get started
-                                            <ArrowRight className="w-4 h-4" />
-                                        </>
-                                    )}
-                                </span>
-                            </Button>
+                        <div>
+                            <h3 className="text-base font-medium text-zinc-900 dark:text-zinc-100">
+                                Enterprise Plan
+                            </h3>
+                            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                                For growing teams
+                            </p>
                         </div>
                     </div>
-                ))}
-            </div>
+                    <div className="px-3 py-1 text-xs font-medium bg-violet-100 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400 rounded-full">
+                        Popular
+                    </div>
+                </div>
+
+                {/* Pricing */}
+                <div className="relative p-6 border-b border-zinc-200 dark:border-zinc-800">
+                    <div className="flex items-baseline gap-1">
+                        <span className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+                            $49
+                        </span>
+                        <span className="text-sm text-zinc-500">/month</span>
+                    </div>
+                    <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+                        Everything you need to scale your business
+                    </p>
+                </div>
+
+                {/* Features */}
+                <div className="relative p-6 space-y-4">
+                    {features.map((feature, index) => (
+                        <motion.div
+                            key={feature.title}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className={cn(
+                                "flex items-start gap-3 p-3 rounded-xl transition-colors",
+                                feature.highlight &&
+                                    "bg-violet-50 dark:bg-violet-900/10"
+                            )}
+                        >
+                            <div
+                                className={cn(
+                                    "w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0",
+                                    feature.highlight
+                                        ? "bg-violet-100 dark:bg-violet-900/20"
+                                        : "bg-zinc-100 dark:bg-zinc-800"
+                                )}
+                            >
+                                {feature.icon}
+                            </div>
+                            <div>
+                                <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                    {feature.title}
+                                </h4>
+                                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                                    {feature.description}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* CTA */}
+                <div className="relative p-6 border-t border-zinc-200 dark:border-zinc-800">
+                    <motion.button
+                        onHoverStart={() => setIsHovered(true)}
+                        onHoverEnd={() => setIsHovered(false)}
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
+                        className={cn(
+                            "w-full h-11 flex items-center justify-center gap-2",
+                            "bg-zinc-900 dark:bg-white",
+                            "text-white dark:text-zinc-900",
+                            "text-sm font-medium",
+                            "rounded-lg transition-all duration-300",
+                            "hover:bg-zinc-800 dark:hover:bg-zinc-100"
+                        )}
+                    >
+                        Get started
+                        <motion.div
+                            animate={{ x: isHovered ? 4 : 0 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 10,
+                            }}
+                        >
+                            <ArrowRight className="w-4 h-4" />
+                        </motion.div>
+                    </motion.button>
+                </div>
+            </motion.div>
         </div>
     );
 }

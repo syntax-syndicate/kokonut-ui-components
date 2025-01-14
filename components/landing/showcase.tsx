@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Text02 from "@/components/kokonutui/text-02";
+import Text02 from "@/components/kokonutui/text/text-02";
 
 export function ShowcaseSection() {
     return (

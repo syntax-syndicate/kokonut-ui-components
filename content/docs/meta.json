@@ -1,0 +1,24 @@
+{
+    "title": "Components",
+    "description": "The headless library",
+    "icon": "Dna",
+    "root": true,
+    "defaultOpen": true,
+    "pages": [
+        "---Get Started---",
+        "index",
+        "---Components---",
+        "components/ai-input",
+        "components/alert",
+        "components/button",
+        "components/card",
+        "components/faq",
+        "components/input",
+        "components/list",
+        "components/pricing",
+        "components/profile",
+        "components/text",
+        "---Interactions---",
+        "components/checkout-interaction"
+    ]
+}

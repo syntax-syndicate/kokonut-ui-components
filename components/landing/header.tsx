@@ -1,27 +1,41 @@
 import { ThemeToggle } from "@/lib/theme-toggle";
-import { Github, Sparkles, Menu, ArrowRight, PartyPopper } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Suspense } from "react";
-import ButtonCta from "../button-cta";
 import { HeaderPro } from "./header-pro";
+import { ArrowUpRight } from "lucide-react";
+import { PartyPopper } from "lucide-react";
 
-export async function Header() {
-    const star = await fetch(
-        "https://api.github.com/repos/kokonut-labs/kokonutui",
-        {
-            next: {
-                revalidate: 3600,
-            },
-        }
-    )
-        .then((res) => res.json())
-        .then((data) => data.stargazers_count);
-
+export function Header() {
     return (
         <>
-            <HeaderPro />
-            <div className="sticky top-0 left-0 right-0 z-50">
+            <div className="sticky top-0 left-0 right-0 z-50 bg-white dark:bg-black/5">
+                {/* Mobile Pro Banner - Styled like desktop version */}
+                <div className="sm:hidden w-full p-2.5">
+                    <Link
+                        href="https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header"
+                        target="_blank"
+                        className="flex items-center justify-center gap-2"
+                    >
+                        <span className="flex items-center gap-2">
+                            <PartyPopper className="w-3.5 h-3.5" />
+                            <span className="text-transparent bg-gradient-to-r from-pink-500 via-indigo-500 to-purple-500 bg-clip-text font-semibold">
+                                Explore new components
+                            </span>
+                        </span>
+
+                        <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors">
+                            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-40 group-hover:opacity-80 blur transition-opacity duration-500" />
+                            <div className="relative">
+                                <span className="text-white dark:text-zinc-900">
+                                    KokonutUI Pro
+                                </span>
+                            </div>
+                            <ArrowUpRight className="relative w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" />
+                        </div>
+                    </Link>
+                </div>
+
                 <div className="flex items-center justify-center w-full flex-col">
                     <div
                         className={`
@@ -40,7 +54,8 @@ export async function Header() {
                     `}
                     >
                         <div className="relative z-10 flex items-center justify-between w-full gap-2">
-                            <div className="flex items-center gap-2">
+                            {/* Logo Section - Keep logo only */}
+                            <div className="flex items-center">
                                 <Link
                                     href="/"
                                     className="flex items-center gap-2"
@@ -63,65 +78,31 @@ export async function Header() {
                                         kokonutUI
                                     </span>
                                 </Link>
-                                {/* <span className="text-xs font-medium px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-200">
-                                    Beta
-                                </span> */}
                             </div>
 
-                            <div className="flex items-center gap-3">
-                                <div className="flex items-center gap-4">
-                                    <Link
-                                        href="/docs"
-                                        className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                                    >
-                                        Docs
-                                    </Link>
-                                    <Link
-                                        href="/docs/components/button"
-                                        className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                                    >
-                                        Components
-                                    </Link>
-                                    <span className="text-zinc-300 dark:text-zinc-700">
-                                        |
-                                    </span>
-                                </div>
-
+                            {/* Mobile Navigation */}
+                            <div className="flex sm:hidden items-center gap-4">
                                 <Link
-                                    href="https://github.com/kokonut-labs/kokonutui"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`
-                                        relative z-10
-                                        cursor-pointer
-                                        flex items-center gap-1
-                                        rounded-full
-                                        bg-white dark:bg-zinc-900
-                                        hover:bg-zinc-100 dark:hover:bg-zinc-800
-                                        ring-1 ring-zinc-200 dark:ring-zinc-800
-                                        hover:ring-zinc-300 dark:hover:ring-zinc-700
-                                        text-zinc-900 dark:text-white
-                                        px-3 h-7
-                                        transition-all duration-300 ease-in-out
-                                        shadow-[0_2px_8px_-2px_rgba(0,0,0,0.12)]
-                                        group justify-center
-                                    `}
+                                    href="/docs"
+                                    className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                                 >
-                                    <Github className="w-4 h-4 group-hover:rotate-12" />
-                                    <span className="hidden sm:inline text-sm font-medium">
-                                        Star
-                                    </span>
-                                    <span className="hidden md:block text-sm font-medium">
-                                        on Github
-                                    </span>
-                                    <span className="hidden sm:inline">|</span>
-                                    <Sparkles className="hidden sm:block w-3.5 h-3.5" />
-                                    <Suspense fallback={null}>
-                                        <span className="hidden sm:inline text-sm font-medium">
-                                            {star}
-                                        </span>
-                                    </Suspense>
+                                    Docs
                                 </Link>
+                                <Link
+                                    href="/docs/components/button"
+                                    className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                                >
+                                    Components
+                                </Link>
+                                <ThemeToggle />
+                            </div>
+
+                            {/* Desktop Navigation - hidden on mobile */}
+                            <div className="hidden sm:flex items-center gap-3">
+                                <span className="text-zinc-300 dark:text-zinc-700">
+                                    |
+                                </span>
+                                <HeaderPro />
                                 <ThemeToggle />
                             </div>
                         </div>

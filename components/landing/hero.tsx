@@ -1,41 +1,93 @@
-import { CommandRotator } from "@/components/command-rotator";
-import { BrowseComponentsButton } from "@/components/ui/browse-button";
-import Arrow25 from "@/components/icons/arrow25";
+"use client";
 
-const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
+import { BrowseComponentsButton } from "@/components/ui/browse-button";
+import FeatureBlock from "./feature-block";
+import { motion } from "framer-motion";
+import AIInput_04 from "../kokonutui/ai-input/ai-input-04";
+import Card08 from "../kokonutui/card/card-08";
+import Btn03 from "../kokonutui/button/btn-03";
+import Input09 from "../kokonutui/input/input-09";
+import Btn13 from "../kokonutui/button/btn-13";
+import { useRouter } from "next/navigation";
 
 export function HeroSection() {
+    const router = useRouter();
+
     return (
-        <div className="space-y-6 text-center md:pt-4 my-12">
-            <div className="inline-block">
-                <h1 className="text-4xl sm:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
-                    Copy, Paste, Customize.
-                </h1>
-                <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
-            </div>
-
-            <div className="relative">
-                <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-                    A collection of modern, interactive, customizable UI
-                    components.
-                </p>
-                <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0 hidden sm:block">
-                    Quick and easy to use.
-                    <Arrow25 className="inline-block ml-1 w-6 h-6 align-middle mt-1" />
-                </p>
-            </div>
-
-            <div className="items-center justify-center gap-2 mt-8 hidden sm:flex">
-                <div className="relative group">
-                    <CommandRotator prePath={prePath} />
-                    <div className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
+        <div className="container mx-auto min-h-screen flex flex-col lg:flex-row justify-center items-center gap-12 px-4 pt-16 sm:pt-24 lg:pt-0">
+            {/* Left side - Title and CTA */}
+            <div className="flex flex-col items-start text-left space-y-8 sm:space-y-12 w-full lg:w-1/2">
+                <div className="max-w-2xl">
+                    <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
+                        Craft{" "}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-400">
+                            stunning
+                        </span>{" "}
+                        interfaces <br />
+                        without breaking a sweat
+                    </h1>
+                    <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
                 </div>
+
+                <BrowseComponentsButton />
+                <FeatureBlock />
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-2">
-                <BrowseComponentsButton />
+            {/* Right side - Updated Components Layout */}
+            <div className="w-full lg:w-1/2 min-h-[600px] flex flex-col justify-between p-4 gap-8">
+                {/* Top AI Component */}
+                <motion.div
+                    initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full flex flex-col gap-2 items-center justify-start"
+                >
+                    <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                        AI Components
+                    </span>
+                    <AIInput_04 />
+                </motion.div>
+
+                {/* Bottom components container - Updated for mobile */}
+                <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-1">
+                    {/* Left column */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20, scale: 0.95 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="w-full"
+                    >
+                        <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+                            Card
+                        </span>
+                        <div className="flex flex-col gap-1 items-center justify-start">
+                            <Card08 />
+                        </div>
+                    </motion.div>
+
+                    {/* Right column */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="w-full"
+                    >
+                        <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+                            Button, Inputs & More
+                        </span>
+                        <div className="flex flex-col gap-1 items-center justify-start">
+                            <div className="flex flex-col gap-3">
+                                <Btn13
+                                    label="Get Started"
+                                    className="w-full"
+                                    onClick={() => router.push("/docs")}
+                                />
+                                <Btn03 />
+                            </div>
+                            <Input09 />
+                        </div>
+                    </motion.div>
+                </div>
             </div>
         </div>
     );

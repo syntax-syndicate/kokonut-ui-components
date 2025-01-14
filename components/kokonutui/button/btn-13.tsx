@@ -7,7 +7,7 @@ interface Btn13Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
 }
 
-export function Btn13({
+export default function Btn13({
     label = "Welcome",
     className,
     ...props

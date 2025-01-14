@@ -1,12 +1,18 @@
 import type { Config } from "tailwindcss";
+import { createPreset } from "fumadocs-ui/tailwind-plugin";
+
+
+
 
 const config: Config = {
     content: [
+        "./node_modules/fumadocs-ui/dist/**/*.js",
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
         "./lib/**/*.{js,ts,jsx,tsx,mdx}",
     ],
+    presets: [createPreset({ preset: "neutral" })],
     darkMode: ["class"],
     theme: {
         extend: {
@@ -32,6 +38,10 @@ const config: Config = {
                 sm: "calc(var(--radius) - 4px)",
             },
             keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
                 "accordion-down": {
                     from: {
                         height: "0",
@@ -52,6 +62,7 @@ const config: Config = {
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
+                'float-slow': 'float 8s ease-in-out infinite',
             },
         },
     },

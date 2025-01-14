@@ -70,16 +70,3 @@ table {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
-
-@layer utilities {
-  .gpu-accelerated {
-      transform: translateZ(0);
-      will-change: transform;
-      backface-visibility: hidden;
-  }
-  
-  .content-visibility-auto {
-      content-visibility: auto;
-      contain-intrinsic-size: 0 500px;
-  }
-}

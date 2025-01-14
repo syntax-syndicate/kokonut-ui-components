@@ -7,6 +7,7 @@ import { Header } from "@/components/landing/header";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/layout/footer";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
+import { RootProvider } from "fumadocs-ui/provider";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -63,18 +64,19 @@ export default function RootLayout({
                     "antialiased"
                 )}
             >
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    <div className="flex flex-col min-h-screen">
-                        <Header />
-                        <div className="flex-1">{children}</div>
-                        <Footer />
-                    </div>
-                </ThemeProvider>
+                <RootProvider>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <div className="flex flex-col min-h-screen">
+                            <div className="flex-1">{children}</div>
+                            <Footer />
+                        </div>
+                    </ThemeProvider>
+                </RootProvider>
                 <Analytics />
             </body>
         </html>

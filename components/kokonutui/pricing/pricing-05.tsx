@@ -1,163 +1,114 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Sparkles, Sword, Trophy, Zap, Crown } from "lucide-react";
+import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-interface Feature {
-    name: string;
-    description: string;
-    icon: React.ReactNode;
-}
 
 interface PricingTier {
     name: string;
     price: number;
     description: string;
-    features: Feature[];
+    features: string[];
     highlight?: boolean;
-    icon: React.ReactNode;
 }
 
 const defaultTiers: PricingTier[] = [
     {
-        name: "Rookie Warrior",
-        price: 0.99,
-        description: "Start your epic adventure with starter gear",
-        icon: <Sword className="w-6 h-6 text-emerald-500" />,
+        name: "Basic",
+        price: 9,
+        description: "Essential features for small teams",
         features: [
-            {
-                name: "Basic Battle Pass",
-                description: "Access to starter dungeons and quests",
-                icon: <Zap className="w-5 h-5 text-emerald-500" />,
-            },
-            {
-                name: "Rookie Achievements",
-                description: "Unlock starter badges and titles",
-                icon: <Trophy className="w-5 h-5 text-emerald-500" />,
-            },
-            {
-                name: "Daily Missions",
-                description: "3 daily quests with basic loot",
-                icon: <Sparkles className="w-5 h-5 text-emerald-500" />,
-            },
+            "5 Team Members",
+            "Basic Analytics",
+            "Community Support",
+            "1GB Storage",
         ],
     },
     {
-        name: "Legendary Hero",
-        price: 4.99,
-        description: "Become a legend with premium gear and powers",
+        name: "Pro",
+        price: 29,
+        description: "Everything you need to scale",
         highlight: true,
-        icon: <Crown className="w-6 h-6 text-emerald-500" />,
         features: [
-            {
-                name: "Premium Battle Pass",
-                description: "Access all dungeons & exclusive raids",
-                icon: <Zap className="w-5 h-5 text-emerald-500" />,
-            },
-            {
-                name: "Legendary Collection",
-                description: "Rare badges & exclusive titles",
-                icon: <Trophy className="w-5 h-5 text-emerald-500" />,
-            },
-            {
-                name: "Epic Quest Line",
-                description: "10 daily quests with legendary loot",
-                icon: <Sparkles className="w-5 h-5 text-emerald-500" />,
-            },
-            {
-                name: "Hero's Privileges",
-                description: "Priority matchmaking & custom gear",
-                icon: <Crown className="w-5 h-5 text-emerald-500" />,
-            },
+            "Unlimited Members",
+            "Advanced Analytics",
+            "Priority Support",
+            "Unlimited Storage",
+            "Custom Integrations",
         ],
     },
 ];
 
 export default function Pricing_05() {
     return (
-        <div className="w-full max-w-5xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="w-full max-w-3xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {defaultTiers.map((tier) => (
                     <div
                         key={tier.name}
                         className={cn(
-                            "rounded-xl border-2 p-8",
-                            "transition-all duration-300 ease-in-out",
-                            "hover:scale-[1.02] hover:shadow-xl",
-                            "dark:bg-slate-900/50 bg-white/50",
-                            "backdrop-blur-sm",
-                            tier.highlight
-                                ? "border-emerald-500 shadow-lg shadow-emerald-500/20"
-                                : "border-emerald-200 dark:border-emerald-800/50"
+                            "relative",
+                            "bg-white dark:bg-black",
+                            "border border-zinc-200 dark:border-zinc-800",
+                            "rounded-lg overflow-hidden",
+                            tier.highlight && [
+                                "before:absolute before:inset-0",
+                                "before:border before:border-black dark:before:border-white",
+                                "before:rounded-lg before:pointer-events-none",
+                                "before:-m-[1px]"
+                            ]
                         )}
                     >
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className={cn(
-                                "p-3 rounded-xl transition-colors",
-                                "bg-emerald-100 dark:bg-emerald-900/50",
-                                "group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/50"
-                            )}>
-                                {tier.icon}
+                        {/* Header */}
+                        <div className="p-6 border-b border-zinc-100 dark:border-zinc-800">
+                            <div className="flex justify-between items-baseline mb-2">
+                                <h3 className="text-sm font-medium tracking-wide uppercase">
+                                    {tier.name}
+                                </h3>
+                                {tier.highlight && (
+                                    <span className="text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-black">
+                                        Popular
+                                    </span>
+                                )}
                             </div>
-                            <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent dark:from-emerald-400 dark:to-emerald-300">
-                                {tier.name}
-                            </span>
-                        </div>
-
-                        <div className="mb-6 space-y-2">
                             <div className="flex items-baseline gap-1">
-                                <span className="text-4xl font-bold text-slate-900 dark:text-white">
-                                    ${tier.price}
-                                </span>
-                                <span className="text-slate-500 dark:text-slate-400">
-                                    /month
-                                </span>
+                                <span className="text-2xl font-semibold">${tier.price}</span>
+                                <span className="text-sm text-zinc-500 dark:text-zinc-400">/month</span>
                             </div>
-                            <p className="text-slate-600 dark:text-slate-300">
+                            <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
                                 {tier.description}
                             </p>
                         </div>
 
-                        <div className="space-y-4 mb-8">
-                            {tier.features.map((feature) => (
-                                <div
-                                    key={feature.name}
-                                    className="flex items-start gap-3 group"
-                                >
-                                    <div className={cn(
-                                        "p-2 rounded-lg mt-1",
-                                        "transition-colors duration-200",
-                                        "bg-emerald-50 dark:bg-emerald-900/30",
-                                        "group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50"
-                                    )}>
-                                        {feature.icon}
+                        {/* Features */}
+                        <div className="p-6">
+                            <div className="space-y-3">
+                                {tier.features.map((feature) => (
+                                    <div 
+                                        key={feature}
+                                        className="flex items-start gap-3 text-sm"
+                                    >
+                                        <Check className="w-4 h-4 mt-0.5 text-zinc-900 dark:text-white" />
+                                        <span>{feature}</span>
                                     </div>
-                                    <div className="space-y-1">
-                                        <div className="font-semibold text-slate-900 dark:text-white">
-                                            {feature.name}
-                                        </div>
-                                        <div className="text-sm text-slate-500 dark:text-slate-400">
-                                            {feature.description}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
 
-                        <Button
-                            className={cn(
-                                "w-full py-6 text-white font-medium text-lg",
-                                "transition-all duration-200",
-                                "bg-gradient-to-r from-emerald-600 to-emerald-500",
-                                "hover:from-emerald-500 hover:to-emerald-400",
-                                "shadow-lg shadow-emerald-500/20",
-                                "hover:shadow-xl hover:shadow-emerald-500/30",
-                                "active:scale-[0.98]"
-                            )}
-                        >
-                            {tier.highlight ? "Become a Legend" : "Begin Adventure"}
-                        </Button>
+                            {/* CTA Button */}
+                            <div className="mt-6">
+                                <Button 
+                                    className={cn(
+                                        "w-full h-9",
+                                        "text-xs font-medium tracking-wide",
+                                        tier.highlight
+                                            ? "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-100"
+                                            : "bg-white text-zinc-900 border border-zinc-200 hover:bg-zinc-50 dark:bg-black dark:text-white dark:border-zinc-800 dark:hover:bg-zinc-900"
+                                    )}
+                                >
+                                    Get started
+                                </Button>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>

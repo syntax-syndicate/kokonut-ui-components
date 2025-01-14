@@ -1,210 +1,205 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Clock, Code2, MessageSquare, Plus } from "lucide-react";
-import Link from "next/link";
+import { Sun, Moon, Thermometer, Wind, Power, Settings2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-interface TeamMember {
+interface Device {
+    id: string;
     name: string;
-    image: string;
+    status: "on" | "off";
+    value?: number;
+    unit?: string;
+    icon: JSX.Element;
+}
+
+interface Scene {
+    id: string;
+    name: string;
+    icon: JSX.Element;
+    isActive: boolean;
 }
 
 interface Card06Props {
-    title?: string;
-    subtitle?: string;
-    teamMembers?: TeamMember[];
-    stats?: {
-        discussions: number;
-        commits: number;
-    };
-    dueDate?: string;
-    progress?: number;
+    roomName?: string;
+    temperature?: number;
+    devices?: Device[];
+    scenes?: Scene[];
 }
 
 export default function Card06({
-    title = "Mobile App Redesign",
-    subtitle = "Design System & Component Library",
-    teamMembers = [
+    roomName = "Living Room",
+    temperature = 22.5,
+    devices = [
         {
-            name: "Alex",
-            image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-01-n0x8HFv8EUetf9z6ht0wScJKoTHqf8.png",
+            id: "1",
+            name: "Main Light",
+            status: "on",
+            value: 80,
+            unit: "%",
+            icon: <Sun className="w-4 h-4" />,
         },
         {
-            name: "Sarah",
-            image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-02-albo9B0tWOSLXCVZh9rX9KFxXIVWMr.png",
-        },
-        {
-            name: "Mike",
-            image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-03-JateJIUhtd3PXynaMG9TDWQ55j5AVP.png",
-        },
-        {
-            name: "Lisa",
-            image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-04-uuYHWIRvVPi01gEt6NwnGyjqLeeZhz.png",
+            id: "2",
+            name: "AC",
+            status: "off",
+            value: 22,
+            unit: "°C",
+            icon: <Wind className="w-4 h-4" />,
         },
     ],
-    stats = {
-        discussions: 8,
-        commits: 24,
-    },
-    dueDate = "2 days left",
-    progress = 68,
+    scenes = [
+        {
+            id: "1",
+            name: "Day",
+            icon: <Sun className="w-4 h-4" />,
+            isActive: false,
+        },
+        {
+            id: "2",
+            name: "Night",
+            icon: <Moon className="w-4 h-4" />,
+            isActive: true,
+        },
+    ],
 }: Card06Props) {
     return (
-        <div
-            className="relative h-full rounded-3xl p-6
-            bg-white dark:bg-black/5 
-            border border-zinc-200 dark:border-zinc-800
-            hover:border-zinc-300 dark:hover:border-zinc-700
-            transition-all duration-300"
-        >
-            {/* Header */}
-            <div className="flex items-center justify-between mb-6">
-                <div className="space-y-1.5">
-                    <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
-                        {title}
-                    </h3>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                        {subtitle}
-                    </p>
-                </div>
-                <div
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full
-                    bg-amber-50 dark:bg-amber-900/30
-                    text-amber-600 dark:text-amber-400
-                    text-xs font-medium"
-                >
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>{dueDate}</span>
-                </div>
-            </div>
-
-            <div className="flex items-center gap-2 mb-6">
-                <div className="flex -space-x-2">
-                    {teamMembers.map((member) => (
-                        <div
-                            key={member.name}
-                            className="relative group/member"
-                        >
-                            <Image
-                                src={member.image}
-                                alt={member.name}
-                                width={32}
-                                height={32}
-                                className="rounded-full ring-2 ring-white dark:ring-zinc-900
-                                    transition-transform hover:-translate-y-1 duration-200"
-                            />
-                            <span
-                                className="absolute -bottom-4 left-1/2 -translate-x-1/2
-                                px-2 py-1 rounded-md text-[10px]
-                                bg-zinc-900 dark:bg-zinc-100
-                                text-white dark:text-zinc-900
-                                opacity-0 group-hover/member:opacity-100
-                                transition-opacity duration-200"
-                            >
-                                {member.name}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-                <Button
-                    variant="outline"
-                    size="icon"
-                    className="w-8 h-8 rounded-full
-                        bg-zinc-100 dark:bg-zinc-800/50
-                        hover:bg-zinc-200 dark:hover:bg-zinc-700/50
-                        border-zinc-200 dark:border-zinc-700"
-                >
-                    <Plus className="w-4 h-4" />
-                </Button>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 mb-6">
-                <div
-                    className="flex items-center gap-2 p-3 rounded-xl
-                    bg-zinc-50 dark:bg-zinc-800/50
-                    border border-zinc-200/50 dark:border-zinc-800/50"
-                >
-                    <MessageSquare className="w-4 h-4 text-indigo-500 dark:text-indigo-400" />
-                    <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                        {stats.discussions} discussions
-                    </span>
-                </div>
-                <div
-                    className="flex items-center gap-2 p-3 rounded-xl
-                    bg-zinc-50 dark:bg-zinc-800/50
-                    border border-zinc-200/50 dark:border-zinc-800/50"
-                >
-                    <Code2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
-                    <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                        {stats.commits} commits
-                    </span>
-                </div>
-            </div>
-
-            <div className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                    <span className="font-medium text-zinc-700 dark:text-zinc-300">
-                        Progress
-                    </span>
-                    <span className="text-zinc-500 dark:text-zinc-400">
-                        {progress}%
-                    </span>
-                </div>
-                <div className="h-2 rounded-full bg-zinc-100 dark:bg-zinc-800">
-                    <div
-                        className="h-full rounded-full bg-indigo-500 dark:bg-indigo-400
-                            transition-all duration-1000 ease-out"
-                        style={{ width: `${progress}%` }}
-                    />
-                </div>
-            </div>
-
-            <div className="mt-6 pt-4 space-y-4 border-t border-zinc-200 dark:border-zinc-800">
-                <Link
-                    href="#"
-                    className="inline-flex items-center gap-2 text-sm font-medium
-                        text-zinc-600 hover:text-zinc-900 
-                        dark:text-zinc-400 dark:hover:text-white
-                        transition-colors duration-200"
-                >
-                    View Project Details
-                    <ArrowUpRight className="w-4 h-4" />
-                </Link>
-
-                <div className="space-y-3">
-                    <div className="h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-zinc-800 to-transparent" />
-
-                    <div className="space-y-2">
-                        <h4 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                            Notes
-                        </h4>
-                    </div>
-                    <div className="space-y-2">
-                        <div
-                            className="flex items-start gap-2 p-3 rounded-xl
-                            bg-zinc-50 dark:bg-zinc-800/50
-                            border border-zinc-200/50 dark:border-zinc-800/50"
-                        >
-                            <Image
-                                src="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-01-n0x8HFv8EUetf9z6ht0wScJKoTHqf8.png"
-                                alt="Alex"
-                                width={20}
-                                height={20}
-                                className="rounded-full mt-0.5"
-                            />
-                            <div className="flex-1 space-y-1">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-xs font-medium text-zinc-700 dark:text-zinc-300">
-                                        Alex
-                                    </span>
-                                    <span className="text-[10px] text-zinc-400">
-                                        2h ago
-                                    </span>
-                                </div>
-                                <p className="text-xs text-zinc-600 dark:text-zinc-400">
-                                    Updated the design system with new color
-                                    tokens
-                                </p>
+        <div className="w-full max-w-sm mx-auto">
+            <div
+                className={cn(
+                    "relative overflow-hidden",
+                    "bg-white dark:bg-zinc-900",
+                    "rounded-3xl",
+                    "transition-all duration-300",
+                    "hover:shadow-xl hover:shadow-zinc-200/20 dark:hover:shadow-zinc-900/20",
+                    "border border-zinc-200 dark:border-zinc-800"
+                )}
+            >
+                {/* Header */}
+                <div className="p-6">
+                    <div className="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                                {roomName}
+                            </h3>
+                            <div className="flex items-center gap-1.5 mt-1">
+                                <Thermometer className="w-4 h-4 text-amber-500" />
+                                <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                                    {temperature}°C
+                                </span>
                             </div>
+                        </div>
+                        <button
+                            className={cn(
+                                "p-2.5 rounded-xl",
+                                "bg-zinc-100 dark:bg-zinc-800",
+                                "hover:bg-zinc-200 dark:hover:bg-zinc-700",
+                                "transition-colors duration-200"
+                            )}
+                        >
+                            <Settings2 className="w-5 h-5 text-zinc-500 dark:text-zinc-400" />
+                        </button>
+                    </div>
+
+                    {/* Devices */}
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                        {devices.map((device) => (
+                            <div
+                                key={device.id}
+                                className={cn(
+                                    "p-4 rounded-2xl",
+                                    "bg-zinc-50 dark:bg-zinc-800/50",
+                                    "border border-zinc-200 dark:border-zinc-700",
+                                    "group",
+                                    "transition-all duration-200",
+                                    device.status === "on" &&
+                                        "bg-blue-50/50 dark:bg-blue-900/20",
+                                    device.status === "on" &&
+                                        "border-blue-200 dark:border-blue-800"
+                                )}
+                            >
+                                <div className="flex items-start justify-between mb-3">
+                                    <div className="space-y-1">
+                                        <div
+                                            className={cn(
+                                                "p-2 rounded-lg w-fit",
+                                                "bg-white dark:bg-zinc-800",
+                                                "border border-zinc-200 dark:border-zinc-700",
+                                                device.status === "on" &&
+                                                    "text-blue-500"
+                                            )}
+                                        >
+                                            {device.icon}
+                                        </div>
+                                        <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                            {device.name}
+                                        </h4>
+                                    </div>
+                                    <button
+                                        className={cn(
+                                            "relative w-11 h-6 rounded-full",
+                                            "transition-colors duration-200",
+                                            device.status === "on"
+                                                ? "bg-blue-500"
+                                                : "bg-zinc-200 dark:bg-zinc-700"
+                                        )}
+                                    >
+                                        <span
+                                            className={cn(
+                                                "absolute w-5 h-5 rounded-full",
+                                                "bg-white",
+                                                "shadow-sm",
+                                                "transition-transform duration-200",
+                                                "top-0.5 left-0.5",
+                                                device.status === "on" &&
+                                                    "translate-x-5"
+                                            )}
+                                        />
+                                    </button>
+                                </div>
+                                {device.value && (
+                                    <div className="flex items-center justify-between text-sm">
+                                        <span className="text-zinc-500 dark:text-zinc-400">
+                                            {device.value}
+                                            {device.unit}
+                                        </span>
+                                        <Power
+                                            className={cn(
+                                                "w-4 h-4",
+                                                device.status === "on"
+                                                    ? "text-blue-500"
+                                                    : "text-zinc-400"
+                                            )}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Scenes */}
+                    <div className="space-y-3">
+                        <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                            Scenes
+                        </h4>
+                        <div className="grid grid-cols-2 gap-3">
+                            {scenes.map((scene) => (
+                                <button
+                                    key={scene.id}
+                                    className={cn(
+                                        "flex items-center gap-2.5",
+                                        "p-3 rounded-xl",
+                                        "transition-all duration-200",
+                                        scene.isActive
+                                            ? "bg-blue-50 dark:bg-blue-900/20 text-blue-500"
+                                            : "bg-zinc-50 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400",
+                                        "hover:bg-blue-50 dark:hover:bg-blue-900/20",
+                                        "hover:text-blue-500"
+                                    )}
+                                >
+                                    {scene.icon}
+                                    <span className="text-sm font-medium">
+                                        {scene.name}
+                                    </span>
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </div>

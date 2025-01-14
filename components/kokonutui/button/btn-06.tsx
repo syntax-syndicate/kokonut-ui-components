@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check, Copy } from "lucide-react";
-import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import { useState } from "react";
 
 interface Btn06Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     textToCopy: string;
@@ -12,17 +12,20 @@ interface Btn06Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function Btn06({
     className,
-    textToCopy,
+    textToCopy = "https://kokonutui.com/",
     successDuration = 1000,
     ...props
 }: Btn06Props) {
-    const { isCopied, copyToClipboard } = useCopyToClipboard({
-        timeout: successDuration,
-    });
+    const [isCopied, setIsCopied] = useState(false);
 
-    function handleCopy() {
-        if (isCopied) return;
-        copyToClipboard(textToCopy);
+    async function handleCopy() {
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+            setIsCopied(true);
+            setTimeout(() => setIsCopied(false), successDuration);
+        } catch (err) {
+            console.error("Failed to copy text:", err);
+        }
     }
 
     return (

@@ -538,7 +538,7 @@ export const component: Registry = [
         name: "card-04",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
+        registryDependencies: [],
         files: [
             {
                 path: "components/kokonutui/card/card-04.tsx",
@@ -562,7 +562,7 @@ export const component: Registry = [
         name: "card-06",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
+        registryDependencies: [],
         files: [
             {
                 path: "components/kokonutui/card/card-06.tsx",
@@ -574,10 +574,34 @@ export const component: Registry = [
         name: "card-07",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button", "select"],
+        registryDependencies: [],
         files: [
             {
                 path: "components/kokonutui/card/card-07.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-08",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/card/card-08.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-09",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/card/card-09.tsx",
                 type: "registry:component",
             },
         ],
@@ -1038,6 +1062,18 @@ export const component: Registry = [
         files: [
             {
                 path: "components/kokonutui/profile/profile-05.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "checkout-interaction",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion", "@number-flow/react"],
+        registryDependencies: ["button"],
+        files: [
+            {
+                path: "components/kokonutui/checkout-interaction.tsx",
                 type: "registry:component",
             },
         ],
