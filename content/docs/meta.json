@@ -19,6 +19,7 @@
         "components/profile",
         "components/text",
         "---Interactions---",
-        "components/checkout-interaction"
+        "components/checkout-interaction",
+        "components/queue-status"
     ]
 }

@@ -619,6 +619,18 @@ export const component: Registry = [
         ],
     },
     {
+        name: "card-10",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button", "progress"],
+        files: [
+            {
+                path: "components/kokonutui/card/card-10.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
         name: "pricing-01",
         type: "registry:component",
         dependencies: ["lucide-react"],
