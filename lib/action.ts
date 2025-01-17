@@ -25,7 +25,6 @@
 //     return file;
 // }
 
-
 "use server";
 
 import { headers } from "next/headers";
@@ -40,8 +39,11 @@ const readFileCache = cache(async (filePath: string) => {
 
 // Improve caching for the entire component getter
 export const getComponent = async (fileName: string, folder: string) => {
-
     const baseDir = path.join(process.cwd(), "components/kokonutui");
+    if (!folder) {
+        const fullPath = path.join(baseDir, `${fileName}.tsx`);
+        return await readFileCache(fullPath);
+    }
     const fullPath = path.join(baseDir, folder, `${fileName}.tsx`);
 
     return await readFileCache(fullPath);
@@ -61,7 +63,7 @@ export const copyComponent = async (
         const folder = formData.get("folder");
         const fileName = formData.get("fileName");
 
-        if (!folder || !fileName) {
+        if (!folder && !fileName) {
             return {
                 error: "Folder or file name not found",
                 content: "",

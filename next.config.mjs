@@ -5,7 +5,7 @@ const withMDX = createMDX();
 const nextConfig = {
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     outputFileTracingIncludes: {
-        "/**": ["components/kokonutui/**/*", "components/ui/block-*.tsx"],
+        "/**": ["components/kokonutui/**/*"],
     },
     async headers() {
         return [
