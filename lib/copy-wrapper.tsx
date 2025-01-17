@@ -33,6 +33,7 @@ export function CopyWrapper({
     });
 
     const handleCLI = () => {
+        console.log(prePath);
         copyToClipboard(
             `bunx shadcn@latest add ${prePath}/r/${fileName?.replace(
                 ".tsx",

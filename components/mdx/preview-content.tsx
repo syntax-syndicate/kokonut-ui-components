@@ -37,8 +37,10 @@ export default function PreviewContent({
     };
 
     const handleTerminalClick = () => {
-        const [_, filename] = link.split("/");
-        const COPY = `bunx shadcn@latest add ${prePath}/r/${filename}.json`;
+        const [folder, filename] = link.split("/");
+        const COPY = `bunx shadcn@latest add ${prePath}/r/${
+            filename ? filename : folder
+        }.json`;
         navigator.clipboard.writeText(COPY);
         setIsTerminalCopied(true);
         setTimeout(() => {
@@ -119,10 +121,12 @@ export default function PreviewContent({
                                     )}
                                 />
                             )}
-                            <span className={cn(
-                                "transition-all duration-200",
-                                isTerminalCopied && "text-green-500"
-                            )}>
+                            <span
+                                className={cn(
+                                    "transition-all duration-200",
+                                    isTerminalCopied && "text-green-500"
+                                )}
+                            >
                                 {isTerminalCopied ? "Copied!" : "Registry"}
                             </span>
                         </Button>
