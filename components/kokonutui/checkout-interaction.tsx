@@ -6,7 +6,7 @@ import { Minus, Plus, ShoppingCart, X, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import NumberFlow from '@number-flow/react'
+import NumberFlow from "@number-flow/react";
 
 interface Product {
     id: string;
@@ -59,7 +59,9 @@ export default function CheckoutInteraction({
 
     const addToCart = (product: Product) => {
         setCart((currentCart) => {
-            const existingItem = currentCart.find((item) => item.id === product.id);
+            const existingItem = currentCart.find(
+                (item) => item.id === product.id
+            );
             if (existingItem) {
                 return currentCart.map((item) =>
                     item.id === product.id
@@ -119,12 +121,14 @@ export default function CheckoutInteraction({
                         >
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
-                                    <div className={cn(
-                                        "relative w-12 h-12 rounded-lg overflow-hidden",
-                                        "bg-zinc-100 dark:bg-zinc-800",
-                                        "transition-colors duration-200",
-                                        "group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700"
-                                    )}>
+                                    <div
+                                        className={cn(
+                                            "relative w-12 h-12 rounded-lg overflow-hidden",
+                                            "bg-zinc-100 dark:bg-zinc-800",
+                                            "transition-colors duration-200",
+                                            "group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700"
+                                        )}
+                                    >
                                         <Image
                                             src={product.image}
                                             alt={product.name}
@@ -184,7 +188,7 @@ export default function CheckoutInteraction({
                     </div>
 
                     {/* Cart Items */}
-                    <motion.div 
+                    <motion.div
                         className={cn(
                             "flex-1 overflow-y-auto",
                             "min-h-0",
@@ -202,7 +206,7 @@ export default function CheckoutInteraction({
                                     exit={{ opacity: 0, scale: 0.96 }}
                                     transition={{
                                         opacity: { duration: 0.2 },
-                                        layout: { duration: 0.2 }
+                                        layout: { duration: 0.2 },
                                     }}
                                     className={cn(
                                         "flex items-center gap-3",
@@ -219,7 +223,9 @@ export default function CheckoutInteraction({
                                             <motion.button
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.95 }}
-                                                onClick={() => removeFromCart(item.id)}
+                                                onClick={() =>
+                                                    removeFromCart(item.id)
+                                                }
                                                 className="p-1 rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-700"
                                             >
                                                 <X className="w-3 h-3 text-zinc-400" />
@@ -230,7 +236,12 @@ export default function CheckoutInteraction({
                                                 <motion.button
                                                     whileHover={{ scale: 1.1 }}
                                                     whileTap={{ scale: 0.95 }}
-                                                    onClick={() => updateQuantity(item.id, -1)}
+                                                    onClick={() =>
+                                                        updateQuantity(
+                                                            item.id,
+                                                            -1
+                                                        )
+                                                    }
                                                     className="p-1 rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-700"
                                                 >
                                                     <Minus className="w-3 h-3" />
@@ -244,7 +255,12 @@ export default function CheckoutInteraction({
                                                 <motion.button
                                                     whileHover={{ scale: 1.1 }}
                                                     whileTap={{ scale: 0.95 }}
-                                                    onClick={() => updateQuantity(item.id, 1)}
+                                                    onClick={() =>
+                                                        updateQuantity(
+                                                            item.id,
+                                                            1
+                                                        )
+                                                    }
                                                     className="p-1 rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-700"
                                                 >
                                                     <Plus className="w-3 h-3" />
@@ -254,7 +270,10 @@ export default function CheckoutInteraction({
                                                 layout
                                                 className="text-xs text-zinc-500 dark:text-zinc-400"
                                             >
-                                                ${(item.price * item.quantity).toFixed(2)}
+                                                $
+                                                {(
+                                                    item.price * item.quantity
+                                                ).toFixed(2)}
                                             </motion.span>
                                         </div>
                                     </div>
@@ -264,8 +283,8 @@ export default function CheckoutInteraction({
                     </motion.div>
 
                     {/* Cart Summary */}
-                    <motion.div 
-                        layout 
+                    <motion.div
+                        layout
                         className={cn(
                             "pt-3 mt-3",
                             "border-t border-zinc-200 dark:border-zinc-800",

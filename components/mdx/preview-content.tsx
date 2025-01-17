@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Copy, Check, CheckCheck, Terminal } from "lucide-react";
 import { copyComponent } from "@/lib/action";
 import { cn } from "@/lib/utils";
+import { OpenInV0Button } from "../open-in-v0-button";
 
 export default function PreviewContent({
     link,
@@ -46,6 +47,12 @@ export default function PreviewContent({
         setTimeout(() => {
             setIsTerminalCopied(false);
         }, 2000);
+    };
+
+    const openInV0 = () => {
+        const [folder, filename] = link.split("/");
+
+        return filename ? filename : folder;
     };
 
     useEffect(() => {
@@ -92,17 +99,18 @@ export default function PreviewContent({
                     </a>
 
                     <div className="flex items-center gap-2">
+                        <OpenInV0Button name={openInV0()} />
                         <Button
                             onClick={handleTerminalClick}
                             variant="ghost"
                             size="sm"
                             className={cn(
                                 "h-8 px-4 text-sm font-medium",
-                                "bg-white dark:bg-zinc-800",
-                                "text-zinc-900 dark:text-zinc-400",
+                                "bg-black dark:bg-white",
+                                "text-white dark:text-black",
                                 "border border-zinc-200 dark:border-zinc-700",
-                                "hover:bg-zinc-50 dark:hover:bg-zinc-700",
-                                "hover:text-zinc-900 dark:hover:text-zinc-200",
+                                "hover:bg-black dark:hover:bg-white",
+                                "hover:text-white dark:hover:text-black",
                                 "transition-all duration-200",
                                 "group flex items-center gap-2",
                                 "rounded-lg",
@@ -139,11 +147,11 @@ export default function PreviewContent({
                                 disabled={isPending}
                                 className={cn(
                                     "h-8 w-[100px] px-4 text-sm font-medium",
-                                    "bg-white dark:bg-zinc-800",
-                                    "text-zinc-900 dark:text-zinc-400",
+                                    "bg-black dark:bg-white",
+                                    "text-white dark:text-black",
                                     "border border-zinc-200 dark:border-zinc-700",
-                                    "hover:bg-zinc-50 dark:hover:bg-zinc-700",
-                                    "hover:text-zinc-900 dark:hover:text-zinc-200",
+                                    "hover:bg-black dark:hover:bg-white",
+                                    "hover:text-white dark:hover:text-black",
                                     "transition-all duration-200",
                                     "group flex items-center gap-2",
                                     "rounded-lg",
