@@ -1,33 +1,5 @@
-// import path from "path";
-// import { promises as fs } from "fs";
-
-// export async function getComponent(fileName: string, folder: string) {
-//     const prePath = path.join(process.cwd(), "components", folder);
-
-//     const file = await fs.readFile(path.join(prePath, fileName), "utf-8");
-
-//     return file;
-// }
-
-// export async function getHook(fileName: string) {
-//     const prePath = path.join(process.cwd(), "hooks");
-
-//     const file = await fs.readFile(path.join(prePath, fileName), "utf-8");
-
-//     return file;
-// }
-
-// export async function getBlockExample(fileName: string) {
-//     const prePath = path.join(process.cwd(), "components", "ui");
-
-//     const file = await fs.readFile(path.join(prePath, fileName), "utf-8");
-
-//     return file;
-// }
-
 "use server";
 
-import { headers } from "next/headers";
 import path from "path";
 import { promises as fs } from "fs";
 import { cache } from "react";
@@ -40,8 +12,8 @@ const readFileCache = cache(async (filePath: string) => {
 // Improve caching for the entire component getter
 export const getComponent = async (fileName: string, folder: string) => {
     const baseDir = path.join(process.cwd(), "components/kokonutui");
-    if (!folder) {
-        const fullPath = path.join(baseDir, `${fileName}.tsx`);
+    if (!fileName) {
+        const fullPath = path.join(baseDir, `${folder}.tsx`);
         return await readFileCache(fullPath);
     }
     const fullPath = path.join(baseDir, folder, `${fileName}.tsx`);
