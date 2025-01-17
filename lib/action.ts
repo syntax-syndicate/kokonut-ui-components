@@ -10,12 +10,15 @@ const readFileCache = cache(async (filePath: string) => {
 });
 
 // Improve caching for the entire component getter
-export const getComponent = async (fileName: string, folder: string) => {
+export const getComponent = async (fileName: string | null, folder: string) => {
     const baseDir = path.join(process.cwd(), "components/kokonutui");
-    if (!fileName) {
+    if (!fileName || fileName === "undefined") {
         const fullPath = path.join(baseDir, `${folder}.tsx`);
+        console.log("fullPath", fullPath);
         return await readFileCache(fullPath);
     }
+
+    console.log("here");
     const fullPath = path.join(baseDir, folder, `${fileName}.tsx`);
 
     return await readFileCache(fullPath);
