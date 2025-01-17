@@ -16,43 +16,43 @@ interface PricingTier {
 
 const tiers: PricingTier[] = [
     {
-        name: "Starter",
+        name: "Creator",
         icon: <Pencil className="w-6 h-6" />,
         price: 29,
-        description: "Perfect for getting started",
+        description: "Perfect for short video beginners",
         color: "amber",
         features: [
-            "5 Projects",
-            "Basic Templates",
-            "Community Support",
-            "2GB Storage",
+            "60-second Video Export",
+            "10 Trending Templates",
+            "Auto Text-to-Speech",
+            "Basic Transitions",
         ],
     },
     {
-        name: "Creator",
+        name: "Influencer",
         icon: <Star className="w-6 h-6" />,
         price: 79,
-        description: "Everything you need to grow",
+        description: "For serious content creators",
         color: "blue",
         features: [
-            "Unlimited Projects",
-            "Premium Templates",
-            "Priority Support",
-            "20GB Storage",
+            "3-minute Video Export",
+            "Voice Effects & Filters",
+            "Trending Sound Library",
+            "Auto Captions & Subtitles",
         ],
         popular: true,
     },
     {
-        name: "Studio",
+        name: "Pro Studio",
         icon: <Sparkles className="w-6 h-6" />,
         price: 149,
-        description: "For professional creators",
+        description: "For viral content masters",
         color: "purple",
         features: [
-            "Custom Branding",
-            "All Templates",
-            "Dedicated Support",
-            "Unlimited Storage",
+            "Multi-clip Editing",
+            "Green Screen Effects",
+            "Viral Sound Detection",
+            "Engagement Analytics",
         ],
     },
 ];
@@ -66,7 +66,7 @@ export default function Pricing_06() {
                 </div>
                 <div className="relative">
                     <h2 className="text-4xl md:text-5xl font-bold font-handwritten text-zinc-900 dark:text-white rotate-[-1deg]">
-                        Choose your creative journey
+                        Make Short Videos That Pop
                         <div className="absolute -right-12 top-0 text-amber-500 rotate-12">
                             ✨
                         </div>
@@ -80,7 +80,7 @@ export default function Pricing_06() {
                     />
                 </div>
                 <p className="font-handwritten text-xl text-zinc-600 dark:text-zinc-400 rotate-[-1deg]">
-                    No hidden fees, just pure creativity
+                    Edit, enhance, and go viral in minutes
                 </p>
             </div>
 

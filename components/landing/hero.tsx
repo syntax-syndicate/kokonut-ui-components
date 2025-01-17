@@ -19,11 +19,11 @@ export function HeroSection() {
             <div className="flex flex-col items-start text-left space-y-8 sm:space-y-12 w-full lg:w-1/2">
                 <div className="max-w-2xl">
                     <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
-                        Craft{" "}
+                        Build{" "}
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-rose-500 to-purple-500 dark:from-orange-400 dark:via-rose-400 dark:to-purple-400">
                             stunning
                         </span>{" "}
-                        interfaces <br />
+                        websites <br />
                         without breaking a sweat
                     </h1>
                     <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
