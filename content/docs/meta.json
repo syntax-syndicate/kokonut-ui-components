@@ -20,6 +20,6 @@
         "components/text",
         "---Interactions---",
         "components/checkout-interaction",
-        "components/queue-status"
+        "components/hero-modern"
     ]
 }

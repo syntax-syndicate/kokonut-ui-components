@@ -1102,4 +1102,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "hero-modern",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button"],
+        files: [
+            {
+                path: "components/kokonutui/hero-modern.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
