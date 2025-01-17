@@ -10,21 +10,18 @@
 
 ## Overview
 
-Access a collection of free-to-use, standalone components with KokonutUI. Each component is designed with TailwindCSS, and optionally with shadcn and Framer-motion.
+Access a collection of free-to-use, standalone components with KokonutUI.
 
-This is not a library, it's a collection of components / hooks that you can copy paste and customize to your preference.
+Each component is designed with TailwindCSS, and optionally with shadcn and Framer-motion.
 
 ## Getting Started
 
 Please check [kokonutui.com/docs](https://kokonutui.com/docs)
 
-## Demo
-
-Please check https://kokonutui-demo.vercel.app/. This website has been made with KokonutUI in about 1 hour.
 
 ## Contributing
 
-They are no way to contribute for now.
+Feel free to create PR
 
 ## License
 
