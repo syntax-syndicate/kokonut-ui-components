@@ -87,6 +87,7 @@ export default function Card06({
                             </div>
                         </div>
                         <button
+                            type="button"
                             className={cn(
                                 "p-2.5 rounded-xl",
                                 "bg-zinc-100 dark:bg-zinc-800",
@@ -133,6 +134,7 @@ export default function Card06({
                                         </h4>
                                     </div>
                                     <button
+                                        type="button"
                                         className={cn(
                                             "relative w-11 h-6 rounded-full",
                                             "transition-colors duration-200",
