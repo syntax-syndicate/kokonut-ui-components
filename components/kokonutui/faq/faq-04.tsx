@@ -29,10 +29,16 @@ function CategoryButton({
             type="button"
             onClick={onClick}
             className={cn(
-                "px-4 py-2 text-left rounded-lg transition-all w-full",
-                "hover:bg-gray-100 dark:hover:bg-black/10",
-                isActive &&
-                    "bg-primary/10 dark:bg-primary/20 text-primary hover:bg-primary/15 dark:hover:bg-primary/25"
+                "px-4 py-2 text-left rounded-lg transition-all w-full relative",
+                "text-gray-600 dark:text-gray-400",
+                "hover:bg-white dark:hover:bg-black/20",
+                isActive && [
+                    "bg-zinc-100 dark:bg-black/20",
+                    "text-primary font-medium",
+                    "hover:bg-zinc-100 dark:hover:bg-black/20",
+                    "before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2",
+                    "before:w-1 before:h-6 before:bg-primary before:rounded-r-full"
+                ]
             )}
         >
             {name}
@@ -83,7 +89,7 @@ function Faq04() {
         <section className="py-8 w-full rounded-xl">
             <div className="container px-4 mx-auto">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold mb-4 text-white dark:text-white">
+                    <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
                         How can we help?
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400">
