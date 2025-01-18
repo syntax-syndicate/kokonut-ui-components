@@ -20,6 +20,7 @@
         "components/text",
         "---Interactions---",
         "components/checkout-interaction",
-        "components/hero-modern"
+        "components/hero-modern",
+        "components/particle-button"
     ]
 }

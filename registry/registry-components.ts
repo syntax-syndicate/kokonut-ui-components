@@ -1142,4 +1142,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "particle-button",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["button"],
+        files: [
+            {
+                path: "components/kokonutui/particle-button.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
