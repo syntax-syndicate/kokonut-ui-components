@@ -1145,7 +1145,7 @@ export const component: Registry = [
     {
         name: "particle-button",
         type: "registry:component",
-        dependencies: ["lucide-react", "motion/react"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: ["button"],
         files: [
             {
@@ -1157,7 +1157,7 @@ export const component: Registry = [
     {
         name: "currency-transfer",
         type: "registry:component",
-        dependencies: ["lucide-react", "motion/react"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: ["card"],
         files: [
             {
