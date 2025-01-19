@@ -22,6 +22,7 @@
         "components/checkout-interaction",
         "components/hero-modern",
         "components/particle-button",
-        "components/currency-transfer"
+        "components/currency-transfer",
+        "components/hand-written-title"
     ]
 }

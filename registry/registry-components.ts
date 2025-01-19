@@ -1166,4 +1166,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "hand-written-title",
+        type: "registry:component",
+        dependencies: ["motion"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/hand-written-title.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];

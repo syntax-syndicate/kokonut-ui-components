@@ -13,7 +13,10 @@ const CENTERED_COMPONENTS = [
     "pricing",
     "profile",
     "text",
-    "checkout"
+    "checkout",
+    "particle-button",
+    "currency-transfer",
+    "hand-written-title"
     // Add more small components here
 ];
 

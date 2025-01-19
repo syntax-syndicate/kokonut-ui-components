@@ -93,12 +93,12 @@ a[href="/docs/components/particle-button"]::after {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-a[href="/docs/components/hero-modern"] {
+a[href="/docs/components/hand-written-title"] {
   position: relative;
   padding-right: 2.5rem;
 }
 
-a[href="/docs/components/hero-modern"]::after {
+a[href="/docs/components/hand-written-title"]::after {
   content: "New";
   position: absolute;
   right: 0.2rem;
