@@ -3,9 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
-import { Header } from "@/components/landing/header";
 import { cn } from "@/lib/utils";
-import { Footer } from "@/components/layout/footer";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
 import { RootProvider } from "fumadocs-ui/provider";
 
@@ -73,7 +71,6 @@ export default function RootLayout({
                     >
                         <div className="flex flex-col min-h-screen">
                             <div className="flex-1">{children}</div>
-                            <Footer />
                         </div>
                     </ThemeProvider>
                 </RootProvider>

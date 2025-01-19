@@ -9,7 +9,7 @@ interface PreviewProps {
     useIframe?: boolean;
     height?: string;
     compact?: boolean;
-    comment?: string;
+    comment?: string[];
 }
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -22,7 +22,7 @@ export async function Preview({
     link,
     useIframe = false,
     compact = false,
-    comment = "",
+    comment = [],
 }: PreviewProps) {
     return (
         <>
@@ -53,9 +53,16 @@ export async function Preview({
                         {children}
                     </div>
                 )}
-                {comment && (
-                    <div className="text-sm text-zinc-500 dark:text-zinc-400">
-                        {comment}
+                {comment.length > 0 && (
+                    <div className="flex flex-wrap gap-3 mt-6">
+                        {comment.map((text, index) => (
+                            <div
+                                key={index}
+                                className="px-4 py-2 text-sm font-medium bg-purple-100 dark:bg-purple-950/30 rounded-lg text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50 shadow-sm hover:bg-purple-200/70 dark:hover:bg-purple-950/50 transition-colors"
+                            >
+                                {text}
+                            </div>
+                        ))}
                     </div>
                 )}
             </div>
