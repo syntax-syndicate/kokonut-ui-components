@@ -1145,11 +1145,23 @@ export const component: Registry = [
     {
         name: "particle-button",
         type: "registry:component",
-        dependencies: ["lucide-react", "motion"],
+        dependencies: ["lucide-react", "motion/react"],
         registryDependencies: ["button"],
         files: [
             {
                 path: "components/kokonutui/particle-button.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "currency-transfer",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion/react"],
+        registryDependencies: ["card"],
+        files: [
+            {
+                path: "components/kokonutui/currency-transfer.tsx",
                 type: "registry:component",
             },
         ],

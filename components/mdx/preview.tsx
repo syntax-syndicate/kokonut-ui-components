@@ -16,7 +16,7 @@ const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "http://localhost:3000";
 
-export async function Preview({
+export function Preview({
     children,
     className = "",
     link,
@@ -26,7 +26,7 @@ export async function Preview({
 }: PreviewProps) {
     return (
         <>
-            <div className={cn("w-full rounded-xl overflow-hidden", className)}>
+            <div className={cn("w-full overflow-hidden", className)}>
                 <PreviewContent link={link} prePath={prePath} />
 
                 {useIframe ? (

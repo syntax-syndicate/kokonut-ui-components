@@ -13,6 +13,7 @@ import { copyComponent } from "@/lib/action";
 import { cn } from "@/lib/utils";
 import { OpenInV0Button } from "../open-in-v0-button";
 import { AnimatePresence, motion } from "framer-motion";
+import { RefreshButton } from "./refresh-button";
 
 export default function PreviewContent({
     link,
@@ -31,6 +32,12 @@ export default function PreviewContent({
     const [isCopied, setIsCopied] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [isTerminalCopied, setIsTerminalCopied] = useState(false);
+
+    const [key, setKey] = useState(0);
+
+    const handleRefresh = () => {
+        setKey((prev) => prev + 1);
+    };
 
     const handleCopyClick = async () => {
         const [folder, filename] = link.split("/");
@@ -243,5 +250,3 @@ export default function PreviewContent({
         </>
     );
 }
-
-
