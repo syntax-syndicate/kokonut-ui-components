@@ -16,7 +16,8 @@ const CENTERED_COMPONENTS = [
     "checkout",
     "particle-button",
     "currency-transfer",
-    "hand-written-title"
+    "hand-written-title",
+    "tweet-card"
     // Add more small components here
 ];
 
