@@ -14,7 +14,7 @@ interface PricingTier {
     color: string;
 }
 
-const tiers: PricingTier[] = [
+const sampleTiers: PricingTier[] = [
     {
         name: "Creator",
         icon: <Pencil className="w-6 h-6" />,
@@ -57,16 +57,26 @@ const tiers: PricingTier[] = [
     },
 ];
 
-export default function Pricing_06() {
+export default function Pricing_06({
+    tag = "Simple Pricing",
+    title = "Make Short Videos That Pop",
+    description = "Edit, enhance, and go viral in minutes",
+    tiers = sampleTiers,
+}: {
+    tag?: string;
+    title?: string;
+    description?: string;
+    tiers: PricingTier[];
+}) {
     return (
         <div className="w-full max-w-6xl mx-auto px-4">
             <div className="text-center space-y-6 mb-16">
                 <div className="font-handwritten text-xl text-blue-500 rotate-[-1deg]">
-                    Simple Pricing
+                    {tag}
                 </div>
                 <div className="relative">
                     <h2 className="text-4xl md:text-5xl font-bold font-handwritten text-zinc-900 dark:text-white rotate-[-1deg]">
-                        Make Short Videos That Pop
+                        {title}
                         <div className="absolute -right-12 top-0 text-amber-500 rotate-12">
                             ✨
                         </div>
@@ -80,7 +90,7 @@ export default function Pricing_06() {
                     />
                 </div>
                 <p className="font-handwritten text-xl text-zinc-600 dark:text-zinc-400 rotate-[-1deg]">
-                    Edit, enhance, and go viral in minutes
+                    {description}
                 </p>
             </div>
 

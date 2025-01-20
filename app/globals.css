@@ -72,12 +72,12 @@ table {
 }
 
 
-a[href="/docs/components/particle-button"] {
+a[href="/docs/components/tweet-card"] {
   position: relative;
   padding-right: 2.5rem;
 }
 
-a[href="/docs/components/particle-button"]::after {
+a[href="/docs/components/tweet-card"]::after {
   content: "New";
   position: absolute;
   right: 0.2rem;

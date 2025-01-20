@@ -1178,4 +1178,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "tweet-card",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/tweet-card.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];

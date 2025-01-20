@@ -23,6 +23,7 @@
         "components/hero-modern",
         "components/particle-button",
         "components/currency-transfer",
-        "components/hand-written-title"
+        "components/hand-written-title",
+        "components/tweet-card"
     ]
 }
