@@ -29,17 +29,17 @@ function ElegantShape({
 }) {
     return (
         <motion.div
-            initial={{ 
-                opacity: 0, 
+            initial={{
+                opacity: 0,
                 y: -150, // Start higher above viewport
-                rotate: rotate - 15 // Slightly more initial rotation
+                rotate: rotate - 15, // Slightly more initial rotation
             }}
-            animate={{ 
-                opacity: 1, 
+            animate={{
+                opacity: 1,
                 y: 0,
-                rotate: rotate
+                rotate: rotate,
             }}
-            transition={{ 
+            transition={{
                 duration: 2.4, // Longer duration
                 delay,
                 ease: [0.23, 0.86, 0.39, 0.96], // More refined easing curve
@@ -56,21 +56,23 @@ function ElegantShape({
                     repeat: Infinity,
                     ease: "easeInOut",
                 }}
-                style={{ 
+                style={{
                     width,
                     height,
                 }}
                 className="relative"
             >
-                <div className={cn(
-                    "absolute inset-0 rounded-full",
-                    "bg-gradient-to-r to-transparent",
-                    gradient,
-                    "backdrop-blur-[2px] border-2 border-white/[0.15]",
-                    "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
-                    "after:absolute after:inset-0 after:rounded-full",
-                    "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
-                )} />
+                <div
+                    className={cn(
+                        "absolute inset-0 rounded-full",
+                        "bg-gradient-to-r to-transparent",
+                        gradient,
+                        "backdrop-blur-[2px] border-2 border-white/[0.15]",
+                        "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
+                        "after:absolute after:inset-0 after:rounded-full",
+                        "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
+                    )}
+                />
             </motion.div>
         </motion.div>
     );
@@ -98,7 +100,7 @@ export default function HeroGeometric() {
             {/* Elegant Background Elements - Repositioned */}
             <div className="absolute inset-0 overflow-hidden">
                 {/* Primary Shapes */}
-                <ElegantShape 
+                <ElegantShape
                     delay={0.3}
                     width={600}
                     height={140}
@@ -106,8 +108,8 @@ export default function HeroGeometric() {
                     gradient="from-indigo-500/[0.15]"
                     className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]" // Moved further left and higher
                 />
-                
-                <ElegantShape 
+
+                <ElegantShape
                     delay={0.5}
                     width={500}
                     height={120}
@@ -117,7 +119,7 @@ export default function HeroGeometric() {
                 />
 
                 {/* Secondary Elements */}
-                <ElegantShape 
+                <ElegantShape
                     delay={0.4}
                     width={300}
                     height={80}
@@ -125,8 +127,8 @@ export default function HeroGeometric() {
                     gradient="from-violet-500/[0.15]"
                     className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]" // Adjusted position
                 />
-                
-                <ElegantShape 
+
+                <ElegantShape
                     delay={0.6}
                     width={200}
                     height={60}
@@ -136,7 +138,7 @@ export default function HeroGeometric() {
                 />
 
                 {/* Accent Elements */}
-                <ElegantShape 
+                <ElegantShape
                     delay={0.7}
                     width={150}
                     height={40}
@@ -173,7 +175,12 @@ export default function HeroGeometric() {
                                 Elevate Your
                             </span>
                             <br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
+                            <span
+                                className={cn(
+                                    "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 ",
+                                    pacifico.className
+                                )}
+                            >
                                 Digital Vision
                             </span>
                         </h1>
