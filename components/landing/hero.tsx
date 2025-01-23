@@ -8,11 +8,9 @@ import Card08 from "../kokonutui/card/card-08";
 import Btn03 from "../kokonutui/button/btn-03";
 import Input09 from "../kokonutui/input/input-09";
 import Btn13 from "../kokonutui/button/btn-13";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export function HeroSection() {
-    const router = useRouter();
-
     return (
         <div className="container mx-auto min-h-screen flex flex-col lg:flex-row justify-center items-center gap-12 px-4 pt-16 sm:pt-24 lg:pt-0">
             {/* Left side - Title and CTA */}
@@ -24,7 +22,7 @@ export function HeroSection() {
                             stunning
                         </span>{" "}
                         websites <br />
-                        without breaking a sweat
+                        without spending time on design
                     </h1>
                     <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
                 </div>
@@ -77,11 +75,13 @@ export function HeroSection() {
                         </span>
                         <div className="flex flex-col gap-1 items-center justify-start">
                             <div className="flex flex-col gap-3">
-                                <Btn13
-                                    label="Get Started"
-                                    className="w-full"
-                                    onClick={() => router.push("/docs")}
-                                />
+                                <Link href="/docs">
+                                    <Btn13
+                                        label="Get Started"
+                                        className="w-full"
+                                        // onClick={() => router.push("/docs")}
+                                    />
+                                </Link>
                                 <Btn03 />
                             </div>
                             <Input09 />

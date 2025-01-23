@@ -1131,18 +1131,6 @@ export const component: Registry = [
         ],
     },
     {
-        name: "hero-modern",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/kokonutui/hero-modern.tsx",
-                type: "registry:component",
-            },
-        ],
-    },
-    {
         name: "particle-button",
         type: "registry:component",
         dependencies: ["lucide-react", "motion"],
@@ -1186,6 +1174,18 @@ export const component: Registry = [
         files: [
             {
                 path: "components/kokonutui/tweet-card.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "hero-geometric",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/hero-geometric.tsx",
                 type: "registry:component",
             },
         ],

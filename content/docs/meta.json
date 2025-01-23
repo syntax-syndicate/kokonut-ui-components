@@ -7,6 +7,13 @@
     "pages": [
         "---Get Started---",
         "index",
+        "---Latest---",
+        "components/checkout-interaction",
+        "components/particle-button",
+        "components/currency-transfer",
+        "components/hand-written-title",
+        "components/tweet-card",
+        "components/hero-geometric",
         "---Components---",
         "components/ai-input",
         "components/alert",
@@ -17,13 +24,7 @@
         "components/list",
         "components/pricing",
         "components/profile",
-        "components/text",
-        "---Interactions---",
-        "components/checkout-interaction",
-        "components/hero-modern",
-        "components/particle-button",
-        "components/currency-transfer",
-        "components/hand-written-title",
-        "components/tweet-card"
+        "components/text"
+
     ]
 }
