@@ -31,8 +31,8 @@ function ElegantShape({
         <motion.div
             initial={{
                 opacity: 0,
-                y: -150, // Start higher above viewport
-                rotate: rotate - 15, // Slightly more initial rotation
+                y: -150,
+                rotate: rotate - 15,
             }}
             animate={{
                 opacity: 1,
@@ -40,10 +40,10 @@ function ElegantShape({
                 rotate: rotate,
             }}
             transition={{
-                duration: 2.4, // Longer duration
+                duration: 2.4,
                 delay,
-                ease: [0.23, 0.86, 0.39, 0.96], // More refined easing curve
-                opacity: { duration: 1.2 }, // Slower fade in
+                ease: [0.23, 0.86, 0.39, 0.96],
+                opacity: { duration: 1.2 },
             }}
             className={cn("absolute", className)}
         >
@@ -52,8 +52,8 @@ function ElegantShape({
                     y: [0, 15, 0],
                 }}
                 transition={{
-                    duration: 12, // Slower floating animation
-                    repeat: Infinity,
+                    duration: 12,
+                    repeat: Number.POSITIVE_INFINITY,
                     ease: "easeInOut",
                 }}
                 style={{
@@ -78,7 +78,15 @@ function ElegantShape({
     );
 }
 
-export default function HeroGeometric() {
+export default function HeroGeometric({
+    badge = "Design Collective",
+    title1 = "Elevate Your Digital Vision",
+    title2 = "Crafting Exceptional Websites",
+}: {
+    badge?: string;
+    title1?: string;
+    title2?: string;
+}) {
     const fadeUpVariants = {
         hidden: { opacity: 0, y: 30 },
         visible: (i: number) => ({
@@ -94,19 +102,16 @@ export default function HeroGeometric() {
 
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
-            {/* Ambient background gradient - increased visibility */}
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
 
-            {/* Elegant Background Elements - Repositioned */}
             <div className="absolute inset-0 overflow-hidden">
-                {/* Primary Shapes */}
                 <ElegantShape
                     delay={0.3}
                     width={600}
                     height={140}
                     rotate={12}
                     gradient="from-indigo-500/[0.15]"
-                    className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]" // Moved further left and higher
+                    className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
                 />
 
                 <ElegantShape
@@ -115,17 +120,16 @@ export default function HeroGeometric() {
                     height={120}
                     rotate={-15}
                     gradient="from-rose-500/[0.15]"
-                    className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]" // Moved further right and lower
+                    className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
                 />
 
-                {/* Secondary Elements */}
                 <ElegantShape
                     delay={0.4}
                     width={300}
                     height={80}
                     rotate={-8}
                     gradient="from-violet-500/[0.15]"
-                    className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]" // Adjusted position
+                    className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
                 />
 
                 <ElegantShape
@@ -134,21 +138,19 @@ export default function HeroGeometric() {
                     height={60}
                     rotate={20}
                     gradient="from-amber-500/[0.15]"
-                    className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]" // Moved higher
+                    className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
                 />
 
-                {/* Accent Elements */}
                 <ElegantShape
                     delay={0.7}
                     width={150}
                     height={40}
                     rotate={-25}
                     gradient="from-cyan-500/[0.15]"
-                    className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]" // Adjusted for better framing
+                    className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
                 />
             </div>
 
-            {/* Content */}
             <div className="relative z-10 container mx-auto px-4 md:px-6">
                 <div className="max-w-3xl mx-auto text-center">
                     <motion.div
@@ -160,7 +162,7 @@ export default function HeroGeometric() {
                     >
                         <Circle className="h-2 w-2 fill-rose-500/80" />
                         <span className="text-sm text-white/60 tracking-wide">
-                            Design Collective
+                            {badge}
                         </span>
                     </motion.div>
 
@@ -172,7 +174,7 @@ export default function HeroGeometric() {
                     >
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
                             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-                                Elevate Your
+                                {title1}
                             </span>
                             <br />
                             <span
@@ -181,7 +183,7 @@ export default function HeroGeometric() {
                                     pacifico.className
                                 )}
                             >
-                                Digital Vision
+                                {title2}
                             </span>
                         </h1>
                     </motion.div>
@@ -200,7 +202,6 @@ export default function HeroGeometric() {
                 </div>
             </div>
 
-            {/* Refined gradient overlay - adjusted for better shape visibility */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
         </div>
     );
