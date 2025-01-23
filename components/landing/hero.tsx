@@ -7,8 +7,16 @@ import AIInput_04 from "../kokonutui/ai-input/ai-input-04";
 import Card08 from "../kokonutui/card/card-08";
 import Btn03 from "../kokonutui/button/btn-03";
 import Input09 from "../kokonutui/input/input-09";
-import Btn13 from "../kokonutui/button/btn-13";
 import Link from "next/link";
+import { Btn14 } from "../kokonutui/button/btn-14";
+
+import { Pacifico } from "next/font/google";
+
+const pacifico = Pacifico({
+    subsets: ["latin"],
+    weight: ["400"],
+    variable: "--font-pacifico",
+});
 
 export function HeroSection() {
     return (
@@ -76,10 +84,9 @@ export function HeroSection() {
                         <div className="flex flex-col gap-1 items-center justify-start">
                             <div className="flex flex-col gap-3">
                                 <Link href="/docs">
-                                    <Btn13
-                                        label="Get Started"
-                                        className="w-full"
-                                        // onClick={() => router.push("/docs")}
+                                    <Btn14
+                                        label="Bring me"
+                                        className="w-full py-5"
                                     />
                                 </Link>
                                 <Btn03 />

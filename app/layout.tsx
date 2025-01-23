@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
 import { RootProvider } from "fumadocs-ui/provider";
+import Head from "next/head";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -55,6 +56,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
+            <Head>
+                <script
+                    defer
+                    src="https://cloud.umami.is/script.js"
+                    data-website-id="edae968b-0879-4fd7-a6e8-50409c8e6131"
+                />
+            </Head>
             <body
                 className={cn(
                     geistSans.variable,
