@@ -2,8 +2,8 @@
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Circle } from "lucide-react";
-import { useEffect, useState } from "react";
 import { Pacifico } from "next/font/google";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const pacifico = Pacifico({
@@ -160,7 +160,12 @@ export default function HeroGeometric({
                         animate="visible"
                         className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
                     >
-                        <Circle className="h-2 w-2 fill-rose-500/80" />
+                        <Image
+                            src="https://kokonutui.com/logo.svg"
+                            alt="Kokonut UI"
+                            width={20}
+                            height={20}
+                        />
                         <span className="text-sm text-white/60 tracking-wide">
                             {badge}
                         </span>
