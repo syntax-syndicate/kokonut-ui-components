@@ -17,7 +17,8 @@ const CENTERED_COMPONENTS = [
     "particle-button",
     "currency-transfer",
     "hand-written-title",
-    "tweet-card"
+    "tweet-card",
+    "action-search-bar",
     // Add more small components here
 ];
 
