@@ -35,7 +35,7 @@ export function BrowseComponentsButton() {
     };
 
     return (
-        <Link href="/docs" className="block">
+        <Link href="/docs/components/button" className="block">
             <div
                 className="relative inline-flex items-center gap-2 px-6 py-3 
                     bg-zinc-900 dark:bg-zinc-100 
