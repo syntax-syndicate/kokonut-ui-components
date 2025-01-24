@@ -14,6 +14,7 @@
         "components/hand-written-title",
         "components/tweet-card",
         "components/hero-geometric",
+        "components/action-search-bar",
         "---Components---",
         "components/ai-input",
         "components/alert",
@@ -25,6 +26,5 @@
         "components/pricing",
         "components/profile",
         "components/text"
-
     ]
 }
