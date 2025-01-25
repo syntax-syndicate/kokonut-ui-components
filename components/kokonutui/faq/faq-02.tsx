@@ -18,7 +18,11 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
         <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2, delay: index * 0.1 }}
+            transition={{
+                duration: 0.3,
+                delay: index * 0.15,
+                ease: "easeOut",
+            }}
             className={cn(
                 "group rounded-lg border-[0.5px] border-gray-200/50 dark:border-gray-800/50",
                 "transition-all duration-200 ease-in-out",
@@ -46,7 +50,10 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
                         rotate: isOpen ? 180 : 0,
                         scale: isOpen ? 1.1 : 1,
                     }}
-                    transition={{ duration: 0.2 }}
+                    transition={{
+                        duration: 0.3,
+                        ease: "easeInOut",
+                    }}
                     className={cn(
                         "p-0.5 rounded-full flex-shrink-0",
                         "transition-colors duration-200",
@@ -65,19 +72,40 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
                         animate={{
                             height: "auto",
                             opacity: 1,
-                            transition: { duration: 0.2, ease: "easeOut" },
+                            transition: {
+                                height: {
+                                    duration: 0.4,
+                                    ease: [0.04, 0.62, 0.23, 0.98],
+                                },
+                                opacity: {
+                                    duration: 0.25,
+                                    delay: 0.1,
+                                },
+                            },
                         }}
                         exit={{
                             height: 0,
                             opacity: 0,
-                            transition: { duration: 0.2, ease: "easeIn" },
+                            transition: {
+                                height: {
+                                    duration: 0.3,
+                                    ease: "easeInOut",
+                                },
+                                opacity: {
+                                    duration: 0.25,
+                                },
+                            },
                         }}
                     >
                         <div className="px-6 pb-4 pt-2">
                             <motion.p
-                                initial={{ y: -10, opacity: 0 }}
+                                initial={{ y: -8, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
-                                exit={{ y: -10, opacity: 0 }}
+                                exit={{ y: -8, opacity: 0 }}
+                                transition={{
+                                    duration: 0.3,
+                                    ease: "easeOut",
+                                }}
                                 className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
                             >
                                 {answer}
@@ -103,6 +131,10 @@ function Faq02() {
         {
             question: "What kind of support do you offer?",
             answer: "We provide comprehensive support through multiple channels. This includes 24/7 live chat, detailed documentation, video tutorials, and dedicated account managers for enterprise clients.",
+        },
+        {
+            question: "How can I get started?",
+            answer: "You can get started by signing up for a free trial. Once you've signed up, you'll have access to our platform's full range of features. You can also contact our support team for assistance.",
         },
     ];
 
