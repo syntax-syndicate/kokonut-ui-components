@@ -78,7 +78,9 @@ export function Header() {
                                         kokonutUI
                                     </span>
                                 </Link>
-                                <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                                <span className="text-zinc-300 dark:text-zinc-700">
+                                    |
+                                </span>
                                 {/* Desktop Navigation Links */}
                                 <div className="hidden sm:flex items-center gap-4">
                                     <Link
@@ -93,12 +95,24 @@ export function Header() {
                                     >
                                         Components
                                     </Link>
+                                    <Link
+                                        href="https://kokonutui.pro/templates?utm_source=kokonutui.com&utm_medium=header"
+                                        target="_blank"
+                                        className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                                    >
+                                        Templates
+                                        <span className="text-purple-500 dark:text-purple-400 border border-purple-500 dark:border-purple-400 rounded-lg px-1 py-0.5 text-xs">
+                                            New
+                                        </span>
+                                    </Link>
                                 </div>
                             </div>
 
                             {/* Right side items */}
                             <div className="hidden sm:flex items-center gap-3">
-                                <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                                <span className="text-zinc-300 dark:text-zinc-700">
+                                    |
+                                </span>
                                 <HeaderPro />
                                 <ThemeToggle />
                             </div>
