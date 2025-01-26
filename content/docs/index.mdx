@@ -4,7 +4,7 @@ description: Getting started with KokonutUI
 icon: ListStart
 ---
 
-### 1. Install utilities 
+### 1. Install utilities
 
 Most of the components use `cn` utility function. Run the following command to install it. As you may notice, this use `Tailwind CSS`, please make sure to install it in your project.
 
@@ -23,7 +23,6 @@ pnpm dlx shadcn@latest add https://kokonutui/r/utils.json
 ```
 
 </Tabs>
-
 
 ### 2. That's it 🎉
 
@@ -47,27 +46,60 @@ pnpm dlx shadcn@latest add https://kokonutui.com/r/card-05.json
 
 </Tabs>
 
-*While we provide a convenient 'copy' button for the code, we strongly recommend using the CLI for installing components, as it ensures all necessary files are included.*
+_While we provide a convenient 'copy' button for the code, we strongly recommend using the CLI for installing components, as it ensures all necessary files are included._
 
 Add to your page and it works!
+
 ```jsx
 import Card05 from "@/components/kokonutui/card-05";
 
 export default function Page() {
-    return <Card05 />
+    return <Card05 />;
 }
-
 ```
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
+### 3. Blocks
 
-### 3. Optionnal dependencies
+Blocks are a set of components to make a complete blocks, they contain multiples files. To install them it is mandatory to use the `cli`. For exemple it you'd like to install `ai-card-generation` block:
+
+<Tabs items={["bun", "npx", "pnpm"]}>
+ 
+```bash tab="bun"
+bunx shadcn@latest add https://kokonutui.com/r/ai-card-generation.json
+```
+ 
+```bash tab="npx"
+npx shadcn@latest add https://kokonutui.com/r/ai-card-generation.json
+```
+
+```bash tab="pnpm"
+pnpm dlx shadcn@latest add https://kokonutui.com/r/ai-card-generation.json
+```
+
+</Tabs>
+
+Then, add to your page and it works!
+
+```jsx
+/**
+ * AICardGeneration require 5 additional components
+ * that will be automatically * installed with the CLI.
+ */
+import AICardGeneration from "@/components/kokonutui/page";
+
+export default function Page() {
+    return <AICardGeneration />;
+}
+```
+
+### 4. Optionnal dependencies
 
 Some components require additional libraries, listed at the bottom of each components. Make sure to install them to ensure the component works properly.
 
+### 5. Monorepo
 
-### 4. Monorepo
 For monorepo `shadcn/ui` CLI contain the options `-c` to the path to your workspace for exemple:
 
 <Tabs items={["bun", "npx", "pnpm"]}>

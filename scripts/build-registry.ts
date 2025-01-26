@@ -64,6 +64,8 @@ const getComponentFiles = async (files: File[], registryType: string) => {
                     return `/hooks/${fileName}`;
                 case "registry:lib":
                     return `/lib/${fileName}`;
+                case "registry:block":
+                    return `/blocks/${fileName}`;
                 default:
                     return `/components/kokonutui/${fileName}`;
             }

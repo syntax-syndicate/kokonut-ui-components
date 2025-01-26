@@ -11,6 +11,7 @@ import Link from "next/link";
 import { Btn14 } from "../kokonutui/button/btn-14";
 
 import { Pacifico } from "next/font/google";
+import { BrowseBlocksButton } from "../ui/browse-blocks";
 
 const pacifico = Pacifico({
     subsets: ["latin"],
@@ -35,7 +36,11 @@ export function HeroSection() {
                     <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
                 </div>
 
-                <BrowseComponentsButton />
+                <div className="flex items-center gap-2">
+                    <BrowseComponentsButton />
+
+                    <BrowseBlocksButton />
+                </div>
                 <FeatureBlock />
             </div>
 

@@ -16,6 +16,8 @@
         "components/hero-geometric",
         "components/action-search-bar",
         "components/faq",
+        "---Blocks---",
+        "blocks/ai-card-generation",
         "---Components---",
         "components/ai-input",
         "components/alert",

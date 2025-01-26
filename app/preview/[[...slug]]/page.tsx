@@ -19,6 +19,7 @@ const CENTERED_COMPONENTS = [
     "hand-written-title",
     "tweet-card",
     "action-search-bar",
+    "blocks/ai-card-generation",
     // Add more small components here
 ];
 

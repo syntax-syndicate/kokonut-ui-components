@@ -10,6 +10,7 @@ interface PreviewProps {
     height?: string;
     compact?: boolean;
     comment?: string[];
+    isBlock?: boolean;
 }
 
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -23,11 +24,12 @@ export function Preview({
     useIframe = false,
     compact = false,
     comment = [],
+    isBlock = false,
 }: PreviewProps) {
     return (
         <>
             <div className={cn("w-full overflow-hidden", className)}>
-                <PreviewContent link={link} prePath={prePath} />
+                <PreviewContent link={link} prePath={prePath} isBlock={isBlock} />
 
                 {useIframe ? (
                     <div className="w-full my-4 border rounded-2xl border-zinc-400 dark:border-zinc-700">
