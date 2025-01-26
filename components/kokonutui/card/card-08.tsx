@@ -30,7 +30,7 @@ export default function Card08({
                     "border border-zinc-200/50 dark:border-zinc-800/50",
                     "shadow-sm",
                     "transition-all duration-300",
-                    "hover:-translate-y-1 hover:shadow-md",
+                    "hover:shadow-md",
                     "hover:border-zinc-300/50 dark:hover:border-zinc-700/50"
                 )}
             >
@@ -39,7 +39,7 @@ export default function Card08({
                         src={image}
                         alt={title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover"
                     />
                 </div>
 
@@ -81,10 +81,10 @@ export default function Card08({
                                 "bg-white/10 dark:bg-zinc-800/50",
                                 "backdrop-blur-md",
                                 "group-hover:bg-white/20 dark:group-hover:bg-zinc-700/50",
-                                "transition-colors duration-300"
+                                "transition-colors duration-300 group"
                             )}
                         >
-                            <ArrowUpRight className="w-4 h-4 text-white" />
+                            <ArrowUpRight className="w-4 h-4 text-white group-hover:-rotate-12 transition-transform duration-300" />
                         </div>
                     </div>
                 </div>

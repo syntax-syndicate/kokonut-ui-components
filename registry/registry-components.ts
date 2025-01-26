@@ -102,22 +102,6 @@ export const component: Registry = [
         ],
     },
     {
-        name: "ai-input-07",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["textarea"],
-        files: [
-            {
-                path: "components/kokonutui/ai-input/ai-input-07.tsx",
-                type: "registry:component",
-            },
-            {
-                path: "hooks/use-auto-resize-textarea.ts",
-                type: "registry:hook",
-            },
-        ],
-    },
-    {
         name: "ai-input-08",
         type: "registry:component",
         dependencies: ["lucide-react"],
@@ -877,21 +861,6 @@ export const component: Registry = [
             {
                 path: "components/kokonutui/input/input-06.tsx",
                 type: "registry:component",
-            },
-        ],
-    },
-    {
-        name: "input-07",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        files: [
-            {
-                path: "components/kokonutui/input/input-07.tsx",
-                type: "registry:component",
-            },
-            {
-                path: "hooks/use-click-outside.ts",
-                type: "registry:hook",
             },
         ],
     },

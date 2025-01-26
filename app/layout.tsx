@@ -6,8 +6,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
 import { RootProvider } from "fumadocs-ui/provider";
-import Head from "next/head";
 import Script from "next/script";
+import { ViewTransitions } from "next-view-transitions";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -56,33 +56,35 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
-            <body
-                className={cn(
-                    geistSans.variable,
-                    geistSans.className,
-                    "antialiased"
-                )}
-            >
-                <RootProvider>
-                    <ThemeProvider
-                        attribute="class"
-                        defaultTheme="system"
-                        enableSystem
-                        disableTransitionOnChange
-                    >
-                        <div className="flex flex-col min-h-screen">
-                            <div className="flex-1">{children}</div>
-                        </div>
-                    </ThemeProvider>
-                </RootProvider>
-                <Analytics />
-                <Script
-                    defer
-                    src="https://cloud.umami.is/script.js"
-                    data-website-id="edae968b-0879-4fd7-a6e8-50409c8e6131"
-                />
-            </body>
-        </html>
+        <ViewTransitions>
+            <html lang="en" suppressHydrationWarning>
+                <body
+                    className={cn(
+                        geistSans.variable,
+                        geistSans.className,
+                        "antialiased"
+                    )}
+                >
+                    <RootProvider>
+                        <ThemeProvider
+                            attribute="class"
+                            defaultTheme="system"
+                            enableSystem
+                            disableTransitionOnChange
+                        >
+                            <div className="flex flex-col min-h-screen">
+                                <div className="flex-1">{children}</div>
+                            </div>
+                        </ThemeProvider>
+                    </RootProvider>
+                    <Analytics />
+                    <Script
+                        defer
+                        src="https://cloud.umami.is/script.js"
+                        data-website-id="edae968b-0879-4fd7-a6e8-50409c8e6131"
+                    />
+                </body>
+            </html>
+        </ViewTransitions>
     );
 }

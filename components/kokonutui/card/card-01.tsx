@@ -129,22 +129,26 @@ export default function Card_01({
                     </p>
 
                     {content?.link && (
-                        <div className={cn(
-                            "mb-5 rounded-2xl",
-                            "border border-zinc-200/80 dark:border-zinc-700/80",
-                            "overflow-hidden group cursor-pointer",
-                            "transition-all duration-300",
-                            "hover:border-zinc-300 dark:hover:border-zinc-600",
-                            "hover:shadow-md hover:shadow-zinc-200/20 dark:hover:shadow-zinc-900/20",
-                            "hover:translate-y-[-1px]"
-                        )}>
-                            <div className={cn(
-                                "p-5",
-                                "bg-gradient-to-b from-zinc-50/50 to-white dark:from-zinc-800/30 dark:to-zinc-800/50",
-                                "group-hover:from-zinc-100/50 group-hover:to-zinc-50/50",
-                                "dark:group-hover:from-zinc-800/50 dark:group-hover:to-zinc-800/70",
-                                "transition-colors duration-300"
-                            )}>
+                        <div
+                            className={cn(
+                                "mb-5 rounded-2xl",
+                                "border border-zinc-200/80 dark:border-zinc-700/80",
+                                "overflow-hidden group cursor-pointer",
+                                "transition-all duration-300",
+                                "hover:border-zinc-300 dark:hover:border-zinc-600",
+                                "hover:shadow-md hover:shadow-zinc-200/20 dark:hover:shadow-zinc-900/20",
+                                "hover:translate-y-[-1px]"
+                            )}
+                        >
+                            <div
+                                className={cn(
+                                    "p-5",
+                                    "bg-gradient-to-b from-zinc-50/50 to-white dark:from-zinc-800/30 dark:to-zinc-800/50",
+                                    "group-hover:from-zinc-100/50 group-hover:to-zinc-50/50",
+                                    "dark:group-hover:from-zinc-800/50 dark:group-hover:to-zinc-800/70",
+                                    "transition-colors duration-300"
+                                )}
+                            >
                                 <div className="flex items-center gap-4">
                                     <div className="p-2.5 bg-white/80 dark:bg-zinc-700/80 rounded-xl shadow-sm backdrop-blur-sm">
                                         {content?.link.icon}
@@ -234,7 +238,7 @@ export default function Card_01({
                                     : "text-zinc-400"
                             )}
                         >
-                            <Bookmark 
+                            <Bookmark
                                 className={cn(
                                     "w-[18px] h-[18px]",
                                     "transition-all duration-300",

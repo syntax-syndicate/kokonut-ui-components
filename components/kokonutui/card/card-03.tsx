@@ -23,8 +23,8 @@ interface Card03Props {
 }
 
 export default function Card03({
-    projectName = "Kokonut UI",
-    description = "Design system and component library",
+    projectName = "To complete",
+    description = "Revamp the design of the website",
     teamMembers = [
         {
             name: "Alex",
@@ -36,7 +36,7 @@ export default function Card03({
             name: "Sarah",
             role: "Developer",
             avatar: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-02-albo9B0tWOSLXCVZh9rX9KFxXIVWMr.png",
-            status: "online",
+            status: "busy",
         },
         {
             name: "Mike",
@@ -46,9 +46,9 @@ export default function Card03({
         },
     ],
     milestones = [
-        { title: "Design System", dueDate: "2d", completed: true },
-        { title: "Components", dueDate: "5d", completed: false },
-        { title: "Documentation", dueDate: "7d", completed: false },
+        { title: "Dark Mode", dueDate: "2d", completed: true },
+        { title: "Components", dueDate: "5d left", completed: false },
+        { title: "Documentation", dueDate: "7d left", completed: false },
     ],
 }: Card03Props) {
     return (
@@ -68,14 +68,6 @@ export default function Card03({
                 <div className="p-5">
                     <div className="flex items-start justify-between mb-6">
                         <div>
-                            <div className="flex items-center gap-2 mb-2">
-                                <div className="p-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800">
-                                    <Rocket className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
-                                </div>
-                                <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                                    Active Project
-                                </span>
-                            </div>
                             <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                                 {projectName}
                             </h2>
@@ -87,9 +79,6 @@ export default function Card03({
 
                     <div className="space-y-5">
                         <div>
-                            <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-3">
-                                Team
-                            </h3>
                             <div className="flex space-x-2">
                                 {teamMembers.map((member, index) => (
                                     <div

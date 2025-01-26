@@ -176,7 +176,6 @@ export default function Card06({
                         ))}
                     </div>
 
-                    {/* Scenes */}
                     <div className="space-y-3">
                         <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
                             Scenes
@@ -184,6 +183,7 @@ export default function Card06({
                         <div className="grid grid-cols-2 gap-3">
                             {scenes.map((scene) => (
                                 <button
+                                    type="button"
                                     key={scene.id}
                                     className={cn(
                                         "flex items-center gap-2.5",
