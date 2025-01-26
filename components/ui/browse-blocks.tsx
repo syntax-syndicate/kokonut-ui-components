@@ -6,6 +6,11 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowDownRight, ArrowRight, BlocksIcon } from "lucide-react";
 
+
+/**
+ * 
+ *
+ */
 export function BrowseBlocksButton() {
     return (
         <Link

@@ -8,7 +8,7 @@ export const block: Registry = [
         registryDependencies: ["button", "input", "select", "textarea"],
         files: [
             {
-                path: "components/kokonutui/blocks/ai-card-generation/page.tsx",
+                path: "components/kokonutui/blocks/ai-card-generation/ai-card-generation.tsx",
                 type: "registry:component",
             },
             {
