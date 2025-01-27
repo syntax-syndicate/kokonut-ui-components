@@ -36,7 +36,7 @@ export function HeroSection() {
                     <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col md:flex-row items-center justify-start gap-2">
                     <BrowseComponentsButton />
 
                     <BrowseBlocksButton />
