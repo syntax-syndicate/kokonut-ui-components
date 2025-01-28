@@ -48,7 +48,7 @@ export function Preview({
                 ) : (
                     <div
                         className={cn(
-                            "p-2 md:p-8 flex justify-center items-center relative group border rounded-2xl my-4 border-zinc-400 dark:border-zinc-800 not-prose",
+                            "p-2 md:p-8 flex justify-center items-center relative border rounded-2xl my-4 border-zinc-400 dark:border-zinc-800 not-prose",
                             compact ? "min-h-[100px]" : "min-h-[400px]"
                         )}
                     >

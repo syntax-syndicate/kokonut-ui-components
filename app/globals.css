@@ -72,12 +72,12 @@ table {
 }
 
 
-a[href="/docs/components/tweet-card"] {
+a[href="/docs/components/bento-grid"] {
   position: relative;
   padding-right: 2.5rem;
 }
 
-a[href="/docs/components/tweet-card"]::after {
+a[href="/docs/components/bento-grid"]::after {
   content: "New";
   position: absolute;
   right: 0.2rem;

@@ -15,6 +15,7 @@
         "components/tweet-card",
         "components/hero-geometric",
         "components/action-search-bar",
+        "components/bento-grid",
         "components/faq",
         "---Blocks---",
         "blocks/ai-card-generation",

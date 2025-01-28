@@ -1175,4 +1175,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "bento-grid",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/bento-grid.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
