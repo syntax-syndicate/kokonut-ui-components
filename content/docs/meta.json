@@ -16,6 +16,7 @@
         "components/hero-geometric",
         "components/action-search-bar",
         "components/bento-grid",
+        "components/particles-background",
         "components/faq",
         "---Blocks---",
         "blocks/ai-card-generation",

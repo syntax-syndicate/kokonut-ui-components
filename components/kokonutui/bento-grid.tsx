@@ -102,7 +102,7 @@ export default function BentoGrid({ items = itemsSample }: BentoGridProps) {
                             </div>
                             <span
                                 className={cn(
-                                    "text-xs font-medium px-2 py-1 rounded-full backdrop-blur-sm",
+                                    "text-xs font-medium px-2 py-1 rounded-lg backdrop-blur-sm",
                                     "bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-300",
                                     "transition-colors duration-300 group-hover:bg-black/10 dark:group-hover:bg-white/20"
                                 )}

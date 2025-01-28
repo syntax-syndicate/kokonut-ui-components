@@ -1187,4 +1187,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "particles-background",
+        type: "registry:component",
+        dependencies: ["motion"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/particles-background.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
