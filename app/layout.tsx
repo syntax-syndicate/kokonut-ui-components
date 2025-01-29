@@ -50,6 +50,8 @@ export const viewport: Viewport = {
     themeColor: META_THEME_COLORS.dark,
 };
 
+const dev = process.env.NODE_ENV === "development";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -77,12 +79,14 @@ export default function RootLayout({
                             </div>
                         </ThemeProvider>
                     </RootProvider>
-                    <Analytics />
-                    <Script
-                        defer
-                        src="https://cloud.umami.is/script.js"
-                        data-website-id="edae968b-0879-4fd7-a6e8-50409c8e6131"
-                    />
+                    {/* <Analytics /> */}
+                    {!dev && (
+                        <Script
+                            defer
+                            src="https://cloud.umami.is/script.js"
+                            data-website-id="edae968b-0879-4fd7-a6e8-50409c8e6131"
+                        />
+                    )}
                 </body>
             </html>
         </ViewTransitions>

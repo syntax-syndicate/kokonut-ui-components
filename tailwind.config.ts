@@ -9,8 +9,8 @@ const config: Config = {
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
         "./lib/**/*.{js,ts,jsx,tsx,mdx}",
     ],
-    // presets: [createPreset({ preset: "neutral" })],
-    presets: [createPreset({ preset: "dusk" })],
+    presets: [createPreset({ preset: "neutral" })],
+    // presets: [createPreset({ preset: "dusk" })],
     darkMode: ["class"],
     theme: {
         extend: {

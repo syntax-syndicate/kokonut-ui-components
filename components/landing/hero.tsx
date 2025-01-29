@@ -33,6 +33,10 @@ export function HeroSection() {
                         websites <br />
                         without spending time on design
                     </h1>
+                    <p className="mt-4 mb-6 text-lg text-zinc-600 dark:text-zinc-400">
+                        Open Source UI components built with Tailwind CSS for
+                        React and Next.js.
+                    </p>
                     <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
                 </div>
 
