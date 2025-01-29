@@ -10,23 +10,19 @@
 
 ## Overview
 
-Access a collection of free-to-use, standalone components with KokonutUI.
+Open-source collection of UI Components for Design Engineer and Developers.
 
-Each component is designed with TailwindCSS, and optionally with shadcn and Framer-motion.
+Each component is designed with TailwindCSS and Motion for React and Next.js
 
 ## Getting Started
 
-Please check [kokonutui.com/docs](https://kokonutui.com/docs)
+Visit [kokonutui.com/docs](https://kokonutui.com/docs) for the documentation.
 
 
 ## Contributing
 
-Feel free to create PR
+Feel free to create any pull requests or issues.
 
 ## License
 
 This project is licensed under the MIT License.
-
-## Note
-
-The project is currently work-in progress you can follow updates at [@dorian](https://x.com/dorian_baffier)
