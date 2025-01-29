@@ -18,6 +18,7 @@
         "components/bento-grid",
         "components/particles-background",
         "components/faq",
+        "components/background-circles",
         "---Blocks---",
         "blocks/ai-card-generation",
         "---Components---",

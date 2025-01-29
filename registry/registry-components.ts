@@ -1199,4 +1199,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "background-circles",
+        type: "registry:component",
+        dependencies: ["motion"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/background-circles.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
