@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -87,9 +87,14 @@ export default function Input09() {
             <div className="relative h-24 w-full flex justify-center">
                 <AnimatePresence>{renderAvatars()}</AnimatePresence>
             </div>
-
             <motion.div
-                variants={isVibrating ? animations.vibration : {}}
+                variants={isVibrating ? {
+                    initial: { x: 0 },
+                    vibrate: { 
+                        x: [0, -5, 5, -5, 5, 0],
+                        transition: { duration: 0.3 }
+                    }
+                } : undefined}
                 initial="initial"
                 animate={isVibrating ? "vibrate" : "initial"}
                 className="flex items-center gap-8"

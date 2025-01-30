@@ -8,12 +8,11 @@ import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 
 const INITIAL_TEXT = "What can i do for you?";
 const SPEED = 30;
-const MIN_HEIGHT = 56;
 
 export default function AIInput_05() {
     const [inputValue, setInputValue] = useState("");
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
+        minHeight: 50,
         maxHeight: 200,
     });
     const [displayText, setDisplayText] = useState("");

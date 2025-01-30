@@ -68,7 +68,7 @@ export default function Input_04({
                         min={min}
                         max={max}
                         step={step}
-                        className="w-full text-center border-none bg-transparent focus:outline-none 
+                        className="w-full text-center border-none bg-transparent focus:outline-hidden 
                         [-moz-appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none 
                         [&::-webkit-inner-spin-button]:appearance-none
                         text-zinc-900 dark:text-zinc-100"

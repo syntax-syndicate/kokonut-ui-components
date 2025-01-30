@@ -60,7 +60,7 @@ export function Preview({
                         {comment.map((text, index) => (
                             <div
                                 key={index}
-                                className="px-4 py-2 text-sm font-medium bg-purple-100 dark:bg-purple-950/30 rounded-lg text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50 shadow-sm hover:bg-purple-200/70 dark:hover:bg-purple-950/50 transition-colors"
+                                className="px-4 py-2 text-sm font-medium bg-purple-100 dark:bg-purple-950/30 rounded-lg text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50 shadow-xs hover:bg-purple-200/70 dark:hover:bg-purple-950/50 transition-colors"
                             >
                                 {text}
                             </div>

@@ -2,7 +2,7 @@
 
 import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import FeatureBlock from "./feature-block";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import AIInput_04 from "../kokonutui/ai-input/ai-input-04";
 import Card08 from "../kokonutui/card/card-08";
 import Btn03 from "../kokonutui/button/btn-03";
@@ -27,7 +27,7 @@ export function HeroSection() {
                 <div className="max-w-2xl">
                     <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
                         Build{" "}
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-rose-500 to-purple-500 dark:from-orange-400 dark:via-rose-400 dark:to-purple-400">
+                        <span className="bg-clip-text text-transparent bg-linear-to-r from-orange-500 via-rose-500 to-purple-500 dark:from-orange-400 dark:via-rose-400 dark:to-purple-400">
                             stunning
                         </span>{" "}
                         websites <br />
@@ -37,7 +37,7 @@ export function HeroSection() {
                         Open Source UI components built with Tailwind CSS for
                         React and Next.js.
                     </p>
-                    <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
+                    <div className="h-[0.5px] w-full bg-linear-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center justify-start gap-2">

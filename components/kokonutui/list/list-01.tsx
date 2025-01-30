@@ -87,17 +87,17 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                             "transition-all duration-300 ease-out",
                             "rounded-2xl",
                             "border border-white/20 dark:border-zinc-700/50",
-                            "shadow-sm hover:shadow-md"
+                            "shadow-xs hover:shadow-md"
                         )}
                     >
                         <div
                             className={cn(
-                                "flex-shrink-0 p-3 rounded-2xl",
-                                "bg-gradient-to-br",
+                                "shrink-0 p-3 rounded-2xl",
+                                "bg-linear-to-br",
                                 iconStyles[
                                     item.iconStyle as keyof typeof iconStyles
                                 ],
-                                "shadow-sm border border-white/10 dark:border-zinc-700/50",
+                                "shadow-xs border border-white/10 dark:border-zinc-700/50",
                                 "transition-transform duration-300",
                                 "group-hover:scale-105"
                             )}
@@ -115,7 +115,7 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                                         className={cn(
                                             "px-2.5 py-0.5 rounded-full text-xs font-medium",
                                             "transition-all duration-300",
-                                            "shadow-sm",
+                                            "shadow-xs",
                                             badgeVariants[
                                                 item.badge
                                                     .variant as keyof typeof badgeVariants

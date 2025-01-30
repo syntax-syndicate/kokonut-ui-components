@@ -6,12 +6,10 @@ import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 import { ArrowUpCircle, Paperclip, Globe, Figma } from "lucide-react";
 
-const MIN_HEIGHT = 80;
-
 export default function AIInput_17() {
     const [value, setValue] = useState("");
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
+        minHeight: 80,
         maxHeight: 200,
     });
 
@@ -44,11 +42,11 @@ export default function AIInput_17() {
                                 "resize-none",
                                 "bg-transparent",
                                 "border-none",
-                                "focus:outline-none",
+                                "focus:outline-hidden",
                                 "focus-visible:ring-0 focus-visible:ring-offset-0",
                                 "placeholder:text-black/50 dark:placeholder:text-white/50",
                                 "align-top leading-normal",
-                                `min-h-[${MIN_HEIGHT}px]`
+                                "min-h-[80px]"
                             )}
                             style={{
                                 overflow: "hidden",
@@ -80,6 +78,7 @@ export default function AIInput_17() {
                                 </button>
                             </div>
                             <button
+                                type="button"
                                 className={cn(
                                     "p-2 transition-colors",
                                     value.trim()

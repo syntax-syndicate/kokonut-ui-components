@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, type RefObject } from "react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import type { ButtonProps } from "@/components/ui/button";
 import { MousePointerClick } from "lucide-react";
@@ -72,7 +72,11 @@ export default function ParticleButton({
 
     return (
         <>
-            {showParticles && <SuccessParticles buttonRef={buttonRef} />}
+            {showParticles && (
+                <SuccessParticles
+                    buttonRef={buttonRef as RefObject<HTMLButtonElement>}
+                />
+            )}
             <Button
                 ref={buttonRef}
                 onClick={handleClick}

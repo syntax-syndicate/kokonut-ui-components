@@ -62,7 +62,7 @@ export default function Profile01({
             <div className="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
                 <div className="relative px-6 pt-12 pb-6">
                     <div className="flex items-center gap-4 mb-8">
-                        <div className="relative flex-shrink-0">
+                        <div className="relative shrink-0">
                             <Image
                                 src={avatar}
                                 alt={name}

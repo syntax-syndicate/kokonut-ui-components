@@ -13,12 +13,10 @@ interface SidebarSection {
     items: string[];
 }
 
-const MIN_HEIGHT = 40;
-
 export default function AIInput_13() {
     const [value, setValue] = useState("");
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
+        minHeight: 40,
         maxHeight: 200,
     });
 
@@ -59,7 +57,7 @@ export default function AIInput_13() {
                             placeholder="Type your message..."
                             className={cn(
                                 "w-full rounded-xl px-4 border-none resize-none bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70",
-                                `min-h-[${MIN_HEIGHT}px]`
+                                "min-h-[40px]"
                             )}
                             ref={textareaRef}
                             onKeyDown={handleKeyDown}

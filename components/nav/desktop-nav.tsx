@@ -11,7 +11,7 @@ export function DesktopNav({ sections, pathname }: DesktopNavProps) {
     return (
         <div className="hidden md:block w-full z-40 space-y-4">
             <div
-                className="bg-gradient-to-b from-white/95 via-gray-50/95 to-white/95
+                className="bg-linear-to-b from-white/95 via-gray-50/95 to-white/95
                     dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90
                     shadow-[0_2px_20px_-2px_rgba(0,0,0,0.15)]
                     backdrop-blur-md
@@ -76,12 +76,12 @@ export function DesktopNav({ sections, pathname }: DesktopNavProps) {
                                             )}
                                             {item.title}
                                             {item.isNew && !isActive && (
-                                                <span className="rounded-lg inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase bg-gradient-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20 shadow-[0_0_10px_-3px_rgba(16,185,129,0.15)] dark:shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)]">
+                                                <span className="rounded-lg inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase bg-linear-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20 shadow-[0_0_10px_-3px_rgba(16,185,129,0.15)] dark:shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)]">
                                                     new
                                                 </span>
                                             )}
                                             {item.isLab && !isActive && (
-                                                <span className="rounded-lg inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase bg-gradient-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20 dark:ring-purple-400/20 shadow-[0_0_10px_-3px_rgba(147,51,234,0.15)] dark:shadow-[0_0_10px_-3px_rgba(147,51,234,0.2)]">
+                                                <span className="rounded-lg inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase bg-linear-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20 dark:ring-purple-400/20 shadow-[0_0_10px_-3px_rgba(147,51,234,0.15)] dark:shadow-[0_0_10px_-3px_rgba(147,51,234,0.2)]">
                                                     lab
                                                 </span>
                                             )}

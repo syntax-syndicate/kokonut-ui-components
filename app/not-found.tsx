@@ -5,10 +5,10 @@ export default function NotFound() {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen gap-6 p-4">
             <div className="flex flex-col items-center gap-2">
-                <h1 className="text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
+                <h1 className="text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-zinc-800 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400">
                     404 Not Found
                 </h1>
-                <div className="h-[0.5px] w-full bg-gradient-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
+                <div className="h-[0.5px] w-full bg-linear-to-r from-zinc-400 to-zinc-200 dark:from-zinc-600 dark:to-zinc-800 mt-2 rounded-full" />
             </div>
 
             <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-md text-center leading-relaxed">
@@ -22,7 +22,7 @@ export default function NotFound() {
                     cursor-pointer
                     flex items-center gap-2
                     rounded-full
-                    bg-gradient-to-b from-zinc-800 via-zinc-900 to-zinc-800
+                    bg-linear-to-b from-zinc-800 via-zinc-900 to-zinc-800
                     hover:from-zinc-900 hover:via-zinc-800 hover:to-zinc-900
                     dark:from-gray-50 dark:via-white dark:to-gray-50
                     dark:hover:from-white dark:hover:via-gray-50 dark:hover:to-white

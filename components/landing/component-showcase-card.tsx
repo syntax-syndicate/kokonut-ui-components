@@ -13,7 +13,7 @@ export function ComponentShowcaseCard({
 }: ComponentShowcaseCardProps) {
     return (
         <div className={className}>
-            <div className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-700 to-zinc-400 dark:from-zinc-100 dark:to-zinc-400">
+            <div className="text-2xl sm:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-zinc-700 to-zinc-400 dark:from-zinc-100 dark:to-zinc-400">
                 Buttons, Inputs & More
             </div>
 

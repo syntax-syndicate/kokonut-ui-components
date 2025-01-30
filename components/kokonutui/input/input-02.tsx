@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, type RefObject } from "react";
 import { cn } from "@/lib/utils";
 import { X, Check, Plus } from "lucide-react";
 import { useTags } from "@/hooks/use-tags";
@@ -92,10 +92,15 @@ export default function Input_02({
         }
     }
 
-    useClickOutside(containerRef, () => setIsOpen(false));
+    useClickOutside(containerRef as RefObject<HTMLElement>, () =>
+        setIsOpen(false)
+    );
 
     return (
-        <div className="w-full max-w-full sm:max-w-2xl space-y-2" ref={containerRef}>
+        <div
+            className="w-full max-w-full sm:max-w-2xl space-y-2"
+            ref={containerRef}
+        >
             {label && (
                 <label
                     className="text-sm font-medium text-zinc-800 dark:text-zinc-200"
@@ -156,7 +161,7 @@ export default function Input_02({
                         "text-base sm:text-sm",
                         "text-zinc-900 dark:text-zinc-100",
                         "placeholder:text-zinc-500 dark:placeholder:text-zinc-400",
-                        "focus:outline-none"
+                        "focus:outline-hidden"
                     )}
                 />
 

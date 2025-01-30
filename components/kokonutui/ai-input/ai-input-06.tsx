@@ -6,12 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 
-const MIN_HEIGHT = 56;
-
 export default function AIInput_06() {
     const [inputValue, setInputValue] = useState("");
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
+        minHeight: 50,
         maxHeight: 200,
     });
 
@@ -30,7 +28,7 @@ export default function AIInput_06() {
                         placeholder="Ask me anything!"
                         className={cn(
                             "max-w-xl bg-black/5 dark:bg-white/5 w-full rounded-3xl pl-6 pr-12 py-4 placeholder:text-black/70 dark:placeholder:text-white/70 border-none ring-black/30 dark:ring-white/30 text-black dark:text-white resize-none text-wrap leading-[1.2]",
-                            `min-h-[${MIN_HEIGHT}px]`
+                            "min-h-[56px]"
                         )}
                         value={inputValue}
                         onKeyDown={(e) => {

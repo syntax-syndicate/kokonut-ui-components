@@ -6,7 +6,7 @@ function Header() {
     return (
         <div>
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-pink-500 dark:from-amber-400 dark:to-pink-400">
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-amber-500 to-pink-500 dark:from-amber-400 dark:to-pink-400">
                     Build beautiful interfaces
                 </span>
             </h2>
@@ -43,7 +43,7 @@ export function BuildInterfacesCard({ className }: BuildInterfacesCardProps) {
                     <Link
                         href="/docs"
                         className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg 
-                            bg-gradient-to-r from-zinc-900 to-zinc-800 dark:from-zinc-100 dark:to-zinc-200
+                            bg-linear-to-r from-zinc-900 to-zinc-800 dark:from-zinc-100 dark:to-zinc-200
                             text-white dark:text-zinc-900 
                             hover:shadow-lg hover:shadow-zinc-900/20 dark:hover:shadow-zinc-100/20
                             transition-all duration-200 ease-in-out"

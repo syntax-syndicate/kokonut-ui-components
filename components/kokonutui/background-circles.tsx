@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import clsx from "clsx";
 import { useState } from "react";
 
@@ -121,7 +121,7 @@ export function BackgroundCircles({
                         key={i}
                         className={clsx(
                             "absolute inset-0 rounded-full",
-                            "border-2 bg-gradient-to-br to-transparent",
+                            "border-2 bg-linear-to-br to-transparent",
                             variantStyles.border[i],
                             variantStyles.gradient
                         )}
@@ -158,7 +158,7 @@ export function BackgroundCircles({
                 <h1
                     className={clsx(
                         "text-5xl font-bold tracking-tight md:text-7xl",
-                        "bg-gradient-to-b from-slate-950 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent",
+                        "bg-linear-to-b from-slate-950 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent",
                         "drop-shadow-[0_0_32px_rgba(94,234,212,0.4)]"
                     )}
                 >

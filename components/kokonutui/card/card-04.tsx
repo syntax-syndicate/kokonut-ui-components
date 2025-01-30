@@ -84,7 +84,7 @@ export default function Card04({
                                 <div
                                     className={cn(
                                         "w-10 h-10 rounded-xl",
-                                        "bg-gradient-to-br from-violet-500 to-indigo-500",
+                                        "bg-linear-to-br from-violet-500 to-indigo-500",
                                         "flex items-center justify-center",
                                         "text-white font-medium text-sm"
                                     )}
@@ -197,7 +197,7 @@ export default function Card04({
                                     "rounded-xl",
                                     "text-sm text-zinc-900 dark:text-zinc-100",
                                     "placeholder:text-zinc-400 dark:placeholder:text-zinc-500",
-                                    "focus:outline-none focus:ring-2 focus:ring-violet-500/20",
+                                    "focus:outline-hidden focus:ring-2 focus:ring-violet-500/20",
                                     "transition-all duration-200"
                                 )}
                             />

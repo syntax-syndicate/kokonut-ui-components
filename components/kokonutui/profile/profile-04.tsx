@@ -62,7 +62,7 @@ export default function Profile04({
         <div className="w-full max-w-md mx-auto">
             <div
                 className="relative p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 
-                bg-gradient-to-b from-white to-zinc-50/50 dark:from-zinc-900 dark:to-zinc-900/50"
+                bg-linear-to-b from-white to-zinc-50/50 dark:from-zinc-900 dark:to-zinc-900/50"
             >
                 <div className="flex items-start justify-between mb-6">
                     <div className="flex gap-4">
@@ -77,7 +77,7 @@ export default function Profile04({
                             <Badge
                                 variant="secondary"
                                 className="mt-2 px-2 py-0.5 text-xs font-medium 
-                                    bg-gradient-to-r from-amber-100 to-amber-200 
+                                    bg-linear-to-r from-amber-100 to-amber-200 
                                     dark:from-amber-900/50 dark:to-amber-800/50 
                                     text-amber-700 dark:text-amber-400
                                     border-amber-200/50 dark:border-amber-800/50"

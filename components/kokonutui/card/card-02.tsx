@@ -141,7 +141,7 @@ export default function Card02({
                             "bg-zinc-900 dark:bg-zinc-100",
                             "hover:bg-zinc-700 dark:hover:bg-zinc-300",
                             "text-white dark:text-zinc-900",
-                            "shadow-sm"
+                            "shadow-xs"
                         )}
                     >
                         <ExternalLink className="w-4 h-4 mr-2" />

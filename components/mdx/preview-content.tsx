@@ -6,13 +6,14 @@ import {
     useState,
     useTransition,
     useRef,
+    type RefObject,
 } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Copy, Check, CheckCheck, Terminal } from "lucide-react";
 import { copyComponent } from "@/lib/action";
 import { cn } from "@/lib/utils";
 import { OpenInV0Button } from "../open-in-v0-button";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function PreviewContent({
     link,
@@ -131,9 +132,17 @@ export default function PreviewContent({
     return (
         <>
             {isTerminalCopied && (
-                <SuccessParticles buttonRef={terminalButtonRef} />
+                <SuccessParticles
+                    buttonRef={
+                        terminalButtonRef as RefObject<HTMLButtonElement>
+                    }
+                />
             )}
-            {isCopied && <SuccessParticles buttonRef={copyButtonRef} />}
+            {isCopied && (
+                <SuccessParticles
+                    buttonRef={copyButtonRef as RefObject<HTMLButtonElement>}
+                />
+            )}
 
             <div
                 className={cn("relative mt-4", "rounded-xl p-3")}

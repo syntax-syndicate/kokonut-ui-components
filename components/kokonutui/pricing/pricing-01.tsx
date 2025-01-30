@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import {
     Check,
@@ -57,7 +57,7 @@ export default function Pricing_01() {
                 )}
             >
                 {/* Ambient background effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-br from-violet-500/5 via-transparent to-transparent" />
 
                 {/* Header */}
                 <div className="relative p-6 flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800">
@@ -111,7 +111,7 @@ export default function Pricing_01() {
                         >
                             <div
                                 className={cn(
-                                    "w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0",
+                                    "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
                                     feature.highlight
                                         ? "bg-violet-100 dark:bg-violet-900/20"
                                         : "bg-zinc-100 dark:bg-zinc-800"

@@ -3,18 +3,15 @@
 import { Globe, Paperclip, Send } from "lucide-react";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
-
-const MIN_HEIGHT = 48;
-const MAX_HEIGHT = 164;
 
 export default function AIInput_04() {
     const [value, setValue] = useState("");
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
-        maxHeight: MAX_HEIGHT,
+        minHeight: 52,
+        maxHeight: 200,
     });
     const [showSearch, setShowSearch] = useState(true);
 
@@ -27,10 +24,7 @@ export default function AIInput_04() {
         <div className="w-full py-4">
             <div className="relative max-w-xl w-full mx-auto">
                 <div className="relative flex flex-col">
-                    <div
-                        className="overflow-y-auto"
-                        style={{ maxHeight: `${MAX_HEIGHT}px` }}
-                    >
+                    <div className="overflow-y-auto max-h-[200px]">
                         <Textarea
                             id="ai-input-04"
                             value={value}
@@ -68,7 +62,7 @@ export default function AIInput_04() {
                                         : "bg-black/5 dark:bg-white/5 border-transparent text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white"
                                 )}
                             >
-                                <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
+                                <div className="w-4 h-4 flex items-center justify-center shrink-0">
                                     <motion.div
                                         animate={{
                                             rotate: showSearch ? 180 : 0,
@@ -109,7 +103,7 @@ export default function AIInput_04() {
                                             }}
                                             exit={{ width: 0, opacity: 0 }}
                                             transition={{ duration: 0.2 }}
-                                            className="text-sm overflow-hidden whitespace-nowrap text-sky-500 flex-shrink-0"
+                                            className="text-sm overflow-hidden whitespace-nowrap text-sky-500 shrink-0"
                                         >
                                             Search
                                         </motion.span>

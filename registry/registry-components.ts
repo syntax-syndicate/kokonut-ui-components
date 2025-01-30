@@ -244,7 +244,7 @@ export const component: Registry = [
     {
         name: "ai-input-16",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: [],
         files: [
             {
@@ -299,7 +299,7 @@ export const component: Registry = [
     {
         name: "btn-03",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: ["button"],
         files: [
             {
@@ -311,7 +311,7 @@ export const component: Registry = [
     {
         name: "btn-04",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: ["button"],
         files: [
             {
@@ -323,7 +323,7 @@ export const component: Registry = [
     {
         name: "btn-05",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: ["button"],
         files: [
             {
@@ -335,7 +335,7 @@ export const component: Registry = [
     {
         name: "btn-06",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: ["button"],
         files: [
             {
@@ -458,7 +458,7 @@ export const component: Registry = [
     {
         name: "text-02",
         type: "registry:component",
-        dependencies: ["framer-motion"],
+        dependencies: ["motion"],
         files: [
             {
                 path: "components/kokonutui/text/text-02.tsx",
@@ -469,7 +469,7 @@ export const component: Registry = [
     {
         name: "text-03",
         type: "registry:component",
-        dependencies: ["framer-motion"],
+        dependencies: ["motion"],
         files: [
             {
                 path: "components/kokonutui/text/text-03.tsx",
@@ -480,7 +480,7 @@ export const component: Registry = [
     {
         name: "text-04",
         type: "registry:component",
-        dependencies: ["framer-motion"],
+        dependencies: ["motion"],
         files: [
             {
                 path: "components/kokonutui/text/text-04.tsx",
@@ -491,7 +491,7 @@ export const component: Registry = [
     {
         name: "text-05",
         type: "registry:component",
-        dependencies: ["framer-motion"],
+        dependencies: ["motion"],
         files: [
             {
                 path: "components/kokonutui/text/text-05.tsx",
@@ -729,7 +729,7 @@ export const component: Registry = [
     {
         name: "alert-03",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: [],
         files: [
             {
@@ -741,7 +741,7 @@ export const component: Registry = [
     {
         name: "alert-04",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: [],
         files: [
             {
@@ -765,7 +765,7 @@ export const component: Registry = [
     {
         name: "alert-06",
         type: "registry:component",
-        dependencies: ["lucide-react", "framer-motion"],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: ["alert"],
         files: [
             {
@@ -918,7 +918,7 @@ export const component: Registry = [
         name: "faq-02",
         type: "registry:component",
         registryDependencies: [],
-        dependencies: ["framer-motion", "lucide-react"],
+        dependencies: ["motion", "lucide-react"],
         files: [
             {
                 path: "components/kokonutui/faq/faq-02.tsx",

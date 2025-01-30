@@ -20,9 +20,9 @@ interface ProfileFormProps {
 
 export default function ProfileForm({ defaultValues }: ProfileFormProps) {
     return (
-        <div className="w-full max-w-2xl mx-auto space-y-8 p-6 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 shadow-sm">
+        <div className="w-full max-w-2xl mx-auto space-y-8 p-6 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-xs rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 shadow-xs">
             <div className="flex items-center justify-center gap-6">
-                <Avatar className="h-24 w-24 rounded-full border-2 border-zinc-200/80 dark:border-zinc-800/80 shadow-sm">
+                <Avatar className="h-24 w-24 rounded-full border-2 border-zinc-200/80 dark:border-zinc-800/80 shadow-xs">
                     <AvatarImage
                         src={defaultValues?.avatar}
                         className="rounded-full object-cover"

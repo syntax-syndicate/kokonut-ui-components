@@ -12,8 +12,6 @@ import {
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 
-const MIN_HEIGHT = 40;
-
 const AVATARS = [
     {
         src: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-01-n0x8HFv8EUetf9z6ht0wScJKoTHqf8.png",
@@ -36,7 +34,7 @@ const AVATARS = [
 export default function AIInput_12() {
     const [value, setValue] = useState("");
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
+        minHeight: 40,
         maxHeight: 200,
     });
 
@@ -51,7 +49,7 @@ export default function AIInput_12() {
     return (
         <div className="w-full py-4">
             <div className="flex flex-col">
-                <div className="flex items-center bg-white/50 dark:bg-transparent backdrop-blur-sm px-2 justify-between">
+                <div className="flex items-center bg-white/50 dark:bg-transparent backdrop-blur-xs px-2 justify-between">
                     <div className="text-xs text-black/50 dark:text-white/50">
                         Shared with 4 peoples
                     </div>
@@ -94,7 +92,7 @@ export default function AIInput_12() {
                             placeholder="Type your message..."
                             className={cn(
                                 "w-full rounded-xl px-4 border-none resize-none bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70",
-                                `min-h-[${MIN_HEIGHT}px]`
+                                "min-h-[40px]"
                             )}
                             onKeyDown={handleKeyDown}
                             onChange={(e) => {

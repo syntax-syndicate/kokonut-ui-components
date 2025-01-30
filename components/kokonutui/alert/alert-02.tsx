@@ -7,7 +7,7 @@ export default function Alert02() {
         <div className="w-full max-w-xl mx-auto">
             <div className="relative bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-[0_1px_6px_0_rgba(0,0,0,0.02)] rounded-xl p-4">
                 <div className="flex items-center gap-4">
-                    <div className="relative h-10 w-10 flex-shrink-0">
+                    <div className="relative h-10 w-10 shrink-0">
                         <Image
                             src="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-01-n0x8HFv8EUetf9z6ht0wScJKoTHqf8.png"
                             alt="Sarah Chen"

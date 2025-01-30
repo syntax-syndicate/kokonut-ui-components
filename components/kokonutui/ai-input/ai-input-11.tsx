@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight, Bot } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState, useRef, type RefObject } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
@@ -12,7 +12,6 @@ const AI_AGENTS = [
     { name: "Nextjs Agent", description: "Write code for anything you want" },
 ].map((model) => ({ ...model }));
 
-const MIN_HEIGHT = 40;
 
 export default function AIInput_11() {
     const [state, setState] = useState({
@@ -23,12 +22,12 @@ export default function AIInput_11() {
     });
 
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
+        minHeight: 40,
         maxHeight: 200,
     });
     const menuRef = useRef<HTMLDivElement>(null);
 
-    useClickOutside(menuRef, () => {
+    useClickOutside(menuRef as RefObject<HTMLElement>, () => {
         updateState({ isModelMenuOpen: false });
     });
 
@@ -67,7 +66,7 @@ export default function AIInput_11() {
                             placeholder="Ask me anything!"
                             className={cn(
                                 "max-w-xl w-full rounded-3xl pl-2 pr-10 placeholder:text-black/70 dark:placeholder:text-white/70 border-none ring-black/30 dark:ring-white/30 text-black dark:text-white resize-none text-wrap py-2 bg-transparent",
-                                `min-h-[${MIN_HEIGHT}px]`
+                                "min-h-[40px]"
                             )}
                             ref={textareaRef}
                             value={state.value}

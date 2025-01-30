@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Blocks } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState } from "react";
 import Image from "next/image";
 import Nextjs from "../icons/nextjs";
@@ -73,7 +73,7 @@ export default function Features() {
     const [hoveredId, setHoveredId] = useState<number | null>(null);
 
     return (
-        <div className="w-full max-w-3xl flex flex-col items-center gap-8 z-[100] mx-auto">
+        <div className="w-full max-w-3xl flex flex-col items-center gap-8 z-100 mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full sm:px-0">
                 {FEATURES.map((feature) => (
                     <motion.div
@@ -97,7 +97,7 @@ export default function Features() {
                                             ? feature.color
                                             : "",
                                 }}
-                                className="absolute -inset-[0.5px] rounded-xl bg-gradient-to-r from-transparent via-zinc-300/20 to-transparent dark:via-zinc-500/20 opacity-0 hover:opacity-100 transition-opacity duration-500"
+                                className="absolute -inset-[0.5px] rounded-xl bg-linear-to-r from-transparent via-zinc-300/20 to-transparent dark:via-zinc-500/20 opacity-0 hover:opacity-100 transition-opacity duration-500"
                             />
                             <h3
                                 className={cn(

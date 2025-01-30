@@ -105,7 +105,7 @@ export default function List02({
                                 "p-3 -mx-3 rounded-2xl",
                                 "transition-all duration-300 ease-out",
                                 "hover:bg-zinc-50 dark:hover:bg-zinc-800/50",
-                                "hover:shadow-sm",
+                                "hover:shadow-xs",
                                 "border border-transparent",
                                 "hover:border-zinc-200 dark:hover:border-zinc-700/50"
                             )}
@@ -115,7 +115,7 @@ export default function List02({
                                     "relative",
                                     "w-12 h-12 flex items-center justify-center",
                                     "rounded-2xl",
-                                    "bg-gradient-to-br",
+                                    "bg-linear-to-br",
                                     categoryStyles[
                                         transaction.category as keyof typeof categoryStyles
                                     ],
@@ -123,7 +123,7 @@ export default function List02({
                                     "group-hover:scale-105",
                                     "group-hover:shadow-md",
                                     "border border-zinc-200/50 dark:border-zinc-700/50",
-                                    "shadow-sm"
+                                    "shadow-xs"
                                 )}
                             >
                                 <transaction.icon className="w-5 h-5" />
@@ -141,7 +141,7 @@ export default function List02({
 
                                 <div
                                     className={cn(
-                                        "flex items-center gap-2 flex-shrink-0 pl-4",
+                                        "flex items-center gap-2 shrink-0 pl-4",
                                         "transition-transform duration-300",
                                         "group-hover:scale-105"
                                     )}

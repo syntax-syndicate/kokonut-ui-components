@@ -39,7 +39,7 @@ export default function ButtonCta({
             border-2 border-black/20 dark:border-white/20
             text-black dark:text-white
             shadow-[0_0_10px_rgba(0,0,0,0.15)] dark:shadow-[0_0_10px_rgba(0,0,0,0.3)]
-            before:absolute before:inset-0 before:bg-gradient-to-br before:from-black/5 before:to-transparent dark:before:from-white/10
+            before:absolute before:inset-0 before:bg-linear-to-br before:from-black/5 before:to-transparent dark:before:from-white/10
             before:rounded-md
             before:-z-10
             hover:bg-black/10 dark:hover:bg-white/15
@@ -49,7 +49,7 @@ export default function ButtonCta({
             transition-all duration-300
         `,
         gradient: `
-            bg-gradient-to-r from-zinc-950 via-zinc-700 to-zinc-800 
+            bg-linear-to-r from-zinc-950 via-zinc-700 to-zinc-800 
             dark:from-white dark:via-zinc-100 dark:to-white/95
             text-white dark:text-zinc-900
             border-2 border-zinc-800/20 dark:border-white/20
@@ -57,20 +57,20 @@ export default function ButtonCta({
             dark:shadow-[0_10px_20px_-6px_rgba(255,255,255,0.4)]
             hover:shadow-[0_15px_30px_-6px_rgba(24,24,27,0.4)] 
             dark:hover:shadow-[0_15px_30px_-6px_rgba(255,255,255,0.4)]
-            backdrop-blur-sm
+            backdrop-blur-xs
             hover:from-black hover:via-zinc-800 hover:to-zinc-900 
             dark:hover:from-white dark:hover:via-white dark:hover:to-zinc-100
             active:scale-[0.96]
             transition-all duration-300 ease-out
         `,
         "orange-glass": `
-            bg-gradient-to-r from-orange-500/20 to-amber-500/20
+            bg-linear-to-r from-orange-500/20 to-amber-500/20
             backdrop-blur-xl
             border-2 border-orange-500/30 dark:border-orange-400/30
             text-orange-900 dark:text-orange-100
             shadow-[0_0_15px_rgba(251,146,60,0.2)] dark:shadow-[0_0_15px_rgba(251,146,60,0.15)]
             before:absolute before:inset-0 
-            before:bg-gradient-to-br before:from-orange-400/10 before:to-transparent
+            before:bg-linear-to-br before:from-orange-400/10 before:to-transparent
             before:rounded-md before:-z-10
             hover:from-orange-500/30 hover:to-amber-500/30
             hover:border-orange-500/40 dark:hover:border-orange-400/40

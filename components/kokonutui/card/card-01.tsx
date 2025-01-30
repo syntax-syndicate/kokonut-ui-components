@@ -99,7 +99,7 @@ export default function Card_01({
                                         "group-hover:scale-105"
                                     )}
                                 />
-                                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-rose-500 to-blue-500 opacity-0 hover:opacity-10 transition-opacity duration-300" />
+                                <div className="absolute inset-0 rounded-full bg-linear-to-tr from-rose-500 to-blue-500 opacity-0 hover:opacity-10 transition-opacity duration-300" />
                             </div>
                             <div>
                                 <h3 className="text-[15px] font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">
@@ -117,7 +117,7 @@ export default function Card_01({
                                 "transition-all duration-200",
                                 "hover:bg-zinc-100/80 dark:hover:bg-zinc-800/80",
                                 "active:bg-zinc-200 dark:active:bg-zinc-700",
-                                "focus:outline-none focus:ring-2 focus:ring-zinc-500/20"
+                                "focus:outline-hidden focus:ring-2 focus:ring-zinc-500/20"
                             )}
                         >
                             <MoreHorizontal className="w-5 h-5 text-zinc-400" />
@@ -143,14 +143,14 @@ export default function Card_01({
                             <div
                                 className={cn(
                                     "p-5",
-                                    "bg-gradient-to-b from-zinc-50/50 to-white dark:from-zinc-800/30 dark:to-zinc-800/50",
+                                    "bg-linear-to-b from-zinc-50/50 to-white dark:from-zinc-800/30 dark:to-zinc-800/50",
                                     "group-hover:from-zinc-100/50 group-hover:to-zinc-50/50",
                                     "dark:group-hover:from-zinc-800/50 dark:group-hover:to-zinc-800/70",
                                     "transition-colors duration-300"
                                 )}
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className="p-2.5 bg-white/80 dark:bg-zinc-700/80 rounded-xl shadow-sm backdrop-blur-sm">
+                                    <div className="p-2.5 bg-white/80 dark:bg-zinc-700/80 rounded-xl shadow-xs backdrop-blur-xs">
                                         {content?.link.icon}
                                     </div>
                                     <div>
@@ -176,7 +176,7 @@ export default function Card_01({
                                     "transition-all duration-300",
                                     "hover:bg-rose-50/80 dark:hover:bg-rose-950/30",
                                     "active:bg-rose-100 dark:active:bg-rose-950/50",
-                                    "focus:outline-none focus:ring-2 focus:ring-rose-500/20",
+                                    "focus:outline-hidden focus:ring-2 focus:ring-rose-500/20",
                                     engagement?.isLiked
                                         ? "text-rose-600"
                                         : "text-zinc-500 dark:text-zinc-400 hover:text-rose-600"
@@ -201,7 +201,7 @@ export default function Card_01({
                                     "transition-all duration-300",
                                     "hover:bg-blue-50/80 dark:hover:bg-blue-950/30",
                                     "active:bg-blue-100 dark:active:bg-blue-950/50",
-                                    "focus:outline-none focus:ring-2 focus:ring-blue-500/20",
+                                    "focus:outline-hidden focus:ring-2 focus:ring-blue-500/20",
                                     "text-zinc-500 dark:text-zinc-400 hover:text-blue-500"
                                 )}
                             >
@@ -216,7 +216,7 @@ export default function Card_01({
                                     "transition-all duration-300",
                                     "hover:bg-green-50/80 dark:hover:bg-green-950/30",
                                     "active:bg-green-100 dark:active:bg-green-950/50",
-                                    "focus:outline-none focus:ring-2 focus:ring-green-500/20",
+                                    "focus:outline-hidden focus:ring-2 focus:ring-green-500/20",
                                     "text-zinc-500 dark:text-zinc-400 hover:text-green-500"
                                 )}
                             >
@@ -232,7 +232,7 @@ export default function Card_01({
                                 "transition-all duration-300",
                                 "hover:bg-zinc-100/80 dark:hover:bg-zinc-800/80",
                                 "active:bg-zinc-200 dark:active:bg-zinc-700",
-                                "focus:outline-none focus:ring-2 focus:ring-zinc-500/20",
+                                "focus:outline-hidden focus:ring-2 focus:ring-zinc-500/20",
                                 engagement?.isBookmarked
                                     ? "text-zinc-900 dark:text-zinc-100"
                                     : "text-zinc-400"

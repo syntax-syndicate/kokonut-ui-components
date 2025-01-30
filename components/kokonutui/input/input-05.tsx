@@ -53,7 +53,7 @@ export default function Input_05() {
                         "rounded-md border",
                         "bg-white dark:bg-black/5",
                         "border-zinc-200 dark:border-zinc-800",
-                        "focus:outline-none focus:ring-2",
+                        "focus:outline-hidden focus:ring-2",
                         "focus:ring-zinc-900/20 dark:focus:ring-zinc-100/20"
                     )}
                 />

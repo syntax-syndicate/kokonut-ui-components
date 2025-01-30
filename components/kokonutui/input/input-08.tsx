@@ -98,7 +98,7 @@ export default function Input_08({
             className={cn(
               "flex-1 px-2 py-1 rounded-md border border-zinc-200 dark:border-zinc-800",
               "bg-white dark:bg-zinc-900 text-sm font-mono",
-              "focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+              "focus:outline-hidden focus:ring-2 focus:ring-indigo-500/20"
             )}
           />
           <button type="button" onClick={handleCopy} className="ml-2 hover:opacity-70">
@@ -125,7 +125,7 @@ export default function Input_08({
               onChange={(e) => updateOpacity(Number(e.target.value))}
               className={cn(
                 "w-full h-2 rounded-full appearance-none",
-                "bg-gradient-to-r from-transparent to-current cursor-pointer"
+                "bg-linear-to-r from-transparent to-current cursor-pointer"
               )}
               style={{ color }}
             />

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation } from "motion/react";
 import { Zap } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -75,7 +75,7 @@ export default function Btn04({
                 animate={chargeControls}
                 className={cn(
                     "absolute left-0 bottom-0 w-full",
-                    "bg-gradient-to-t from-indigo-400 to-indigo-300",
+                    "bg-linear-to-t from-indigo-400 to-indigo-300",
                     "dark:from-indigo-500 dark:to-indigo-400",
                     "opacity-50"
                 )}

@@ -66,7 +66,7 @@ export default function Pricing_02({
                             "relative group",
                             "rounded-2xl transition-all duration-500",
                             tier.highlight
-                                ? "bg-gradient-to-b from-neutral-950 to-neutral-900 dark:from-neutral-900 dark:to-neutral-950"
+                                ? "bg-linear-to-b from-neutral-950 to-neutral-900 dark:from-neutral-900 dark:to-neutral-950"
                                 : "bg-white dark:bg-neutral-900",
                             "border border-neutral-200 dark:border-neutral-800",
                             "hover:border-neutral-300 dark:hover:border-neutral-700",
@@ -111,14 +111,14 @@ export default function Pricing_02({
                                 </p>
                             </div>
 
-                            <div className="mt-8 space-y-4 flex-grow">
+                            <div className="mt-8 space-y-4 grow">
                                 {tier.features.map((feature) => (
                                     <div
                                         key={feature.name}
                                         className="flex items-center gap-3"
                                     >
                                         <div className={cn(
-                                            "flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center",
+                                            "shrink-0 w-5 h-5 rounded-full flex items-center justify-center",
                                             feature.included
                                                 ? tier.highlight
                                                     ? "text-white"

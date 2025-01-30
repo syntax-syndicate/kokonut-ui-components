@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CopyOverlay } from "./copy-overlay";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import { Code, Terminal } from "lucide-react";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 

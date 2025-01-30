@@ -55,7 +55,7 @@ export const Preview = ({ isLoading, imageUrl }: PreviewProps) => {
                     <CardContent className="flex flex-col items-center gap-4 p-6">
                         <div className="relative w-12 h-12">
                             <Loader2 className="w-full h-full animate-spin text-fuchsia-500" />
-                            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-fuchsia-500/10 rounded-full animate-spin-slow" />
+                            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-transparent to-fuchsia-500/10 rounded-full animate-spin-slow" />
                         </div>
                         <div className="space-y-1 text-center">
                             <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">

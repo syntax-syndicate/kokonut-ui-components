@@ -112,7 +112,7 @@ export default function Pricing_04() {
                             className={cn(
                                 "px-6 py-2 rounded-full text-sm font-medium transition-all",
                                 (period === "Yearly") === isYearly
-                                    ? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-sm"
+                                    ? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-xs"
                                     : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
                             )}
                         >
@@ -183,7 +183,7 @@ export default function Pricing_04() {
                                         key={feature.name}
                                         className="flex items-start gap-3"
                                     >
-                                        <div className="flex-shrink-0 mt-1">
+                                        <div className="shrink-0 mt-1">
                                             <Check className="w-4 h-4 text-emerald-500" />
                                         </div>
                                         <div>

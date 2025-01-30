@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface CopyOverlayProps {
     show: boolean;
@@ -18,7 +18,7 @@ export function CopyOverlay({ show }: CopyOverlayProps) {
         >
             <div
                 className="absolute inset-0 
-                bg-gradient-to-b from-white/90 via-gray-50/90 to-white/90
+                bg-linear-to-b from-white/90 via-gray-50/90 to-white/90
                 dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90
                 backdrop-blur-md"
             />

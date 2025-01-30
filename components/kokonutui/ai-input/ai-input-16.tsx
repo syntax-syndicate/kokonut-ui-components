@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, type RefObject } from "react";
 import { Command } from "cmdk";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { MessageSquare, Wand2, Search, SendHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useClickOutside } from "@/hooks/use-click-outside";
@@ -38,7 +38,7 @@ export default function AIInput_16() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [inputValue, setInputValue] = useState("");
 
-    useClickOutside(containerRef, () => {
+    useClickOutside(containerRef as RefObject<HTMLElement>, () => {
         if (isOpen) setIsOpen(false);
     });
 
@@ -90,7 +90,7 @@ export default function AIInput_16() {
 
                                 return (
                                     <div className="flex items-center gap-2 text-sm bg-black/10 dark:bg-white/10 px-2 py-1 rounded-md">
-                                        <span className="flex items-center gap-1.5 flex-shrink-0">
+                                        <span className="flex items-center gap-1.5 shrink-0">
                                             <activeCmd.icon className="w-4 h-4 text-black/50 dark:text-white/50" />
                                             <span className="text-black/70 dark:text-white/70">
                                                 {activeCmd.label}
@@ -112,13 +112,13 @@ export default function AIInput_16() {
                                         ? "Type your message..."
                                         : "Type / for commands..."
                                 }
-                                className="flex-1 bg-transparent border-none outline-none text-md text-black dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60"
+                                className="flex-1 bg-transparent border-none outline-hidden text-md text-black dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60"
                             />
                             <button
                                 type="button"
                                 onClick={handleButtonClick}
                                 className={cn(
-                                    "p-1.5 rounded-md transition-colors flex-shrink-0",
+                                    "p-1.5 rounded-md transition-colors shrink-0",
                                     inputValue || activeCommand
                                         ? "bg-sky-500/15 text-sky-500"
                                         : "text-black/50 dark:text-white/50 hover:text-black/70 dark:hover:text-white/70"

@@ -97,12 +97,12 @@ export default function BentoGrid({ items = itemsSample }: BentoGridProps) {
 
                     <div className="relative flex flex-col space-y-3">
                         <div className="flex items-center justify-between">
-                            <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-black/5 dark:bg-white/10 group-hover:bg-gradient-to-br transition-all duration-300">
+                            <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-black/5 dark:bg-white/10 group-hover:bg-linear-to-br transition-all duration-300">
                                 {item.icon}
                             </div>
                             <span
                                 className={cn(
-                                    "text-xs font-medium px-2 py-1 rounded-lg backdrop-blur-sm",
+                                    "text-xs font-medium px-2 py-1 rounded-lg backdrop-blur-xs",
                                     "bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-300",
                                     "transition-colors duration-300 group-hover:bg-black/10 dark:group-hover:bg-white/20"
                                 )}
@@ -128,7 +128,7 @@ export default function BentoGrid({ items = itemsSample }: BentoGridProps) {
                                 {item.tags?.map((tag, i) => (
                                     <span
                                         key={i}
-                                        className="px-2 py-1 rounded-md bg-black/5 dark:bg-white/10 backdrop-blur-sm transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/20"
+                                        className="px-2 py-1 rounded-md bg-black/5 dark:bg-white/10 backdrop-blur-xs transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/20"
                                     >
                                         #{tag}
                                     </span>
@@ -141,7 +141,7 @@ export default function BentoGrid({ items = itemsSample }: BentoGridProps) {
                     </div>
 
                     <div
-                        className={`absolute inset-0 -z-10 rounded-xl p-px bg-gradient-to-br from-transparent via-gray-100/50 to-transparent dark:via-white/10 ${
+                        className={`absolute inset-0 -z-10 rounded-xl p-px bg-linear-to-br from-transparent via-gray-100/50 to-transparent dark:via-white/10 ${
                             item.hasPersistentHover
                                 ? "opacity-100"
                                 : "opacity-0 group-hover:opacity-100"

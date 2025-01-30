@@ -108,7 +108,7 @@ export default function Input_06() {
                                     "border-zinc-200 dark:border-zinc-800",
                                     activeIndex === index &&
                                         "border-indigo-500 dark:border-indigo-500",
-                                    "focus:outline-none focus:ring-2",
+                                    "focus:outline-hidden focus:ring-2",
                                     "focus:ring-indigo-500/20"
                                 )}
                             />

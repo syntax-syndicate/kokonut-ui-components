@@ -17,12 +17,12 @@ export default function Btn11({
         <Button
             className={cn(
                 "relative h-10 px-4",
-                "bg-gradient-to-b from-zinc-50 to-zinc-100/80",
+                "bg-linear-to-b from-zinc-50 to-zinc-100/80",
                 "dark:from-zinc-900 dark:to-zinc-800/80",
                 "text-zinc-800 dark:text-zinc-200",
                 "border border-zinc-200 dark:border-zinc-800",
                 "hover:border-zinc-300 dark:hover:border-zinc-700",
-                "shadow-sm hover:shadow",
+                "shadow-xs hover:shadow-sm",
                 "transition-all duration-200",
                 "group",
                 className
@@ -34,7 +34,7 @@ export default function Btn11({
                     {children}
                     <span className={cn(
                         "absolute -bottom-px left-0 w-full h-px",
-                        "bg-gradient-to-r from-zinc-400/0 via-zinc-400/50 to-zinc-400/0",
+                        "bg-linear-to-r from-zinc-400/0 via-zinc-400/50 to-zinc-400/0",
                         "dark:from-zinc-600/0 dark:via-zinc-600/50 dark:to-zinc-600/0",
                         "opacity-0 group-hover:opacity-100",
                         "transition-opacity duration-200"

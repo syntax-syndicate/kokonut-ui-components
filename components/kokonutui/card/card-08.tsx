@@ -28,7 +28,7 @@ export default function Card08({
                     "bg-white/80 dark:bg-zinc-900/80",
                     "backdrop-blur-xl",
                     "border border-zinc-200/50 dark:border-zinc-800/50",
-                    "shadow-sm",
+                    "shadow-xs",
                     "transition-all duration-300",
                     "hover:shadow-md",
                     "hover:border-zinc-300/50 dark:hover:border-zinc-700/50"
@@ -46,7 +46,7 @@ export default function Card08({
                 <div
                     className={cn(
                         "absolute inset-0",
-                        "bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+                        "bg-linear-to-t from-black/90 via-black/40 to-transparent"
                     )}
                 />
 
@@ -57,7 +57,7 @@ export default function Card08({
                             "bg-white/90 text-zinc-800",
                             "dark:bg-zinc-900/90 dark:text-zinc-200",
                             "backdrop-blur-md",
-                            "shadow-sm",
+                            "shadow-xs",
                             "border border-white/20 dark:border-zinc-800/50"
                         )}
                     >

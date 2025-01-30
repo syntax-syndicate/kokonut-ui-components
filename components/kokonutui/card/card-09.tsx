@@ -58,7 +58,7 @@ export default function Card09({
                 "rounded-2xl",
                 "bg-white dark:bg-zinc-900",
                 "border border-zinc-200 dark:border-zinc-800",
-                "shadow-sm"
+                "shadow-xs"
             )}
         >
             <div className="p-6 space-y-6">

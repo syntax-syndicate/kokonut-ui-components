@@ -7,8 +7,6 @@ import { cn } from "@/lib/utils";
 import { useFileInput } from "@/hooks/use-file-input";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 
-const MIN_HEIGHT = 52;
-
 interface FileDisplayProps {
     fileName: string;
     onClear: () => void;
@@ -34,7 +32,7 @@ export default function AIInput_02() {
         useFileInput({ accept: "image/*", maxSize: 5 });
 
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
+        minHeight: 52,
         maxHeight: 200,
     });
 
@@ -70,7 +68,8 @@ export default function AIInput_02() {
                             "text-black dark:text-white text-wrap py-3 sm:py-4",
                             "text-sm sm:text-base",
                             "max-h-[200px] overflow-y-auto resize-none leading-[1.2]",
-                            `min-h-[${MIN_HEIGHT}px]`
+                            "min-h-[52px]",
+                            "max-h-[200px]"
                         )}
                         ref={textareaRef}
                         value={inputValue}

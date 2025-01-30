@@ -11,9 +11,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 
-const MIN_HEIGHT = 64;
-const MAX_HEIGHT = 200;
-
 const ITEMS = [
     {
         text: "Summary",
@@ -50,8 +47,8 @@ export default function AIInput_03() {
         "Make shorter"
     );
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
-        maxHeight: MAX_HEIGHT,
+        minHeight: 52,
+        maxHeight: 200,
     });
 
     const toggleItem = (itemText: string) => {
@@ -73,17 +70,15 @@ export default function AIInput_03() {
             <div className="relative max-w-xl w-full mx-auto">
                 <div className="relative border border-black/10 dark:border-white/10 focus-within:border-black/20 dark:focus-within:border-white/20 rounded-2xl bg-black/[0.03] dark:bg-white/[0.03]">
                     <div className="flex flex-col">
-                        <div
-                            className="overflow-y-auto"
-                            style={{ maxHeight: `${MAX_HEIGHT - 48}px` }}
-                        >
+                        <div className="overflow-y-auto max-h-[200px]">
                             <Textarea
                                 ref={textareaRef}
                                 id="ai-input-03"
                                 placeholder="Enter your text here..."
                                 className={cn(
-                                    "max-w-xl w-full rounded-2xl pr-10 pt-3 pb-3 placeholder:text-black/70 dark:placeholder:text-white/70 border-none focus:ring text-black dark:text-white resize-none text-wrap bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 leading-[1.2]",
-                                    `min-h-[${MIN_HEIGHT}px]`
+                                    "max-w-xl w-full rounded-2xl pr-10 pt-3 pb-3 placeholder:text-black/70 dark:placeholder:text-white/70 border-none focus:ring-3 text-black dark:text-white resize-none text-wrap bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 leading-[1.2]",
+                                    "min-h-[52px]",
+                                    "max-h-[200px]"
                                 )}
                                 value={inputValue}
                                 onChange={(e) => {
@@ -107,7 +102,7 @@ export default function AIInput_03() {
                                         onClick={handleSubmit}
                                         className={cn(
                                             "inline-flex items-center gap-1.5",
-                                            "border shadow-sm rounded-md px-2 py-0.5 text-xs font-medium",
+                                            "border shadow-xs rounded-md px-2 py-0.5 text-xs font-medium",
                                             "animate-fadeIn hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-200",
                                             currentItem.colors.bg,
                                             currentItem.colors.border
@@ -147,7 +142,7 @@ export default function AIInput_03() {
                                 "px-3 py-1.5 text-xs font-medium rounded-full",
                                 "border transition-all duration-200",
                                 "border-black/10 dark:border-white/10 bg-white dark:bg-gray-900 hover:bg-black/5 dark:hover:bg-white/5",
-                                "flex-shrink-0"
+                                "shrink-0"
                             )}
                             onClick={() => toggleItem(text)}
                         >

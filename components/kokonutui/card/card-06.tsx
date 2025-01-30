@@ -7,13 +7,13 @@ interface Device {
     status: "on" | "off";
     value?: number;
     unit?: string;
-    icon: JSX.Element;
+    icon: React.ReactNode;
 }
 
 interface Scene {
     id: string;
     name: string;
-    icon: JSX.Element;
+    icon: React.ReactNode;
     isActive: boolean;
 }
 
@@ -147,7 +147,7 @@ export default function Card06({
                                             className={cn(
                                                 "absolute w-5 h-5 rounded-full",
                                                 "bg-white",
-                                                "shadow-sm",
+                                                "shadow-xs",
                                                 "transition-transform duration-200",
                                                 "top-0.5 left-0.5",
                                                 device.status === "on" &&

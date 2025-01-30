@@ -6,7 +6,9 @@ icon: ListStart
 
 ### 1. Install utilities
 
-Most of the components use `cn` utility function. Run the following command to install it. As you may notice, this use `Tailwind CSS`, please make sure to install it in your project.
+
+All components use [Tailwind CSS v4](https://tailwindcss.com/docs/installation/framework-guides/nextjs), so ensure it's installed in your project.
+Many components also use the `cn` utility function—install it with the following command:
 
 <Tabs items={["bun", "npx", "pnpm"]}>
  
@@ -26,7 +28,7 @@ pnpm dlx shadcn@latest add https://kokonutui/r/utils.json
 
 ### 2. That's it 🎉
 
-We are using [lucide-icons](https://lucide.dev/guide/installation) for most of the components that include icons. As well in some case some [shadcn/ui](https://ui.shadcn.com/) components. Those will be automatically installed upon installation of a component.
+We use [lucide-icons](https://lucide.dev/guide/installation) for most components that include icons, along with some [shadcn/ui](https://ui.shadcn.com/) components. These dependencies will be automatically installed when using the CLI.
 
 For exemple to add `card-05` to your project, it will be easy as:
 
@@ -85,9 +87,9 @@ Then, add to your page and it works!
 ```jsx
 /**
  * AICardGeneration require 5 additional components
- * that will be automatically * installed with the CLI.
+ * that will be automatically installed with the CLI.
  */
-import AICardGeneration from "@/components/kokonutui/page";
+import AICardGeneration from "@/components/kokonutui/AICardGeneration";
 
 export default function Page() {
     return <AICardGeneration />;

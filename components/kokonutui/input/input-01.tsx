@@ -62,7 +62,7 @@ export default function Input_01({
                         "text-sm text-zinc-900 dark:text-zinc-100",
                         "placeholder:text-zinc-400 dark:placeholder:text-zinc-600",
                         "transition-all duration-200",
-                        "focus:outline-none focus:ring-2",
+                        "focus:outline-hidden focus:ring-2",
                         error
                             ? "border-red-500 focus:ring-red-500/20"
                             : success

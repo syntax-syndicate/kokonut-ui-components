@@ -70,7 +70,7 @@ function FAQItem({ id, question, answer, category }: FAQItemProps) {
     return (
         <AccordionItem 
             value={id}
-            className="bg-white dark:bg-gray-800/50 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 px-4"
+            className="bg-white dark:bg-gray-800/50 rounded-lg shadow-xs border border-gray-200 dark:border-gray-700 px-4"
         >
             <AccordionTrigger className="hover:no-underline py-4">
                 <div className="flex flex-col items-start gap-2 text-left">

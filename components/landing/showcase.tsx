@@ -9,7 +9,7 @@ export function ShowcaseSection() {
                 <h2 className="text-2xl sm:text-4xl font-bold tracking-tight">
                     <Text02
                         text="Showcase"
-                        className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-amber-500 dark:from-pink-400 dark:to-amber-400 text-4xl sm:text-7xl"
+                        className="bg-clip-text text-transparent bg-linear-to-r from-pink-500 to-amber-500 dark:from-pink-400 dark:to-amber-400 text-4xl sm:text-7xl"
                     />
                 </h2>
             </div>
@@ -72,7 +72,7 @@ export function ShowcaseSection() {
                     text-zinc-900 text-sm sm:text-base font-medium
                     hover:shadow-lg hover:shadow-zinc-900/20
                     transition-all duration-200 ease-in-out
-                    backdrop-blur-sm bg-opacity-90"
+                    backdrop-blur-xs bg-opacity-90"
                 >
                     <span>View Live Demo</span>
                     <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />

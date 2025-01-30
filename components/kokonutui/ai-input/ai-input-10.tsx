@@ -11,7 +11,7 @@ import {
     Lock,
     Unlock,
 } from "lucide-react";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, type RefObject } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
@@ -23,8 +23,6 @@ const AI_MODELS = [
     { name: "GPT-3.5", description: "Time flies, he is old now..." },
     { name: "Claude", description: "Yes, the best for coding" },
 ].map((model) => ({ ...model, icon: <Brain className="w-4 h-4" /> }));
-
-const MIN_HEIGHT = 40;
 
 const FileDisplay = ({
     fileName,
@@ -59,7 +57,7 @@ export default function AIInput_10() {
     });
 
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
+        minHeight: 40,
         maxHeight: 200,
     });
     const { fileName, fileInputRef, handleFileSelect, clearFile } =
@@ -72,7 +70,7 @@ export default function AIInput_10() {
         []
     );
 
-    useClickOutside(menuRef, () => {
+    useClickOutside(menuRef as RefObject<HTMLElement>   , () => {
         if (state.isMenuOpen) updateState({ isMenuOpen: false });
         if (state.isModelMenuOpen) updateState({ isModelMenuOpen: false });
     });
@@ -223,7 +221,7 @@ export default function AIInput_10() {
                             placeholder="Type your message..."
                             className={cn(
                                 "w-full rounded-xl pl-14 pr-10 border-none resize-none bg-transparent dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70",
-                                `min-h-[${MIN_HEIGHT}px]`
+                                "min-h-[40px]"
                             )}
                             onKeyDown={handleKeyDown}
                             onChange={(e) => {

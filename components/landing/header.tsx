@@ -20,13 +20,13 @@ export function Header() {
                     >
                         <span className="flex items-center gap-2">
                             <PartyPopper className="w-3.5 h-3.5" />
-                            <span className="text-transparent bg-gradient-to-r from-pink-500 via-indigo-500 to-purple-500 bg-clip-text font-semibold">
+                            <span className="text-transparent bg-linear-to-r from-pink-500 via-indigo-500 to-purple-500 bg-clip-text font-semibold">
                                 Explore new components
                             </span>
                         </span>
 
                         <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors">
-                            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-40 group-hover:opacity-80 blur transition-opacity duration-500" />
+                            <div className="absolute inset-0 rounded-lg bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-40 group-hover:opacity-80 blur-sm transition-opacity duration-500" />
                             <div className="relative">
                                 <span className="text-white dark:text-zinc-900">
                                     KokonutUI Pro
@@ -41,7 +41,7 @@ export function Header() {
                     <div
                         className={`
                         flex items-center justify-between
-                        bg-gradient-to-b from-white/90 via-gray-50/90 to-white/90
+                        bg-linear-to-b from-white/90 via-gray-50/90 to-white/90
                         dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90
                         shadow-[0_2px_20px_-2px_rgba(0,0,0,0.1)]
                         backdrop-blur-md

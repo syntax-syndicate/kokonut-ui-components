@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Code, Palette, Zap } from "lucide-react";
@@ -18,7 +18,7 @@ const FEATURES: Feature[] = [
         title: "Copy & Paste Ready",
         description: "Every component is ready to be copied directly into your project.",
         preview: (
-            <div className="w-full h-full bg-gradient-to-br from-zinc-900 to-zinc-800 dark:from-zinc-200 dark:to-zinc-100 rounded-lg p-4">
+            <div className="w-full h-full bg-linear-to-br from-zinc-900 to-zinc-800 dark:from-zinc-200 dark:to-zinc-100 rounded-lg p-4">
                 <pre className="text-xs text-white dark:text-zinc-900">
                     <code>{`export function Button() {\n  return (\n    <button className="...">\n      Click me\n    </button>\n  );\n}`}</code>
                 </pre>
@@ -66,7 +66,7 @@ const FEATURES: Feature[] = [
                         repeat: Infinity,
                         ease: "easeInOut"
                     }}
-                    className="w-16 h-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl"
+                    className="w-16 h-16 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl"
                 />
             </div>
         )
@@ -110,7 +110,7 @@ export function InteractivePreview() {
                     ))}
                 </div>
 
-                <div className="lg:h-[400px] p-8 rounded-3xl bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50 border border-zinc-200 dark:border-zinc-800">
+                <div className="lg:h-[400px] p-8 rounded-3xl bg-linear-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50 border border-zinc-200 dark:border-zinc-800">
                     <motion.div
                         key={activeFeature}
                         initial={{ opacity: 0, y: 20 }}

@@ -3,7 +3,7 @@
 import { Link } from "next-view-transitions";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ArrowDownRight, ArrowRight, BlocksIcon } from "lucide-react";
 
 
@@ -32,8 +32,8 @@ export function BrowseBlocksButton() {
                         "text-indigo-600 dark:text-indigo-300",
                         "border-2 border-indigo-500/20 dark:border-indigo-400/20",
                         "hover:bg-indigo-100/50 dark:hover:bg-indigo-900/30",
-                        "backdrop-blur-sm",
-                        "shadow-sm hover:shadow-md transition-shadow"
+                        "backdrop-blur-xs",
+                        "shadow-xs hover:shadow-md transition-shadow"
                     )}
                 >
                     <span className="font-medium flex items-center gap-2">

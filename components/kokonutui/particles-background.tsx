@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface CyberBackgroundProps {
     gridSize?: number;
@@ -194,18 +194,18 @@ export default function ParticlesBackground({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.5, delay: 0.2 }}
-                    className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-pink-300 to-blue-400 relative z-20"
+                    className="text-7xl font-bold text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-pink-300 to-blue-400 relative z-20"
                 >
                     <span className="relative inline-block">
                         Particles
-                        <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600/80 via-pink-500/80 to-blue-600/80 mix-blend-overlay -m-[2px]">
+                        <span className="absolute inset-0 text-transparent bg-clip-text bg-linear-to-r from-indigo-600/80 via-pink-500/80 to-blue-600/80 mix-blend-overlay -m-[2px]">
                             Particles
                         </span>
                     </span>
                 </motion.h1>
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/20 to-zinc-900/80 mix-blend-multiply z-15" />
+            <div className="absolute inset-0 bg-linear-to-b from-zinc-900/20 to-zinc-900/80 mix-blend-multiply z-15" />
         </div>
     );
 }

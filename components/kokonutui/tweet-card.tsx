@@ -54,7 +54,7 @@ export default function TweetCard({
                 className={cn(
                     "w-full min-w-[400px] md:min-w-[500px] max-w-xl p-1.5 rounded-2xl relative isolate overflow-hidden",
                     "bg-white/5 dark:bg-black/90",
-                    "bg-gradient-to-br from-black/5 to-black/[0.02] dark:from-white/5 dark:to-white/[0.02]",
+                    "bg-linear-to-br from-black/5 to-black/[0.02] dark:from-white/5 dark:to-white/[0.02]",
                     "backdrop-blur-xl backdrop-saturate-[180%]",
                     "border border-black/10 dark:border-white/10",
                     "shadow-[0_8px_16px_rgb(0_0_0_/_0.15)] dark:shadow-[0_8px_16px_rgb(0_0_0_/_0.25)]",
@@ -64,18 +64,18 @@ export default function TweetCard({
                 <div
                     className={cn(
                         "w-full p-5 rounded-xl relative",
-                        "bg-gradient-to-br from-black/[0.05] to-transparent dark:from-white/[0.08] dark:to-transparent",
+                        "bg-linear-to-br from-black/[0.05] to-transparent dark:from-white/[0.08] dark:to-transparent",
                         "backdrop-blur-md backdrop-saturate-150",
                         "border border-black/[0.05] dark:border-white/[0.08]",
                         "text-black/90 dark:text-white",
-                        "shadow-sm",
+                        "shadow-xs",
                         "will-change-transform translate-z-0",
-                        "before:absolute before:inset-0 before:bg-gradient-to-br before:from-black/[0.02] before:to-black/[0.01] dark:before:from-white/[0.03] dark:before:to-white/[0.01] before:opacity-0 before:transition-opacity before:pointer-events-none",
+                        "before:absolute before:inset-0 before:bg-linear-to-br before:from-black/[0.02] before:to-black/[0.01] dark:before:from-white/[0.03] dark:before:to-white/[0.01] before:opacity-0 before:transition-opacity before:pointer-events-none",
                         "hover:before:opacity-100"
                     )}
                 >
                     <div className="flex gap-3">
-                        <div className="flex-shrink-0">
+                        <div className="shrink-0">
                             <div className="h-10 w-10 rounded-full overflow-hidden">
                                 <img
                                     src={authorImage}
@@ -140,7 +140,7 @@ export default function TweetCard({
                     {reply && (
                         <div className="mt-4 pt-4 border-t border-black/[0.08] dark:border-white/[0.08]">
                             <div className="flex gap-3">
-                                <div className="flex-shrink-0">
+                                <div className="shrink-0">
                                     <div className="h-10 w-10 rounded-full overflow-hidden">
                                         <img
                                             src={reply.authorImage}

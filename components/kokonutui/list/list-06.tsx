@@ -8,7 +8,7 @@ export default function List06() {
                 "w-full max-w-xl mx-auto",
                 "bg-white dark:bg-zinc-900",
                 "border border-zinc-200 dark:border-zinc-800",
-                "rounded-2xl shadow-sm overflow-hidden"
+                "rounded-2xl shadow-xs overflow-hidden"
             )}
         >
             <div className="p-4 border-b border-zinc-200 dark:border-zinc-800">
@@ -140,7 +140,7 @@ export default function List06() {
                             type="text"
                             placeholder="Add to discussion..."
                             className="flex-1 text-sm bg-transparent text-zinc-900 dark:text-zinc-100 
-                                placeholder:text-zinc-400 focus:outline-none"
+                                placeholder:text-zinc-400 focus:outline-hidden"
                         />
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +27,7 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
                 "group rounded-lg border-[0.5px] border-gray-200/50 dark:border-gray-800/50",
                 "transition-all duration-200 ease-in-out",
                 isOpen
-                    ? "bg-gradient-to-br from-white via-gray-50/50 to-white dark:from-white/5 dark:via-white/2 dark:to-white/5"
+                    ? "bg-linear-to-br from-white via-gray-50/50 to-white dark:from-white/5 dark:via-white/2 dark:to-white/5"
                     : "hover:bg-gray-50/50 dark:hover:bg-white/[0.02]"
             )}
         >
@@ -55,7 +55,7 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
                         ease: "easeInOut",
                     }}
                     className={cn(
-                        "p-0.5 rounded-full flex-shrink-0",
+                        "p-0.5 rounded-full shrink-0",
                         "transition-colors duration-200",
                         isOpen
                             ? "text-primary"
@@ -139,7 +139,7 @@ function Faq02() {
     ];
 
     return (
-        <section className="py-16 w-full bg-gradient-to-b from-transparent via-gray-50/50 to-transparent dark:from-transparent dark:via-white/[0.02] dark:to-transparent">
+        <section className="py-16 w-full bg-linear-to-b from-transparent via-gray-50/50 to-transparent dark:from-transparent dark:via-white/[0.02] dark:to-transparent">
             <div className="container px-4 mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -147,7 +147,7 @@ function Faq02() {
                     transition={{ duration: 0.5 }}
                     className="max-w-2xl mx-auto text-center mb-12"
                 >
-                    <h2 className="text-3xl font-semibold mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent">
+                    <h2 className="text-3xl font-semibold mb-3 bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent">
                         Frequently Asked Questions
                     </h2>
                     <p className="text-sm text-gray-600 dark:text-gray-400">

@@ -21,12 +21,10 @@ interface ToolbarButton {
     isRecording?: boolean;
 }
 
-const MIN_HEIGHT = 96;
-
 export default function AIInput_15() {
     const [value, setValue] = useState("");
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-        minHeight: MIN_HEIGHT,
+        minHeight: 96,
         maxHeight: 300,
     });
     const [useMemory, setUseMemory] = useState(false);
@@ -97,7 +95,7 @@ export default function AIInput_15() {
                         >
                             <div
                                 className={cn(
-                                    "absolute h-4 w-4 transform rounded-full bg-white transition-transform shadow-sm",
+                                    "absolute h-4 w-4 transform rounded-full bg-white transition-transform shadow-xs",
                                     useMemory
                                         ? "translate-x-4"
                                         : "translate-x-1"
@@ -123,7 +121,7 @@ export default function AIInput_15() {
                                 }
                                 className={cn(
                                     "w-full rounded-xl rounded-b-none px-4 py-3 bg-black/5 dark:bg-white/5 border-none dark:text-white placeholder:text-black/70 dark:placeholder:text-white/70 resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
-                                    `min-h-[${MIN_HEIGHT}px]`
+                                    "min-h-[96px]"
                                 )}
                                 ref={textareaRef}
                                 onKeyDown={handleKeyDown}

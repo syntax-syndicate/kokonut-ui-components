@@ -3,7 +3,7 @@
 import { Link } from "next-view-transitions";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ArrowDownRight, ArrowRight } from "lucide-react";
 
 export function BrowseComponentsButton() {
@@ -28,7 +28,7 @@ export function BrowseComponentsButton() {
                         "dark:shadow-[0_8px_16px_-6px_rgba(251,113,133,0.2)]",
                         "shadow-[0_15px_30px_-6px_rgba(251,113,133,0.4),0_0px_30px_-6px_rgba(168,85,247,0.4)]",
                         "dark:shadow-[0_15px_30px_-6px_rgba(251,113,133,0.3),0_0px_30px_-6px_rgba(168,85,247,0.3)]",
-                        "backdrop-blur-sm"
+                        "backdrop-blur-xs"
                     )}
                 >
                     <span className="font-medium">Browse Components</span>

@@ -125,7 +125,7 @@ function CardDetails({
             </div>
 
             <div className="mt-8 space-y-6">
-                <div className="h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-zinc-800 to-transparent" />
+                <div className="h-px bg-linear-to-r from-transparent via-zinc-200 dark:via-zinc-800 to-transparent" />
 
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">

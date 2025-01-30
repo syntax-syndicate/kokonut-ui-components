@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface CheckmarkProps {
@@ -75,7 +75,7 @@ export function Checkmark({
 
 export default function CurrencyTransfer() {
     return (
-        <Card className="w-full max-w-sm mx-auto p-6 min-h-[300px] flex flex-col justify-center bg-zinc-900 dark:bg-white border-zinc-800 dark:border-zinc-200 backdrop-blur-sm">
+        <Card className="w-full max-w-sm mx-auto p-6 min-h-[300px] flex flex-col justify-center bg-zinc-900 dark:bg-white border-zinc-800 dark:border-zinc-200 backdrop-blur-xs">
             <CardContent className="space-y-4 flex flex-col items-center justify-center">
                 <motion.div
                     className="flex justify-center"
@@ -166,7 +166,7 @@ export default function CurrencyTransfer() {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="w-full h-px bg-gradient-to-r from-transparent via-zinc-700 dark:via-zinc-300 to-transparent" />
+                                <div className="w-full h-px bg-linear-to-r from-transparent via-zinc-700 dark:via-zinc-300 to-transparent" />
                                 <div className="space-y-1.5">
                                     <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5">
                                         <svg
