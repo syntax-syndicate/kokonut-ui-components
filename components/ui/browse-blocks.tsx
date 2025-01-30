@@ -27,7 +27,7 @@ export function BrowseBlocksButton() {
                 <Button
                     className={cn(
                         "relative inline-flex items-center justify-center gap-4 rounded-lg font-medium",
-                        "relative h-12 px-6",
+                        "relative h-12 px-6 min-w-72 md:min-w-56",
                         "bg-indigo-50/50 dark:bg-indigo-900/20",
                         "text-indigo-600 dark:text-indigo-300",
                         "border-2 border-indigo-500/20 dark:border-indigo-400/20",

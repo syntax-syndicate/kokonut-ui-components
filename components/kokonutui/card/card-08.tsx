@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Card08Props {
     title?: string;
@@ -21,7 +22,7 @@ export default function Card08({
     href = "#",
 }: Card08Props) {
     return (
-        <a href={href} className="block w-full max-w-[280px] group">
+        <Link href={href} className="block w-full max-w-[280px] group">
             <div
                 className={cn(
                     "relative overflow-hidden rounded-2xl",
@@ -89,6 +90,6 @@ export default function Card08({
                     </div>
                 </div>
             </div>
-        </a>
+        </Link>
     );
 }

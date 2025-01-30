@@ -88,13 +88,17 @@ export default function Input09() {
                 <AnimatePresence>{renderAvatars()}</AnimatePresence>
             </div>
             <motion.div
-                variants={isVibrating ? {
-                    initial: { x: 0 },
-                    vibrate: { 
-                        x: [0, -5, 5, -5, 5, 0],
-                        transition: { duration: 0.3 }
-                    }
-                } : undefined}
+                variants={
+                    isVibrating
+                        ? {
+                              initial: { x: 0 },
+                              vibrate: {
+                                  x: [0, -5, 5, -5, 5, 0],
+                                  transition: { duration: 0.3 },
+                              },
+                          }
+                        : undefined
+                }
                 initial="initial"
                 animate={isVibrating ? "vibrate" : "initial"}
                 className="flex items-center gap-8"
@@ -105,7 +109,7 @@ export default function Input09() {
                     className="h-12 w-12 rounded-full border-zinc-200 dark:border-zinc-800 
                              bg-white dark:bg-zinc-900 
                              hover:bg-zinc-50 dark:hover:bg-zinc-800/50 
-                             text-zinc-900 dark:text-zinc-100"
+                             text-zinc-900 dark:text-zinc-100 cursor-pointer"
                 >
                     <span className="text-2xl font-medium">-</span>
                 </button>
@@ -127,7 +131,7 @@ export default function Input09() {
                     className="h-12 w-12 rounded-full border-zinc-200 dark:border-zinc-800 
                              bg-white dark:bg-zinc-900 
                              hover:bg-zinc-50 dark:hover:bg-zinc-800/50 
-                             text-zinc-900 dark:text-zinc-100"
+                             text-zinc-900 dark:text-zinc-100 cursor-pointer"
                 >
                     <span className="text-2xl font-medium">+</span>
                 </button>

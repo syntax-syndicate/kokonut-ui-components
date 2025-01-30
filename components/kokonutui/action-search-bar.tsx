@@ -27,7 +27,7 @@ interface SearchResult {
     actions: Action[];
 }
 
-const allActions = [
+const allActionsSample = [
     {
         id: "1",
         label: "Book tickets",
@@ -70,10 +70,16 @@ const allActions = [
     },
 ];
 
-function ActionSearchBar({ actions = allActions }: { actions?: Action[] }) {
+function ActionSearchBar({
+    actions = allActionsSample,
+    defaultOpen = false,
+}: {
+    actions?: Action[];
+    defaultOpen?: boolean;
+}) {
     const [query, setQuery] = useState("");
     const [result, setResult] = useState<SearchResult | null>(null);
-    const [isFocused, setIsFocused] = useState(false);
+    const [isFocused, setIsFocused] = useState(defaultOpen);
     const [isTyping, setIsTyping] = useState(false);
     const [selectedAction, setSelectedAction] = useState<Action | null>(null);
     const debouncedQuery = useDebounce(query, 200);
@@ -85,18 +91,18 @@ function ActionSearchBar({ actions = allActions }: { actions?: Action[] }) {
         }
 
         if (!debouncedQuery) {
-            setResult({ actions: allActions });
+            setResult({ actions: actions });
             return;
         }
 
         const normalizedQuery = debouncedQuery.toLowerCase().trim();
-        const filteredActions = allActions.filter((action) => {
+        const filteredActions = actions.filter((action) => {
             const searchableText = action.label.toLowerCase();
             return searchableText.includes(normalizedQuery);
         });
 
         setResult({ actions: filteredActions });
-    }, [debouncedQuery, isFocused]);
+    }, [debouncedQuery, isFocused, actions]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value);

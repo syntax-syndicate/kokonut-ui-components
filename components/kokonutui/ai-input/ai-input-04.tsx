@@ -56,10 +56,10 @@ export default function AIInput_04() {
                                     setShowSearch(!showSearch);
                                 }}
                                 className={cn(
-                                    "rounded-full transition-all flex items-center gap-2 px-1.5 py-1 border h-8",
+                                    "rounded-full transition-all flex items-center gap-2 px-1.5 py-1 border h-8 cursor-pointer",
                                     showSearch
                                         ? "bg-sky-500/15 border-sky-400 text-sky-500"
-                                        : "bg-black/5 dark:bg-white/5 border-transparent text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white"
+                                        : "bg-black/5 dark:bg-white/5 border-transparent text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white "
                                 )}
                             >
                                 <div className="w-4 h-4 flex items-center justify-center shrink-0">
@@ -119,7 +119,7 @@ export default function AIInput_04() {
                                     "rounded-lg p-2 transition-colors",
                                     value
                                         ? "bg-sky-500/15 text-sky-500"
-                                        : "bg-black/5 dark:bg-white/5 text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white"
+                                        : "bg-black/5 dark:bg-white/5 text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white cursor-pointer"
                                 )}
                             >
                                 <Send className="w-4 h-4" />
