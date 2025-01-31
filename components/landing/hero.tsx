@@ -92,7 +92,7 @@ export function HeroSection() {
                             stunning
                         </span>{" "}
                         websites <br />
-                        with no time on design
+                        {/* with no time on design */}
                     </h1>
                     <p className="mt-4 mb-6 text-lg text-zinc-600 dark:text-zinc-400">
                         Open Source UI components built with Tailwind CSS for

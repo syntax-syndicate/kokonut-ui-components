@@ -9,7 +9,7 @@ import { ArrowDownRight, ArrowRight } from "lucide-react";
 export function BrowseComponentsButton() {
     return (
         <Link
-            href="/docs/components/button"
+            href="/docs/components/background-paths"
             className="flex items-center gap-8"
         >
             <motion.div
