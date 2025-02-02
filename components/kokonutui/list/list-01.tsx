@@ -71,7 +71,7 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                 "w-full max-w-2xl mx-auto p-4",
                 "bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl",
                 "rounded-3xl border border-white/20 dark:border-zinc-800/50",
-                "shadow-md",
+                "shadow-sm",
                 className
             )}
         >
@@ -87,7 +87,7 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                             "transition-all duration-300 ease-out",
                             "rounded-2xl",
                             "border border-white/20 dark:border-zinc-700/50",
-                            "shadow-xs hover:shadow-md"
+                            "shadow-xs hover:shadow-sm"
                         )}
                     >
                         <div
@@ -98,8 +98,7 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                                     item.iconStyle as keyof typeof iconStyles
                                 ],
                                 "shadow-xs border border-white/10 dark:border-zinc-700/50",
-                                "transition-transform duration-300",
-                                "group-hover:scale-105"
+                                "transition-colors duration-300"
                             )}
                         >
                             <item.icon className="w-5 h-5" />
@@ -114,7 +113,7 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                                     <span
                                         className={cn(
                                             "px-2.5 py-0.5 rounded-full text-xs font-medium",
-                                            "transition-all duration-300",
+                                            "transition-colors duration-300",
                                             "shadow-xs",
                                             badgeVariants[
                                                 item.badge

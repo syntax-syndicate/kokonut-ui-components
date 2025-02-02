@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
 @import 'fumadocs-ui/css/neutral.css';
-/* @import 'fumadocs-ui/css/catppuccin.css'; */
 @import 'fumadocs-ui/css/preset.css';
 
 @source '../node_modules/fumadocs-ui/dist/**/*.js';
@@ -123,6 +122,11 @@
   }
 }
 
+button {
+  outline: none;
+  cursor: pointer;
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;
@@ -215,12 +219,14 @@ a[href="/docs/components/action-search-bar"]::after {
 }
 
 /* Blocks, update only if id is different than browse-blocks-button*/
-a[href="/docs/blocks/ai-card-generation"]:not(#browse-blocks-button) {
+a[href="/docs/blocks/ai-card-generation"]:not(#browse-blocks-button),
+a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button) {
   position: relative;
   padding-right: 2.5rem;
 }
 
-a[href="/docs/blocks/ai-card-generation"]:not(#browse-blocks-button)::after {
+a[href="/docs/blocks/ai-card-generation"]:not(#browse-blocks-button)::after,
+a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button)::after {
   content: "Beta";
   position: absolute;
   right: 0.2rem;

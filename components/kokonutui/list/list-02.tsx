@@ -77,7 +77,7 @@ export default function List02({
                 "w-full max-w-2xl mx-auto",
                 "bg-white dark:bg-zinc-900/70",
                 "border border-zinc-100 dark:border-zinc-800",
-                "rounded-3xl shadow-xl backdrop-blur-xl",
+                "rounded-3xl shadow-sm backdrop-blur-xl",
                 className
             )}
         >
@@ -104,10 +104,10 @@ export default function List02({
                                 "group relative flex items-center gap-4",
                                 "p-3 -mx-3 rounded-2xl",
                                 "transition-all duration-300 ease-out",
-                                "hover:bg-zinc-50 dark:hover:bg-zinc-800/50",
-                                "hover:shadow-xs",
+                                "hover:bg-zinc-100 dark:hover:bg-zinc-800/50",
+                                "hover:shadow-sm",
                                 "border border-transparent",
-                                "hover:border-zinc-200 dark:hover:border-zinc-700/50"
+                                "hover:border-zinc-300 dark:hover:border-zinc-700/50"
                             )}
                         >
                             <div
@@ -120,8 +120,7 @@ export default function List02({
                                         transaction.category as keyof typeof categoryStyles
                                     ],
                                     "transition-all duration-300",
-                                    "group-hover:scale-105",
-                                    "group-hover:shadow-md",
+                                    "group-hover:shadow-lg",
                                     "border border-zinc-200/50 dark:border-zinc-700/50",
                                     "shadow-xs"
                                 )}
@@ -142,8 +141,7 @@ export default function List02({
                                 <div
                                     className={cn(
                                         "flex items-center gap-2 shrink-0 pl-4",
-                                        "transition-transform duration-300",
-                                        "group-hover:scale-105"
+                                        "transition-colors duration-300"
                                     )}
                                 >
                                     <span
@@ -151,7 +149,7 @@ export default function List02({
                                             "text-base font-semibold",
                                             transaction.type === "incoming"
                                                 ? "text-emerald-700 dark:text-emerald-400"
-                                                : "text-zinc-900 dark:text-zinc-100"
+                                                : "text-zinc-800 dark:text-zinc-100"
                                         )}
                                     >
                                         {transaction.type === "incoming"
@@ -176,7 +174,7 @@ export default function List02({
                     type="button"
                     className="w-full py-2.5 px-4 rounded-xl text-sm font-medium
                     text-zinc-700 dark:text-zinc-400 
-                    hover:bg-zinc-50 dark:hover:bg-zinc-800
+                    hover:bg-zinc-100 dark:hover:bg-zinc-800
                     transition-colors duration-200"
                 >
                     View All Transactions

@@ -33,4 +33,54 @@ export const block: Registry = [
             },
         ],
     },
+    {
+        name: "dashboard",
+        type: "registry:block",
+        dependencies: ["lucide-react"],
+        registryDependencies: [
+            "button",
+            "input",
+            "select",
+            "textarea",
+            "dropdown-menu",
+        ],
+        files: [
+            {
+                path: "components/kokonutui/blocks/dashboard/dashboard.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/layout.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/top-nav.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/sidebar.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/content.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/profile-01.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/list-03.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/list-01.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/list-02.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
