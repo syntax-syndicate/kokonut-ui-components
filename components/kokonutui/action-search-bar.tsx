@@ -11,6 +11,8 @@ import {
     Video,
     PlaneTakeoff,
     AudioLines,
+    Layout,
+    LayoutGrid,
 } from "lucide-react";
 import useDebounce from "@/hooks/use-debounce";
 
@@ -62,11 +64,11 @@ const allActionsSample = [
     },
     {
         id: "5",
-        label: "Translate",
-        icon: <Globe className="h-4 w-4 text-blue-500" />,
-        description: "gpt-4o",
+        label: "Kokonut UI - Pro",
+        icon: <LayoutGrid className="h-4 w-4 text-blue-500" />,
+        description: "Components",
         short: "",
-        end: "Command",
+        end: "Link",
     },
 ];
 
@@ -153,7 +155,6 @@ function ActionSearchBar({
         },
     };
 
-    // Reset selectedAction when focusing the input
     const handleFocus = () => {
         setSelectedAction(null);
         setIsFocused(true);

@@ -113,21 +113,29 @@ export default function List03({ items = ITEMS, className }: List03Props) {
                     >
                         <div className="p-4 space-y-3">
                             <div className="flex items-start justify-between">
-                                <div className={cn(
-                                    "p-2 rounded-lg",
-                                    iconStyles[item.iconStyle as keyof typeof iconStyles]
-                                )}>
+                                <div
+                                    className={cn(
+                                        "p-2 rounded-lg",
+                                        iconStyles[
+                                            item.iconStyle as keyof typeof iconStyles
+                                        ]
+                                    )}
+                                >
                                     <item.icon className="w-4 h-4" />
                                 </div>
-                                <div className={cn(
-                                    "px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1.5",
-                                    statusConfig[item.status].bg,
-                                    statusConfig[item.status].class
-                                )}>
-                                    {React.createElement(statusConfig[item.status].icon, 
+                                <div
+                                    className={cn(
+                                        "px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1.5",
+                                        statusConfig[item.status].bg,
+                                        statusConfig[item.status].class
+                                    )}
+                                >
+                                    {React.createElement(
+                                        statusConfig[item.status].icon,
                                         { className: "w-3.5 h-3.5" }
                                     )}
-                                    {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
+                                    {item.status.charAt(0).toUpperCase() +
+                                        item.status.slice(1)}
                                 </div>
                             </div>
 
@@ -153,7 +161,9 @@ export default function List03({ items = ITEMS, className }: List03Props) {
                                     <div className="h-1.5 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
                                         <div
                                             className="h-full bg-zinc-900 dark:bg-zinc-100 rounded-full"
-                                            style={{ width: `${item.progress}%` }}
+                                            style={{
+                                                width: `${item.progress}%`,
+                                            }}
                                         />
                                     </div>
                                 </div>
@@ -177,15 +187,17 @@ export default function List03({ items = ITEMS, className }: List03Props) {
                         </div>
 
                         <div className="mt-auto border-t border-zinc-100 dark:border-zinc-800">
-                            <button className={cn(
-                                "w-full flex items-center justify-center gap-2",
-                                "py-2.5 px-3",
-                                "text-xs font-medium",
-                                "text-zinc-600 dark:text-zinc-400",
-                                "hover:text-zinc-900 dark:hover:text-zinc-100",
-                                "hover:bg-zinc-100 dark:hover:bg-zinc-800/50",
-                                "transition-colors duration-200"
-                            )}>
+                            <button
+                                className={cn(
+                                    "w-full flex items-center justify-center gap-2",
+                                    "py-2.5 px-3",
+                                    "text-xs font-medium",
+                                    "text-zinc-600 dark:text-zinc-400",
+                                    "hover:text-zinc-900 dark:hover:text-zinc-100",
+                                    "hover:bg-zinc-100 dark:hover:bg-zinc-800/50",
+                                    "transition-colors duration-200"
+                                )}
+                            >
                                 View Details
                                 <ArrowRight className="w-3.5 h-3.5" />
                             </button>
