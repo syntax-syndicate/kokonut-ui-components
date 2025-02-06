@@ -144,7 +144,6 @@ export default function ParticlesBackground({
         const ctx = canvas.getContext("2d", { alpha: true });
         if (!ctx) return;
 
-        // Set canvas size to match parent container
         const resizeCanvas = () => {
             const container = canvas.parentElement;
             if (!container) return;
@@ -155,7 +154,6 @@ export default function ParticlesBackground({
 
         resizeCanvas();
 
-        // Initialize particles
         const particles: Particle[] = Array.from(
             { length: particleCount },
             () => ({
@@ -171,18 +169,15 @@ export default function ParticlesBackground({
         );
 
         const animate = () => {
-            // Use document.documentElement.classList.contains('dark') to check dark mode
             const isDark = document.documentElement.classList.contains("dark");
             const scheme = isDark ? COLOR_SCHEME.dark : COLOR_SCHEME.light;
 
-            // Semi-transparent background for trail effect
             ctx.fillStyle = isDark
                 ? "rgba(0, 0, 0, 0.1)"
                 : "rgba(255, 255, 255, 0.1)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             for (const particle of particles) {
-                // Update life
                 particle.life += 1;
                 if (particle.life > particle.maxLife) {
                     particle.life = 0;
@@ -190,34 +185,28 @@ export default function ParticlesBackground({
                     particle.y = Math.random() * canvas.height;
                 }
 
-                // Calculate opacity based on life
                 const opacity =
                     Math.sin((particle.life / particle.maxLife) * Math.PI) *
                     0.15;
 
-                // Get noise value for this particle
                 const n = noise.simplex3(
                     particle.x * noiseIntensity,
                     particle.y * noiseIntensity,
                     Date.now() * 0.0001
                 );
 
-                // Create flowing movement
                 const angle = n * Math.PI * 4;
                 particle.velocity.x = Math.cos(angle) * 2;
                 particle.velocity.y = Math.sin(angle) * 2;
 
-                // Update position
                 particle.x += particle.velocity.x;
                 particle.y += particle.velocity.y;
 
-                // Wrap around screen
                 if (particle.x < 0) particle.x = canvas.width;
                 if (particle.x > canvas.width) particle.x = 0;
                 if (particle.y < 0) particle.y = canvas.height;
                 if (particle.y > canvas.height) particle.y = 0;
 
-                // Draw particle with dynamic opacity
                 ctx.fillStyle = isDark
                     ? `rgba(255, 255, 255, ${opacity})`
                     : `rgba(0, 0, 0, ${opacity})`;
@@ -231,14 +220,13 @@ export default function ParticlesBackground({
 
         animate();
 
-        // Update resize handler
         const handleResize = () => {
             resizeCanvas();
         };
 
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-    }, [particleCount, noiseIntensity, particleSize, title, subtitle]);
+    }, [particleCount, noiseIntensity, particleSize, noise]);
 
     return (
         <div
