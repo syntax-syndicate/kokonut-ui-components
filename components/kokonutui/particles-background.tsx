@@ -2,11 +2,15 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 interface CyberBackgroundProps {
-    gridSize?: number;
+    title?: string;
+    subtitle?: string;
     particleCount?: number;
     noiseIntensity?: number;
+    particleSize?: { min: number; max: number };
+    className?: string;
 }
 
 function createNoise() {
@@ -98,121 +102,171 @@ function createNoise() {
     };
 }
 
+const COLOR_SCHEME = {
+    light: {
+        particle: {
+            color: "rgba(0, 0, 0, 0.07)",
+        },
+        background: "rgba(255, 255, 255, 0.12)",
+    },
+    dark: {
+        particle: {
+            color: "rgba(255, 255, 255, 0.07)",
+        },
+        background: "rgba(0, 0, 0, 0.12)",
+    },
+} as const;
+
+interface Particle {
+    x: number;
+    y: number;
+    size: number;
+    velocity: { x: number; y: number };
+    life: number;
+    maxLife: number;
+}
+
 export default function ParticlesBackground({
-    particleCount = 100,
-    noiseIntensity = 0.03,
+    title = "Particles Background",
+    subtitle = "Make your website stand out",
+    particleCount = 2000,
+    noiseIntensity = 0.003,
+    particleSize = { min: 0.5, max: 2 },
+    className,
 }: CyberBackgroundProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const noise = createNoise();
 
-    const drawParticles = useCallback(
-        (ctx: CanvasRenderingContext2D, particles: Particle[]) => {
-            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        const ctx = canvas.getContext("2d", { alpha: true });
+        if (!ctx) return;
+
+        // Set canvas size to match parent container
+        const resizeCanvas = () => {
+            const container = canvas.parentElement;
+            if (!container) return;
+
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+        };
+
+        resizeCanvas();
+
+        // Initialize particles
+        const particles: Particle[] = Array.from(
+            { length: particleCount },
+            () => ({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size:
+                    Math.random() * (particleSize.max - particleSize.min) +
+                    particleSize.min,
+                velocity: { x: 0, y: 0 },
+                life: Math.random() * 100,
+                maxLife: 100 + Math.random() * 50,
+            })
+        );
+
+        const animate = () => {
+            // Use document.documentElement.classList.contains('dark') to check dark mode
+            const isDark = document.documentElement.classList.contains("dark");
+            const scheme = isDark ? COLOR_SCHEME.dark : COLOR_SCHEME.light;
+
+            // Semi-transparent background for trail effect
+            ctx.fillStyle = isDark
+                ? "rgba(0, 0, 0, 0.1)"
+                : "rgba(255, 255, 255, 0.1)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             for (const particle of particles) {
+                // Update life
+                particle.life += 1;
+                if (particle.life > particle.maxLife) {
+                    particle.life = 0;
+                    particle.x = Math.random() * canvas.width;
+                    particle.y = Math.random() * canvas.height;
+                }
+
+                // Calculate opacity based on life
+                const opacity =
+                    Math.sin((particle.life / particle.maxLife) * Math.PI) *
+                    0.15;
+
+                // Get noise value for this particle
                 const n = noise.simplex3(
                     particle.x * noiseIntensity,
                     particle.y * noiseIntensity,
                     Date.now() * 0.0001
                 );
 
-                const gradient = ctx.createRadialGradient(
-                    particle.x,
-                    particle.y,
-                    0,
-                    particle.x,
-                    particle.y,
-                    particle.size * 2
-                );
-                gradient.addColorStop(
-                    0,
-                    `hsla(${particle.hue}, 100%, 70%, 0.8)`
-                );
-                gradient.addColorStop(1, `hsla(${particle.hue}, 100%, 50%, 0)`);
+                // Create flowing movement
+                const angle = n * Math.PI * 4;
+                particle.velocity.x = Math.cos(angle) * 2;
+                particle.velocity.y = Math.sin(angle) * 2;
 
-                ctx.fillStyle = gradient;
+                // Update position
+                particle.x += particle.velocity.x;
+                particle.y += particle.velocity.y;
+
+                // Wrap around screen
+                if (particle.x < 0) particle.x = canvas.width;
+                if (particle.x > canvas.width) particle.x = 0;
+                if (particle.y < 0) particle.y = canvas.height;
+                if (particle.y > canvas.height) particle.y = 0;
+
+                // Draw particle with dynamic opacity
+                ctx.fillStyle = isDark
+                    ? `rgba(255, 255, 255, ${opacity})`
+                    : `rgba(0, 0, 0, ${opacity})`;
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
                 ctx.fill();
-
-                particle.x += Math.cos(n * Math.PI * 2) * 0.8;
-                particle.y += Math.sin(n * Math.PI * 2) * 0.8;
-
-                if (particle.x < -50) particle.x = ctx.canvas.width + 50;
-                if (particle.x > ctx.canvas.width + 50) particle.x = -50;
-                if (particle.y < -50) particle.y = ctx.canvas.height + 50;
-                if (particle.y > ctx.canvas.height + 50) particle.y = -50;
             }
-        },
-        [noise, noiseIntensity]
-    );
 
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
-
-        const particles: Particle[] = Array.from(
-            { length: particleCount },
-            () => ({
-                x: Math.random() * canvas.offsetWidth,
-                y: Math.random() * canvas.offsetHeight,
-                size: Math.random() * 3 + 2,
-                hue: Math.random() * 60 + 200,
-            })
-        );
-
-        const resize = () => {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-        };
-
-        const animate = () => {
-            ctx.fillStyle = "rgba(9, 9, 11, 0.1)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            drawParticles(ctx, particles);
             requestAnimationFrame(animate);
         };
 
-        resize();
         animate();
-        window.addEventListener("resize", resize);
-        return () => window.removeEventListener("resize", resize);
-    }, [drawParticles, particleCount]);
+
+        // Update resize handler
+        const handleResize = () => {
+            resizeCanvas();
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [particleCount, noiseIntensity, particleSize, title, subtitle]);
 
     return (
-        <div className="absolute inset-0 overflow-hidden bg-zinc-900">
+        <div
+            className={cn(
+                "relative w-full h-screen overflow-hidden",
+                "bg-white dark:bg-black",
+                className
+            )}
+        >
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0 w-full h-full"
             />
-
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-                <motion.h1
+            <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.5, delay: 0.2 }}
-                    className="text-7xl font-bold text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-pink-300 to-blue-400 relative z-20"
+                    transition={{ duration: 0.8 }}
+                    className="text-center space-y-4"
                 >
-                    <span className="relative inline-block">
-                        Particles
-                        <span className="absolute inset-0 text-transparent bg-clip-text bg-linear-to-r from-indigo-600/80 via-pink-500/80 to-blue-600/80 mix-blend-overlay -m-[2px]">
-                            Particles
-                        </span>
-                    </span>
-                </motion.h1>
+                    <h1 className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-black to-black/70 dark:from-white dark:to-white/70 drop-shadow-sm">
+                        {title}
+                    </h1>
+                    <p className="text-xl md:text-2xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-black/90 to-black/50 dark:from-white/90 dark:to-white/50">
+                        {subtitle}
+                    </p>
+                </motion.div>
             </div>
-
-            <div className="absolute inset-0 bg-linear-to-b from-zinc-900/20 to-zinc-900/80 mix-blend-multiply z-15" />
         </div>
     );
-}
-
-interface Particle {
-    x: number;
-    y: number;
-    size: number;
-    hue: number;
 }
