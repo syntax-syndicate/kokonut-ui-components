@@ -185,7 +185,7 @@ export function BackgroundCircles({
     );
 }
 
-export function DemoCircles() {
+export default function DemoCircles() {
     const [currentVariant, setCurrentVariant] =
         useState<keyof typeof COLOR_VARIANTS>("octonary");
 
