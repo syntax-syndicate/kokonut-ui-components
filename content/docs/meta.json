@@ -19,7 +19,6 @@
         "components/hand-written-title",
         "components/tweet-card",
         "components/particles-background",
-        "components/feature-spotlight",
         "components/faq",
         "---Blocks---",
         "blocks/ai-card-generation",
