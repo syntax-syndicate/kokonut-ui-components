@@ -83,4 +83,40 @@ export const block: Registry = [
             },
         ],
     },
+    {
+        name: "minimal-shop",
+        type: "registry:block",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["button", "input", "select", "textarea"],
+        files: [
+            {
+                path: "components/kokonutui/blocks/minimal-shop/minimal-shop.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/minimal-shop/top-bar.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/minimal-shop/product-grid.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/minimal-shop/product-modal.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/minimal-shop/cart-drawer.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/minimal-shop/data.ts",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/minimal-shop/header.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];

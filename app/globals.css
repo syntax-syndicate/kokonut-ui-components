@@ -220,14 +220,16 @@ a[href="/docs/components/action-search-bar"]::after {
 
 /* Blocks, update only if id is different than browse-blocks-button*/
 a[href="/docs/blocks/ai-card-generation"]:not(#browse-blocks-button),
-a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button) {
+a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button),
+a[href="/docs/blocks/minimal-shop"]:not(#browse-blocks-button) {
   position: relative;
   padding-right: 2.5rem;
 }
 
 a[href="/docs/blocks/ai-card-generation"]:not(#browse-blocks-button)::after,
-a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button)::after {
-  content: "Beta";
+a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button)::after,
+a[href="/docs/blocks/minimal-shop"]:not(#browse-blocks-button)::after {
+  content: "WIP";
   position: absolute;
   right: 0.2rem;
   top: 50%;
