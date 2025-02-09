@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: "https://kokonutui.com",
             lastModified: currentDate,
-            changeFrequency: "monthly",
+            changeFrequency: "yearly",
             priority: 1,
         },
         {
@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: currentDate,
             changeFrequency: "monthly",
             priority: 0.9,
+        },
+        {
+            url: "https://kokonutui.com/pricing",
+            lastModified: currentDate,
+            changeFrequency: "monthly",
+            priority: 0.8,
         },
         {
             url: "https://kokonutui.com/docs/components/ai-input",

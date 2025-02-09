@@ -47,8 +47,8 @@ export async function generateMetadata(props: {
     const page = source.getPage(params.slug);
     if (!page) notFound();
 
-    // return metadataImage.withImage(page.slugs, {
-    //     title: page.data.title,
-    //     description: page.data.description,
-    // });
+    return {
+        title: page.data.title,
+        description: page.data.description,
+    };
 }
