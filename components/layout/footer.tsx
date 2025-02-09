@@ -69,7 +69,7 @@ export function Footer() {
                                     className="group relative p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"
                                 >
                                     {project.isNew && (
-                                        <span className="absolute -top-2 -right-2 px-2 py-0.5 text-[10px] font-medium bg-amber-500 text-white rounded-full">
+                                        <span className="text-purple-500 dark:text-purple-400 border border-purple-500 dark:border-purple-400 rounded-lg px-1 py-0.5 text-xs absolute top-2 right-2">
                                             New
                                         </span>
                                     )}

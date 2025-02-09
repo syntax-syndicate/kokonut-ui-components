@@ -3,6 +3,7 @@
 import { Search, ShoppingBag, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 interface TopBarProps {
     cartItemCount: number;
@@ -50,7 +51,14 @@ export function TopBar({ cartItemCount, onCartClick, onSearch }: TopBarProps) {
             } backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800`}
         >
             <div className="flex items-center justify-between px-3 h-12">
-                <span className="text-sm font-medium shrink-0">Shop</span>
+                <Link
+                    href="https://kokonutui.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium shrink-0"
+                >
+                    Shop
+                </Link>
 
                 <div className="flex-1 px-8 overflow-x-auto flex items-center justify-center gap-6 scrollbar-none">
                     {categories.map((category) => (
