@@ -1,5 +1,8 @@
 import * as React from "react";
-const Motion = (props) => (
+
+import type { SVGProps } from "react";
+
+const Motion = (props: SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1103 386"
