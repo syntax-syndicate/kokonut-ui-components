@@ -37,7 +37,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { submitContactForm } from "@/lib/contact";
-import type { Metadata } from "next";
 
 interface PricingTier {
     name: string;
@@ -240,11 +239,6 @@ const pricingTiers: PricingTier[] = [
         },
     },
 ];
-
-export const metadata: Metadata = {
-    title: "Pricing - KokonutUI Pro",
-    description: "Choose the right plan for your project",
-};
 
 export default function PricingPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);

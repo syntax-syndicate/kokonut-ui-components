@@ -119,4 +119,24 @@ export const block: Registry = [
             },
         ],
     },
+    {
+        name: "auth-basic",
+        type: "registry:block",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button", "input", "separator"],
+        files: [
+            {
+                path: "components/kokonutui/blocks/auth-basic/auth-basic.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/auth-basic/auth-form.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/auth-basic/social-login.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];

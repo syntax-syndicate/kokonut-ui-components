@@ -24,6 +24,7 @@
         "blocks/ai-card-generation",
         "blocks/minimal-shop",
         "blocks/dashboard",
+        "blocks/auth-basic",
         "---Components---",
         "components/ai-input",
         "components/alert",
