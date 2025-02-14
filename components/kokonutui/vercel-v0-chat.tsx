@@ -34,7 +34,7 @@ export function VercelV0Chat() {
 
     return (
         <div className="flex flex-col items-center w-full max-w-4xl mx-auto p-4 space-y-8">
-            <h1 className="text-4xl font-bold text-white">
+            <h1 className="text-4xl font-bold text-black dark:text-white">
                 What can I help you ship?
             </h1>
 
