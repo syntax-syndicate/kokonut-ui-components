@@ -110,7 +110,7 @@ export function VercelV0Chat() {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-3 mt-4">
+                <div className="flex items-center justify-center gap-3 mt-4">
                     <ActionButton
                         icon={<ImageIcon className="w-4 h-4" />}
                         label="Clone a Screenshot"
@@ -128,7 +128,7 @@ export function VercelV0Chat() {
                         label="Landing Page"
                     />
                     <ActionButton
-                        icon={<CircleUserRound />}
+                        icon={<CircleUserRound className="w-4 h-4" />}
                         label="Sign Up Form"
                     />
                 </div>
