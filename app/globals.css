@@ -224,12 +224,12 @@ a[href="/docs/blocks/auth-basic"]:not(#browse-blocks-button)::after {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-a[href="/docs/components/background-circles"] {
+a[href="/docs/components/vercel-v0-chat"] {
   position: relative;
   padding-right: 2.5rem;
 }
 
-a[href="/docs/components/background-circles"]::after {
+a[href="/docs/components/vercel-v0-chat"]::after {
   content: "New";
   position: absolute;
   right: 0.2rem;

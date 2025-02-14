@@ -11,6 +11,7 @@
         "components/action-search-bar",
         "components/bento-grid",
         "components/checkout-interaction",
+        "components/vercel-v0-chat",
         "components/hero-geometric",
         "components/background-paths",
         "components/background-circles",

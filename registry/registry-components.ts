@@ -1223,4 +1223,20 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "vercel-v0-chat",
+        type: "registry:component",
+        dependencies: ["lucide-react", "textarea"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/vercel-v0-chat.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
+    },
 ];
