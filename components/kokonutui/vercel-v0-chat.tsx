@@ -33,8 +33,8 @@ export function VercelV0Chat() {
     };
 
     return (
-        <div className="flex flex-col items-center w-full max-w-4xl mx-auto p-4 space-y-8">
-            <h1 className="text-4xl font-bold text-black dark:text-white">
+        <div className="flex flex-col items-center w-full max-w-4xl mx-auto p-4 space-y-4 sm:space-y-8">
+            <h1 className="text-2xl sm:text-4xl font-bold text-black dark:text-white text-center">
                 What can I help you ship?
             </h1>
 
@@ -110,27 +110,29 @@ export function VercelV0Chat() {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-center gap-3 mt-4">
-                    <ActionButton
-                        icon={<ImageIcon className="w-4 h-4" />}
-                        label="Clone a Screenshot"
-                    />
-                    <ActionButton
-                        icon={<Figma className="w-4 h-4" />}
-                        label="Import from Figma"
-                    />
-                    <ActionButton
-                        icon={<FileUp className="w-4 h-4" />}
-                        label="Upload a Project"
-                    />
-                    <ActionButton
-                        icon={<MonitorIcon className="w-4 h-4" />}
-                        label="Landing Page"
-                    />
-                    <ActionButton
-                        icon={<CircleUserRound className="w-4 h-4" />}
-                        label="Sign Up Form"
-                    />
+                <div className="mt-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 sm:overflow-x-auto sm:pb-2 sm:justify-center scrollbar-hide">
+                        <ActionButton
+                            icon={<ImageIcon className="w-4 h-4" />}
+                            label="Clone a Screenshot"
+                        />
+                        <ActionButton
+                            icon={<Figma className="w-4 h-4" />}
+                            label="Import from Figma"
+                        />
+                        <ActionButton
+                            icon={<FileUp className="w-4 h-4" />}
+                            label="Upload a Project"
+                        />
+                        <ActionButton
+                            icon={<MonitorIcon className="w-4 h-4" />}
+                            label="Landing Page"
+                        />
+                        <ActionButton
+                            icon={<CircleUserRound className="w-4 h-4" />}
+                            label="Sign Up Form"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,7 +148,7 @@ function ActionButton({ icon, label }: ActionButtonProps) {
     return (
         <button
             type="button"
-            className="flex items-center gap-2 px-4 py-2 bg-neutral-900 hover:bg-neutral-800 rounded-full border border-neutral-800 text-neutral-400 hover:text-white transition-colors"
+            className="flex items-center gap-2 w-full sm:w-auto px-3 sm:px-4 py-2 bg-neutral-900 hover:bg-neutral-800 rounded-full border border-neutral-800 text-neutral-400 hover:text-white transition-colors whitespace-nowrap flex-shrink-0"
         >
             {icon}
             <span className="text-xs">{label}</span>

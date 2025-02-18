@@ -20,15 +20,16 @@ const CENTERED_COMPONENTS = [
     "tweet-card",
     "action-search-bar",
     "blocks/ai-card-generation",
+    "vercel-v0-chat",
     // Add more small components here
 ];
 
 // const FULL_WIDTH_COMPONENTS = ["hero"];
 
 export default async function PreviewPage({
-    params
+    params,
 }: {
-    params: Promise<{ slug: string[] }>
+    params: Promise<{ slug: string[] }>;
 }) {
     const { slug } = await params;
     if (!slug.length) return notFound();
@@ -38,8 +39,8 @@ export default async function PreviewPage({
     try {
         const Component = dynamic(
             () =>
-                import(`@/components/kokonutui/${componentName}`).catch(
-                    () => notFound()
+                import(`@/components/kokonutui/${componentName}`).catch(() =>
+                    notFound()
                 ),
             { ssr: true }
         );

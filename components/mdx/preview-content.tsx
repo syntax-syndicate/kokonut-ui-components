@@ -133,9 +133,7 @@ export default function PreviewContent({
         <>
             {isTerminalCopied && (
                 <SuccessParticles
-                    buttonRef={
-                        terminalButtonRef as RefObject<HTMLButtonElement>
-                    }
+                    buttonRef={terminalButtonRef as RefObject<HTMLButtonElement>}
                 />
             )}
             {isCopied && (
@@ -149,7 +147,7 @@ export default function PreviewContent({
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <div className="relative flex items-center justify-between">
+                <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <a
                         href={`${prePath}/preview/${link}`}
                         target="_blank"
