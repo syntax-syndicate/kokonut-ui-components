@@ -29,9 +29,12 @@ export const baseOptions: BaseLayoutProps = {
     },
     links: [
         {
-            icon: <BookIcon />,
-            text: "Go to Homepage",
-            url: "/",
+            text: "Pricing",
+            url: "/pricing",
+        },
+        {
+            text: "Templates",
+            url: "https://kokonutui.pro/templates?utm_source=kokonutui.com&utm_medium=header",
         },
         {
             type: "custom",
