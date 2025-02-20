@@ -1239,4 +1239,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "toolbar",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/toolbar.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
