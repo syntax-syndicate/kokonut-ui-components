@@ -61,11 +61,11 @@ const FEATURES = [
             <div className="flex items-center gap-1.5">
                 <Nextjs className="w-4 h-4" />
                 <ReactIcon className="w-4 h-4" />
-                NextJS & React
+                Next.js & React
             </div>
         ),
         color: "text-blue-500 dark:text-blue-400",
-        description: "Built for nextjs and react",
+        description: "Built for Next.js and React",
     },
 ];
 
