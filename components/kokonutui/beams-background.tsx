@@ -79,6 +79,8 @@ export default function BeamsBackground({
         window.addEventListener("resize", updateCanvasSize);
 
         function resetBeam(beam: Beam, index: number, totalBeams: number) {
+            if (!canvas) return beam;
+            
             const column = index % 3;
             const spacing = canvas.width / 3;
 
