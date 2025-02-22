@@ -199,16 +199,14 @@ a[href="/docs/components/hero-geometric"]::after {
 }
 
 /* Blocks, update only if id is different than browse-blocks-button*/
-a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button),
 a[href="/docs/blocks/minimal-shop"]:not(#browse-blocks-button),
-a[href="/docs/blocks/auth-basic"]:not(#browse-blocks-button) {
+a[href="/docs/blocks/ai-chat"]:not(#browse-blocks-button) {
   position: relative;
   padding-right: 2.5rem;
 }
 
-a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button)::after,
 a[href="/docs/blocks/minimal-shop"]:not(#browse-blocks-button)::after,
-a[href="/docs/blocks/auth-basic"]:not(#browse-blocks-button)::after {
+a[href="/docs/blocks/ai-chat"]:not(#browse-blocks-button)::after {
   content: "New";
   position: absolute;
   right: 0.2rem;
@@ -216,27 +214,6 @@ a[href="/docs/blocks/auth-basic"]:not(#browse-blocks-button)::after {
   transform: translateY(-50%);
   background-color: rgba(128, 0, 128, 0.2);
   color: #cf40cf;
-  padding: 0.05rem 0.2rem;
-  border-radius: 0.25rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-a[href="/docs/components/vercel-v0-chat"] {
-  position: relative;
-  padding-right: 2.5rem;
-}
-
-a[href="/docs/components/vercel-v0-chat"]::after {
-  content: "New";
-  position: absolute;
-  right: 0.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(59, 180, 75, 0.2);
-  color: #3BB44B;
   padding: 0.05rem 0.2rem;
   border-radius: 0.25rem;
   font-size: 0.75rem;
