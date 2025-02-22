@@ -177,12 +177,14 @@ a[href="/docs/components/bento-grid"]::after {
 
 
 
-a[href="/docs/components/hero-geometric"] {
+a[href="/docs/components/hero-geometric"],
+a[href="/docs/components/beams-background"] {
   position: relative;
   padding-right: 2.5rem;
 }
 
-a[href="/docs/components/hero-geometric"]::after {
+a[href="/docs/components/hero-geometric"]::after,
+a[href="/docs/components/beams-background"]::after {
   content: "New";
   position: absolute;
   right: 0.2rem;

@@ -1251,4 +1251,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "beams-background",
+        type: "registry:component",
+        dependencies: ["motion"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/beams-background.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
