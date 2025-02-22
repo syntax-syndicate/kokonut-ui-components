@@ -31,6 +31,13 @@ const QuickActions = [
 export function MultimodalInput() {
     const [input, setInput] = useState("");
 
+    function handleSubmit() {
+        if (input.length > 0) {
+            console.log("Sending message:", input);
+        }
+        setInput("");
+    }
+
     return (
         <div className="flex flex-col gap-4 w-full max-w-6xl mx-auto">
             <div className="relative bg-zinc-900 rounded-xl border border-zinc-800">
@@ -38,6 +45,12 @@ export function MultimodalInput() {
                     placeholder="What would you like to do?"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter" && !e.shiftKey) {
+                            e.preventDefault();
+                            handleSubmit();
+                        }
+                    }}
                     className={cn(
                         "w-full px-4 py-3",
                         "resize-none",
