@@ -6,7 +6,7 @@ import { MultimodalInput } from "./multimodal-input";
 
 export default function AiChat() {
     return (
-        <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-zinc-100/40 to-white dark:from-black dark:via-zinc-800/40 dark:to-black px-4">
+        <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-black via-zinc-900 to-black dark:from-black dark:via-zinc-800/40 dark:to-black px-4">
             <div className="w-full p-4 flex flex-col items-center justify-center h-screen mx-auto">
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -14,10 +14,10 @@ export default function AiChat() {
                     transition={{ duration: 0.7 }}
                     className={cn("text-center mb-10", "opacity-100 scale-100")}
                 >
-                    <h1 className="text-5xl md:text-6xl font-medium mb-4 text-black dark:text-white tracking-tighter bg-clip-text bg-gradient-to-b from-black to-black/70 dark:from-white dark:to-white/70">
+                    <h1 className="text-5xl md:text-6xl font-medium mb-4 tracking-tighter bg-clip-text bg-gradient-to-b from-black to-black/70 text-white">
                         Welcome Traveler
                     </h1>
-                    <p className="text-xl text-zinc-600 dark:text-zinc-400">
+                    <p className="text-xl text-zinc-400">
                         What can I do for you today?
                     </p>
                 </motion.div>
@@ -33,7 +33,7 @@ export default function AiChat() {
                 >
                     <div className="relative p-6">
                         <div className="flex flex-col gap-4">
-                            {/* Messages would go here */}
+                            {/* Put messages here */}
                         </div>
                         <div className="shrink-0 min-w-[24px] min-h-[24px]" />
                     </div>

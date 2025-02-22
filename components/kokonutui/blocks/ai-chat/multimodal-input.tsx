@@ -66,9 +66,9 @@ export function MultimodalInput() {
                 <div className="flex items-center justify-end p-3">
                     <Button
                         className={cn(
-                            "px-1.5 py-1.5 h-8 rounded-lg text-sm transition-colors hover:bg-zinc-800 flex items-center justify-between gap-1",
-                            "text-zinc-400",
-                            "disabled:opacity-50 disabled:cursor-not-allowed"
+                            "px-1.5 py-1.5 h-6 rounded-lg text-sm transition-colors hover:bg-zinc-800 flex items-center justify-between gap-1",
+                            "text-zinc-800",
+                            "disabled:opacity-50 disabled:cursor-not-allowed bg-white"
                         )}
                         disabled={input.length === 0}
                         onClick={() => {
