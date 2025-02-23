@@ -139,4 +139,20 @@ export const block: Registry = [
             },
         ],
     },
+    {
+        name: "ai-chat",
+        type: "registry:block",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["button", "input", "textarea"],
+        files: [
+            {
+                path: "components/kokonutui/blocks/ai-chat/ai-chat.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/ai-chat/multimodal-input.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];

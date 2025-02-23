@@ -173,12 +173,14 @@ a[href="/docs/components/bento-grid"]::after {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-a[href="/docs/components/hero-geometric"] {
+a[href="/docs/components/hero-geometric"],
+a[href="/docs/components/beams-background"] {
   position: relative;
   padding-right: 2.5rem;
 }
 
-a[href="/docs/components/hero-geometric"]::after {
+a[href="/docs/components/hero-geometric"]::after,
+a[href="/docs/components/beams-background"]::after {
   content: "New";
   position: absolute;
   right: 0.2rem;
@@ -195,16 +197,14 @@ a[href="/docs/components/hero-geometric"]::after {
 }
 
 /* Blocks, update only if id is different than browse-blocks-button*/
-a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button),
 a[href="/docs/blocks/minimal-shop"]:not(#browse-blocks-button),
-a[href="/docs/blocks/auth-basic"]:not(#browse-blocks-button) {
+a[href="/docs/blocks/ai-chat"]:not(#browse-blocks-button) {
   position: relative;
   padding-right: 2.5rem;
 }
 
-a[href="/docs/blocks/dashboard"]:not(#browse-blocks-button)::after,
 a[href="/docs/blocks/minimal-shop"]:not(#browse-blocks-button)::after,
-a[href="/docs/blocks/auth-basic"]:not(#browse-blocks-button)::after {
+a[href="/docs/blocks/ai-chat"]:not(#browse-blocks-button)::after {
   content: "New";
   position: absolute;
   right: 0.2rem;
