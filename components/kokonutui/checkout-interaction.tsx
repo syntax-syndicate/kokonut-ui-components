@@ -248,7 +248,7 @@ export default function CheckoutInteraction({
                                                 </motion.button>
                                                 <motion.span
                                                     layout
-                                                    className="text-xs text-zinc-600 dark:text-zinc-400 w-4 text-center"
+                                                    className="text-xs text-zinc-600 dark:text-zinc-400 min-w-[16px] inline-block text-center"
                                                 >
                                                     {item.quantity}
                                                 </motion.span>
@@ -297,9 +297,24 @@ export default function CheckoutInteraction({
                             </span>
                             <motion.span
                                 layout
-                                className="text-sm font-semibold text-zinc-900 dark:text-zinc-100"
+                                className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 inline-block min-w-[80px] text-right"
                             >
-                                <NumberFlow value={totalPrice} />
+                                <NumberFlow
+                                    value={totalPrice}
+                                    willChange
+                                    format={{
+                                        style: "currency",
+                                        currency: "USD",
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2,
+                                        signDisplay: "auto",
+                                    }}
+                                    className="font-mono tabular-nums"
+                                    transformTiming={{
+                                        duration: 400,
+                                        easing: "ease-out",
+                                    }}
+                                />
                             </motion.span>
                         </div>
                         <Button size="sm" className="w-full gap-2">
