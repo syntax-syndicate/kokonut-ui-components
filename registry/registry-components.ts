@@ -1263,4 +1263,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "matrix-text",
+        type: "registry:component",
+        dependencies: ["motion"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/matrix-text.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
