@@ -14,20 +14,21 @@ interface ProjectLink {
 
 export function Footer() {
     const projectLinks: ProjectLink[] = [
-        // {
-        //     href: null,
-        //     text: "KokonutUI",
-        //     description: "Beautiful UI components for Free",
-        //     icon: "/logo.svg",
-        //     iconDark: "/logo-black.svg",
-        // },
+        {
+            href: "https://arca.directory/?utm_source=kokonutui.com&utm_medium=footer",
+            text: "Arca Directory",
+            description:
+                "Find and share the best tools for developers, designers and entrepreneurs.",
+            icon: "https://arca.directory/icon.svg",
+            iconDark: "https://arca.directory/icon.svg",
+            isNew: true,
+        },
         {
             href: "https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=footer",
             text: "KokonutUI - PRO",
             description: "Premium UI Components to ship apps faster",
             icon: "/logo.svg",
             iconDark: "/logo-black.svg",
-            isNew: true,
         },
     ];
 
