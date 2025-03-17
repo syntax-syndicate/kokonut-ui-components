@@ -6,8 +6,10 @@ import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
 import { RootProvider } from "fumadocs-ui/provider";
-import Script from "next/script";
+// import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
+import { Toaster, toast } from "sonner";
+import EventToast from "@/components/event-toast";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -77,6 +79,7 @@ export default function RootLayout({
                             <div className="flex flex-col min-h-screen">
                                 <div className="flex-1">{children}</div>
                             </div>
+                            <Toaster />
                         </ThemeProvider>
                     </RootProvider>
                     <Analytics />

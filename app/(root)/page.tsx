@@ -1,3 +1,4 @@
+import EventToast from "@/components/event-toast";
 import { HeroSection } from "@/components/landing/hero";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
             <div className="grid grid-rows-[auto_1fr_auto] min-h-screen px-6 lg:px-8 gap-4 sm:gap-12">
                 <HeroSection />
             </div>
+            <EventToast />
         </main>
     );
 }

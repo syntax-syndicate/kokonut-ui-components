@@ -28,10 +28,10 @@ export const baseOptions: BaseLayoutProps = {
         ),
     },
     links: [
-        {
-            text: "Pricing",
-            url: "/pricing",
-        },
+        // {
+        //     text: "Pricing",
+        //     url: "/pricing",
+        // },
         {
             text: "Templates",
             url: "https://kokonutui.pro/templates?utm_source=kokonutui.com&utm_medium=header",
