@@ -19,19 +19,19 @@ export function Header() {
                 >
                     <span className="flex items-center gap-2">
                         <PartyPopper className="w-3.5 h-3.5" />
-                        <span className="text-transparent bg-linear-to-r from-pink-500 via-indigo-500 to-purple-500 bg-clip-text font-semibold">
+                        <span className="text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text font-semibold">
                             Explore new components
                         </span>
                     </span>
 
                     <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors">
-                        <div className="absolute inset-0 rounded-lg bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-40 group-hover:opacity-80 blur-sm transition-opacity duration-500" />
-                        <div className="relative">
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 opacity-40 group-hover:opacity-80 blur-sm transition-opacity duration-500" />
+                        <div className="relative z-10 flex items-center gap-2">
                             <span className="text-white dark:text-zinc-900">
                                 KokonutUI Pro
                             </span>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" />
                         </div>
-                        <ArrowUpRight className="relative w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" />
                     </div>
                 </Link>
             </div>
@@ -104,7 +104,7 @@ export function Header() {
                                             className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                                         >
                                             Templates
-                                            <span className="text-purple-500 dark:text-purple-400 border border-purple-500 dark:border-purple-400 rounded-lg px-1 py-0.5 text-xs">
+                                            <span className="text-orange-500 dark:text-orange-400 border border-orange-500 dark:border-orange-400 rounded-lg px-1 py-0.5 text-xs">
                                                 New
                                             </span>
                                         </Link>

@@ -1,6 +1,7 @@
 import { ArrowUpRight, PartyPopper } from "lucide-react";
 import Link from "next/link";
 import XIcon from "../icons/x-icon";
+import { ConfettiOutline } from "../icons/conffeti";
 
 export function HeaderPro() {
     return (
@@ -9,30 +10,29 @@ export function HeaderPro() {
                 <Link
                     href="https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header"
                     target="_blank"
-                    className="flex items-center justify-end gap-2 px-1 py-1.5 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                    className="flex items-center justify-end gap-2 pl-2 pr-0.5 py-1 text-sm font-medium text-zinc-800 dark:text-zinc-200 rounded-xl border-2 border-orange-500/20 hover:border-orange-500/60 transition-all duration-300 group hover:shadow-md"
                 >
                     <span className="hidden md:flex items-center gap-2">
-                        <PartyPopper className="w-3.5 h-3.5" />
-                        <span className="text-transparent bg-linear-to-r from-pink-500 via-indigo-500 to-purple-500 bg-clip-text font-semibold">
+                        <ConfettiOutline className="w-4 h-4 text-orange-500" />
+                        <span className="text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text font-semibold tracking-tighter">
                             Explore new components
                         </span>
                     </span>
 
                     <span className="flex md:hidden items-center gap-2">
-                        <PartyPopper className="w-3.5 h-3.5" />
-                        <span className="text-transparent bg-linear-to-r from-pink-500 via-indigo-500 to-purple-500 bg-clip-text font-semibold">
+                        <PartyPopper className="w-4 h-4 text-orange-500" />
+                        <span className="text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text font-semibold">
                             Explore
                         </span>
                     </span>
 
-                    <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors">
-                        <div className="absolute inset-0 rounded-lg bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-40 group-hover:opacity-80 blur-sm transition-opacity duration-500" />
-                        <div className="relative">
-                            <span className="text-white dark:text-zinc-900">
-                                KokonutUI Pro
+                    <div className="relative inline-flex items-center gap-2 px-1.5 py-0.5 text-sm rounded-lg bg-gradient-to-r from-zinc-900 to-zinc-800 dark:from-zinc-100/90 dark:to-zinc-200/90">
+                        <div className="flex items-center gap-1">
+                            <span className="text-white dark:text-zinc-900 group-hover:text-white dark:group-hover:text-zinc-900 tracking-tighter">
+                                Kokonut UI Pro
                             </span>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90 group-hover:text-white dark:group-hover:text-zinc-900 transition-transform group-hover:translate-x-[1px] group-hover:-translate-y-[1px]" />
                         </div>
-                        <ArrowUpRight className="relative w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" />
                     </div>
                 </Link>
                 <Link

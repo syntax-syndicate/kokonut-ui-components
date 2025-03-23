@@ -6,16 +6,15 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { ArrowDownRight, ArrowRight, BlocksIcon } from "lucide-react";
 
-
 /**
- * 
+ *
  *
  */
 export function BrowseBlocksButton() {
     return (
         <Link
             id="browse-blocks-button"
-            href="/docs/blocks/ai-card-generation"
+            href="https://kokonutui.pro/templates"
             className="flex items-center gap-8"
         >
             <motion.div
@@ -26,19 +25,18 @@ export function BrowseBlocksButton() {
             >
                 <Button
                     className={cn(
-                        "relative inline-flex items-center justify-center gap-4 rounded-lg font-medium",
+                        "relative inline-flex items-center justify-center gap-4 rounded-xl font-medium",
                         "relative h-12 px-6 min-w-72 md:min-w-56",
-                        "bg-indigo-50/50 dark:bg-indigo-900/20",
-                        "text-indigo-600 dark:text-indigo-300",
-                        "border-2 border-indigo-500/20 dark:border-indigo-400/20",
-                        "hover:bg-indigo-100/50 dark:hover:bg-indigo-900/30",
+                        "bg-white dark:bg-black",
+                        "text-black dark:text-white",
+                        "border-2 border-black/20 dark:border-white/20",
+                        "hover:bg-black/5 dark:hover:bg-white/10",
                         "backdrop-blur-xs",
-                        "shadow-xs hover:shadow-md transition-shadow"
+                        "shadow-md hover:shadow-lg transition-all duration-200"
                     )}
                 >
                     <span className="font-medium flex items-center gap-2">
-                        <BlocksIcon className="w-5 h-5" />
-                        Explore Blocks
+                        Go to Templates
                     </span>
                     <ArrowRight className="w-5 h-5" />
                 </Button>

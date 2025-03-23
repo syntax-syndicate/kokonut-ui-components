@@ -19,7 +19,7 @@ export function BrowseComponentsButton() {
             >
                 <Button
                     className={cn(
-                        "relative inline-flex items-center justify-center gap-4 rounded-lg font-medium",
+                        "relative inline-flex items-center justify-center gap-4 rounded-xl font-medium",
                         "relative h-12 px-6 min-w-72 md:min-w-56",
                         "bg-black dark:bg-white ",
                         "text-white dark:text-black",
@@ -32,6 +32,7 @@ export function BrowseComponentsButton() {
                     )}
                 >
                     <span className="font-medium">Browse Components</span>
+                    {/* <CompassOutline className="w-8 h-8" /> */}
                     <ArrowDownRight className="w-5 h-5 rotate-[270deg]" />
                 </Button>
             </motion.div>
