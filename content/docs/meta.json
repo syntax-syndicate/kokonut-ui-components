@@ -9,6 +9,7 @@
         "index",
         "---Latest---",
         "components/action-search-bar",
+        "components/avatar-picker",
         "components/beams-background",
         "components/background-circles",
         "components/background-paths",

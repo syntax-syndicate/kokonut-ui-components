@@ -1275,4 +1275,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "avatar-picker",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/avatar-picker.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
