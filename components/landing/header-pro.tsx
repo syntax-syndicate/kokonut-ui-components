@@ -25,13 +25,13 @@ export function HeaderPro() {
             setContent({
                 text: "Built app fast",
                 productName: "Kokonut Boilerplate",
-                link: "https://kokonutui.pro/boilerplate?utm_source=kokonutui.com&utm_medium=header"
+                link: "https://kokonut.dev?utm_source=kokonutui.com&utm_medium=header"
             });
         } else {
             setContent({
                 text: "Explore new components",
                 productName: "Kokonut UI Pro",
-                link: "https://kokonut.dev?utm_source=kokonutui.com&utm_medium=header"
+                link: "https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header"
             });
         }
     }, []);
