@@ -21,7 +21,7 @@ export function HeaderPro() {
 
     useEffect(() => {
         const random = Math.random();
-        if (random < 0.75) {
+        if (random < 0.50) {
             setContent({
                 text: "Built app fast",
                 productName: "Kokonut Boilerplate",
