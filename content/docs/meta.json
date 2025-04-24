@@ -17,6 +17,7 @@
         "components/checkout-interaction",
         "components/currency-transfer",
         "components/faq",
+        "components/file-upload",
         "components/hand-written-title",
         "components/hero-geometric",
         "components/particle-button",

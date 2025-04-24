@@ -1287,4 +1287,16 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "file-upload",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["card"],
+        files: [
+            {
+                path: "components/kokonutui/file-upload.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];
