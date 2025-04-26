@@ -62,8 +62,8 @@
         "postcss": "^8.5.1",
         "typescript": "^5"
     },
-    "optionalDependencies": {
-        "@tailwindcss/oxide-linux-x64-gnu": "^4.0.1",
-        "lightningcss-linux-x64-gnu": "^1.29.1"
-    }
+    // "optionalDependencies": {
+    //     "@tailwindcss/oxide-linux-x64-gnu": "^4.0.0",
+    //     "lightningcss-linux-x64-gnu": "^1.29.1"
+    // }
 }
