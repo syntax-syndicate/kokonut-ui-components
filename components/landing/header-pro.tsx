@@ -13,11 +13,11 @@ interface HeaderContent {
 }
 
 export function HeaderPro() {
-    const [content, setContent] = useState<HeaderContent>({
-        text: "Explore new components",
-        productName: "Kokonut UI Pro",
-        link: "https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header",
-    });
+    // const [content, setContent] = useState<HeaderContent>({
+    //     text: "Explore new components",
+    //     productName: "Kokonut UI Pro",
+    //     link: "https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header",
+    // });
 
     // useEffect(() => {
     //     const random = Math.random();
@@ -39,7 +39,7 @@ export function HeaderPro() {
     return (
         <div className="flex items-center justify-end gap-1 flex-1">
             <div className="flex items-center justify-start md:justify-end gap-1 flex-1">
-                <Link
+                {/* <Link
                     href={content.link}
                     target="_blank"
                     className="flex items-center justify-end gap-2 pl-2 pr-0.5 py-1 text-sm font-medium text-zinc-800 dark:text-zinc-200 rounded-xl border-2 border-orange-500/20 hover:border-orange-500/60 transition-all duration-300 group hover:shadow-md"
@@ -74,7 +74,7 @@ export function HeaderPro() {
                             <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90 group-hover:text-white dark:group-hover:text-zinc-900 transition-transform group-hover:translate-x-[1px] group-hover:-translate-y-[1px]" />
                         </div>
                     </div>
-                </Link>
+                </Link> */}
                 <Link
                     href="https://github.com/kokonut-labs/kokonutui"
                     target="_blank"

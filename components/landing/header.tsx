@@ -11,7 +11,7 @@ export function Header() {
     return (
         <>
             {/* Mobile Pro Banner completely separate from sticky header */}
-            <div className="sm:hidden w-full p-2.5 bg-white dark:bg-black/5">
+            {/* <div className="sm:hidden w-full p-2.5 bg-white dark:bg-black/5">
                 <Link
                     href="https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header"
                     target="_blank"
@@ -34,7 +34,7 @@ export function Header() {
                         </div>
                     </div>
                 </Link>
-            </div>
+            </div> */}
 
             <div className="sticky top-0 left-0 right-0 z-50">
                 <div className="bg-white dark:bg-black/5 w-full">
