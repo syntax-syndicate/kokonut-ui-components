@@ -98,7 +98,7 @@ export function Header() {
                                         >
                                             Pricing
                                         </ViewTransitionsLink> */}
-                                        {/* <Link
+                                        <Link
                                             href="https://kokonutui.pro/templates?utm_source=kokonutui.com&utm_medium=header"
                                             target="_blank"
                                             className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
@@ -107,7 +107,7 @@ export function Header() {
                                             <span className="text-orange-500 dark:text-orange-400 border border-orange-500 dark:border-orange-400 rounded-lg px-1 py-0.5 text-xs">
                                                 New
                                             </span>
-                                        </Link> */}
+                                        </Link>
                                     </div>
                                 </div>
 
