@@ -342,7 +342,7 @@ export default function AvatarPicker() {
     const [rotationCount, setRotationCount] = useState(0);
 
     const handleAvatarSelect = (avatar: Avatar) => {
-        setRotationCount((prev) => prev + 1080); // Add 3 rotations each time
+        setRotationCount((prev) => prev + 1080);
         setSelectedAvatar(avatar);
     };
 
@@ -350,7 +350,6 @@ export default function AvatarPicker() {
         <motion.div initial="initial" animate="animate" className="w-full">
             <Card className="w-full max-w-md mx-auto overflow-hidden bg-gradient-to-b from-background to-muted/30">
                 <CardContent className="p-0">
-                    {/* Background header */}
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{
@@ -368,7 +367,6 @@ export default function AvatarPicker() {
                     />
 
                     <div className="px-8 pb-8 -mt-16">
-                        {/* Main avatar display */}
                         <motion.div
                             className="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4 bg-background flex items-center justify-center"
                             variants={mainAvatarVariants}
@@ -411,7 +409,6 @@ export default function AvatarPicker() {
                             </motion.p>
                         </motion.div>
 
-                        {/* Avatar selection */}
                         <motion.div
                             className="mt-6"
                             variants={pickerVariants.container}

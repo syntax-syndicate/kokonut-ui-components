@@ -86,7 +86,7 @@ export default function FileUpload({
     onUploadSuccess,
     onUploadError,
     acceptedFileTypes,
-    maxFileSize = 5 * 1024 * 1024, // Default 5MB
+    maxFileSize = 5 * 1024 * 1024,
     currentFile: initialFile = null,
     onFileRemove,
 }: FileUploadProps) {
@@ -107,7 +107,7 @@ export default function FileUpload({
     }, [file]);
 
     const handleFileValidation = (selectedFile: File): boolean => {
-        setError(null); // Reset error before validation
+        setError(null);
         if (
             acceptedFileTypes &&
             acceptedFileTypes.length > 0 &&
@@ -147,7 +147,6 @@ export default function FileUpload({
         setError(null);
         setStatus("uploading");
         setProgress(0);
-        // Simulate upload
         simulateUpload(selectedFile);
     };
 
@@ -160,7 +159,7 @@ export default function FileUpload({
             }
         },
         [status]
-    ); // Depend on status
+    );
 
     const handleDragLeave = useCallback(
         (e: DragEvent<HTMLDivElement>) => {
@@ -171,7 +170,7 @@ export default function FileUpload({
             }
         },
         [status]
-    ); // Depend on status
+    );
 
     const handleDrop = useCallback(
         (e: DragEvent<HTMLDivElement>) => {
@@ -227,7 +226,7 @@ export default function FileUpload({
                     return prevStatus;
                 });
             }
-        }, 200); // Adjust interval for simulation speed
+        }, 200);
     };
 
     const resetState = () => {
@@ -236,7 +235,6 @@ export default function FileUpload({
         setProgress(0);
         setError(null);
         setPreviewUrl(null);
-        // No need to reset fileInputRef.current.value here, handled in handleFileInputChange
     };
 
     const handleRemoveFile = useCallback(() => {
@@ -249,7 +247,7 @@ export default function FileUpload({
     }, [onFileRemove]);
 
     const formatBytes = (bytes: number, decimals = 2): string => {
-        if (!+bytes) return "0 Bytes"; // Use !+bytes to handle possible non-numeric input gracefully
+        if (!+bytes) return "0 Bytes";
 
         const k = 1024;
         const dm = decimals < 0 ? 0 : decimals;
@@ -330,27 +328,49 @@ export default function FileUpload({
                                         Current File
                                     </h3>
                                     <div className="w-full max-w-xs bg-zinc-50/50 dark:bg-zinc-800/50 rounded-lg p-3 mb-4 backdrop-blur-sm">
-                                        <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-2 truncate" title={file.name}>
+                                        <p
+                                            className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-2 truncate"
+                                            title={file.name}
+                                        >
                                             {file.name}
                                         </p>
                                         <div className="grid grid-cols-2 gap-2 text-xs">
                                             <div className="flex flex-col space-y-1">
-                                                <span className="text-zinc-500 dark:text-zinc-400">Size</span>
-                                                <span className="font-medium text-zinc-700 dark:text-zinc-300">{formatBytes(file.size)}</span>
-                                            </div>
-                                            <div className="flex flex-col space-y-1">
-                                                <span className="text-zinc-500 dark:text-zinc-400">Type</span>
-                                                <span className="font-medium text-zinc-700 dark:text-zinc-300">{file.type.split('/')[1].toUpperCase() || 'Unknown'}</span>
-                                            </div>
-                                            <div className="flex flex-col space-y-1">
-                                                <span className="text-zinc-500 dark:text-zinc-400">Modified</span>
+                                                <span className="text-zinc-500 dark:text-zinc-400">
+                                                    Size
+                                                </span>
                                                 <span className="font-medium text-zinc-700 dark:text-zinc-300">
-                                                    {new Date(file.lastModified).toLocaleDateString()}
+                                                    {formatBytes(file.size)}
                                                 </span>
                                             </div>
                                             <div className="flex flex-col space-y-1">
-                                                <span className="text-zinc-500 dark:text-zinc-400">Status</span>
-                                                <span className="font-medium text-emerald-600 dark:text-emerald-400">Ready</span>
+                                                <span className="text-zinc-500 dark:text-zinc-400">
+                                                    Type
+                                                </span>
+                                                <span className="font-medium text-zinc-700 dark:text-zinc-300">
+                                                    {file.type
+                                                        .split("/")[1]
+                                                        .toUpperCase() ||
+                                                        "Unknown"}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col space-y-1">
+                                                <span className="text-zinc-500 dark:text-zinc-400">
+                                                    Modified
+                                                </span>
+                                                <span className="font-medium text-zinc-700 dark:text-zinc-300">
+                                                    {new Date(
+                                                        file.lastModified
+                                                    ).toLocaleDateString()}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col space-y-1">
+                                                <span className="text-zinc-500 dark:text-zinc-400">
+                                                    Status
+                                                </span>
+                                                <span className="font-medium text-emerald-600 dark:text-emerald-400">
+                                                    Ready
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
