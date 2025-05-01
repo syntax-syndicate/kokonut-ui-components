@@ -14,7 +14,7 @@ interface HeaderContent {
 
 export function HeaderPro() {
     const [content, setContent] = useState<HeaderContent>({
-        text: "Explore new components",
+        text: "Explore 70+ new components",
         productName: "Kokonut UI Pro",
         link: "https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header",
     });

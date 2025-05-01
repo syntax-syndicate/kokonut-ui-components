@@ -20,6 +20,7 @@
         "components/file-upload",
         "components/hand-written-title",
         "components/hero-geometric",
+        "components/hero-robot",
         "components/particle-button",
         "components/particles-background",
         "components/toolbar",
