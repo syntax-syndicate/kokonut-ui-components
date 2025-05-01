@@ -14,15 +14,15 @@ interface ProjectLink {
 
 export function Footer() {
     const projectLinks: ProjectLink[] = [
-        {
-            href: "https://kokonut.dev/?utm_source=kokonutui.com&utm_medium=footer",
-            text: "Kokonut.dev",
-            description:
-                "Next.js boilerplate that contains all the essentials for launching your SaaS, AI apps, online business and get your first $",
-            icon: "https://kokonut.dev/logo-black.svg",
-            iconDark: "https://kokonut.dev/logo.svg",
-            isNew: true,
-        },
+        // {
+        //     href: "https://kokonut.dev/?utm_source=kokonutui.com&utm_medium=footer",
+        //     text: "Kokonut.dev",
+        //     description:
+        //         "Next.js boilerplate that contains all the essentials for launching your SaaS, AI apps, online business and get your first $",
+        //     icon: "https://kokonut.dev/logo-black.svg",
+        //     iconDark: "https://kokonut.dev/logo.svg",
+        //     isNew: true,
+        // },
         {
             href: "https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=footer",
             text: "KokonutUI - PRO",

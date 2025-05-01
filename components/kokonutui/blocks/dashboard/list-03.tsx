@@ -14,6 +14,14 @@ import {
     CreditCard,
 } from "lucide-react";
 import React from "react";
+import {
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 
 interface ListItem {
     id: string;
@@ -98,7 +106,7 @@ export default function List03({ items = ITEMS, className }: List03Props) {
         <div className={cn("w-full overflow-x-auto scrollbar-none", className)}>
             <div className="flex gap-3 min-w-full p-1">
                 {items.map((item) => (
-                    <div
+                    <Card
                         key={item.id}
                         className={cn(
                             "flex flex-col",
@@ -111,7 +119,7 @@ export default function List03({ items = ITEMS, className }: List03Props) {
                             "shadow-sm backdrop-blur-xl"
                         )}
                     >
-                        <div className="p-4 space-y-3">
+                        <CardHeader className="p-4 pb-0">
                             <div className="flex items-start justify-between">
                                 <div
                                     className={cn(
@@ -138,7 +146,9 @@ export default function List03({ items = ITEMS, className }: List03Props) {
                                         item.status.slice(1)}
                                 </div>
                             </div>
+                        </CardHeader>
 
+                        <CardContent className="p-4 space-y-3 flex-grow">
                             <div>
                                 <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1">
                                     {item.title}
@@ -158,14 +168,10 @@ export default function List03({ items = ITEMS, className }: List03Props) {
                                             {item.progress}%
                                         </span>
                                     </div>
-                                    <div className="h-1.5 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
-                                        <div
-                                            className="h-full bg-zinc-900 dark:bg-zinc-100 rounded-full"
-                                            style={{
-                                                width: `${item.progress}%`,
-                                            }}
-                                        />
-                                    </div>
+                                    <Progress
+                                        value={item.progress}
+                                        className="h-1.5 bg-zinc-100 dark:bg-zinc-800 bg-zinc-900 dark:bg-zinc-100"
+                                    />
                                 </div>
                             )}
 
@@ -184,10 +190,12 @@ export default function List03({ items = ITEMS, className }: List03Props) {
                                 <Calendar className="w-3.5 h-3.5 mr-1.5" />
                                 <span>{item.date}</span>
                             </div>
-                        </div>
+                        </CardContent>
 
-                        <div className="mt-auto border-t border-zinc-100 dark:border-zinc-800">
-                            <button
+                        <CardFooter className="mt-auto p-0 border-t border-zinc-100 dark:border-zinc-800">
+                            <Button
+                                variant="ghost"
+                                size="sm"
                                 className={cn(
                                     "w-full flex items-center justify-center gap-2",
                                     "py-2.5 px-3",
@@ -195,14 +203,15 @@ export default function List03({ items = ITEMS, className }: List03Props) {
                                     "text-zinc-600 dark:text-zinc-400",
                                     "hover:text-zinc-900 dark:hover:text-zinc-100",
                                     "hover:bg-zinc-100 dark:hover:bg-zinc-800/50",
-                                    "transition-colors duration-200"
+                                    "transition-colors duration-200",
+                                    "rounded-none rounded-b-xl"
                                 )}
                             >
                                 View Details
                                 <ArrowRight className="w-3.5 h-3.5" />
-                            </button>
-                        </div>
-                    </div>
+                            </Button>
+                        </CardFooter>
+                    </Card>
                 ))}
             </div>
         </div>

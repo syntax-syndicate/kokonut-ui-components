@@ -11,7 +11,7 @@ export function Header() {
     return (
         <>
             {/* Mobile Pro Banner completely separate from sticky header */}
-            {/* <div className="sm:hidden w-full p-2.5 bg-white dark:bg-black/5">
+            <div className="sm:hidden w-full p-2.5 bg-white dark:bg-black/5">
                 <Link
                     href="https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header"
                     target="_blank"
@@ -34,7 +34,7 @@ export function Header() {
                         </div>
                     </div>
                 </Link>
-            </div> */}
+            </div>
 
             <div className="sticky top-0 left-0 right-0 z-50">
                 <div className="bg-white dark:bg-black/5 w-full">
@@ -47,11 +47,11 @@ export function Header() {
                             dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90
                             shadow-[0_2px_20px_-2px_rgba(0,0,0,0.1)]
                             backdrop-blur-md
-                            border-x border-b 
+                            border 
                             border-[rgba(230,230,230,0.7)] dark:border-[rgba(70,70,70,0.7)]
-                            w-full sm:min-w-[800px] sm:max-w-[1200px]
-                            rounded-b-[28px]
-                            px-4 py-2.5
+                            w-[95%] sm:min-w-[800px] sm:max-w-[1200px]
+                            rounded-xl
+                            px-4 py-2 mt-2 md:mt-4 
                             relative
                             transition-all duration-300 ease-in-out
                         `}
@@ -66,19 +66,19 @@ export function Header() {
                                         <Image
                                             src="/logo.svg"
                                             alt="logo"
-                                            width={32}
-                                            height={32}
+                                            width={28}
+                                            height={28}
                                             className="hidden dark:block"
                                         />
                                         <Image
                                             src="/logo-black.svg"
                                             alt="logo"
-                                            width={32}
-                                            height={32}
+                                            width={28}
+                                            height={28}
                                             className="block dark:hidden"
                                         />
                                         <span className="hidden sm:block font-semibold">
-                                            kokonutUI
+                                            kokonut/ui
                                         </span>
                                     </Link>
                                     <span className="text-zinc-300 dark:text-zinc-700">

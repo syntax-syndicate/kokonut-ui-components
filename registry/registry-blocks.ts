@@ -39,10 +39,13 @@ export const block: Registry = [
         dependencies: ["lucide-react"],
         registryDependencies: [
             "button",
+            "card",
+            "sidebar",
             "input",
-            "select",
-            "textarea",
+            "avatar",
             "dropdown-menu",
+            "progress",
+            "separator",
         ],
         files: [
             {
@@ -58,7 +61,7 @@ export const block: Registry = [
                 type: "registry:component",
             },
             {
-                path: "components/kokonutui/blocks/dashboard/sidebar.tsx",
+                path: "components/kokonutui/blocks/dashboard/app-sidebar.tsx",
                 type: "registry:component",
             },
             {
@@ -66,11 +69,19 @@ export const block: Registry = [
                 type: "registry:component",
             },
             {
-                path: "components/kokonutui/blocks/dashboard/profile-01.tsx",
+                path: "components/kokonutui/blocks/dashboard/nav-main.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/kokonutui/blocks/dashboard/list-03.tsx",
+                path: "components/kokonutui/blocks/dashboard/nav-documents.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/nav-secondary.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/nav-user.tsx",
                 type: "registry:component",
             },
             {
@@ -79,6 +90,14 @@ export const block: Registry = [
             },
             {
                 path: "components/kokonutui/blocks/dashboard/list-02.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/list-03.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/blocks/dashboard/btn-11.tsx",
                 type: "registry:component",
             },
         ],

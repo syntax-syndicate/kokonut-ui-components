@@ -8,7 +8,6 @@ import Btn03 from "../kokonutui/button/btn-03";
 import Input09 from "../kokonutui/input/input-09";
 import Link from "next/link";
 import { Btn14 } from "../kokonutui/button/btn-14";
-import TailwindCSS from "@/components/icons/tailwindcss";
 import { BrowseBlocksButton } from "../ui/browse-blocks";
 import ActionSearchBar from "../kokonutui/action-search-bar";
 import {
@@ -101,10 +100,6 @@ export function HeroSection() {
                     </p>
                 </div>
                 <div className="flex flex-col justify-start w-full">
-                    <span className="text-sm text-zinc-500 dark:text-zinc-300 pb-2 text-start flex items-center gap-2">
-                        <TailwindCSS className="w-4 h-4" />
-                        We have updated to Tailwind CSS 4.0!
-                    </span>
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-2">
                         <BrowseComponentsButton />
                         <BrowseBlocksButton />

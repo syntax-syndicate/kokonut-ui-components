@@ -5,11 +5,19 @@ import {
     Wallet,
     SendHorizontal,
     QrCode,
-    type LucideIcon,
     Plus,
     ArrowRight,
     CreditCard,
 } from "lucide-react";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface AccountItem {
     id: string;
@@ -69,27 +77,25 @@ export default function List01({
     className,
 }: List01Props) {
     return (
-        <div
+        <Card
             className={cn(
-                "w-full max-w-xl mx-auto",
+                "w-full max-w-xl",
                 "bg-white dark:bg-zinc-900/70",
                 "border border-zinc-100 dark:border-zinc-800",
                 "rounded-xl shadow-sm backdrop-blur-xl",
                 className
             )}
         >
-            {/* Total Balance Section */}
-            <div className="p-4 border-b border-zinc-100 dark:border-zinc-800">
-                <p className="text-xs text-zinc-600 dark:text-zinc-400">
+            <CardHeader className="p-4 border-b border-zinc-100 dark:border-zinc-800">
+                <CardDescription className="text-xs text-zinc-600 dark:text-zinc-400">
                     Total Balance
-                </p>
-                <h1 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
+                </CardDescription>
+                <CardTitle className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
                     {totalBalance}
-                </h1>
-            </div>
+                </CardTitle>
+            </CardHeader>
 
-            {/* Accounts List */}
-            <div className="p-3">
+            <CardContent className="p-3">
                 <div className="flex items-center justify-between mb-2">
                     <h2 className="text-xs font-medium text-zinc-900 dark:text-zinc-100">
                         Your Accounts
@@ -116,6 +122,8 @@ export default function List01({
                                             account.type === "checking",
                                         "bg-purple-100 dark:bg-purple-900/30":
                                             account.type === "investment",
+                                        "bg-red-100 dark:bg-red-900/30":
+                                            account.type === "debt",
                                     })}
                                 >
                                     {account.type === "savings" && (
@@ -151,77 +159,64 @@ export default function List01({
                         </div>
                     ))}
                 </div>
-            </div>
+            </CardContent>
 
-            {/* Updated footer with four buttons */}
-            <div className="p-2 border-t border-zinc-100 dark:border-zinc-800">
-                <div className="grid grid-cols-4 gap-2">
-                    <button
-                        type="button"
+            <CardFooter className="p-2 border-t border-zinc-100 dark:border-zinc-800">
+                <div className="grid grid-cols-4 gap-2 w-full">
+                    <Button
+                        variant="default"
+                        size="sm"
                         className={cn(
                             "flex items-center justify-center gap-2",
-                            "py-2 px-3 rounded-lg",
                             "text-xs font-medium",
-                            "bg-zinc-900 dark:bg-zinc-50",
-                            "text-zinc-50 dark:text-zinc-900",
-                            "hover:bg-zinc-800 dark:hover:bg-zinc-200",
-                            "shadow-sm hover:shadow",
-                            "transition-all duration-200"
+                            "bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900",
+                            "hover:bg-zinc-800 dark:hover:bg-zinc-200"
                         )}
                     >
                         <Plus className="w-3.5 h-3.5" />
                         <span>Add</span>
-                    </button>
-                    <button
-                        type="button"
+                    </Button>
+                    <Button
+                        variant="default"
+                        size="sm"
                         className={cn(
                             "flex items-center justify-center gap-2",
-                            "py-2 px-3 rounded-lg",
                             "text-xs font-medium",
-                            "bg-zinc-900 dark:bg-zinc-50",
-                            "text-zinc-50 dark:text-zinc-900",
-                            "hover:bg-zinc-800 dark:hover:bg-zinc-200",
-                            "shadow-sm hover:shadow",
-                            "transition-all duration-200"
+                            "bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900",
+                            "hover:bg-zinc-800 dark:hover:bg-zinc-200"
                         )}
                     >
                         <SendHorizontal className="w-3.5 h-3.5" />
                         <span>Send</span>
-                    </button>
-                    <button
-                        type="button"
+                    </Button>
+                    <Button
+                        variant="default"
+                        size="sm"
                         className={cn(
                             "flex items-center justify-center gap-2",
-                            "py-2 px-3 rounded-lg",
                             "text-xs font-medium",
-                            "bg-zinc-900 dark:bg-zinc-50",
-                            "text-zinc-50 dark:text-zinc-900",
-                            "hover:bg-zinc-800 dark:hover:bg-zinc-200",
-                            "shadow-sm hover:shadow",
-                            "transition-all duration-200"
+                            "bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900",
+                            "hover:bg-zinc-800 dark:hover:bg-zinc-200"
                         )}
                     >
                         <ArrowDownLeft className="w-3.5 h-3.5" />
                         <span>Top-up</span>
-                    </button>
-                    <button
-                        type="button"
+                    </Button>
+                    <Button
+                        variant="default"
+                        size="sm"
                         className={cn(
                             "flex items-center justify-center gap-2",
-                            "py-2 px-3 rounded-lg",
                             "text-xs font-medium",
-                            "bg-zinc-900 dark:bg-zinc-50",
-                            "text-zinc-50 dark:text-zinc-900",
-                            "hover:bg-zinc-800 dark:hover:bg-zinc-200",
-                            "shadow-sm hover:shadow",
-                            "transition-all duration-200"
+                            "bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900",
+                            "hover:bg-zinc-800 dark:hover:bg-zinc-200"
                         )}
                     >
                         <ArrowRight className="w-3.5 h-3.5" />
                         <span>More</span>
-                    </button>
+                    </Button>
                 </div>
-            </div>
-        </div>
+            </CardFooter>
+        </Card>
     );
 }

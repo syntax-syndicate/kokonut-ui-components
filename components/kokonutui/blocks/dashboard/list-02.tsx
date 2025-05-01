@@ -8,6 +8,13 @@ import {
     type LucideIcon,
     ArrowRight,
 } from "lucide-react";
+import {
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface Transaction {
     id: string;
@@ -24,14 +31,6 @@ interface List02Props {
     transactions?: Transaction[];
     className?: string;
 }
-
-const categoryStyles = {
-    shopping: "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100",
-    food: "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100",
-    transport: "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100",
-    entertainment:
-        "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100",
-};
 
 const TRANSACTIONS: Transaction[] = [
     {
@@ -101,16 +100,16 @@ export default function List02({
     className,
 }: List02Props) {
     return (
-        <div
+        <Card
             className={cn(
-                "w-full max-w-xl mx-auto",
+                "w-full max-w-xl",
                 "bg-white dark:bg-zinc-900/70",
                 "border border-zinc-100 dark:border-zinc-800",
                 "rounded-xl shadow-sm backdrop-blur-xl",
                 className
             )}
         >
-            <div className="p-4">
+            <CardHeader className="p-4">
                 <div className="flex items-center justify-between mb-3">
                     <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                         Recent Activity
@@ -122,7 +121,9 @@ export default function List02({
                         This Month
                     </span>
                 </div>
+            </CardHeader>
 
+            <CardContent className="p-3 pt-0">
                 <div className="space-y-1">
                     {transactions.map((transaction) => (
                         <div
@@ -178,14 +179,14 @@ export default function List02({
                         </div>
                     ))}
                 </div>
-            </div>
+            </CardContent>
 
-            <div className="p-2 border-t border-zinc-100 dark:border-zinc-800">
-                <button
-                    type="button"
+            <CardFooter className="p-2 border-t border-zinc-100 dark:border-zinc-800">
+                <Button
+                    variant="default"
+                    size="sm"
                     className={cn(
                         "w-full flex items-center justify-center gap-2",
-                        "py-2 px-3 rounded-lg",
                         "text-xs font-medium",
                         "bg-gradient-to-r from-zinc-900 to-zinc-800",
                         "dark:from-zinc-50 dark:to-zinc-200",
@@ -195,16 +196,13 @@ export default function List02({
                         "shadow-sm hover:shadow",
                         "transform transition-all duration-200",
                         "hover:-translate-y-0.5",
-                        "active:translate-y-0",
-                        "focus:outline-none focus:ring-2",
-                        "focus:ring-zinc-500 dark:focus:ring-zinc-400",
-                        "focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
+                        "active:translate-y-0"
                     )}
                 >
                     <span>View All Transactions</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-            </div>
-        </div>
+                </Button>
+            </CardFooter>
+        </Card>
     );
 }

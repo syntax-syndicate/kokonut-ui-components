@@ -22,7 +22,7 @@ export const baseOptions: BaseLayoutProps = {
                     className="mr-2 block dark:hidden"
                 />
                 <span className="hidden md:inline-flex items-center text-lg font-bold tracking-tight text-black dark:text-white">
-                    KokonutUI
+                    kokonut/ui
                 </span>
             </div>
         ),
