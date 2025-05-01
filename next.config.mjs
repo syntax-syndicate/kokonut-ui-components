@@ -18,6 +18,15 @@ const nextConfig = {
                     },
                 ],
             },
+            {
+                source: "/_next/image", 
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "public, max-age=86400, immutable",
+                    },
+                ],
+            },
         ];
     },
     images: {
@@ -26,6 +35,7 @@ const nextConfig = {
                 hostname: "*",
             },
         ],
+        minimumCacheTTL: 2678400,
     },
     reactStrictMode: true,
 };

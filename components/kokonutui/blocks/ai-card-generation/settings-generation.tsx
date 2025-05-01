@@ -6,13 +6,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import {
-    Palette,
-    Image,
-    Sun,
-    User,
-    Monitor
-} from "lucide-react";
+import { Palette, Image, Sun, User, Monitor } from "lucide-react";
 
 interface VideoSettings {
     style: string;
@@ -33,7 +27,6 @@ export const SettingsGeneration = ({
 }: SettingsProps) => {
     return (
         <div className="space-y-4 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50">
-            {/* Style Select */}
             <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
                     <Palette className="w-4 h-4 text-zinc-500" />
@@ -59,7 +52,6 @@ export const SettingsGeneration = ({
                 </Select>
             </div>
 
-            {/* Background Select */}
             <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
                     <Image className="w-4 h-4 text-zinc-500" />
@@ -86,7 +78,6 @@ export const SettingsGeneration = ({
                 </Select>
             </div>
 
-            {/* Lighting Select */}
             <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
                     <Sun className="w-4 h-4 text-zinc-500" />
@@ -110,7 +101,6 @@ export const SettingsGeneration = ({
                 </Select>
             </div>
 
-            {/* Pose Select */}
             <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
                     <User className="w-4 h-4 text-zinc-500" />
@@ -134,7 +124,6 @@ export const SettingsGeneration = ({
                 </Select>
             </div>
 
-            {/* Quality Select */}
             <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
                     <Monitor className="w-4 h-4 text-zinc-500" />

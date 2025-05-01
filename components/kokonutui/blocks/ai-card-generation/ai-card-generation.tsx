@@ -32,6 +32,9 @@ export default function AICardGeneration() {
         setIsLoading(true);
         setError(null);
 
+        /**
+         * Fake Submission, update with your own
+         */
         try {
             await new Promise((resolve) => setTimeout(resolve, 3000));
             setShowForm(false);
