@@ -24,7 +24,7 @@ export async function submitContactForm(
             message: formData.get("message")?.toString() || "",
         };
 
-        console.log(rawData);
+        // console.log(rawData);
         // Validate the extracted data
         const validated = contactSchema.parse(rawData);
 

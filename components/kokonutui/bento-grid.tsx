@@ -1,14 +1,20 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import {
-    CheckCircle,
-    Clock,
-    Star,
-    TrendingUp,
-    Video,
-    Globe,
+    Home,
+    MapPin,
+    Compass,
+    Building,
+    Heart,
+    HomeIcon,
+    Camera,
 } from "lucide-react";
+import Link from "next/link";
+import {
+    Card,
+    CardHeader,
+    CardContent,
+    CardFooter,
+} from "@/components/ui/card";
 
 interface BentoItem {
     title: string;
@@ -28,90 +34,115 @@ interface BentoGridProps {
 
 const itemsSample: BentoItem[] = [
     {
-        title: "Analytics Dashboard",
-        meta: "v2.4.1",
+        title: "Luxury Beachfront Villa",
+        meta: "4.9 (128 reviews)",
         description:
-            "Real-time metrics with AI-powered insights and predictive analytics",
-        icon: <TrendingUp className="w-4 h-4 text-blue-500" />,
-        status: "Live",
-        tags: ["Statistics", "Reports", "AI"],
+            "Stunning oceanfront property with private pool, modern amenities, and breathtaking sunset views. Perfect for family getaways.",
+        icon: <Home className="w-4 h-4 text-blue-500" />,
+        status: "Superhost",
+        tags: ["Beachfront", "Pool", "Luxury"],
         colSpan: 2,
         hasPersistentHover: true,
     },
     {
-        title: "Task Manager",
-        meta: "84 completed",
-        description: "Automated workflow management with priority scheduling",
-        icon: <CheckCircle className="w-4 h-4 text-emerald-500" />,
-        status: "Updated",
-        tags: ["Productivity", "Automation"],
+        title: "Downtown Loft",
+        meta: "$199/night",
+        description:
+            "Modern urban living in the heart of the city. Walking distance to restaurants and attractions.",
+        icon: <Building className="w-4 h-4 text-emerald-500" />,
+        status: "Instant Book",
+        tags: ["Urban", "Modern"],
     },
     {
-        title: "Media Library",
-        meta: "12GB used",
-        description: "Cloud storage with intelligent content processing",
-        icon: <Video className="w-4 h-4 text-purple-500" />,
-        tags: ["Storage", "CDN"],
+        title: "Popular Areas",
+        description:
+            "Discover trending neighborhoods with the highest guest satisfaction",
+        icon: <MapPin className="w-4 h-4 text-red-500" />,
+        status: "New",
+    },
+    {
+        title: "Bali Villa",
+        description:
+            "A luxurious villa in Bali with a private pool and stunning views of the ocean",
+        icon: <HomeIcon className="w-4 h-4 text-amber-500" />,
+        meta: "12 houses",
+        tags: ["Housing", "Tools"],
+    },
+    {
+        title: "Travel Collections",
+        description: "Curated lists of unique stays and experiences worldwide",
+        icon: <Heart className="w-4 h-4 text-purple-500" />,
+        meta: "Updated weekly",
+        tags: ["Featured", "Curated"],
+    },
+    {
+        title: "Local Guide",
+        meta: "6 cities",
+        description:
+            "Expert recommendations for local attractions and hidden gems",
+        icon: <Compass className="w-4 h-4 text-sky-500" />,
+        status: "Featured",
+        tags: ["Local", "Guide"],
+    },
+    {
+        title: "Exclusive Experiences",
+        meta: "100+ activities",
+        description:
+            "Unique adventures and memorable experiences curated by local experts. From cooking classes to outdoor expeditions.",
+        icon: <Camera className="w-4 h-4 text-indigo-500" />,
+        status: "Premium",
+        tags: ["Activities", "Local"],
         colSpan: 2,
-    },
-    {
-        title: "Global Network",
-        meta: "6 regions",
-        description: "Multi-region deployment with edge computing",
-        icon: <Globe className="w-4 h-4 text-sky-500" />,
-        status: "Beta",
-        tags: ["Infrastructure", "Edge"],
     },
 ];
 
 export default function BentoGrid({ items = itemsSample }: BentoGridProps) {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-4 max-w-7xl mx-auto">
-            {items.map((item, index) => (
-                <div
-                    key={index}
+            {items.map((item) => (
+                <Link
+                    href="https://kokonutui.com"
+                    key={`${item.title}-${item.status || item.meta}`}
                     className={cn(
-                        "group relative p-4 rounded-xl overflow-hidden transition-all duration-300",
-                        "border border-gray-100/80 dark:border-white/10 bg-white dark:bg-black",
-                        "hover:shadow-[0_2px_12px_rgba(0,0,0,0.03)] dark:hover:shadow-[0_2px_12px_rgba(255,255,255,0.03)]",
-                        "hover:-translate-y-0.5 will-change-transform",
                         item.colSpan || "col-span-1",
-                        item.colSpan === 2 ? "md:col-span-2" : "",
-                        {
-                            "shadow-[0_2px_12px_rgba(0,0,0,0.03)] -translate-y-0.5":
-                                item.hasPersistentHover,
-                            "dark:shadow-[0_2px_12px_rgba(255,255,255,0.03)]":
-                                item.hasPersistentHover,
-                        }
+                        item.colSpan === 2 ? "md:col-span-2" : ""
                     )}
                 >
-                    <div
-                        className={`absolute inset-0 ${
-                            item.hasPersistentHover
-                                ? "opacity-100"
-                                : "opacity-0 group-hover:opacity-100"
-                        } transition-opacity duration-300`}
+                    <Card
+                        className={cn(
+                            "group relative h-full transition-all duration-300 hover:shadow-lg",
+                            "hover:-translate-y-0.5 will-change-transform",
+                            "overflow-hidden",
+                            {
+                                "shadow-md -translate-y-0.5":
+                                    item.hasPersistentHover,
+                            }
+                        )}
                     >
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[length:4px_4px]" />
-                    </div>
-
-                    <div className="relative flex flex-col space-y-3">
-                        <div className="flex items-center justify-between">
-                            <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-black/5 dark:bg-white/10 group-hover:bg-linear-to-br transition-all duration-300">
-                                {item.icon}
-                            </div>
-                            <span
-                                className={cn(
-                                    "text-xs font-medium px-2 py-1 rounded-lg backdrop-blur-xs",
-                                    "bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-300",
-                                    "transition-colors duration-300 group-hover:bg-black/10 dark:group-hover:bg-white/20"
-                                )}
-                            >
-                                {item.status || "Active"}
-                            </span>
+                        <div
+                            className={cn(
+                                "absolute inset-0",
+                                item.hasPersistentHover
+                                    ? "opacity-100"
+                                    : "opacity-0 group-hover:opacity-100",
+                                "transition-opacity duration-300"
+                            )}
+                        >
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[length:4px_4px]" />
                         </div>
 
-                        <div className="space-y-2">
+                        <CardHeader className="relative space-y-0 p-4">
+                            <div className="flex items-center justify-between">
+                                <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-black/5 dark:bg-white/10">
+                                    {item.icon}
+                                </div>
+                                <span className="text-xs font-medium px-2 py-1 rounded-md bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-300">
+                                    {item.status || "Active"}
+                                </span>
+                            </div>
+                        </CardHeader>
+
+                        <CardContent className="relative space-y-2 p-4 pt-0">
                             <h3 className="font-medium text-gray-900 dark:text-gray-100 tracking-tight text-[15px]">
                                 {item.title}
                                 <span className="ml-2 text-xs text-gray-500 dark:text-gray-400 font-normal">
@@ -121,33 +152,37 @@ export default function BentoGrid({ items = itemsSample }: BentoGridProps) {
                             <p className="text-sm text-gray-600 dark:text-gray-300 leading-snug font-[425]">
                                 {item.description}
                             </p>
-                        </div>
+                        </CardContent>
 
-                        <div className="flex items-center justify-between mt-2">
-                            <div className="flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
-                                {item.tags?.map((tag, i) => (
-                                    <span
-                                        key={i}
-                                        className="px-2 py-1 rounded-md bg-black/5 dark:bg-white/10 backdrop-blur-xs transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/20"
-                                    >
-                                        #{tag}
-                                    </span>
-                                ))}
+                        <CardFooter className="relative p-4">
+                            <div className="flex items-center justify-between w-full">
+                                <div className="flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
+                                    {item.tags?.map((tag) => (
+                                        <span
+                                            key={`${item.title}-${tag}`}
+                                            className="px-2 py-1 rounded-md bg-black/5 dark:bg-white/10 backdrop-blur-xs transition-all duration-200"
+                                        >
+                                            #{tag}
+                                        </span>
+                                    ))}
+                                </div>
+                                <span className="text-xs text-gray-500 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {item.cta || "Explore →"}
+                                </span>
                             </div>
-                            <span className="text-xs text-gray-500 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                                {item.cta || "Explore →"}
-                            </span>
-                        </div>
-                    </div>
+                        </CardFooter>
 
-                    <div
-                        className={`absolute inset-0 -z-10 rounded-xl p-px bg-linear-to-br from-transparent via-gray-100/50 to-transparent dark:via-white/10 ${
-                            item.hasPersistentHover
-                                ? "opacity-100"
-                                : "opacity-0 group-hover:opacity-100"
-                        } transition-opacity duration-300`}
-                    />
-                </div>
+                        <div
+                            className={cn(
+                                "absolute inset-0 -z-10 rounded-xl p-px bg-linear-to-br from-transparent via-gray-200/70 to-transparent dark:via-white/10",
+                                item.hasPersistentHover
+                                    ? "opacity-100"
+                                    : "opacity-0 group-hover:opacity-100",
+                                "transition-opacity duration-300"
+                            )}
+                        />
+                    </Card>
+                </Link>
             ))}
         </div>
     );

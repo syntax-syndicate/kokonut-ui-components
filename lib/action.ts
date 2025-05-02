@@ -18,7 +18,6 @@ export const getComponent = async (fileName: string | null, folder: string) => {
         return await readFileCache(fullPath);
     }
 
-    console.log("here");
     const fullPath = path.join(baseDir, folder, `${fileName}.tsx`);
 
     return await readFileCache(fullPath);

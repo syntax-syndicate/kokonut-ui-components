@@ -67,7 +67,7 @@ export default function PreviewContent({
     const openInV0 = () => {
         const [folder, filename] = link.split("/");
 
-        console.log(filename);
+        // console.log(filename);
         
         return filename ? filename : folder;
     };
