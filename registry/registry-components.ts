@@ -1299,4 +1299,20 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "ai-prompt",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["button", "dropdown-menu"],
+        files: [
+            {
+                path: "components/kokonutui/ai-prompt.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "hooks/use-auto-resize-textarea.ts",
+                type: "registry:hook",
+            },
+        ],
+    },
 ];

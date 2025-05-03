@@ -2,8 +2,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* @import 'fumadocs-ui/css/neutral.css'; */
-@import "fumadocs-ui/css/black.css";
+@import 'fumadocs-ui/css/neutral.css';
+/* @import "fumadocs-ui/css/black.css"; */
+/* @import "fumadocs-ui/css/catppuccin.css"; */
+/* @import "fumadocs-ui/css/dusk.css"; */
+
+
 @import "fumadocs-ui/css/preset.css";
 @import "tw-animate-css";
 
@@ -158,21 +162,21 @@ button {
 
 a[href="/docs/components/hero-geometric"],
 a[href="/docs/components/file-upload"],
-a[href="/docs/components/beams-background"] {
+a[href="/docs/components/ai-prompt"] {
   position: relative;
   padding-right: 2.5rem;
 }
 
 a[href="/docs/components/hero-geometric"]::after,
 a[href="/docs/components/file-upload"]::after,
-a[href="/docs/components/beams-background"]::after {
+a[href="/docs/components/ai-prompt"]::after {
   content: "New";
   position: absolute;
   right: 0.2rem;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(59, 180, 75, 0.2);
-  color: #3bb44b;
+  background-color: rgba(255, 165, 0, 0.2);
+  color: #ffa500;
   padding: 0.05rem 0.2rem;
   border-radius: 0.25rem;
   font-size: 0.75rem;
