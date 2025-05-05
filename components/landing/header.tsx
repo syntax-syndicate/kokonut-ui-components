@@ -37,7 +37,7 @@ export function Header() {
             </div>
 
             <div className="sticky top-0 left-0 right-0 z-50">
-                <div className="bg-white dark:bg-black/5 w-full">
+                <div className="bg-white dark:bg-black w-full">
                     {/* Rest of the header content */}
                     <div className="flex items-center justify-center w-full flex-col">
                         <div
