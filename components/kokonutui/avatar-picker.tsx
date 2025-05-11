@@ -24,6 +24,7 @@ const avatars: Avatar[] = [
                 height="40"
                 aria-label="Avatar 1"
             >
+                <title>Avatar 1</title>
                 <mask
                     id=":r111:"
                     maskUnits="userSpaceOnUse"
@@ -86,7 +87,9 @@ const avatars: Avatar[] = [
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
                 height="40"
+                aria-label="Avatar 4"
             >
+                <title>Avatar 4</title>
                 <mask
                     id=":R4mrttb:"
                     maskUnits="userSpaceOnUse"
@@ -95,10 +98,10 @@ const avatars: Avatar[] = [
                     width="36"
                     height="36"
                 >
-                    <rect width="36" height="36" rx="72" fill="#FFFFFF"></rect>
+                    <rect width="36" height="36" rx="72" fill="#FFFFFF" />
                 </mask>
                 <g mask="url(#:R4mrttb:)">
-                    <rect width="36" height="36" fill="#ff7d10"></rect>
+                    <rect width="36" height="36" fill="#ff7d10" />
                     <rect
                         x="0"
                         y="0"
@@ -149,7 +152,9 @@ const avatars: Avatar[] = [
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
                 height="40"
+                aria-label="Avatar 2"
             >
+                <title>Avatar 2</title>
                 <mask
                     id=":r11c:"
                     maskUnits="userSpaceOnUse"
@@ -158,7 +163,7 @@ const avatars: Avatar[] = [
                     width="36"
                     height="36"
                 >
-                    <rect width="36" height="36" rx="72" fill="#FFFFFF"></rect>
+                    <rect width="36" height="36" rx="72" fill="#FFFFFF" />
                 </mask>
                 <g mask="url(#:r11c:)">
                     <rect width="36" height="36" fill="#0a0310" />
@@ -207,7 +212,9 @@ const avatars: Avatar[] = [
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
                 height="40"
+                aria-label="Avatar 3"
             >
+                <title>Avatar 3</title>
                 <mask
                     id=":r1gg:"
                     maskUnits="userSpaceOnUse"
@@ -216,10 +223,10 @@ const avatars: Avatar[] = [
                     width="36"
                     height="36"
                 >
-                    <rect width="36" height="36" rx="72" fill="#FFFFFF"></rect>
+                    <rect width="36" height="36" rx="72" fill="#FFFFFF" />
                 </mask>
                 <g mask="url(#:r1gg:)">
-                    <rect width="36" height="36" fill="#d8fcb3"></rect>
+                    <rect width="36" height="36" fill="#d8fcb3" />
                     <rect
                         x="0"
                         y="0"
@@ -228,14 +235,14 @@ const avatars: Avatar[] = [
                         transform="translate(9 -5) rotate(219 18 18) scale(1)"
                         fill="#89fcb3"
                         rx="6"
-                    ></rect>
+                    />
                     <g transform="translate(4.5 -4) rotate(9 18 18)">
                         <path
                             d="M15 19c2 1 4 1 6 0"
                             stroke="#000000"
                             fill="none"
                             strokeLinecap="round"
-                        ></path>
+                        />
                         <rect
                             x="10"
                             y="14"
@@ -244,7 +251,7 @@ const avatars: Avatar[] = [
                             rx="1"
                             stroke="none"
                             fill="#000000"
-                        ></rect>
+                        />
                         <rect
                             x="24"
                             y="14"
@@ -253,7 +260,7 @@ const avatars: Avatar[] = [
                             rx="1"
                             stroke="none"
                             fill="#000000"
-                        ></rect>
+                        />
                     </g>
                 </g>
             </svg>
@@ -397,7 +404,7 @@ export default function AvatarPicker() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
                             >
-                                Me
+                                Dorian
                             </motion.h2>
                             <motion.p
                                 className="text-muted-foreground text-sm"

@@ -9,11 +9,26 @@ import {
     type RefObject,
 } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Copy, Check, CheckCheck, Terminal } from "lucide-react";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+    ArrowUpRight,
+    Copy,
+    Check,
+    CheckCheck,
+    Terminal,
+    ChevronDown,
+    Code,
+} from "lucide-react";
 import { copyComponent } from "@/lib/action";
 import { cn } from "@/lib/utils";
 import { OpenInV0Button } from "../open-in-v0-button";
 import { AnimatePresence, motion } from "motion/react";
+import ShadcnIcon from "../icons/shadcn";
 
 export default function PreviewContent({
     link,
@@ -34,6 +49,9 @@ export default function PreviewContent({
     const [isCopied, setIsCopied] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [isTerminalCopied, setIsTerminalCopied] = useState(false);
+    const [selectedPackageManager, setSelectedPackageManager] = useState<
+        "bunx" | "npx" | "pnpm"
+    >("bunx");
 
     const handleCopyClick = async () => {
         const [folder, filename] = link.split("/");
@@ -52,12 +70,21 @@ export default function PreviewContent({
         return filename ? filename : folder;
     };
 
-    const handleTerminalClick = () => {
+    const handleTerminalClick = (packageManager?: "bunx" | "npx" | "pnpm") => {
         const [folder, filename] = link.split("/");
-        const COPY = `bunx shadcn@latest add ${prePath}/r/${
-            filename ? filename : folder
-        }.json`;
-        navigator.clipboard.writeText(COPY);
+        const componentName = filename ? filename : folder;
+        const pm = packageManager || selectedPackageManager;
+
+        let commandToCopy: string;
+        const componentAddCommand = `shadcn@latest add ${componentName}`;
+
+        if (pm === "pnpm") {
+            commandToCopy = `pnpm dlx ${componentAddCommand}`;
+        } else {
+            commandToCopy = `${pm} ${componentAddCommand}`;
+        }
+
+        navigator.clipboard.writeText(commandToCopy);
         setIsTerminalCopied(true);
         setTimeout(() => {
             setIsTerminalCopied(false);
@@ -67,8 +94,6 @@ export default function PreviewContent({
     const openInV0 = () => {
         const [folder, filename] = link.split("/");
 
-        // console.log(filename);
-        
         return filename ? filename : folder;
     };
 
@@ -97,11 +122,17 @@ export default function PreviewContent({
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
+        // Create a unique key for each particle to satisfy the linter
+        const particles = Array.from({ length: 6 }, (_, index) => ({
+            id: `particle-${index}-${Math.random().toString(36).substr(2, 9)}`,
+            index, // Pass index for staggering delay
+        }));
+
         return (
             <AnimatePresence>
-                {[...Array(6)].map((_, i) => (
+                {particles.map((particle) => (
                     <motion.div
-                        key={i}
+                        key={particle.id}
                         className="fixed w-1 h-1 bg-black dark:bg-white rounded-full"
                         style={{ left: centerX, top: centerY }}
                         initial={{
@@ -113,13 +144,14 @@ export default function PreviewContent({
                             scale: [0, 1, 0],
                             x: [
                                 0,
-                                (i % 2 ? 1 : -1) * (Math.random() * 50 + 20),
+                                (particle.index % 2 ? 1 : -1) *
+                                    (Math.random() * 50 + 20),
                             ],
                             y: [0, -Math.random() * 50 - 20],
                         }}
                         transition={{
                             duration: 0.6,
-                            delay: i * 0.1,
+                            delay: particle.index * 0.1, // Use particle.index for delay
                             ease: "easeOut",
                         }}
                     />
@@ -135,7 +167,9 @@ export default function PreviewContent({
         <>
             {isTerminalCopied && (
                 <SuccessParticles
-                    buttonRef={terminalButtonRef as RefObject<HTMLButtonElement>}
+                    buttonRef={
+                        terminalButtonRef as RefObject<HTMLButtonElement>
+                    }
                 />
             )}
             {isCopied && (
@@ -173,39 +207,91 @@ export default function PreviewContent({
 
                     <div className="flex items-center gap-2">
                         <OpenInV0Button name={openInV0()} />
-                        <Button
-                            ref={terminalButtonRef}
-                            onClick={handleTerminalClick}
-                            variant="ghost"
-                            size="sm"
-                            className={cn(
-                                "relative overflow-hidden",
-                                "h-7 px-3 text-xs font-medium",
-                                "bg-black dark:bg-white",
-                                "text-white dark:text-black",
-                                "hover:bg-black/90 dark:hover:bg-white/90",
-                                "hover:text-white dark:hover:text-black",
-                                "transition-all duration-200",
-                                "group flex items-center gap-1",
-                                "rounded-lg",
-                                "shadow-none"
-                            )}
-                        >
-                            {isTerminalCopied ? (
-                                <>
-                                    <CheckCheck className="h-3.5 w-3.5 text-white dark:text-black" />
-                                </>
-                            ) : (
-                                <Terminal
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button
+                                    ref={terminalButtonRef}
+                                    variant="ghost"
+                                    size="sm"
                                     className={cn(
-                                        "h-3.5 w-3.5",
+                                        "relative overflow-hidden",
+                                        "h-7 px-3 text-xs font-medium",
+                                        "bg-black dark:bg-white",
+                                        "text-white dark:text-black",
+                                        "hover:bg-black/90 dark:hover:bg-white/90",
+                                        "hover:text-white dark:hover:text-black",
                                         "transition-all duration-200",
-                                        "group-hover:rotate-12"
+                                        "group flex items-center gap-1",
+                                        "rounded-lg",
+                                        "shadow-none"
                                     )}
-                                />
-                            )}
-                            <span>npx shadcn add {getFileName()}</span>
-                        </Button>
+                                >
+                                    {isTerminalCopied ? (
+                                        <CheckCheck className="h-3.5 w-3.5 text-white dark:text-black" />
+                                    ) : (
+                                        <ShadcnIcon
+                                            className={cn(
+                                                "h-3.5 w-3.5",
+                                                "transition-all duration-200",
+                                                "group-hover:rotate-12"
+                                            )}
+                                        />
+                                    )}
+                                    <span>add {getFileName()}</span>
+                                    <ChevronDown className="h-3.5 w-3.5 opacity-70 ml-1" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent
+                                align="end"
+                                className="-ml-3 w-[190px] bg-black dark:bg-white text-white rounded-lg dark:text-black border border-neutral-700 dark:border-neutral-300"
+                            >
+                                <DropdownMenuItem
+                                    onSelect={() => {
+                                        setSelectedPackageManager("bunx");
+                                        handleTerminalClick("bunx");
+                                    }}
+                                    className="flex items-center gap-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 focus:bg-neutral-800 dark:focus:bg-neutral-200"
+                                >
+                                    <Terminal className="h-3.5 w-3.5 text-white dark:text-black" />
+                                    <span className="text-white dark:text-black">
+                                        bunx
+                                    </span>
+                                    {selectedPackageManager === "bunx" && (
+                                        <Check className="h-4 w-4 ml-auto text-white dark:text-black" />
+                                    )}
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                    onSelect={() => {
+                                        setSelectedPackageManager("npx");
+                                        handleTerminalClick("npx");
+                                    }}
+                                    className="flex items-center gap-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 focus:bg-neutral-800 dark:focus:bg-neutral-200"
+                                >
+                                    <Terminal className="h-3.5 w-3.5 text-white dark:text-black" />
+                                    <span className="text-white dark:text-black">
+                                        npx
+                                    </span>
+                                    {selectedPackageManager === "npx" && (
+                                        <Check className="h-4 w-4 ml-auto text-white dark:text-black" />
+                                    )}
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                    onSelect={() => {
+                                        setSelectedPackageManager("pnpm");
+                                        handleTerminalClick("pnpm");
+                                    }}
+                                    className="flex items-center gap-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 focus:bg-neutral-800 dark:focus:bg-neutral-200"
+                                >
+                                    <Terminal className="h-3.5 w-3.5 text-white dark:text-black" />
+                                    <span className="text-white dark:text-black">
+                                        pnpm
+                                    </span>
+                                    {selectedPackageManager === "pnpm" && (
+                                        <Check className="h-4 w-4 ml-auto text-white dark:text-black" />
+                                    )}
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
 
                         {!isBlock && (
                             <form
@@ -238,7 +324,7 @@ export default function PreviewContent({
                                             <CheckCheck className="h-3.5 w-3.5 text-white dark:text-black" />
                                         </>
                                     ) : (
-                                        <Copy
+                                        <Code
                                             className={cn(
                                                 "h-3.5 w-3.5",
                                                 "transition-all duration-200",
