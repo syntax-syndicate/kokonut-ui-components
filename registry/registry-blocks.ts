@@ -174,4 +174,20 @@ export const block: Registry = [
             },
         ],
     },
+    {
+        name: "card-grid",
+        type: "registry:block",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/kokonutui/card-grid.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/kokonutui/card/card-08.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];

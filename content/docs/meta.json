@@ -15,6 +15,7 @@
         "components/background-circles",
         "components/background-paths",
         "components/bento-grid",
+        "components/card-grid",
         "components/checkout-interaction",
         "components/currency-transfer",
         "components/faq",

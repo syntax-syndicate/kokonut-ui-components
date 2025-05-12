@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface Card08Props {
+export interface Card08Props {
     title?: string;
     subtitle?: string;
     image?: string;
@@ -55,7 +55,7 @@ export default function Card08({
                 <div className="absolute top-3 right-3">
                     <span
                         className={cn(
-                            "px-2.5 py-1 rounded-full text-xs font-medium",
+                            "px-2.5 py-1 rounded-lg text-xs font-medium",
                             "bg-white/90 text-zinc-800",
                             "dark:bg-zinc-900/90 dark:text-zinc-200",
                             "backdrop-blur-md",
@@ -70,10 +70,10 @@ export default function Card08({
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                     <div className="flex items-center justify-between gap-3">
                         <div className="space-y-1.5">
-                            <h3 className="text-lg font-semibold text-white dark:text-zinc-100 leading-snug">
+                            <h3 className="text-lg font-semibold text-white dark:text-zinc-100 leading-snug tracking-tighter">
                                 {title}
                             </h3>
-                            <p className="text-sm text-zinc-200 dark:text-zinc-300 line-clamp-2">
+                            <p className="text-sm text-zinc-200 dark:text-zinc-300 line-clamp-2 tracking-tight">
                                 {subtitle}
                             </p>
                         </div>
