@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
     ArrowUpRight,
-    Copy,
     Check,
     CheckCheck,
     Terminal,
@@ -29,6 +28,10 @@ import { cn } from "@/lib/utils";
 import { OpenInV0Button } from "../open-in-v0-button";
 import { AnimatePresence, motion } from "motion/react";
 import ShadcnIcon from "../icons/shadcn";
+
+const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000";
 
 export default function PreviewContent({
     link,
@@ -76,7 +79,7 @@ export default function PreviewContent({
         const pm = packageManager || selectedPackageManager;
 
         let commandToCopy: string;
-        const componentAddCommand = `shadcn@latest add ${componentName}`;
+        const componentAddCommand = `shadcn@latest add ${prePath}/r/${componentName}`;
 
         if (pm === "pnpm") {
             commandToCopy = `pnpm dlx ${componentAddCommand}`;
