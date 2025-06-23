@@ -23,8 +23,11 @@ interface Beam {
     pulseSpeed: number;
 }
 
-function createBeam(width: number, height: number): Beam {
+function createBeam(width: number, height: number, isDarkMode: boolean): Beam {
     const angle = -35 + Math.random() * 10;
+    const hueBase = isDarkMode ? 190 : 210;
+    const hueRange = isDarkMode ? 70 : 50;
+
     return {
         x: Math.random() * width * 1.5 - width * 0.25,
         y: Math.random() * height * 1.5 - height * 0.25,
@@ -33,7 +36,7 @@ function createBeam(width: number, height: number): Beam {
         angle: angle,
         speed: 0.6 + Math.random() * 1.2,
         opacity: 0.12 + Math.random() * 0.16,
-        hue: 190 + Math.random() * 70,
+        hue: hueBase + Math.random() * hueRange,
         pulse: Math.random() * Math.PI * 2,
         pulseSpeed: 0.02 + Math.random() * 0.03,
     };
@@ -47,6 +50,7 @@ export default function BeamsBackground({
     const beamsRef = useRef<Beam[]>([]);
     const animationFrameRef = useRef<number>(0);
     const MINIMUM_BEAMS = 20;
+    const isDarkModeRef = useRef<boolean>(false);
 
     const opacityMap = {
         subtle: 0.7,
@@ -61,6 +65,20 @@ export default function BeamsBackground({
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
+        // Check for dark mode
+        const updateDarkMode = () => {
+            isDarkModeRef.current =
+                document.documentElement.classList.contains("dark");
+        };
+
+        const observer = new MutationObserver(updateDarkMode);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+
+        updateDarkMode();
+
         const updateCanvasSize = () => {
             const dpr = window.devicePixelRatio || 1;
             canvas.width = window.innerWidth * dpr;
@@ -71,7 +89,7 @@ export default function BeamsBackground({
 
             const totalBeams = MINIMUM_BEAMS * 1.5;
             beamsRef.current = Array.from({ length: totalBeams }, () =>
-                createBeam(canvas.width, canvas.height)
+                createBeam(canvas.width, canvas.height, isDarkModeRef.current)
             );
         };
 
@@ -80,9 +98,12 @@ export default function BeamsBackground({
 
         function resetBeam(beam: Beam, index: number, totalBeams: number) {
             if (!canvas) return beam;
-            
+
             const column = index % 3;
             const spacing = canvas.width / 3;
+
+            const hueBase = isDarkModeRef.current ? 190 : 210;
+            const hueRange = isDarkModeRef.current ? 70 : 50;
 
             beam.y = canvas.height + 100;
             beam.x =
@@ -91,7 +112,7 @@ export default function BeamsBackground({
                 (Math.random() - 0.5) * spacing * 0.5;
             beam.width = 100 + Math.random() * 100;
             beam.speed = 0.5 + Math.random() * 0.4;
-            beam.hue = 190 + (index * 70) / totalBeams;
+            beam.hue = hueBase + (index * hueRange) / totalBeams;
             beam.opacity = 0.2 + Math.random() * 0.1;
             return beam;
         }
@@ -101,7 +122,6 @@ export default function BeamsBackground({
             ctx.translate(beam.x, beam.y);
             ctx.rotate((beam.angle * Math.PI) / 180);
 
-            // Calculate pulsing opacity
             const pulsingOpacity =
                 beam.opacity *
                 (0.8 + Math.sin(beam.pulse) * 0.2) *
@@ -109,25 +129,37 @@ export default function BeamsBackground({
 
             const gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
 
-            // Enhanced gradient with multiple color stops
-            gradient.addColorStop(0, `hsla(${beam.hue}, 85%, 65%, 0)`);
+            const saturation = isDarkModeRef.current ? "85%" : "75%";
+            const lightness = isDarkModeRef.current ? "65%" : "45%";
+
+            gradient.addColorStop(
+                0,
+                `hsla(${beam.hue}, ${saturation}, ${lightness}, 0)`
+            );
             gradient.addColorStop(
                 0.1,
-                `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity * 0.5})`
+                `hsla(${beam.hue}, ${saturation}, ${lightness}, ${
+                    pulsingOpacity * 0.5
+                })`
             );
             gradient.addColorStop(
                 0.4,
-                `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity})`
+                `hsla(${beam.hue}, ${saturation}, ${lightness}, ${pulsingOpacity})`
             );
             gradient.addColorStop(
                 0.6,
-                `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity})`
+                `hsla(${beam.hue}, ${saturation}, ${lightness}, ${pulsingOpacity})`
             );
             gradient.addColorStop(
                 0.9,
-                `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity * 0.5})`
+                `hsla(${beam.hue}, ${saturation}, ${lightness}, ${
+                    pulsingOpacity * 0.5
+                })`
             );
-            gradient.addColorStop(1, `hsla(${beam.hue}, 85%, 65%, 0)`);
+            gradient.addColorStop(
+                1,
+                `hsla(${beam.hue}, ${saturation}, ${lightness}, 0)`
+            );
 
             ctx.fillStyle = gradient;
             ctx.fillRect(-beam.width / 2, 0, beam.width, beam.length);
@@ -163,13 +195,14 @@ export default function BeamsBackground({
             if (animationFrameRef.current) {
                 cancelAnimationFrame(animationFrameRef.current);
             }
+            observer.disconnect();
         };
     }, [intensity]);
 
     return (
         <div
             className={cn(
-                "relative min-h-screen w-full overflow-hidden bg-neutral-950",
+                "relative min-h-screen w-full overflow-hidden bg-neutral-100 dark:bg-neutral-950",
                 className
             )}
         >
@@ -180,7 +213,7 @@ export default function BeamsBackground({
             />
 
             <motion.div
-                className="absolute inset-0 bg-neutral-950/5"
+                className="absolute inset-0 bg-neutral-900/5 dark:bg-neutral-950/5"
                 animate={{
                     opacity: [0.05, 0.15, 0.05],
                 }}
@@ -197,7 +230,7 @@ export default function BeamsBackground({
             <div className="relative z-10 flex h-screen w-full items-center justify-center">
                 <div className="flex flex-col items-center justify-center gap-6 px-4 text-center">
                     <motion.h1
-                        className="text-6xl md:text-7xl lg:text-8xl font-semibold text-white tracking-tighter"
+                        className="text-6xl md:text-7xl lg:text-8xl font-semibold text-neutral-900 dark:text-white tracking-tighter"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -206,14 +239,6 @@ export default function BeamsBackground({
                         <br />
                         Background
                     </motion.h1>
-                    <motion.p
-                        className="text-lg md:text-2xl lg:text-3xl text-white/70 tracking-tighter"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        For your pleasure
-                    </motion.p>
                 </div>
             </div>
         </div>

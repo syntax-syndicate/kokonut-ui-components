@@ -19,23 +19,6 @@ export function HeaderPro() {
         link: "https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header",
     });
 
-    // useEffect(() => {
-    //     const random = Math.random();
-    //     if (random < 0.50) {
-    //         setContent({
-    //             text: "Built app fast",
-    //             productName: "Kokonut Boilerplate",
-    //             link: "https://kokonut.dev?utm_source=kokonutui.com&utm_medium=header"
-    //         });
-    //     } else {
-    //         setContent({
-    //             text: "Explore new components",
-    //             productName: "Kokonut UI Pro",
-    //             link: "https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header"
-    //         });
-    //     }
-    // }, []);
-
     return (
         <div className="flex items-center justify-end gap-1 flex-1">
             <div className="flex items-center justify-start md:justify-end gap-1 flex-1">

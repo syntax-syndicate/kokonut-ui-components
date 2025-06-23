@@ -1,24 +1,21 @@
 "use client";
 
-import { BrowseComponentsButton } from "@/components/ui/browse-button";
-import FeatureBlock from "./feature-block";
-import { motion } from "motion/react";
-import Card08 from "../kokonutui/card/card-08";
-import Btn03 from "../kokonutui/button/btn-03";
-import Input09 from "../kokonutui/input/input-09";
-import Link from "next/link";
-import { Btn14 } from "../kokonutui/button/btn-14";
-import { BrowseBlocksButton } from "../ui/browse-blocks";
-import ActionSearchBar from "../kokonutui/action-search-bar";
 import {
     PlaneTakeoff,
     BarChart2,
     Video,
     AudioLines,
     Globe,
-    Diamond,
 } from "lucide-react";
-import AIInput_04 from "../kokonutui/ai-input/ai-input-04";
+import { motion } from "motion/react";
+import { BrowseBlocksButton } from "@/components/ui/browse-blocks";
+import { BrowseComponentsButton } from "@/components/ui/browse-button";
+import FeatureBlock from "./feature-block";
+import ActionSearchBar from "@/components/kokonutui/action-search-bar";
+import CardFlip from "@/components/kokonutui/card-flip";
+import AI_Prompt from "@/components/kokonutui/ai-prompt";
+import AppleActivityCard from "@/components/kokonutui/apple-activity-card";
+import AILoadingState from "@/components/kokonutui/ai-loading";
 
 interface Action {
     id: string;
@@ -79,24 +76,26 @@ export function HeroSection() {
             <div className="w-full lg:w-[45%] flex flex-col items-start text-left space-y-8 md:mb-28">
                 <div>
                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
-                        Collection <br />
-                        of{" "}
-                        <span className="bg-clip-text text-transparent bg-linear-to-r from-orange-500 via-rose-500 to-purple-500 dark:from-orange-400 dark:via-rose-400 dark:to-purple-400">
-                            stunning
-                        </span>{" "}
-                        components.
+                        Collection of stunning components.
                     </h1>
-                    <p className="mt-6 text-base md:text-xl text-zinc-700 dark:text-zinc-300 tracking-tighter max-w-lg">
-                        100+ Open Source UI components built with{" "}
+                    <p className="mt-6 text-base md:text-xl text-zinc-900/90 dark:text-zinc-300/90 tracking-tighter max-w-lg">
+                        Beautiful, modern UI components built with{" "}
                         <span className="bg-clip-text text-transparent bg-linear-to-r from-orange-500 via-rose-500 to-purple-500 dark:from-orange-400 dark:via-rose-400 dark:to-purple-400">
                             Tailwind CSS
-                        </span>{" "}
-                        and{" "}
+                        </span>
+                        {", "}
                         <span className="bg-clip-text text-transparent bg-linear-to-r from-orange-500 via-rose-500 to-purple-500 dark:from-orange-400 dark:via-rose-400 dark:to-purple-400">
                             shadcn/ui
-                        </span>{" "}
-                        perfect for <span className="font-semibold">React</span>{" "}
-                        and <span className="font-semibold">Next.js</span>.
+                        </span>
+                        {" & "}
+                        <span className="bg-clip-text text-transparent bg-linear-to-r from-orange-500 via-rose-500 to-purple-500 dark:from-orange-400 dark:via-rose-400 dark:to-purple-400">
+                            Motion
+                        </span>
+                        . <br />
+                        100+ open-source components designed for{" "}
+                        <span className="font-semibold">React</span>
+                        {" & "}
+                        <span className="font-semibold">Next.js</span>.
                     </p>
                 </div>
                 <div className="flex flex-col justify-start w-full">
@@ -108,82 +107,94 @@ export function HeroSection() {
                 <FeatureBlock />
             </div>
 
-            {/* Right side - Components Layout */}
-            <div className="w-full lg:w-[55%] flex flex-col justify-between 4 lg:pl-8">
-                {/* Top row: Card + Action Search Bar */}
+            <div className="w-full lg:w-[55%] flex flex-col justify-between gap-8 lg:pl-8">
                 <motion.div
                     initial={{ opacity: 0, y: -20, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center"
+                    className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center relative"
                 >
-                    {/* Card component */}
-                    <div className="w-full flex flex-col items-center justify-center ">
-                        <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-                            Card
-                        </span>
-                        <Card08 href="/docs/components/card" />
-                    </div>
+                    <motion.div
+                        className="w-full flex flex-col items-center justify-center"
+                        initial={{ rotate: -5 }}
+                        whileHover={{ rotate: 0, scale: 1.02 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 25,
+                        }}
+                    >
+                        <CardFlip />
+                    </motion.div>
 
-                    {/* Action Search Bar */}
-                    <div className="w-full">
-                        <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-                            Components
-                        </span>
+                    <motion.div
+                        className="w-full"
+                        initial={{ rotate: 3, y: 20 }}
+                        whileHover={{ rotate: 0, y: 0, scale: 1.02 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 25,
+                        }}
+                    >
                         <ActionSearchBar
                             actions={allActions}
                             defaultOpen={true}
                         />
-                    </div>
+                    </motion.div>
                 </motion.div>
 
-                {/* Middle row: AI Chat */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 1, rotate: -2 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="w-full"
+                    whileHover={{ rotate: 0, scale: 1.02 }}
+                    transition={{
+                        duration: 0.5,
+                        delay: 0.2,
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 25,
+                    }}
+                    className="w-full flex flex-col items-center justify-center -mt-4 md:mt-0"
                 >
-                    <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-                        AI Chat
-                    </span>
-                    <AIInput_04 />
+                    <AI_Prompt />
                 </motion.div>
 
-                {/* Bottom row: Buttons on left, Input on right */}
                 <motion.div
                     initial={{ opacity: 0, y: 20, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="w-full grid grid-cols-1 md:grid-cols-2 gap-6"
+                    className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 relative -mt-4 md:mt-0"
                 >
                     {/* Left side - Buttons */}
-                    <div className="w-full">
-                        <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-                            Buttons
-                        </span>
+                    <motion.div
+                        className="w-full"
+                        initial={{ rotate: -4, x: -10 }}
+                        whileHover={{ rotate: 0, x: 0, scale: 1.02 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 25,
+                        }}
+                    >
                         <div className="w-full flex flex-col items-center justify-center gap-3">
-                            <Link href="/docs/components/button">
-                                <Btn14
-                                    label="Bring me"
-                                    className=" w-42 py-5"
-                                />
-                            </Link>
-                            <Link href="/docs/components/button">
-                                <Btn03 className=" w-42 py-5" />
-                            </Link>
+                            <AILoadingState />
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right side - Input */}
-                    <div className="w-full">
-                        <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-                            Input
-                        </span>
-                        <Link href="/docs/components/input">
-                            <Input09 />
-                        </Link>
-                    </div>
+                    <motion.div
+                        className="w-full"
+                        initial={{ rotate: 4, x: 10 }}
+                        whileHover={{ rotate: 0, x: 0, scale: 1.02 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 25,
+                        }}
+                    >
+                        <AppleActivityCard title="" />
+                    </motion.div>
                 </motion.div>
             </div>
         </div>

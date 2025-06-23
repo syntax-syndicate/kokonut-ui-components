@@ -26,10 +26,10 @@ export function BrowseBlocksButton() {
                 <Button
                     className={cn(
                         "relative inline-flex items-center justify-center gap-4 rounded-xl font-medium",
-                        "relative h-12 px-6 min-w-72 md:min-w-56",
+                        "relative h-10 px-6 min-w-72 md:min-w-56",
                         "bg-white dark:bg-black",
                         "text-black dark:text-white",
-                        "border-2 border-black/20 dark:border-white/20",
+                        "border border-black/0 dark:border-white/20",
                         "hover:bg-black/5 dark:hover:bg-white/10",
                         "backdrop-blur-xs",
                         "shadow-md hover:shadow-lg transition-all duration-200"

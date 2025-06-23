@@ -10,7 +10,7 @@ export const source = loader({
     source: createMDXSource(docs, meta),
     icon(icon) {
         if (!icon) {
-            return createElement(icons.Library);
+            return undefined;
         }
 
         if (icon in icons)

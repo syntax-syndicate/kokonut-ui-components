@@ -7,11 +7,9 @@ import {
     Search,
     Send,
     BarChart2,
-    Globe,
     Video,
     PlaneTakeoff,
     AudioLines,
-    Layout,
     LayoutGrid,
 } from "lucide-react";
 import useDebounce from "@/hooks/use-debounce";

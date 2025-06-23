@@ -23,37 +23,18 @@ export default function Layout({ children }: { children: ReactNode }) {
                 banner: (
                     <div className="border border-zinc-200 dark:border-zinc-800 text-white dark:text-zinc-900 p-2 rounded-md text-xs py-1 flex items-center gap-2">
                         <Link
-                            href="https://vercel.com/blog/spring25-oss-program"
+                            href="https://vercel.com/oss"
                             target="_blank"
-                            className="text-gray-600 dark:text-gray-400  transition-colors flex items-center gap-1.5 text-xs hover:text-gray-800 dark:hover:text-gray-300 group hover:font-medium hover:cursor-pointer"
+                            rel="noreferrer"
+                            className="text-gray-600 dark:text-gray-400  transition-colors flex items-center gap-1.5 text-xs hover:text-gray-800 dark:hover:text-gray-300 group hover:font-medium hover:cursor-pointer my-1"
                         >
                             <span className="hidden md:flex items-center gap-2">
-                                <span className="text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 dark:from-orange-400 dark:via-amber-400 dark:to-orange-500 bg-clip-text font-semibold tracking-tighter flex flex-col">
-                                    We are now part of the Vercel Open Source
-                                    program for Spring 2025!
-                                </span>
+                                <img
+                                    alt="Vercel OSS Program"
+                                    src="https://vercel.com/oss/program-badge.svg"
+                                />
                             </span>
                         </Link>
-                        <svg
-                            className="hidden dark:block"
-                            viewBox="0 0 256 222"
-                            width="32"
-                            height="32"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <title>Vercel Logo</title>
-                            <path fill="#fff" d="m128 0 128 221.705H0z" />
-                        </svg>
-                        <svg
-                            className="block dark:hidden"
-                            viewBox="0 0 256 222"
-                            width="32"
-                            height="32"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <title>Vercel Logo</title>
-                            <path fill="#000" d="m128 0 128 221.705H0z" />
-                        </svg>
                     </div>
                 ),
             }}

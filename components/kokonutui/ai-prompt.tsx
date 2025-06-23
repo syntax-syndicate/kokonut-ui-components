@@ -13,6 +13,8 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { motion, AnimatePresence } from "motion/react";
+import Anthropic from "@/components/icons/anthropic";
+import AnthropicDark from "@/components/icons/anthropic-dark";
 
 const OPENAI_SVG = (
     <div>
@@ -134,8 +136,30 @@ export default function AI_Prompt() {
 
     return (
         <div className="w-4/6 py-4">
-            <div className="bg-black/5 dark:bg-white/5 rounded-2xl p-1.5">
+            <div className="bg-black/5 dark:bg-white/5 rounded-2xl p-1.5 pt-4">
+                <div className="flex items-center gap-2 mb-2.5 mx-2">
+                    <div className="flex-1 flex items-center gap-2">
+                        <Anthropic className="h-3.5 w-3.5 text-black dark:hidden" />
+                        <AnthropicDark className="h-3.5 w-3.5 hidden dark:block" />
+                        <h3 className="text-black dark:text-white/90 text-xs tracking-tighter">
+                            is free this weekend!
+                        </h3>
+                    </div>
+                    <p className="text-black dark:text-white/90 text-xs tracking-tighter">
+                        Ship Now!
+                    </p>
+                </div>
                 <div className="relative">
+                    {/* <div className="absolute -top-12 left-0 w-full h-full border border-black/10 dark:border-white/10 rounded-2xl p-3  border-b-0">
+                        <div className="flex items-center gap-2">
+                            <Gift className="h-3.5 w-3.5" />
+                            <div className="flex-1">
+                                <h3 className="font-semibold text-black dark:text-white/90 text-sm">
+                                    Build for free this weekend
+                                </h3>
+                            </div>
+                        </div>
+                    </div> */}
                     <div className="relative flex flex-col">
                         <div
                             className="overflow-y-auto"

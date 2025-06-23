@@ -9,6 +9,8 @@ import { notFound } from "next/navigation";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { Preview } from "@/components/mdx/preview";
 import { PreviewClient } from "@/components/mdx/preview-client";
+import PreviewTemplate from "@/components/mdx/preview-template";
+import WhatIncluded from "@/components/mdx/what-included";
 
 export default async function Page(props: {
     params: Promise<{ slug?: string[] }>;
@@ -20,7 +22,12 @@ export default async function Page(props: {
     const MDX = page.data.body;
 
     return (
-        <DocsPage toc={page.data.toc} full={page.data.full}>
+        <DocsPage
+            footer={{ enabled: false }}
+            toc={page.data.toc}
+            full={page.data.full}
+        >
+            <div className="absolute top-24 right-72 flex items-center gap-3"></div>
             <DocsTitle>{page.data.title}</DocsTitle>
             <DocsDescription>{page.data.description}</DocsDescription>
             <DocsBody>
@@ -29,6 +36,8 @@ export default async function Page(props: {
                         ...defaultMdxComponents,
                         Preview,
                         PreviewClient,
+                        PreviewTemplate,
+                        WhatIncluded,
                     }}
                 />
             </DocsBody>
