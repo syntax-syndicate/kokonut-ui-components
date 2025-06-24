@@ -38,6 +38,7 @@ const nextConfig = {
         minimumCacheTTL: 2678400,
     },
     reactStrictMode: true,
+    serverExternalPackages: ["twoslash", "typescript"],
 };
 
 export default withMDX(nextConfig);
