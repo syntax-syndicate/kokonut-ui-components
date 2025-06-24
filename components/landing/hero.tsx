@@ -111,7 +111,7 @@ export function HeroSection() {
                     <div className="w-[70%] h-[1px] bg-gradient-to-r from-zinc-950/5 via-zinc-950/30 dark:from-zinc-50/5 dark:via-zinc-50/30 to-transparent" />
                 </div>
                 <Link
-                    href="https://vercel.com/blog/spring25-oss-program"
+                    href="https://vercel.com/blog/spring25-oss-program#kokonutui"
                     target="_blank"
                     rel="noreferrer"
                     className="text-gray-600 dark:text-gray-400 transition-colors flex items-center gap-1.5 text-xs hover:text-gray-800 dark:hover:text-gray-300 group hover:font-medium hover:cursor-pointer my-1 mt-2 mb-4"

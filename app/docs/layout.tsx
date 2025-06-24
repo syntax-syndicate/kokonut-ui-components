@@ -23,7 +23,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 banner: (
                     <div className="border border-zinc-200 dark:border-zinc-800 text-white dark:text-zinc-900 p-2 rounded-md text-xs py-1 flex items-center gap-2">
                         <Link
-                            href="https://vercel.com/blog/spring25-oss-program"
+                            href="https://vercel.com/blog/spring25-oss-program#kokonutui"
                             target="_blank"
                             rel="noreferrer"
                             className="text-gray-600 dark:text-gray-400  transition-colors flex items-center gap-1.5 text-xs hover:text-gray-800 dark:hover:text-gray-300 group hover:font-medium hover:cursor-pointer my-1"
