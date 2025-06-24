@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import {
     Rocket,
     Code,
@@ -18,17 +17,17 @@ import {
     CheckCheck,
     XCircle,
 } from "lucide-react";
+import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import V0 from "@/components/icons/v0";
 import TailwindCSS from "@/components/icons/tailwindcss";
 import Motion from "@/components/icons/motion";
-import { useActionState, useState, useRef } from "react";
+import { useActionState, useState } from "react";
 import {
     Dialog,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
