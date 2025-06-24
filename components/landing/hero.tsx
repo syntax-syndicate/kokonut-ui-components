@@ -16,6 +16,7 @@ import CardFlip from "@/components/kokonutui/card-flip";
 import AI_Prompt from "@/components/kokonutui/ai-prompt";
 import AppleActivityCard from "@/components/kokonutui/apple-activity-card";
 import AILoadingState from "@/components/kokonutui/ai-loading";
+import Link from "next/link";
 
 interface Action {
     id: string;
@@ -105,6 +106,23 @@ export function HeroSection() {
                     </div>
                 </div>
                 <FeatureBlock />
+                <div className="w-full space-y-2 mt-8">
+                    <div className="w-full h-[1px] bg-gradient-to-r from-zinc-950/5 via-zinc-950/50 dark:from-zinc-50/5 dark:via-zinc-50/50 to-transparent" />
+                    <div className="w-[70%] h-[1px] bg-gradient-to-r from-zinc-950/5 via-zinc-950/30 dark:from-zinc-50/5 dark:via-zinc-50/30 to-transparent" />
+                </div>
+                <Link
+                    href="https://vercel.com/blog/spring25-oss-program"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-gray-600 dark:text-gray-400 transition-colors flex items-center gap-1.5 text-xs hover:text-gray-800 dark:hover:text-gray-300 group hover:font-medium hover:cursor-pointer my-1 mt-2 mb-4"
+                >
+                    <span className="flex items-center gap-2">
+                        <img
+                            alt="Vercel OSS Program"
+                            src="https://vercel.com/oss/program-badge.svg"
+                        />
+                    </span>
+                </Link>
             </div>
 
             <div className="w-full lg:w-[55%] flex flex-col justify-between gap-8 lg:pl-8">

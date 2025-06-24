@@ -6,13 +6,10 @@
       <img alt="KokonutUI" src="https://raw.githubusercontent.com/kokonut-labs/kokonutui/refs/heads/main/public/logo-black.svg" width="350" height="120" style="max-width: 100%;">
     </picture>
   </a>
-</p>
-
-<br />
-<br />
-<a href="https://vercel.com/oss">
+  <a href="https://vercel.com/oss">
   <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" />
 </a>
+</p>
 
 ## Overview
 
