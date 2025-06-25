@@ -480,4 +480,15 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "liquid-glass-card",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        files: [
+            {
+                path: "components/kokonutui/liquid-glass-card.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];

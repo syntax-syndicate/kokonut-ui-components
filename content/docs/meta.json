@@ -13,6 +13,7 @@
         "templates/startup",
         "templates/grace",
         "---Components---",
+        "components/liquid-glass-card",
         "components/action-search-bar",
         "components/apple-activity-card",
         "components/beams-background",
