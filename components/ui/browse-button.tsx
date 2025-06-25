@@ -9,7 +9,7 @@ import { CompassOutline } from "@/components/icons/compass";
 export function BrowseComponentsButton() {
     return (
         <Link
-            href="/docs/components/action-search-bar"
+            href="/docs/components/liquid-glass-card"
             className="flex items-center gap-8 relative"
         >
             {/* Background gradient elements */}
