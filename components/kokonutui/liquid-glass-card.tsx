@@ -529,18 +529,4 @@ export function NotificationCenter() {
     );
 }
 
-// Add keyframes for the shine animation
-const style = document.createElement("style");
-style.textContent = `
-    @keyframes shine {
-        from {
-            transform: translateX(-100%);
-        }
-        to {
-            transform: translateX(100%);
-        }
-    }
-`;
-document.head.appendChild(style);
-
 export default NotificationCenter;
