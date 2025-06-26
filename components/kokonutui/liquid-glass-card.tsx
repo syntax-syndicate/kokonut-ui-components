@@ -427,23 +427,6 @@ export function NotificationCenter() {
                         <CardHeader
                             title="Now Playing"
                             subtitle="Lofi Beats - Chill Mix"
-                            icon={
-                                <div
-                                    className={cn(
-                                        "size-10 rounded-full bg-primary/20 flex items-center justify-center transition-opacity duration-300",
-                                        isPlaying ? "opacity-100" : "opacity-50"
-                                    )}
-                                >
-                                    <div className="size-8 rounded-full bg-primary/40 flex items-center justify-center">
-                                        <div
-                                            className={cn(
-                                                "size-6 rounded-full bg-primary",
-                                                isPlaying && "animate-pulse"
-                                            )}
-                                        />
-                                    </div>
-                                </div>
-                            }
                         />
                     </div>
                 </div>
@@ -504,7 +487,7 @@ export function NotificationCenter() {
                         <LiquidButton
                             variant="default"
                             size="icon"
-                            className="rounded-full text-primary-foreground"
+                            className="rounded-full text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                             aria-label={isPlaying ? "Pause" : "Play"}
                             onClick={handlePlayPause}
                         >
