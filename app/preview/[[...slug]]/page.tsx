@@ -3,24 +3,18 @@ import dynamic from "next/dynamic";
 
 // Arrays to categorize components
 const CENTERED_COMPONENTS = [
-    "alert",
-    "ai-input",
-    "button",
-    "card",
-    "faq",
-    "input",
-    "list",
-    "pricing",
-    "profile",
-    "text",
-    "checkout",
-    "particle-button",
-    "currency-transfer",
-    "hand-written-title",
-    "tweet-card",
+    "liquid-glass-card",
     "action-search-bar",
-    "blocks/ai-card-generation",
-    "vercel-v0-chat",
+    "apple-activity-card",
+    "bento-grid",
+    "card-flip",
+    "card-stack",
+    "file-upload",
+    "toolbar",
+    "ai-prompt",
+    "ai-voice",
+    "typewriter",
+    "v0-button"
     // Add more small components here
 ];
 
