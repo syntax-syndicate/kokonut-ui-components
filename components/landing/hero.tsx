@@ -123,17 +123,19 @@ export function HeroSection() {
                         />
                     </span>
                 </Link>
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-16">
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-16 z-10">
                     <Link
                         href="https://www.producthunt.com/products/kokonutui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-kokonutui"
                         target="_blank"
                         rel="noreferrer"
+                        className="block hover:opacity-90 transition-opacity"
                     >
                         <img
                             src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=611037&theme=dark&t=1750920208172"
                             alt="Kokonut UI - Collection of stunning components. | Product Hunt"
                             width="250"
                             height="54"
+                            className="cursor-pointer"
                         />
                     </Link>
                 </div>
