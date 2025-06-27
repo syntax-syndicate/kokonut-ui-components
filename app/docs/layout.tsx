@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             sidebar={{
                 defaultOpenLevel: 1,
                 banner: (
-                    <div className="border border-zinc-200 dark:border-zinc-800 text-white dark:text-zinc-900 p-2 rounded-md text-xs py-1 flex items-center gap-2">
+                    <div className="border border-zinc-200 dark:border-zinc-800 text-white dark:text-zinc-900 p-2 rounded-md text-xs py-1 flex items-center gap-2 flex-col">
                         <Link
                             href="https://vercel.com/blog/spring25-oss-program#kokonutui"
                             target="_blank"
@@ -34,6 +34,31 @@ export default function Layout({ children }: { children: ReactNode }) {
                                     src="https://vercel.com/oss/program-badge.svg"
                                 />
                             </span>
+                        </Link>
+                        <Link
+                            href="https://www.producthunt.com/products/kokonutui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-kokonut&#0045;ui"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="block dark:hidden"
+                        >
+                            <img
+                                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=982830&theme=dark&t=1751005637110"
+                                alt="Kokonut UI - Collection of stunning components. | Product Hunt"
+                                width="250"
+                                height="42"
+                            />
+                        </Link>
+                        <Link
+                            href="https://www.producthunt.com/products/kokonutui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-kokonut&#0045;ui"
+                            target="_blank"
+                            className="hidden dark:block"
+                        >
+                            <img
+                                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=982830&theme=light&t=1751005486010"
+                                alt="Kokonut&#0032;UI - Collection&#0032;of&#0032;stunning&#0032;components | Product Hunt"
+                                width="250"
+                                height="42"
+                            />
                         </Link>
                     </div>
                 ),
