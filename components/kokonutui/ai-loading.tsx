@@ -1,5 +1,15 @@
 "use client";
 
+/**
+ * @author: @kokonutui
+ * @description: AI Loading State
+ * @version: 1.0.0
+ * @date: 2025-06-26
+ * @license: MIT
+ * @website: https://kokonutui.com
+ * @github: https://github.com/kokonut-labs/kokonutui
+ */
+
 import { useEffect, useState, useRef } from "react";
 
 const TASK_SEQUENCES = [

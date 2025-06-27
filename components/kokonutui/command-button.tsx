@@ -2,6 +2,16 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Command } from "lucide-react";
 
+/**
+ * @author: @dorian_baffier
+ * @description: Command Button
+ * @version: 1.0.0
+ * @date: 2025-06-26
+ * @license: MIT
+ * @website: https://kokonutui.com
+ * @github: https://github.com/kokonut-labs/kokonutui
+ */
+
 export default function CommandButton({
     className,
     children,

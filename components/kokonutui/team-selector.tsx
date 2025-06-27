@@ -1,5 +1,15 @@
 "use client";
 
+/**
+ * @author: @dorian_baffier
+ * @description: Team Selector
+ * @version: 1.0.0
+ * @date: 2025-06-26
+ * @license: MIT
+ * @website: https://kokonutui.com
+ * @github: https://github.com/kokonut-labs/kokonutui
+ */
+
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";

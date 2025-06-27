@@ -1,5 +1,16 @@
+/**
+ * @author: @dorian_baffier
+ * @description: Gradient Button
+ * @version: 1.0.0
+ * @date: 2025-06-26
+ * @license: MIT
+ * @website: https://kokonutui.com
+ * @github: https://github.com/kokonut-labs/kokonutui
+ */
+
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
 
 type ColorVariant = "emerald" | "purple" | "orange";
 

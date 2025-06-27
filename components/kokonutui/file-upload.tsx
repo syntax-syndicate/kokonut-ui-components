@@ -1,5 +1,15 @@
 "use client";
 
+/**
+ * @author: @dorian_baffier
+ * @description: File Upload
+ * @version: 1.0.0
+ * @date: 2025-06-26
+ * @license: MIT
+ * @website: https://kokonutui.com
+ * @github: https://github.com/kokonut-labs/kokonutui
+ */
+
 import {
     useState,
     useRef,

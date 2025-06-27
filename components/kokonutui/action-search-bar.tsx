@@ -1,5 +1,15 @@
 "use client";
 
+/**
+ * @author: @kokonutui
+ * @description: A modern search bar component with action buttons and suggestions
+ * @version: 1.0.0
+ * @date: 2025-06-26
+ * @license: MIT
+ * @website: https://kokonutui.com
+ * @github: https://github.com/kokonut-labs/kokonutui
+ */
+
 import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { motion, AnimatePresence } from "motion/react";

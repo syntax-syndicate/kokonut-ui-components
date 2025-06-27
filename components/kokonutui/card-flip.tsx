@@ -1,5 +1,15 @@
 "use client";
 
+/**
+ * @author: @dorian_baffier
+ * @description: Card Flip
+ * @version: 1.0.0
+ * @date: 2025-06-26
+ * @license: MIT
+ * @website: https://kokonutui.com
+ * @github: https://github.com/kokonut-labs/kokonutui
+ */
+
 import { cn } from "@/lib/utils";
 import { ArrowRight, Repeat2 } from "lucide-react";
 import { useState } from "react";

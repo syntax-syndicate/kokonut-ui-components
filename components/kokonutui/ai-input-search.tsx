@@ -1,5 +1,15 @@
 "use client";
 
+/**
+ * @author: @kokonutui
+ * @description: AI Input Search
+ * @version: 1.0.0
+ * @date: 2025-06-26
+ * @license: MIT
+ * @website: https://kokonutui.com
+ * @github: https://github.com/kokonut-labs/kokonutui
+ */
+
 import { Globe, Paperclip, Send } from "lucide-react";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";

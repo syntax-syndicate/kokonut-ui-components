@@ -72,7 +72,7 @@ const allActions: Action[] = [
 
 export function HeroSection() {
     return (
-        <div className="mx-auto w-full md:w-[90%] min-h-screen flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4 px-4 py-16 md:py-4">
+        <div className="container mx-auto max-w-7xl min-h-[calc(100vh-4rem)] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4 px-4 py-8 md:py-12 relative">
             {/* Left side - Title and CTA */}
             <div className="w-full lg:w-[45%] flex flex-col items-start text-left space-y-8 md:mb-28">
                 <div>
@@ -99,8 +99,8 @@ export function HeroSection() {
                         <span className="font-semibold">Next.js</span>.
                     </p>
                 </div>
-                <div className="flex flex-col justify-start w-full">
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-2">
+                <div className="flex flex-col justify-center sm:justify-start w-full">
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-2">
                         <BrowseComponentsButton />
                         <BrowseBlocksButton />
                     </div>
@@ -123,6 +123,20 @@ export function HeroSection() {
                         />
                     </span>
                 </Link>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-16">
+                    <Link
+                        href="https://www.producthunt.com/products/kokonutui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-kokonutui"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=611037&theme=dark&t=1750920208172"
+                            alt="Kokonut UI - Collection of stunning components. | Product Hunt"
+                            width="250"
+                            height="54"
+                        />
+                    </Link>
+                </div>
             </div>
 
             <div className="w-full lg:w-[55%] flex flex-col justify-between gap-8 lg:pl-8">
