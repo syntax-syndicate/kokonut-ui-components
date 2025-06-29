@@ -60,62 +60,26 @@ export default function Page() {
 }
 ```
 
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-
-### 3. Blocks
-
-Blocks are a set of components to make a complete blocks, they contain multiples files. To install them it is mandatory to use the `cli`. For example it you'd like to install `ai-card-generation` block:
-
-<Tabs items={["bun", "npx", "pnpm"]}>
- 
-```bash tab="bun"
-bunx shadcn@latest add https://kokonutui.com/r/ai-card-generation.json
-```
- 
-```bash tab="npx"
-npx shadcn@latest add https://kokonutui.com/r/ai-card-generation.json
-```
-
-```bash tab="pnpm"
-pnpm dlx shadcn@latest add https://kokonutui.com/r/ai-card-generation.json
-```
-
-</Tabs>
-
-Then, add to your page and it works!
-
-```jsx
-/**
- * AICardGeneration require 5 additional components
- * that will be automatically installed with the CLI.
- */
-import AICardGeneration from "@/components/kokonutui/AICardGeneration";
-
-export default function Page() {
-    return <AICardGeneration />;
-}
-```
-
-### 4. Optionnal dependencies
+### 3. Optionnal dependencies
 
 Some components require additional libraries, listed at the bottom of each components. Make sure to install them to ensure the component works properly.
 
-### 5. Monorepo
+### 4. Monorepo
 
 For monorepo `shadcn/ui` CLI contain the options `-c` to the path to your workspace for exemple:
 
 <Tabs items={["bun", "npx", "pnpm"]}>
  
 ```bash tab="bun"
-bunx shadcn@latest add https://kokonutui.com/r/card-05.json -c ./apps/www
+bunx shadcn@latest add https://kokonutui.com/r/particle-button -c ./apps/www
 ```
  
 ```bash tab="npx"
-npx shadcn@latest add https://kokonutui.com/r/card-05.json -c ./apps/www
+npx shadcn@latest add https://kokonutui.com/r/particle-button -c ./apps/www
 ```
 
 ```bash tab="pnpm"
-pnpm dlx shadcn@latest add https://kokonutui.com/r/card-05.json -c ./apps/www
+pnpm dlx shadcn@latest add https://kokonutui.com/r/particle-button -c ./apps/www
 ```
 
 </Tabs>

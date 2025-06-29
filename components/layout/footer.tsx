@@ -11,7 +11,7 @@ export function Footer() {
                     {/* Left side: Navigation */}
                     <nav className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 sm:w-1/3">
                         <Link
-                            href="/components"
+                            href="/docs/components/liquid-glass-card"
                             className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
                         >
                             /Components
