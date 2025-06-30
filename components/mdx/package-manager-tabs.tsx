@@ -93,7 +93,7 @@ export function PackageManagerTabs({
     };
 
     return (
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1 sm:gap-2">
             <div
                 ref={containerRef}
                 role="tablist"
@@ -169,7 +169,8 @@ export function PackageManagerTabs({
                     "dark:text-white text-black",
                     "transition-all duration-200",
                     "group flex items-center justify-center gap-1",
-                    "w-full min-w-[250px]",
+                    "w-full",
+                    "min-w-[250px]",
                     "relative"
                 )}
             >

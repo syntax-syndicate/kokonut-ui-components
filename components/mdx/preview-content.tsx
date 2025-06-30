@@ -162,15 +162,15 @@ export default function PreviewContent({
                     buttonRef={copyButtonRef as RefObject<HTMLButtonElement>}
                 />
             )}
-            <div className="relative flex items-center justify-between w-full gap-2">
-                <div className="flex-shrink-0">
+            <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-1 sm:gap-2">
+                <div className="w-full sm:w-auto">
                     <PackageManagerTabs
                         onSelect={handleTerminalClick}
                         commandName={getFileName()}
                         prePath={prePath}
                     />
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 w-full sm:w-auto justify-end mt-1 sm:mt-0">
                     <OpenInV0Button name={openInV0()} />
 
                     {!isBlock && (
@@ -179,6 +179,7 @@ export default function PreviewContent({
                                 e.preventDefault();
                                 handleCopyClick();
                             }}
+                            className="w-full sm:w-auto"
                         >
                             <button
                                 ref={copyButtonRef}
@@ -192,9 +193,10 @@ export default function PreviewContent({
                                     "hover:bg-black/90 dark:hover:bg-white/90",
                                     "hover:text-white dark:hover:text-black",
                                     "transition-all duration-200",
-                                    "group flex items-center gap-1",
+                                    "group flex items-center justify-center gap-1",
                                     "rounded-sm",
-                                    "shadow-none py-0 my-0"
+                                    "shadow-none py-0 my-0",
+                                    "w-fit md:w-full"
                                 )}
                             >
                                 {isCopied ? (
