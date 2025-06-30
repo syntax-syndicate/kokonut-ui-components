@@ -75,11 +75,11 @@ export function PackageManagerTabs({
 
     const getCommand = (packageManager: string): string => {
         if (packageManager === "pnpm") {
-            return `pnpm dlx shadcn@latest add ${prePath}/${commandName}`;
+            return `pnpm dlx shadcn@latest add ${prePath}/r/${commandName}`;
         } else if (packageManager === "npm") {
-            return `npx shadcn@latest add ${prePath}/${commandName}`;
+            return `npx shadcn@latest add ${prePath}/r/${commandName}`;
         } else {
-            return `bunx shadcn@latest add ${prePath}/${commandName}`;
+            return `bunx shadcn@latest add ${prePath}/r/${commandName}`;
         }
     };
 
