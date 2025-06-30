@@ -9,18 +9,62 @@ import {
     type RefObject,
 } from "react";
 import { Button } from "@/components/ui/button";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Check, CheckCheck, Terminal, ChevronDown, Code } from "lucide-react";
+import { Code } from "lucide-react";
 import { copyComponent } from "@/lib/action";
 import { cn } from "@/lib/utils";
 import { OpenInV0Button } from "../open-in-v0-button";
 import { AnimatePresence, motion } from "motion/react";
-import ShadcnIcon from "../icons/shadcn";
+import { PackageManagerTabs } from "./package-manager-tabs";
+import { CheckCheck } from "lucide-react";
+
+function SuccessParticles({
+    buttonRef,
+}: {
+    buttonRef: React.RefObject<HTMLButtonElement>;
+}) {
+    const rect = buttonRef.current?.getBoundingClientRect();
+    if (!rect) return null;
+
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    // Create a unique key for each particle to satisfy the linter
+    const particles = Array.from({ length: 6 }, (_, index) => ({
+        id: `particle-${index}-${Math.random().toString(36).substr(2, 9)}`,
+        index, // Pass index for staggering delay
+    }));
+
+    return (
+        <AnimatePresence>
+            {particles.map((particle) => (
+                <motion.div
+                    key={particle.id}
+                    className="fixed w-1 h-1 bg-black dark:bg-white rounded-full"
+                    style={{ left: centerX, top: centerY }}
+                    initial={{
+                        scale: 0,
+                        x: 0,
+                        y: 0,
+                    }}
+                    animate={{
+                        scale: [0, 1, 0],
+                        x: [
+                            0,
+                            (particle.index % 2 ? 1 : -1) *
+                                (Math.random() * 50 + 20),
+                        ],
+                        y: [0, -Math.random() * 50 - 20],
+                    }}
+                    transition={{
+                        duration: 0.6,
+                        delay: particle.index * 0.1, // Use particle.index for delay
+                        ease: "easeOut",
+                    }}
+                />
+            ))}
+        </AnimatePresence>
+    );
+}
 
 export default function PreviewContent({
     link,
@@ -41,9 +85,6 @@ export default function PreviewContent({
     const [isCopied, setIsCopied] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [isTerminalCopied, setIsTerminalCopied] = useState(false);
-    const [selectedPackageManager, setSelectedPackageManager] = useState<
-        "bunx" | "npx" | "pnpm"
-    >("bunx");
 
     const handleCopyClick = async () => {
         const [folder, filename] = link.split("/");
@@ -62,18 +103,19 @@ export default function PreviewContent({
         return filename ? filename : folder;
     };
 
-    const handleTerminalClick = (packageManager?: "bunx" | "npx" | "pnpm") => {
+    const handleTerminalClick = (packageManager: string) => {
         const [folder, filename] = link.split("/");
         const componentName = filename ? filename : folder;
-        const pm = packageManager || selectedPackageManager;
 
         let commandToCopy: string;
         const componentAddCommand = `shadcn@latest add ${prePath}/r/${componentName}`;
 
-        if (pm === "pnpm") {
+        if (packageManager === "pnpm") {
             commandToCopy = `pnpm dlx ${componentAddCommand}`;
+        } else if (packageManager === "npm") {
+            commandToCopy = `npx ${componentAddCommand}`;
         } else {
-            commandToCopy = `${pm} ${componentAddCommand}`;
+            commandToCopy = `bunx ${componentAddCommand}`;
         }
 
         navigator.clipboard.writeText(commandToCopy);
@@ -103,55 +145,6 @@ export default function PreviewContent({
         }
     }, [state]);
 
-    function SuccessParticles({
-        buttonRef,
-    }: {
-        buttonRef: React.RefObject<HTMLButtonElement>;
-    }) {
-        const rect = buttonRef.current?.getBoundingClientRect();
-        if (!rect) return null;
-
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        // Create a unique key for each particle to satisfy the linter
-        const particles = Array.from({ length: 6 }, (_, index) => ({
-            id: `particle-${index}-${Math.random().toString(36).substr(2, 9)}`,
-            index, // Pass index for staggering delay
-        }));
-
-        return (
-            <AnimatePresence>
-                {particles.map((particle) => (
-                    <motion.div
-                        key={particle.id}
-                        className="fixed w-1 h-1 bg-black dark:bg-white rounded-full"
-                        style={{ left: centerX, top: centerY }}
-                        initial={{
-                            scale: 0,
-                            x: 0,
-                            y: 0,
-                        }}
-                        animate={{
-                            scale: [0, 1, 0],
-                            x: [
-                                0,
-                                (particle.index % 2 ? 1 : -1) *
-                                    (Math.random() * 50 + 20),
-                            ],
-                            y: [0, -Math.random() * 50 - 20],
-                        }}
-                        transition={{
-                            duration: 0.6,
-                            delay: particle.index * 0.1, // Use particle.index for delay
-                            ease: "easeOut",
-                        }}
-                    />
-                ))}
-            </AnimatePresence>
-        );
-    }
-
     const terminalButtonRef = useRef<HTMLButtonElement>(null);
     const copyButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -169,145 +162,56 @@ export default function PreviewContent({
                     buttonRef={copyButtonRef as RefObject<HTMLButtonElement>}
                 />
             )}
+            <div className="relative flex items-center justify-between w-full gap-2">
+                <div className="flex-shrink-0">
+                    <PackageManagerTabs
+                        onSelect={handleTerminalClick}
+                        commandName={getFileName()}
+                        prePath={prePath}
+                    />
+                </div>
+                <div className="flex items-center gap-2">
+                    <OpenInV0Button name={openInV0()} />
 
-            <div
-                className={cn("relative mt-2", "rounded-xl p-1")}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-            >
-                <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-end">
-                    <div className="flex items-center gap-2">
-                        <OpenInV0Button name={openInV0()} />
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button
-                                    ref={terminalButtonRef}
-                                    variant="ghost"
-                                    size="sm"
-                                    className={cn(
-                                        "relative overflow-hidden",
-                                        "h-7 px-3 text-xs font-medium",
-                                        "bg-black dark:bg-white",
-                                        "text-white dark:text-black",
-                                        "hover:bg-black/90 dark:hover:bg-white/90",
-                                        "hover:text-white dark:hover:text-black",
-                                        "transition-all duration-200",
-                                        "group flex items-center gap-1",
-                                        "rounded-md",
-                                        "shadow-none"
-                                    )}
-                                >
-                                    {isTerminalCopied ? (
-                                        <CheckCheck className="h-3.5 w-3.5 text-white dark:text-black" />
-                                    ) : (
-                                        <ShadcnIcon
-                                            className={cn(
-                                                "h-3.5 w-3.5",
-                                                "transition-all duration-200",
-                                                "group-hover:rotate-12"
-                                            )}
-                                        />
-                                    )}
-                                    <span>add {getFileName()}</span>
-                                    <ChevronDown className="h-3.5 w-3.5 opacity-70 ml-1" />
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent
-                                align="end"
-                                className="-ml-3 w-[190px] bg-black dark:bg-white text-white rounded-md dark:text-black border border-neutral-700 dark:border-neutral-300"
+                    {!isBlock && (
+                        <form
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                handleCopyClick();
+                            }}
+                        >
+                            <button
+                                ref={copyButtonRef}
+                                type="submit"
+                                disabled={isPending}
+                                className={cn(
+                                    "relative overflow-hidden",
+                                    "h-7 px-2 text-xs font-medium",
+                                    "bg-black dark:bg-white",
+                                    "text-white dark:text-black",
+                                    "hover:bg-black/90 dark:hover:bg-white/90",
+                                    "hover:text-white dark:hover:text-black",
+                                    "transition-all duration-200",
+                                    "group flex items-center gap-1",
+                                    "rounded-sm",
+                                    "shadow-none py-0 my-0"
+                                )}
                             >
-                                <DropdownMenuItem
-                                    onSelect={() => {
-                                        setSelectedPackageManager("bunx");
-                                        handleTerminalClick("bunx");
-                                    }}
-                                    className="flex items-center gap-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 focus:bg-neutral-800 dark:focus:bg-neutral-200"
-                                >
-                                    <Terminal className="h-3.5 w-3.5 text-white dark:text-black" />
-                                    <span className="text-white dark:text-black">
-                                        bunx
-                                    </span>
-                                    {selectedPackageManager === "bunx" && (
-                                        <Check className="h-4 w-4 ml-auto text-white dark:text-black" />
-                                    )}
-                                </DropdownMenuItem>
-                                <DropdownMenuItem
-                                    onSelect={() => {
-                                        setSelectedPackageManager("npx");
-                                        handleTerminalClick("npx");
-                                    }}
-                                    className="flex items-center gap-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 focus:bg-neutral-800 dark:focus:bg-neutral-200"
-                                >
-                                    <Terminal className="h-3.5 w-3.5 text-white dark:text-black" />
-                                    <span className="text-white dark:text-black">
-                                        npx
-                                    </span>
-                                    {selectedPackageManager === "npx" && (
-                                        <Check className="h-4 w-4 ml-auto text-white dark:text-black" />
-                                    )}
-                                </DropdownMenuItem>
-                                <DropdownMenuItem
-                                    onSelect={() => {
-                                        setSelectedPackageManager("pnpm");
-                                        handleTerminalClick("pnpm");
-                                    }}
-                                    className="flex items-center gap-2 hover:bg-neutral-800 dark:hover:bg-neutral-200 focus:bg-neutral-800 dark:focus:bg-neutral-200"
-                                >
-                                    <Terminal className="h-3.5 w-3.5 text-white dark:text-black" />
-                                    <span className="text-white dark:text-black">
-                                        pnpm
-                                    </span>
-                                    {selectedPackageManager === "pnpm" && (
-                                        <Check className="h-4 w-4 ml-auto text-white dark:text-black" />
-                                    )}
-                                </DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-
-                        {!isBlock && (
-                            <form
-                                onSubmit={(e) => {
-                                    e.preventDefault();
-                                    handleCopyClick();
-                                }}
-                            >
-                                <Button
-                                    ref={copyButtonRef}
-                                    type="submit"
-                                    variant="ghost"
-                                    size="sm"
-                                    disabled={isPending}
-                                    className={cn(
-                                        "relative overflow-hidden",
-                                        "h-7 px-3 text-xs font-medium",
-                                        "bg-black dark:bg-white",
-                                        "text-white dark:text-black",
-                                        "hover:bg-black/90 dark:hover:bg-white/90",
-                                        "hover:text-white dark:hover:text-black",
-                                        "transition-all duration-200",
-                                        "group flex items-center gap-1",
-                                        "rounded-md",
-                                        "shadow-none"
-                                    )}
-                                >
-                                    {isCopied ? (
-                                        <>
-                                            <CheckCheck className="h-3.5 w-3.5 text-white dark:text-black" />
-                                        </>
-                                    ) : (
-                                        <Code
-                                            className={cn(
-                                                "h-3.5 w-3.5",
-                                                "transition-all duration-200",
-                                                "group-hover:rotate-12"
-                                            )}
-                                        />
-                                    )}
-                                    <span>Copy</span>
-                                </Button>
-                            </form>
-                        )}
-                    </div>
+                                {isCopied ? (
+                                    <CheckCheck className="h-3.5 w-3.5 text-white dark:text-black" />
+                                ) : (
+                                    <Code
+                                        className={cn(
+                                            "h-3.5 w-3.5",
+                                            "transition-all duration-200",
+                                            "group-hover:rotate-12"
+                                        )}
+                                    />
+                                )}
+                                <span>Copy</span>
+                            </button>
+                        </form>
+                    )}
                 </div>
             </div>
         </>
