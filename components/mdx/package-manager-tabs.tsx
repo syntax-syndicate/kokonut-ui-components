@@ -103,7 +103,7 @@ export function PackageManagerTabs({
                     "bg-background rounded-sm",
                     "border",
                     "transition-all duration-200",
-                    "h-7 z-[100] text-black dark:text-white"
+                    "h-7 text-black dark:text-white"
                 )}
             >
                 {/* Sliding Background */}

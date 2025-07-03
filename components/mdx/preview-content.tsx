@@ -8,7 +8,6 @@ import {
     useRef,
     type RefObject,
 } from "react";
-import { Button } from "@/components/ui/button";
 import { Code } from "lucide-react";
 import { copyComponent } from "@/lib/action";
 import { cn } from "@/lib/utils";
