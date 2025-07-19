@@ -27,10 +27,13 @@ export default async function Page(props: {
             toc={page.data.toc}
             full={page.data.full}
         >
-            <div className="absolute top-24 right-72 flex items-center gap-3"></div>
-            <DocsTitle>{page.data.title}</DocsTitle>
-            <DocsDescription>{page.data.description}</DocsDescription>
-            <DocsBody>
+            <DocsTitle className="tracking-tighter font-semibold text-4xl ml-8">
+                {page.data.title}
+            </DocsTitle>
+            <DocsDescription className="tracking-tighter text-xl ml-8">
+                {page.data.description}
+            </DocsDescription>
+            <DocsBody className="ml-8">
                 <MDX
                     components={{
                         ...defaultMdxComponents,
