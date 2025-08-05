@@ -167,7 +167,6 @@ export default function AILoadingState() {
     const currentSequence = TASK_SEQUENCES[sequenceIndex];
     const totalLines = currentSequence.lines.length;
 
-    // Initialize visible lines
     useEffect(() => {
         const initialLines = [];
         for (let i = 0; i < Math.min(5, totalLines); i++) {
@@ -254,12 +253,10 @@ export default function AILoadingState() {
                                     key={`${line.number}-${line.text}`}
                                     className="flex h-[28px] items-center px-2"
                                 >
-                                    {/* Line number */}
                                     <div className="text-gray-400 dark:text-gray-500 pr-3 select-none w-6 text-right">
                                         {line.number}
                                     </div>
 
-                                    {/* Task content */}
                                     <div className="text-gray-800 dark:text-gray-200 flex-1 ml-1">
                                         {line.text}
                                     </div>
@@ -268,7 +265,6 @@ export default function AILoadingState() {
                         </div>
                     </div>
 
-                    {/* Linear gradient overlay */}
                     <div
                         className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none rounded-lg from-white/90 via-white/50 to-transparent dark:from-black/90 dark:via-black/50 dark:to-transparent"
                         style={{
