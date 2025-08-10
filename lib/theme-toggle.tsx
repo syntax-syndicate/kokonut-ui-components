@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { SunMoon } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
     const { setTheme, theme } = useTheme();
@@ -24,12 +24,9 @@ export function ThemeToggle() {
             }}
         >
             {theme === "light" ? (
-                <SunMoon className="h-5 w-5 text-black" />
+                <Moon className="h-5 w-5 text-black" />
             ) : (
-                <SunMoon
-                    className="h-5 w-5 rotate-180 text-white"
-                    color="white"
-                />
+                <Sun className="h-5 w-5 text-white" color="white" />
             )}
         </div>
     );
