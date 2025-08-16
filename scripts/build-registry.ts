@@ -1,4 +1,4 @@
-import { registry } from "../registry";
+import { registry } from "../registry/index";
 import { promises as fs } from "fs";
 import type { z } from "zod";
 import type { registryItemFileSchema } from "@/registry/schema";
