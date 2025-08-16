@@ -79,7 +79,7 @@ export function PackageManagerTabs({
         } else if (packageManager === "npm") {
             return `npx shadcn@latest add ${prePath}/r/${commandName}.json`;
         } else {
-            return `bunx shadcn@latest add ${prePath}/r/${commandName}.json`;
+            return `bunx --bun shadcn@latest add ${prePath}/r/${commandName}.json`;
         }
     };
 

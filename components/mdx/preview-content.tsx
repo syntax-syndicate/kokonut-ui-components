@@ -114,7 +114,7 @@ export default function PreviewContent({
         } else if (packageManager === "npm") {
             commandToCopy = `npx ${componentAddCommand}`;
         } else {
-            commandToCopy = `bunx ${componentAddCommand}`;
+            commandToCopy = `bunx --bun ${componentAddCommand}`;
         }
 
         navigator.clipboard.writeText(commandToCopy);
