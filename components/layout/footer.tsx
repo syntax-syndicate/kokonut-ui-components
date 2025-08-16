@@ -34,7 +34,7 @@ export function Footer() {
                     {/* Center: Vercel OSS Badge */}
                     <div className="flex justify-center sm:w-1/3">
                         <Link
-                            href="https://vercel.com/oss"
+                            href="https://vercel.com/blog/spring25-oss-program#kokonutui"
                             target="_blank"
                             rel="noreferrer"
                             className="text-gray-600 dark:text-gray-400 transition-colors flex items-center gap-1.5 text-xs hover:text-gray-800 dark:hover:text-gray-300 group hover:font-medium hover:cursor-pointer"
