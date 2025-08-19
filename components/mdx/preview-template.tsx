@@ -37,7 +37,6 @@ export default function PreviewTemplate({
                 </Link>
             </div>
 
-            {/* Video Preview Section */}
             <div className="flex flex-col mt-0 ">
                 <video
                     autoPlay
@@ -45,6 +44,7 @@ export default function PreviewTemplate({
                     loop
                     playsInline
                     className="w-full max-w-4xl rounded-lg shadow-sm border border-zinc-400 dark:border-zinc-800 p-0.5"
+                    aria-label="Preview Video"
                 >
                     <source src={videoUrl} type="video/mp4" />
                 </video>

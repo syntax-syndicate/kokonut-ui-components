@@ -1,6 +1,4 @@
-import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import XIcon from "../icons/x-icon";
 
 export function Footer() {
@@ -8,7 +6,6 @@ export function Footer() {
         <footer className="border-t border-zinc-200 dark:border-zinc-800">
             <div className="mx-auto px-4">
                 <div className="flex flex-col sm:flex-row items-center justify-between py-6 sm:h-16">
-                    {/* Left side: Navigation */}
                     <nav className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 sm:w-1/3">
                         <Link
                             href="/docs/components/liquid-glass-card"
@@ -31,7 +28,6 @@ export function Footer() {
                         </Link>
                     </nav>
 
-                    {/* Center: Vercel OSS Badge */}
                     <div className="flex justify-center sm:w-1/3">
                         <Link
                             href="https://vercel.com/blog/spring25-oss-program#kokonutui"
@@ -48,7 +44,6 @@ export function Footer() {
                         </Link>
                     </div>
 
-                    {/* Right side: Credit */}
                     <div className="flex justify-end sm:w-1/3">
                         <Link
                             href="https://x.com/dorian_baffier"

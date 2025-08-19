@@ -25,6 +25,7 @@
         "components/currency-transfer",
         "components/faq",
         "components/file-upload",
+        "components/profile-dropdown",
         "components/shape-hero",
         "components/toolbar",
         "components/tweet-card",

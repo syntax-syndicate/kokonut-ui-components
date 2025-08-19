@@ -491,4 +491,20 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "profile-dropdown",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["dropdown-menu"],
+        files: [
+            {
+                path: "components/kokonutui/profile-dropdown.tsx",
+                type: "registry:component",
+            },
+            {
+                path: "components/icons/gemini.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
 ];

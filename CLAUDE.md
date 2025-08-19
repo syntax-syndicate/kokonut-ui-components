@@ -30,17 +30,7 @@ Following the .cursorrules configuration:
 - Use the "function" keyword for pure functions
 - Use Shadcn UI, Radix, and Tailwind for components and styling
 - Implement responsive design with Tailwind CSS using mobile-first approach
-
-## Architecture
-
-### Component Registry System
-
-The project uses a sophisticated registry system to manage components:
-
-- **Registry Structure**: Components, hooks, libraries, and blocks are defined in separate registry files
-- **Schema**: All registry items follow the `registryEntrySchema` with properties like name, type, dependencies, files, etc.
-- **Build Process**: `scripts/build-registry.ts` processes the registry and generates JSON files in `public/r/` for component installation
-- **Types**: Registry supports multiple types: `registry:component`, `registry:hook`, `registry:lib`, `registry:block`
+- For gradient, use TailwindCSS v4 gradient format.
 
 ### File Organization
 
@@ -87,19 +77,3 @@ Components should follow the established patterns in `components/kokonutui/`:
 - Use Tailwind classes for styling
 - Include Motion animations where appropriate
 - Follow the registry schema for metadata
-
-### Adding to Registry
-
-When adding new components:
-
-1. Create the component file
-2. Add entry to appropriate registry file (`registry-components.ts`, `registry-hooks.ts`, etc.)
-3. Run `bun run ./scripts/build-registry.ts` to update JSON files
-4. Add MDX documentation if needed
-
-### Testing and Quality
-
-- Lint with `npm run lint` before committing
-- Follow TypeScript strict mode
-- Use Biome for consistent formatting
-- Components should be responsive and accessible

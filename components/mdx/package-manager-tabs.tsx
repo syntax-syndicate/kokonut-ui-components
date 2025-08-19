@@ -106,7 +106,6 @@ export function PackageManagerTabs({
                     "h-7 text-black dark:text-white"
                 )}
             >
-                {/* Sliding Background */}
                 <motion.div
                     className="absolute rounded-sm z-[1] bg-black dark:bg-white"
                     initial={false}
