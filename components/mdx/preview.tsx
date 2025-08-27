@@ -13,9 +13,7 @@ interface PreviewProps {
     isBlock?: boolean;
 }
 
-const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "https://kokonutui.com";
+const prePath = "@kokonutui";
 
 export function Preview({
     children,

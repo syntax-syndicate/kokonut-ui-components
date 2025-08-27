@@ -107,7 +107,7 @@ export default function PreviewContent({
         const componentName = filename ? filename : folder;
 
         let commandToCopy: string;
-        const componentAddCommand = `shadcn@latest add ${prePath}/r/${componentName}`;
+        const componentAddCommand = `shadcn@latest add ${prePath}/${componentName}`;
 
         if (packageManager === "pnpm") {
             commandToCopy = `pnpm dlx ${componentAddCommand}`;
