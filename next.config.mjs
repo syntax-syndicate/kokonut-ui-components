@@ -7,7 +7,6 @@ const nextConfig = {
     outputFileTracingIncludes: {
         "/**": ["components/kokonutui/**/*"],
     },
-    swcMinify: true,
     async headers() {
         return [
             {
@@ -46,7 +45,7 @@ const nextConfig = {
                 source: "/r/:path([^.]*)",
                 destination: "/r/:path.json",
                 permanent: true,
-            },
+            }
         ];
     },
     images: {
