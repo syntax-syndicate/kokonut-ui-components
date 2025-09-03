@@ -7,6 +7,7 @@ const nextConfig = {
     outputFileTracingIncludes: {
         "/**": ["components/kokonutui/**/*"],
     },
+    swcMinify: true,
     async headers() {
         return [
             {
@@ -26,6 +27,25 @@ const nextConfig = {
                         value: "public, max-age=86400, immutable",
                     },
                 ],
+            },
+        ];
+    },
+    async redirects() {
+        return [
+            {
+                source: "/components",
+                destination: "/docs/components/liquid-glass-card",
+                permanent: true,
+            },
+            {
+                source: "/components/:path*",
+                destination: "/docs/components/:path*",
+                permanent: true,
+            },
+            {
+                source: "/r/:path([^.]*)",
+                destination: "/r/:path.json",
+                permanent: true,
             },
         ];
     },
