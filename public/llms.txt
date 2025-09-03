@@ -1,0 +1,127 @@
+# KokonutUI - UI Component Library
+
+A beautiful collection of UI components built with Next.js, React, TailwindCSS, and Motion.
+
+## Components
+
+**Action Search Bar** - Action Bar with shortcuts, and smooth dropdown animation.
+https://kokonutui.com/docs/components/action-search-bar
+
+**AI Input Search** - AI input with search mode.
+https://kokonutui.com/docs/components/ai-input-search
+
+**AI Input Selector** - My own style of chat AI input.
+https://kokonutui.com/docs/components/ai-prompt
+
+**AI State Loading** - Code loading pending.
+https://kokonutui.com/docs/components/ai-loading
+
+**AI Text Loading** - Thinking mode.
+https://kokonutui.com/docs/components/ai-text-loading
+
+**AI Voice** - Voice mode.
+https://kokonutui.com/docs/components/ai-voice
+
+**Apple Activity Card** - Inspired by Apple activity app.
+https://kokonutui.com/docs/components/apple-activity-card
+
+**Avatar Picker** - Avatar picker with rotation animation.
+https://kokonutui.com/docs/components/avatar-picker
+
+**Background Paths** - Drawed line paths in the middle.
+https://kokonutui.com/docs/components/background-paths
+
+**Beams Background** - Animated Beams in the background that are customizable.
+https://kokonutui.com/docs/components/beams-background
+
+**Bento Grid** - Grid of 4 cards with different content and animations.
+https://kokonutui.com/docs/components/bento-grid
+
+**Card Flip** - Animated flip card with gradient button and animation.
+https://kokonutui.com/docs/components/card
+
+**Command Button** - Command button for shortcut.
+https://kokonutui.com/docs/components/command-button
+
+**Currency Transfer** - Multiples step animation transaction inspired.
+https://kokonutui.com/docs/components/currency-transfer
+
+**Dynamic Text** - Dynamic switcher text.
+https://kokonutui.com/docs/components/dynamic-text
+
+**File Upload** - File upload with special uploading animation. Make sure to try the drag and drop.
+https://kokonutui.com/docs/components/file-upload
+
+**Glitch Text** - Why not?
+https://kokonutui.com/docs/components/glitch-text
+
+**Gradient Button** - That was so hard to make.
+https://kokonutui.com/docs/components/gradient-button
+
+**Hold Button** - Hold Button with different hold duration and colors.
+https://kokonutui.com/docs/components/hold-button
+
+**Liquid Glass** - Liquid Glass inspired by @Apple
+https://kokonutui.com/docs/components/liquid-glass-card
+
+**Magnet Button** - Attract particles button!
+https://kokonutui.com/docs/components/attract-button
+
+**Matrix Text** - "010110010110111101110101011100100010000001110111011001010110110001100011011011110110110101100101"
+https://kokonutui.com/docs/components/matrix-text
+
+**Particle Button** - Particle Button Animation on click.
+https://kokonutui.com/docs/components/particle-button
+
+**Profile Dropdown** - Menu dropdown with action buttons.
+https://kokonutui.com/docs/components/profile-dropdown
+
+**Scroll Text** - Animated on scroll texts.
+https://kokonutui.com/docs/components/scroll-text
+
+**Shapes Hero** - Shapes that fall from the top.
+https://kokonutui.com/docs/components/shape-hero
+
+**Shimmer Text** - Quite fancy.
+https://kokonutui.com/docs/components/shimmer-text
+
+**Sliced Text** - I haven't found any usage for that component, but i like it.
+https://kokonutui.com/docs/components/sliced-text
+
+**Smooth Drawer** - Smooth slide-in drawer. (this was harder than i thought to make that one)
+https://kokonutui.com/docs/components/smooth-drawer
+
+**Smooth Tab** - Animated tab switcher.
+https://kokonutui.com/docs/components/smooth-tab
+
+**Social Button** - Animated Social show-up
+https://kokonutui.com/docs/components/social-button
+
+**Stack** - Stack of cards that expend onclick.
+https://kokonutui.com/docs/components/card-stack
+
+**Switch Button** - Animated shadow theme switcher button.
+https://kokonutui.com/docs/components/switch-button
+
+**Swoosh Text** - Nike inspired Text
+https://kokonutui.com/docs/components/swoosh-text
+
+**Team Selector** - Group selector with a different style.
+https://kokonutui.com/docs/components/team-selector
+
+**Toolbar** - Multiples actions toolbar inspired by Figma.
+https://kokonutui.com/docs/components/toolbar
+
+**Typing Text** - Animated TypeWritter with multiples options.
+https://kokonutui.com/docs/components/typewriter
+
+**V0 Button** - Open in V0.
+https://kokonutui.com/docs/components/v0-button
+
+**X Card** - Gradient on hover X card. (The post is real!)
+https://kokonutui.com/docs/components/tweet-card
+
+## Links
+
+- Github: https://github.com/kokonut-labs/kokonutui
+- Sitemap: https://kokonutui.com/sitemap.xml
