@@ -507,4 +507,15 @@ export const component: Registry = [
             },
         ],
     },
+    {
+        name: "loader",
+        type: "registry:component",
+        dependencies: ["motion"],
+        files: [
+            {
+                path: "components/kokonutui/loader.tsx",
+                type: "registry:component",
+            },
+        ],
+    }
 ];
