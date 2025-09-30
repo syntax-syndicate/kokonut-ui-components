@@ -169,13 +169,6 @@ button {
 }
 
 
-/* Badge base styling */
-a[href="/docs/components/file-upload"],
-a[href="/docs/templates/futur"] {
-  position: relative;
-  padding-right: 2.5rem;
-}
-
 /* Special case for futur template with double badges */
 a[href="/docs/templates/futur"] {
   padding-right: 5rem;
@@ -183,6 +176,7 @@ a[href="/docs/templates/futur"] {
 
 /* New badge styling */
 a[href="/docs/components/profile-dropdown"]::after,
+a[href="/docs/components/loader"]::after,
 a[href="/docs/templates/futur"]::before {
   content: "New";
   position: absolute;
@@ -240,6 +234,7 @@ a[href="/docs/templates/grace"]::after {
 
 /* Dark mode adjustments */
 .dark a[href="/docs/components/profile-dropdown"]::after,
+.dark a[href="/docs/components/loader"]::after,
 .dark a[href="/docs/templates/futur"]::before {
   background-color: rgba(52, 211, 153, 0.2);
   color: rgb(16, 185, 129);
