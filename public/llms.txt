@@ -64,6 +64,9 @@ https://kokonutui.com/docs/components/hold-button
 **Liquid Glass** - Liquid Glass inspired by @Apple
 https://kokonutui.com/docs/components/liquid-glass-card
 
+**Loader** - Simple Loading
+https://kokonutui.com/docs/components/loader
+
 **Magnet Button** - Attract particles button!
 https://kokonutui.com/docs/components/attract-button
 
