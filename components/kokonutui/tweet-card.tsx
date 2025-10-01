@@ -34,7 +34,7 @@ interface TweetCardProps {
 export default function TweetCard({
     authorName = "Dorian",
     authorHandle = "dorian_baffier",
-    authorImage = "https://pbs.twimg.com/profile_images/1854916060807675904/KtBJsyWr_400x400.jpg",
+    authorImage = "https://pbs.twimg.com/profile_images/1971614417809997824/Zen4oXbs_400x400.jpg",
     content = [
         "All components from KokonutUI can now be open in @v0 🎉",
         "1. Click on 'Open in V0'",
