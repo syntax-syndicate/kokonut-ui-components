@@ -2,10 +2,10 @@ import { ArrowUpRight, PartyPopper } from "lucide-react";
 import Link from "next/link";
 import { ConfettiOutline } from "../icons/conffeti";
 
-export function HeaderPro() {
+export default function HeaderProSmall() {
     return (
-        <div className="w-full bg-[#FF2D55] sticky top-0 z-[100]">
-            <div className="w-full px-4 py-2.5">
+        <div className="w-full bg-[#FF2D55] rounded-md">
+            <div className="w-full px-4 py-1.5">
                 <Link
                     href="https://kokonutui.pro?utm_source=kokonutui.com&utm_medium=header"
                     target="_blank"
@@ -14,7 +14,7 @@ export function HeaderPro() {
                     {/* Desktop View */}
                     <span className="hidden md:flex items-center gap-3">
                         <ConfettiOutline className="w-5 h-5 text-white" />
-                        <span className="text-white tracking-tighter text-md">
+                        <span className="text-white tracking-tighter text-sm">
                             Introducing{" "}
                             <span className="font-bold">Kokonut UI Pro</span> -
                             70+ new components and templates to build beautiful

@@ -6,7 +6,7 @@ import Link from "next/link";
  * @author: @dorian_baffier
  * @description: Tweet Card
  * @version: 1.0.0
- * @date: 2025-06-26
+ * @date: 2025-10-01
  * @license: MIT
  * @website: https://kokonutui.com
  * @github: https://github.com/kokonut-labs/kokonutui

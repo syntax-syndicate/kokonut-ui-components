@@ -13,6 +13,6 @@ export const siteConfig = {
 export type SiteConfig = typeof siteConfig;
 
 export const META_THEME_COLORS = {
-    light: "oklch(0.769 0.188 70.08)",
-    dark: "#4285f4",
+    light: "##44DCEA", // Orange-500
+    dark: "##44DCEA", // Orange-600
 };

@@ -2,7 +2,8 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import CircleTheme from "@/components/icons/circle-theme";
+import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
     const { setTheme, theme } = useTheme();
@@ -17,17 +18,18 @@ export function ThemeToggle() {
     }
 
     return (
-        <div
-            className="cursor-pointer"
+        <Button
+            variant="ghost"
+            className="cursor-pointer px-3 py-1.5 rounded-md border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all"
             onClick={() => {
                 setTheme(theme === "dark" ? "light" : "dark");
             }}
         >
             {theme === "light" ? (
-                <Moon className="h-5 w-5 text-black" />
+                <CircleTheme className="h-5 w-5 text-black" />
             ) : (
-                <Sun className="h-5 w-5 text-white" color="white" />
+                <CircleTheme className="h-5 w-5 text-white" />
             )}
-        </div>
+        </Button>
     );
 }

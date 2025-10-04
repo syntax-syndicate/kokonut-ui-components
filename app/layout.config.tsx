@@ -1,4 +1,4 @@
-import { HeaderPro } from "@/components/landing/header-pro";
+import HeaderProSmall from "@/components/landing/header-pro-small";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";
 
@@ -33,7 +33,7 @@ export const baseOptions: BaseLayoutProps = {
         // },
         {
             type: "custom",
-            children: <HeaderPro />,
+            children: <HeaderProSmall />,
         },
     ],
 };

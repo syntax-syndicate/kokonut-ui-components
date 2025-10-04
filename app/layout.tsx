@@ -8,6 +8,7 @@ import { RootProvider } from "fumadocs-ui/provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
 import { Geist } from "next/font/google";
+import { HeaderPro } from "@/components/landing/header-pro";
 
 const geist = Geist({
     subsets: ["latin"],
@@ -80,9 +81,7 @@ export default function RootLayout({
                             enableSystem
                             disableTransitionOnChange
                         >
-                            <div className="flex flex-col min-h-screen">
-                                <div className="flex-1">{children}</div>
-                            </div>
+                            {children}
                         </ThemeProvider>
                     </RootProvider>
                     <Analytics />
