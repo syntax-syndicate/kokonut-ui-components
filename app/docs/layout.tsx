@@ -1,7 +1,7 @@
 import { source } from "@/lib/source";
 import { DocsLayout } from "fumadocs-ui/layouts/notebook";
-import type { ReactNode } from "react";
 import { baseOptions } from "../layout.config";
+import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 

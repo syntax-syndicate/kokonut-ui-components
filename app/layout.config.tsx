@@ -1,6 +1,6 @@
-import HeaderProSmall from "@/components/landing/header-pro-small";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";
+import HeaderProSmall from "@/components/landing/header-pro-small";
 
 export const baseOptions: BaseLayoutProps = {
     nav: {
@@ -8,7 +8,7 @@ export const baseOptions: BaseLayoutProps = {
             <div className="flex items-center">
                 <Image
                     src="/logo.svg"
-                    alt="KokonutUI Logo"
+                    alt="KokonutUI Logo"    
                     width={24}
                     height={24}
                     className="mr-2 hidden dark:block"
@@ -27,10 +27,6 @@ export const baseOptions: BaseLayoutProps = {
         ),
     },
     links: [
-        // {
-        //     text: "Templates",
-        //     url: "https://kokonutui.pro/templates?utm_source=kokonutui.com&utm_medium=header",
-        // },
         {
             type: "custom",
             children: <HeaderProSmall />,
