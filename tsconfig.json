@@ -25,28 +25,19 @@
     "paths": {
       "@/*": [
         "./*"
-      ],
-      // "@/components/kokonutui/*": [
-      //   "./components/kokonutui/block/*",
-      //   "./components/kokonutui/pricing/*",
-      //   "./components/kokonutui/alert/*",
-      //   "./components/kokonutui/button/*",
-      //   "./components/kokonutui/input/*",
-      //   "./components/kokonutui/card/*",
-      //   "./components/kokonutui/text/*",
-      //   "./components/kokonutui/ai-input/*",
-      //   "./components/kokonutui/faq/*",
-      //   "./components/kokonutui/list/*",
-      //   "./components/kokonutui/profile/*"
-      // ]
-    }
+      ]
+    },
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "next.config.mjs", "content/docs/components/cards.mdx", "content/docs/components/faq.mdx"  ],
+    ".next/types/**/*.ts",
+    "next.config.mjs",
+    "content/docs/components/cards.mdx",
+    "content/docs/components/faq.mdx"
+  ],
   "exclude": [
     "node_modules"
   ]
