@@ -15,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -36,7 +36,8 @@
     ".next/types/**/*.ts",
     "next.config.mjs",
     "content/docs/components/cards.mdx",
-    "content/docs/components/faq.mdx"
+    "content/docs/components/faq.mdx",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
