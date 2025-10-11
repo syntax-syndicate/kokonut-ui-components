@@ -1,46 +1,36 @@
 "use client";
 
+import { motion } from "motion/react";
 import { Link } from "next-view-transitions";
 import { Button } from "./button";
-import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
-import { ArrowDownRight, ArrowRight, BlocksIcon } from "lucide-react";
 
-/**
- *
- *
- */
 export function BrowseBlocksButton() {
-    return (
-        <Link
-            id="browse-blocks-button"
-            href="https://kokonutui.pro/templates"
-            className="flex items-center gap-8"
+  return (
+    <Link
+      className="flex items-center gap-8"
+      href="https://kokonutui.pro/templates"
+      id="browse-blocks-button"
+    >
+      <motion.div
+        animate={{ x: 0, opacity: 1, transition: { duration: 0.2 } }}
+        className="relative"
+        initial={{ x: 200, opacity: 0 }}
+      >
+        <Button
+          className="group relative h-10 min-w-64 overflow-hidden rounded-lg border border-black/10 px-8 text-black text-md tracking-tighter transition-all duration-300 hover:bg-black/5 md:min-w-56 dark:border-white/10 dark:text-white dark:hover:bg-white/5"
+          size="lg"
+          variant="ghost"
         >
-            <motion.div
-                initial={{ x: 200, opacity: 0 }}
-                animate={{ x: 0, opacity: 1, transition: { duration: 0.2 } }}
-                whileHover={{ x: 5, transition: { duration: 0.2 } }}
-                className="relative"
-            >
-                <Button
-                    className={cn(
-                        "relative inline-flex items-center justify-center gap-4 rounded-xl font-medium",
-                        "relative h-10 px-6 min-w-72 md:min-w-56",
-                        "bg-white dark:bg-black",
-                        "text-black dark:text-white",
-                        "border border-black/0 dark:border-white/20",
-                        "hover:bg-black/5 dark:hover:bg-white/10",
-                        "backdrop-blur-xs",
-                        "shadow-md hover:shadow-lg transition-all duration-200"
-                    )}
-                >
-                    <span className="font-medium flex items-center gap-2">
-                        Go to Templates
-                    </span>
-                    <ArrowRight className="w-5 h-5" />
-                </Button>
-            </motion.div>
-        </Link>
-    );
+          <span className="group-hover:-translate-y-full relative inline-block transition-transform duration-300 ease-in-out">
+            <span className="flex items-center gap-2 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+              <span className="font-medium">Go to Templates</span>
+            </span>
+            <span className="absolute top-full left-0 flex items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span className="font-medium">Go to Templates</span>
+            </span>
+          </span>
+        </Button>
+      </motion.div>
+    </Link>
+  );
 }
