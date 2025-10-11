@@ -2,524 +2,419 @@
 
 /**
  * @author: @dorian_baffier
- * @description: Liquid Glass Card
- * @version: 1.0.0
- * @date: 2025-06-26
+ * @description: Liquid Glass Card - Optimized with Shadcn UI
+ * @version: 2.0.0
+ * @date: 2025-10-11
  * @license: MIT
  * @website: https://kokonutui.com
  * @github: https://github.com/kokonut-labs/kokonutui
  */
 
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
+import Image from "next/image";
+import React from "react";
+import { Button, type ButtonProps } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { ArrowRight, ArrowLeft, Play, Pause } from "lucide-react";
 
-const liquidbuttonVariants = cva(
-    "inline-flex items-center transition-colors justify-center cursor-pointer gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-    {
-        variants: {
-            variant: {
-                default:
-                    "bg-transparent hover:scale-105 duration-300 transition text-primary",
-                destructive:
-                    "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
-                outline:
-                    "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-                secondary:
-                    "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-                ghost: "hover:bg-accent hover:text-accent-foreground",
-                link: "text-primary underline-offset-4 hover:underline",
-            },
-            size: {
-                default: "h-9 px-4 py-2 has-[>svg]:px-3",
-                sm: "h-8 text-xs gap-1.5 px-4 has-[>svg]:px-4",
-                lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-                xl: "h-12 rounded-md px-8 has-[>svg]:px-6",
-                xxl: "h-14 rounded-md px-10 has-[>svg]:px-8",
-                icon: "size-9",
-            },
-        },
-        defaultVariants: {
-            variant: "default",
-            size: "xxl",
-        },
-    }
-);
+// Constants for better maintainability
+const GLASS_SHADOW_LIGHT =
+  "shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)]";
 
-interface LiquidButtonProps
-    extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-        VariantProps<typeof liquidbuttonVariants> {
-    asChild?: boolean;
-}
+const GLASS_SHADOW_DARK =
+  "dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]";
 
-function ButtonGlassFilter() {
-    const filterId = React.useId();
-    return (
-        <svg className="hidden">
-            <title>Glass Effect Filter</title>
-            <defs>
-                <filter
-                    id={filterId}
-                    x="0%"
-                    y="0%"
-                    width="100%"
-                    height="100%"
-                    colorInterpolationFilters="sRGB"
-                >
-                    <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.05 0.05"
-                        numOctaves="1"
-                        seed="1"
-                        result="turbulence"
-                    />
-                    <feGaussianBlur
-                        in="turbulence"
-                        stdDeviation="2"
-                        result="blurredNoise"
-                    />
-                    <feDisplacementMap
-                        in="SourceGraphic"
-                        in2="blurredNoise"
-                        scale="70"
-                        xChannelSelector="R"
-                        yChannelSelector="B"
-                        result="displaced"
-                    />
-                    <feGaussianBlur
-                        in="displaced"
-                        stdDeviation="4"
-                        result="finalBlur"
-                    />
-                    <feComposite
-                        in="finalBlur"
-                        in2="finalBlur"
-                        operator="over"
-                    />
-                </filter>
-            </defs>
-        </svg>
-    );
-}
+const GLASS_SHADOW = `${GLASS_SHADOW_LIGHT} ${GLASS_SHADOW_DARK}`;
 
-const LiquidButton = React.forwardRef<HTMLButtonElement, LiquidButtonProps>(
-    (
-        { className, variant, size, asChild = false, children, ...props },
-        ref
-    ) => {
-        const Comp = asChild ? Slot : "button";
-        const filterId = React.useId();
+const DEFAULT_GLASS_FILTER_SCALE = 30;
+const BUTTON_GLASS_FILTER_SCALE = 70;
 
-        return (
-            <>
-                <Comp
-                    data-slot="button"
-                    className={cn(
-                        "relative",
-                        liquidbuttonVariants({ variant, size, className })
-                    )}
-                    ref={ref}
-                    {...props}
-                >
-                    <div
-                        className="absolute top-0 left-0 z-0 h-full w-full rounded-full 
-              shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] 
-          transition-all 
-          dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]"
-                    />
-                    <div
-                        className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-md"
-                        style={{ backdropFilter: `url("#${filterId}")` }}
-                    />
+// Shared glass filter component
+type GlassFilterProps = {
+  id: string;
+  scale?: number;
+};
 
-                    <div className="pointer-events-none z-10">{children}</div>
-                    <ButtonGlassFilter />
-                </Comp>
-            </>
-        );
-    }
-);
-
-LiquidButton.displayName = "LiquidButton";
-
-const cardVariants = cva(
-    "relative overflow-hidden rounded-lg transition-all duration-300 group bg-background/20",
-    {
-        variants: {
-            variant: {
-                default:
-                    "hover:scale-[1.01] text-foreground backdrop-blur-[2px]",
-                primary:
-                    "bg-primary/5 hover:bg-primary/5 text-foreground backdrop-blur-[2px]",
-                destructive:
-                    "bg-destructive/5 hover:bg-destructive/10 text-foreground backdrop-blur-[2px]",
-                secondary:
-                    "bg-secondary/5 hover:bg-secondary/10 text-foreground backdrop-blur-[2px]",
-            },
-            size: {
-                default: "p-6",
-                sm: "p-4",
-                lg: "p-8",
-                xl: "p-10",
-            },
-            hover: {
-                default: "hover:scale-[1.02]",
-                none: "",
-                glow: "hover:shadow-lg hover:shadow-primary/20",
-            },
-        },
-        defaultVariants: {
-            variant: "default",
-            size: "default",
-            hover: "default",
-        },
-    }
-);
-
-export interface LiquidGlassCardProps
-    extends React.HTMLAttributes<HTMLDivElement>,
-        VariantProps<typeof cardVariants> {
-    asChild?: boolean;
-    glassEffect?: boolean;
-}
-
-function GlassFilter() {
-    const filterId = React.useId();
-
-    return (
-        <svg className="hidden">
-            <title>Glass Effect Filter</title>
-            <defs>
-                <filter
-                    id={filterId}
-                    x="-50%"
-                    y="-50%"
-                    width="200%"
-                    height="200%"
-                    colorInterpolationFilters="sRGB"
-                >
-                    <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.05 0.05"
-                        numOctaves="1"
-                        seed="1"
-                        result="turbulence"
-                    />
-                    <feGaussianBlur
-                        in="turbulence"
-                        stdDeviation="2"
-                        result="blurredNoise"
-                    />
-                    <feDisplacementMap
-                        in="SourceGraphic"
-                        in2="blurredNoise"
-                        scale="30"
-                        xChannelSelector="R"
-                        yChannelSelector="B"
-                        result="displaced"
-                    />
-                    <feGaussianBlur
-                        in="displaced"
-                        stdDeviation="4"
-                        result="finalBlur"
-                    />
-                    <feComposite
-                        in="finalBlur"
-                        in2="finalBlur"
-                        operator="over"
-                    />
-                </filter>
-            </defs>
-        </svg>
-    );
-}
-
-// Card Header Component
-interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-    title: string;
-    subtitle?: string;
-    icon?: React.ReactNode;
-}
-
-function CardHeader({
-    title,
-    subtitle,
-    icon,
-    className,
-    ...props
-}: CardHeaderProps) {
-    return (
-        <div
-            className={cn("flex items-start justify-between gap-4", className)}
-            {...props}
+const GlassFilter = React.memo(
+  ({ id, scale = DEFAULT_GLASS_FILTER_SCALE }: GlassFilterProps) => (
+    <svg className="hidden">
+      <title>Glass Effect Filter</title>
+      <defs>
+        <filter
+          colorInterpolationFilters="sRGB"
+          height="200%"
+          id={id}
+          width="200%"
+          x="-50%"
+          y="-50%"
         >
-            <div className="space-y-1.5">
-                <h3 className="font-semibold leading-none tracking-tight text-foreground">
-                    {title}
-                </h3>
-                {subtitle && (
-                    <p className="text-sm text-muted-foreground/80">
-                        {subtitle}
-                    </p>
-                )}
-            </div>
-            {icon && <div className="text-muted-foreground/70">{icon}</div>}
-        </div>
-    );
+          <feTurbulence
+            baseFrequency="0.05 0.05"
+            numOctaves="1"
+            result="turbulence"
+            seed="1"
+            type="fractalNoise"
+          />
+          <feGaussianBlur
+            in="turbulence"
+            result="blurredNoise"
+            stdDeviation="2"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="blurredNoise"
+            result="displaced"
+            scale={scale}
+            xChannelSelector="R"
+            yChannelSelector="B"
+          />
+          <feGaussianBlur in="displaced" result="finalBlur" stdDeviation="4" />
+          <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+        </filter>
+      </defs>
+    </svg>
+  )
+);
+GlassFilter.displayName = "GlassFilter";
+
+// Liquid Button - extends shadcn Button with glass effect
+const liquidButtonVariants = cva("relative transition-transform duration-300", {
+  variants: {
+    liquidVariant: {
+      default: "hover:scale-105",
+      none: "",
+    },
+  },
+  defaultVariants: {
+    liquidVariant: "default",
+  },
+});
+
+export type LiquidButtonProps = ButtonProps & {
+  liquidVariant?: "default" | "none";
+};
+
+function LiquidButton({
+  className,
+  liquidVariant = "default",
+  children,
+  ...props
+}: LiquidButtonProps) {
+  const filterId = React.useId();
+
+  return (
+    <>
+      <Button
+        className={cn(liquidButtonVariants({ liquidVariant }), className)}
+        {...props}
+      >
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-0 rounded-full transition-all",
+            GLASS_SHADOW
+          )}
+        />
+        <div
+          className="-z-10 pointer-events-none absolute inset-0 isolate overflow-hidden rounded-md"
+          style={{ backdropFilter: `url("#${filterId}")` }}
+        />
+        <span className="relative z-10">{children}</span>
+      </Button>
+      <GlassFilter id={filterId} scale={BUTTON_GLASS_FILTER_SCALE} />
+    </>
+  );
 }
 
-// Card Content Component
-function CardContent({
-    className,
-    ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-    return <div className={cn("pt-6 text-foreground", className)} {...props} />;
-}
-
-const LiquidGlassCard = React.forwardRef<HTMLDivElement, LiquidGlassCardProps>(
-    (
-        {
-            className,
-            variant,
-            size,
-            hover,
-            asChild = false,
-            glassEffect = true,
-            children,
-            ...props
-        },
-        ref
-    ) => {
-        const Comp = asChild ? Slot : "div";
-        const filterId = React.useId();
-
-        return (
-            <>
-                <Comp
-                    ref={ref}
-                    className={cn(
-                        "relative",
-                        cardVariants({ variant, size, hover, className })
-                    )}
-                    {...props}
-                >
-                    {/* Glass effect overlay */}
-                    <div
-                        className="absolute inset-0 z-0 h-full w-full rounded-lg 
-          shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] 
-          transition-all 
-          pointer-events-none
-          dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]"
-                    />
-
-                    {/* Glass filter effect */}
-                    {glassEffect && (
-                        <div
-                            className="absolute inset-0 -z-10 h-full w-full overflow-hidden rounded-lg"
-                            style={{ backdropFilter: `url("#${filterId}")` }}
-                        />
-                    )}
-
-                    {/* Content */}
-                    <div className="relative z-10">{children}</div>
-
-                    {/* Shine effect on hover */}
-                    <div className="absolute inset-0 z-20 rounded-lg bg-gradient-to-r from-transparent dark:via-white/5 via-black/5 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 pointer-events-none" />
-
-                    {glassEffect && <GlassFilter />}
-                </Comp>
-            </>
-        );
-    }
+// Liquid Glass Card - extends shadcn Card with glass effect
+const liquidGlassCardVariants = cva(
+  "group relative overflow-hidden bg-background/20 backdrop-blur-[2px] transition-all duration-300",
+  {
+    variants: {
+      glassSize: {
+        sm: "p-4",
+        default: "p-6",
+        lg: "p-8",
+      },
+    },
+    defaultVariants: {
+      glassSize: "default",
+    },
+  }
 );
 
-LiquidGlassCard.displayName = "LiquidGlassCard";
+export type LiquidGlassCardProps = React.HTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof liquidGlassCardVariants> & {
+    glassEffect?: boolean;
+  };
 
-// Remove the hello text and fix the time display
-export function NotificationCenter() {
-    // Track current time and playing state
-    const [isPlaying, setIsPlaying] = React.useState(true);
-    const [currentTime, setCurrentTime] = React.useState(45);
-    const totalDuration = React.useMemo(() => 225, []); // 3:45 in seconds
+function LiquidGlassCard({
+  className,
+  glassSize,
+  glassEffect = true,
+  children,
+  ...props
+}: LiquidGlassCardProps) {
+  const filterId = React.useId();
 
-    // Format time in MM:SS
-    const formatTime = React.useCallback((timeInSeconds: number) => {
-        const minutes = Math.floor(timeInSeconds / 60);
-        const seconds = Math.floor(timeInSeconds % 60);
-        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-    }, []);
+  return (
+    <Card
+      className={cn(liquidGlassCardVariants({ glassSize }), className)}
+      {...props}
+    >
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 rounded-lg transition-all",
+          GLASS_SHADOW
+        )}
+      />
 
-    // Calculate progress percentage
-    const progress = (currentTime / totalDuration) * 100;
+      {glassEffect && (
+        <>
+          <div
+            className="-z-10 pointer-events-none absolute inset-0 overflow-hidden rounded-lg"
+            style={{ backdropFilter: `url("#${filterId}")` }}
+          />
+          <GlassFilter id={filterId} scale={DEFAULT_GLASS_FILTER_SCALE} />
+        </>
+      )}
 
-    // Update progress when playing
-    React.useEffect(() => {
-        let intervalId: NodeJS.Timeout;
+      <div className="relative z-10">{children}</div>
 
-        if (isPlaying && currentTime < totalDuration) {
-            intervalId = setInterval(() => {
-                setCurrentTime((prev) => {
-                    if (prev >= totalDuration) {
-                        clearInterval(intervalId);
-                        setIsPlaying(false);
-                        return totalDuration;
-                    }
-                    return prev + 1;
-                });
-            }, 1000);
-        }
+      <div className="pointer-events-none absolute inset-0 z-20 rounded-lg bg-gradient-to-r from-transparent via-black/5 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:via-white/5" />
+    </Card>
+  );
+}
 
-        return () => {
-            if (intervalId) clearInterval(intervalId);
-        };
-    }, [isPlaying, currentTime, totalDuration]);
+// Demo: Music Player Card
+const TOTAL_DURATION = 45;
+const VOLUME_BAR_COUNT = 8;
+const SEEK_JUMP_SECONDS = 5;
+const TIMER_INTERVAL_MS = 1000;
+const STATIC_BAR_HEIGHT = "6px";
+const MIN_TIME = 0;
+const BAR_DELAY_INCREMENT = 0.1;
+const PROGRESS_PERCENTAGE_MULTIPLIER = 100;
 
-    // Handle play/pause
-    const handlePlayPause = () => {
-        setIsPlaying(!isPlaying);
+const formatTime = (timeInSeconds: number): string => {
+  const minutes = Math.floor(timeInSeconds / 60);
+  const seconds = Math.floor(timeInSeconds % 60);
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+};
+
+type VolumeBarsProps = {
+  isPlaying: boolean;
+};
+
+const VolumeBars = React.memo(({ isPlaying }: VolumeBarsProps) => {
+  const bars = Array.from({ length: VOLUME_BAR_COUNT }, (_, i) => ({
+    id: `bar-${i}`,
+    delay: i * BAR_DELAY_INCREMENT,
+  }));
+
+  return (
+    <div className="pointer-events-none flex h-8 w-10 items-end gap-0.5">
+      {bars.map((bar) => (
+        <div
+          className={cn(
+            "w-[3px] rounded-sm",
+            isPlaying && "animate-bounce-music"
+          )}
+          key={bar.id}
+          style={{
+            height: isPlaying ? undefined : STATIC_BAR_HEIGHT,
+            animationDelay: `${bar.delay}s`,
+            background: "linear-gradient(to top, #FF2E55, #FF6B88)",
+          }}
+        />
+      ))}
+    </div>
+  );
+});
+VolumeBars.displayName = "VolumeBars";
+
+type ProgressBarProps = {
+  currentTime: number;
+  totalDuration: number;
+  onSeek: (newTime: number) => void;
+};
+
+const ProgressBar = React.memo(
+  ({ currentTime, totalDuration, onSeek }: ProgressBarProps) => {
+    const progress =
+      (currentTime / totalDuration) * PROGRESS_PERCENTAGE_MULTIPLIER;
+
+    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+      const bar = e.currentTarget;
+      const rect = bar.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const percent = x / rect.width;
+      const newTime = Math.min(
+        Math.max(MIN_TIME, percent * totalDuration),
+        totalDuration
+      );
+      onSeek(newTime);
     };
 
-    // Handle seek
-    const handleSeek = (
-        e:
-            | React.MouseEvent<HTMLButtonElement>
-            | React.KeyboardEvent<HTMLButtonElement>
-    ) => {
-        const bar = e.currentTarget.parentElement;
-        if (!bar) return;
-
-        const rect = bar.getBoundingClientRect();
-        let percent: number;
-
-        if ("clientX" in e) {
-            // Mouse event
-            const x = e.clientX - rect.left;
-            percent = x / rect.width;
-        } else {
-            // Keyboard event
-            switch (e.key) {
-                case "ArrowLeft":
-                    percent = (currentTime - 5) / totalDuration;
-                    break;
-                case "ArrowRight":
-                    percent = (currentTime + 5) / totalDuration;
-                    break;
-                default:
-                    return;
-            }
-        }
-
-        const newTime = percent * totalDuration;
-        setCurrentTime(Math.min(Math.max(0, newTime), totalDuration));
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const newTime = Math.min(
+          currentTime + SEEK_JUMP_SECONDS,
+          totalDuration
+        );
+        onSeek(newTime);
+      }
     };
 
     return (
-        <div className="w-full max-w-sm">
-            <LiquidGlassCard
-                variant="primary"
-                className="relative z-30"
-                hover="glow"
-            >
-                <div className="flex items-start gap-4">
-                    {/* Profile Image */}
-                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl">
-                        <img
-                            src="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/portrait2-x5MjJSaQ9ed0HZrewEhH7TkZwjZ66K.jpeg"
-                            alt="Profile"
-                            className="h-full w-full object-cover"
-                        />
-                        <div className="absolute inset-0 ring-1 ring-inset ring-black/10 dark:ring-white/10" />
-                    </div>
-
-                    <div className="flex-1">
-                        <CardHeader
-                            title="Now Playing"
-                            subtitle="Lofi Beats - Chill Mix"
-                        />
-                    </div>
-                </div>
-
-                <CardContent>
-                    {/* Progress Bar */}
-                    <div className="space-y-2">
-                        <div
-                            className="relative h-1.5 w-full overflow-hidden rounded-full bg-zinc-200/50 dark:bg-zinc-800/50"
-                            role="presentation"
-                        >
-                            {/* Background gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-zinc-300/20 via-zinc-300/30 to-zinc-300/20 dark:from-white/5 dark:via-white/10 dark:to-white/5" />
-
-                            {/* Progress indicator */}
-                            <div
-                                className="absolute inset-y-0 left-0 flex bg-gradient-to-r from-black/50 via-black/50 to-black/50 dark:from-white/80 dark:via-white/80 dark:to-white/80 transition-all duration-200 ease-out"
-                                style={{
-                                    width: `${progress}%`,
-                                }}
-                            >
-                                {/* Shine effect */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-white/5" />
-                            </div>
-
-                            {/* Interactive seek button (invisible but functional) */}
-                            <button
-                                type="button"
-                                className="absolute inset-0 h-full w-full cursor-pointer"
-                                onClick={handleSeek}
-                                onKeyDown={handleSeek}
-                                aria-label={`Seek to ${formatTime(currentTime)} of ${formatTime(totalDuration)}`}
-                                aria-valuemin={0}
-                                aria-valuemax={totalDuration}
-                                aria-valuenow={currentTime}
-                                role="slider"
-                            />
-                        </div>
-                        <div className="flex justify-between text-xs font-medium">
-                            <span className="tabular-nums text-zinc-600 dark:text-zinc-400">
-                                {formatTime(currentTime)}
-                            </span>
-                            <span className="tabular-nums text-zinc-600 dark:text-zinc-400">
-                                {formatTime(totalDuration)}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="mt-6 flex items-center justify-center gap-6">
-                        <LiquidButton
-                            variant="default"
-                            size="icon"
-                            className="rounded-full text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-                            aria-label="Previous track"
-                        >
-                            <ArrowLeft className="size-5" />
-                        </LiquidButton>
-                        <LiquidButton
-                            variant="default"
-                            size="icon"
-                            className="rounded-full text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-                            aria-label={isPlaying ? "Pause" : "Play"}
-                            onClick={handlePlayPause}
-                        >
-                            {isPlaying ? (
-                                <Pause className="size-5" />
-                            ) : (
-                                <Play className="size-5" />
-                            )}
-                        </LiquidButton>
-                        <LiquidButton
-                            variant="default"
-                            size="icon"
-                            className="rounded-full text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-                            aria-label="Next track"
-                        >
-                            <ArrowRight className="size-5" />
-                        </LiquidButton>
-                    </div>
-                </CardContent>
-            </LiquidGlassCard>
+      <>
+        <div className="flex justify-between font-medium text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="tabular-nums">{formatTime(currentTime)}</span>
+          <span className="tabular-nums">{formatTime(totalDuration)}</span>
         </div>
+        <div
+          aria-label="Seek progress bar"
+          aria-valuemax={totalDuration}
+          aria-valuemin={MIN_TIME}
+          aria-valuenow={currentTime}
+          className="relative z-10 h-1 w-full cursor-pointer overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800"
+          onClick={handleClick}
+          onKeyDown={handleKeyDown}
+          role="slider"
+          tabIndex={0}
+        >
+          <div
+            className="h-full bg-gradient-to-r from-[#FF2E55] to-[#FF6B88] transition-all duration-200"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </>
     );
+  }
+);
+ProgressBar.displayName = "ProgressBar";
+
+export function NotificationCenter() {
+  const [isPlaying, setIsPlaying] = React.useState(true);
+  const [currentTime, setCurrentTime] = React.useState(MIN_TIME);
+
+  React.useEffect(() => {
+    if (!isPlaying || currentTime >= TOTAL_DURATION) {
+      return;
+    }
+
+    const intervalId = setInterval(() => {
+      setCurrentTime((prev) => {
+        if (prev >= TOTAL_DURATION) {
+          setIsPlaying(false);
+          return TOTAL_DURATION;
+        }
+        return prev + 1;
+      });
+    }, TIMER_INTERVAL_MS);
+
+    return () => clearInterval(intervalId);
+  }, [isPlaying, currentTime]);
+
+  const handlePlayPause = () => {
+    setIsPlaying((prev) => !prev);
+  };
+
+  const handleSeek = (newTime: number) => {
+    setCurrentTime(newTime);
+    if (newTime < TOTAL_DURATION && !isPlaying) {
+      setIsPlaying(true);
+    }
+  };
+
+  return (
+    <div className="w-full max-w-sm">
+      <LiquidGlassCard className="gap-3.5 rounded-3xl border border-zinc-200/60 bg-gradient-to-br from-zinc-50 to-zinc-100 p-4 shadow-xl dark:border-zinc-700/60 dark:from-zinc-900 dark:to-black">
+        <div className="flex items-center gap-3">
+          <div className="relative mr-2 mb-4 h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br from-pink-400 via-pink-300 to-rose-200 shadow-lg ring-1 ring-black/5 dark:shadow-xl">
+            <Image
+              alt="Album Art for Glow by Echo"
+              className="h-full w-full object-cover"
+              height={64}
+              src="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/portrait2-x5MjJSaQ9ed0HZrewEhH7TkZwjZ66K.jpeg"
+              width={64}
+            />
+          </div>
+
+          <div className="flex-1 overflow-hidden">
+            <h3 className="overflow-hidden text-ellipsis whitespace-nowrap font-semibold text-lg text-zinc-900 dark:text-white">
+              Glow
+            </h3>
+            <p className="mt-0.5 text-sm text-zinc-600 dark:text-zinc-400">
+              Echo
+            </p>
+          </div>
+
+          <VolumeBars isPlaying={isPlaying} />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <ProgressBar
+            currentTime={currentTime}
+            onSeek={handleSeek}
+            totalDuration={TOTAL_DURATION}
+          />
+
+          <div className="mt-1 flex items-center justify-between">
+            <div className="flex items-center justify-center gap-2">
+              <LiquidButton
+                aria-label="Previous track"
+                className="h-10 w-10 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+                size="icon"
+                variant="ghost"
+              >
+                <ArrowLeft className="size-4" />
+              </LiquidButton>
+              <LiquidButton
+                aria-label={isPlaying ? "Pause" : "Play"}
+                className="h-11 w-11 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+                onClick={handlePlayPause}
+                size="icon"
+                variant="ghost"
+              >
+                {isPlaying ? (
+                  <Pause className="size-5" />
+                ) : (
+                  <Play className="size-5" />
+                )}
+              </LiquidButton>
+              <LiquidButton
+                aria-label="Next track"
+                className="h-10 w-10 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+                size="icon"
+                variant="ghost"
+              >
+                <ArrowRight className="size-4" />
+              </LiquidButton>
+            </div>
+            <LiquidButton
+              aria-label="More options"
+              className="h-10 w-10 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+              size="icon"
+              variant="ghost"
+            >
+              <svg
+                className="size-4"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Options</title>
+                <path d="M6.634 1.135A7 7 0 0 1 15 8a.5.5 0 0 1-1 0 6 6 0 1 0-6.5 5.98v-1.005A5 5 0 1 1 13 8a.5.5 0 0 1-1 0 4 4 0 1 0-4.5 3.969v-1.011A2.999 2.999 0 1 1 11 8a.5.5 0 0 1-1 0 2 2 0 1 0-2.5 1.936v-1.07a1 1 0 1 1 1 0V15.5a.5.5 0 0 1-1 0v-.518a7 7 0 0 1-.866-13.847" />
+              </svg>
+            </LiquidButton>
+          </div>
+        </div>
+      </LiquidGlassCard>
+    </div>
+  );
 }
 
+export { LiquidButton, LiquidGlassCard };
 export default NotificationCenter;
