@@ -21,7 +21,6 @@ Each component is designed with TailwindCSS and Motion for React and Next.js
 
 Visit [kokonutui.com/docs](https://kokonutui.com/docs) for the documentation.
 
-
 ## Contributing
 
 Feel free to create any pull requests or issues.

@@ -2,7 +2,7 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";
 import HeaderProSmall from "@/components/landing/header-pro-small";
 
-export const baseOptions: BaseLayoutProps = {
+export const baseOptions = (): BaseLayoutProps => ({
   nav: {
     title: (
       <div className="flex items-center">
@@ -21,7 +21,7 @@ export const baseOptions: BaseLayoutProps = {
           width={24}
         />
         <span className="hidden items-center font-bold text-black text-lg tracking-tight md:inline-flex dark:text-white">
-          kokonut UI
+          Kokonut UI
         </span>
       </div>
     ),
@@ -32,4 +32,4 @@ export const baseOptions: BaseLayoutProps = {
       children: <HeaderProSmall />,
     },
   ],
-};
+});

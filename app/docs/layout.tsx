@@ -2,22 +2,22 @@ import { DocsLayout } from "fumadocs-ui/layouts/notebook";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
 import { source } from "@/lib/source";
 import { baseOptions } from "../layout.config";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | KokonutUI - Free UI Components to build beautiful websites",
-    default: "KokonutUI - Free UI Components to build beautiful websites",
+    template: "%s | Kokonut UI",
+    default:
+      "Kokonut UI - Open Source UI Components to build beautiful websites",
   },
 };
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: LayoutProps<"/docs">) {
   return (
     <DocsLayout
       tree={source.pageTree}
-      {...baseOptions}
+      {...baseOptions()}
       sidebar={{
         defaultOpenLevel: 1,
         banner: (
