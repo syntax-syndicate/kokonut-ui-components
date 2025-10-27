@@ -14,20 +14,7 @@ export function Header() {
             <div className="relative z-10 mx-auto flex w-full max-w-[1400px] items-center justify-between gap-2">
               <div className="flex items-center gap-6">
                 <Link className="flex items-center gap-2" href="/">
-                  <Image
-                    alt="logo"
-                    className="hidden dark:block"
-                    height={28}
-                    src="/logo.svg"
-                    width={28}
-                  />
-                  <Image
-                    alt="logo"
-                    className="block dark:hidden"
-                    height={28}
-                    src="/logo-black.svg"
-                    width={28}
-                  />
+                <Image src="/logo.svg" alt="logo" width={28} height={28} />
                   <span className="hidden font-semibold sm:block">
                     kokonut UI
                   </span>

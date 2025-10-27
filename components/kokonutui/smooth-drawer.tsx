@@ -150,14 +150,6 @@ export default function SmoothDrawer({
                                             alt="Logo"
                                             width={32}
                                             height={32}
-                                            className="hidden dark:block"
-                                        />
-                                        <Image
-                                            src="/logo-black.svg"
-                                            alt="Logo"
-                                            width={32}
-                                            height={32}
-                                            className="block dark:hidden"
                                         />
                                     </div>
                                 </motion.div>

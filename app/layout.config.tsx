@@ -8,16 +8,9 @@ export const baseOptions = (): BaseLayoutProps => ({
       <div className="flex items-center">
         <Image
           alt="KokonutUI Logo"
-          className="mr-2 hidden dark:block"
+          className="mr-2"
           height={24}
           src="/logo.svg"
-          width={24}
-        />
-        <Image
-          alt="KokonutUI Logo"
-          className="mr-2 block dark:hidden"
-          height={24}
-          src="/logo-black.svg"
           width={24}
         />
         <span className="hidden items-center font-bold text-black text-lg tracking-tight md:inline-flex dark:text-white">
