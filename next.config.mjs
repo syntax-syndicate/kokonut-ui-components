@@ -57,6 +57,7 @@ const nextConfig = {
     minimumCacheTTL: 2_678_400,
   },
   reactStrictMode: true,
+  cacheComponents: true,
   serverExternalPackages: ["twoslash", "typescript"],
   experimental: {
     turbopackFileSystemCacheForDev: true,
