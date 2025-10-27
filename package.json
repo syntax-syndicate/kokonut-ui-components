@@ -63,6 +63,7 @@
     "@types/node": "^20.19.21",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.1",
+    "glob": "^11.0.3",
     "typescript": "^5.9.3",
     "ultracite": "^6.0.3"
   },
