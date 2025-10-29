@@ -11,6 +11,7 @@ import { BrowseComponentsButton } from "@/components/ui/browse-button";
 import CardFlip from "../kokonutui/card-flip";
 import FileUpload from "../kokonutui/file-upload";
 import FeatureBlock from "./feature-block";
+import NotificationCenter, { LiquidGlassCard } from "../kokonutui/liquid-glass-card";
 
 export function HeroSection() {
   return (
@@ -181,7 +182,8 @@ export function HeroSection() {
             }}
             whileHover={{ rotate: 0, x: 0, scale: 1.02 }}
           >
-            <AppleActivityCard title="" />
+            {/* <AppleActivityCard title="" /> */}
+            <NotificationCenter />
           </motion.div>
         </motion.div>
       </div>
