@@ -19,6 +19,7 @@
     "components/apple-activity-card",
     "components/beams-background",
     "components/background-paths",
+    "components/mouse-effect-card",
     "components/bento-grid",
     "components/card",
     "components/card-list",
