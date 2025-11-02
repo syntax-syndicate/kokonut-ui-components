@@ -531,4 +531,16 @@ export const component: Registry = [
       },
     ],
   },
+  {
+    name: "slide-text-button",
+    type: "registry:component",
+    dependencies: ["motion"],
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "components/kokonutui/slide-text-button.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ];

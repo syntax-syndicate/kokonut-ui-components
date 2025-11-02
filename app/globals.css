@@ -11,7 +11,7 @@
 
 @import "tw-animate-css";
 
-@source '../node_modules/fumadocs-ui/dist/**/*.js';
+@source "../node_modules/fumadocs-ui/dist/**/*.js";
 
 @theme {
   --color-background: var(--background);
@@ -201,6 +201,7 @@ button {
 
 /* New badge styling */
 a[href="/docs/components/profile-dropdown"]::after,
+a[href="/docs/components/slide-text-button"]::after,
 a[href="/docs/components/mouse-effect-card"]::after {
   content: "New";
   position: absolute;
@@ -280,6 +281,7 @@ a[href="https://kokonutui.pro/templates#sonae"]::after {
 
 /* Dark mode adjustments */
 .dark a[href="/docs/components/profile-dropdown"]::after,
+.dark a[href="/docs/components/slide-text-button"]::after,
 .dark a[href="/docs/components/mouse-effect-card"]::after {
   background-color: rgba(52, 211, 153, 0.2);
   color: rgb(16, 185, 129);

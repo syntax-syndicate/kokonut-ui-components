@@ -94,6 +94,9 @@ https://kokonutui.com/docs/components/shimmer-text
 **Sliced Text** - I haven't found any usage for that component, but i like it.
 https://kokonutui.com/docs/components/sliced-text
 
+**Slide Text Button** - An animated button with vertical slide text transition effect
+https://kokonutui.com/docs/components/slide-text-button
+
 **Smooth Drawer** - Smooth slide-in drawer. (this was harder than i thought to make that one)
 https://kokonutui.com/docs/components/smooth-drawer
 

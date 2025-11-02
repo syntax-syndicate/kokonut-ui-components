@@ -5,13 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import AILoadingState from "@/components/kokonutui/ai-loading";
 import AI_Prompt from "@/components/kokonutui/ai-prompt";
-import AppleActivityCard from "@/components/kokonutui/apple-activity-card";
-import { BrowseBlocksButton } from "@/components/ui/browse-blocks";
-import { BrowseComponentsButton } from "@/components/ui/browse-button";
+import SlideTextButton from "@/components/kokonutui/slide-text-button";
 import CardFlip from "../kokonutui/card-flip";
 import FileUpload from "../kokonutui/file-upload";
+import NotificationCenter from "../kokonutui/liquid-glass-card";
 import FeatureBlock from "./feature-block";
-import NotificationCenter, { LiquidGlassCard } from "../kokonutui/liquid-glass-card";
 
 export function HeroSection() {
   return (
@@ -32,6 +30,7 @@ export function HeroSection() {
               preserveAspectRatio="none"
               width="100%"
             >
+              <title>Arrow Right</title>
               <rect
                 className="animate-border-trace stroke-zinc-300 dark:stroke-zinc-600"
                 fill="none"
@@ -72,8 +71,13 @@ export function HeroSection() {
         </div>
         <div className="flex w-full flex-col justify-center sm:justify-start">
           <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:items-start sm:justify-start">
-            <BrowseComponentsButton />
-            <BrowseBlocksButton />
+            <SlideTextButton hoverText="Click to see more" />
+            <SlideTextButton
+              hoverText="Click to see more"
+              href="https://kokonutui.pro/templates"
+              text="View Templates"
+              variant="ghost"
+            />
           </div>
         </div>
         <FeatureBlock />

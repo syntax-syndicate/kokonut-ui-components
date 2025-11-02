@@ -13,6 +13,7 @@
     "[Startup](https://kokonutui.pro/templates#startup)",
     "[Grace](https://kokonutui.pro/templates#grace)",
     "---Components---",
+    "components/slide-text-button",
     "components/loader",
     "components/liquid-glass-card",
     "components/action-search-bar",
