@@ -223,7 +223,8 @@ a[href="https://kokonutui.pro/templates#futur"] svg,
 a[href="https://kokonutui.pro/templates#postly"] svg,
 a[href="https://kokonutui.pro/templates#startup"] svg,
 a[href="https://kokonutui.pro/templates#grace"] svg,
-a[href="https://kokonutui.pro/templates#sonae"] svg {
+a[href="https://kokonutui.pro/templates#sonae"] svg,
+a[href="https://kokonutui.pro/templates#lume"] svg {
   display: none;
 }
 
@@ -232,7 +233,8 @@ a[href="https://kokonutui.pro/templates#ai"]::after,
 a[href="https://kokonutui.pro/templates#futur"]::after,
 a[href="https://kokonutui.pro/templates#postly"]::after,
 a[href="https://kokonutui.pro/templates#startup"]::after,
-a[href="https://kokonutui.pro/templates#grace"]::after {
+a[href="https://kokonutui.pro/templates#grace"]::after,
+a[href="https://kokonutui.pro/templates#lume"]::after {
   content: "Pro";
   position: absolute;
   right: 2.7rem;
@@ -258,7 +260,8 @@ a[href="https://kokonutui.pro/templates#futur"]::after,
 a[href="https://kokonutui.pro/templates#postly"]::after,
 a[href="https://kokonutui.pro/templates#startup"]::after,
 a[href="https://kokonutui.pro/templates#grace"]::after,
-a[href="https://kokonutui.pro/templates#sonae"]::after {
+a[href="https://kokonutui.pro/templates#sonae"]::after,
+a[href="https://kokonutui.pro/templates#lume"]::after {
   content: "Pro";
   position: absolute;
   right: 0rem;
